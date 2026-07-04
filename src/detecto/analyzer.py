@@ -666,7 +666,13 @@ class LogAnalyzer:
             )
 
     def _timed_search(self, pat: object, text: str, name: str) -> object:
-        """search() with a runtime timeout; returns None on timeout."""
+        """search() with a runtime timeout; returns None on timeout.
+
+        The timeout wrapper is only used for inputs long enough to be a DoS
+        risk (Finding 1 + performance): short strings get a plain search.
+        """
+        if len(text) < _const.REGEX_TIMEOUT_MIN_LEN:
+            return pat.search(text)  # type: ignore[attr-defined]
         try:
             return safe_search(pat, text, self._regex_timeout_ms)
         except RegexTimeout:
@@ -675,6 +681,8 @@ class LogAnalyzer:
 
     def _timed_finditer(self, pat: object, text: str, name: str) -> list:
         """finditer() with a runtime timeout; returns [] on timeout."""
+        if len(text) < _const.REGEX_TIMEOUT_MIN_LEN:
+            return list(pat.finditer(text))  # type: ignore[attr-defined]
         try:
             return safe_finditer(pat, text, self._regex_timeout_ms)
         except RegexTimeout:

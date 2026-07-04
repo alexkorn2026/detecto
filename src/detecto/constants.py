@@ -9,6 +9,7 @@ __all__ = [
     "REGEX_LOADCHECK_MS",
     "REGEX_TIMEOUT_MS",
     "REGEX_DISABLE_THRESHOLD",
+    "REGEX_TIMEOUT_MIN_LEN",
     "REGEX_TEST_STRING",
     "MAX_HITS_PER_PATTERN",
     "MAX_EXAMPLES_PER_VALUE",
@@ -70,6 +71,11 @@ REGEX_TIMEOUT_MS = 100
 # A pattern that times out this many times is disabled for the rest of the
 # scan (per worker) to keep a single bad pattern from stalling everything.
 REGEX_DISABLE_THRESHOLD = 5
+# Runtime-timeout enforcement only kicks in above this input length. Short
+# strings cannot trigger meaningful catastrophic backtracking (the state space
+# is tiny), so skipping the timeout wrapper for them avoids per-token overhead
+# on the hot path while keeping protection for long, hostile inputs.
+REGEX_TIMEOUT_MIN_LEN = 24
 EXCEL_FORMULA_CHARS = ("=", "+", "-", "@", "\t", "\r")
 
 # --- Analysis ---

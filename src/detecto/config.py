@@ -56,8 +56,11 @@ ANON_PATTERN_DEFAULT = "sss**sss**sss**"
 class DetectoConfig:
     """All configurable defaults for Detecto, loaded from detecto.ini."""
 
-    examplecount: int = 3
-    minlen: int = 5
+    # Findings 38/39: the code is the single source of truth. The shipped
+    # detecto.ini mirrors these values (verified by a test). minlen=4 is a
+    # documented trade-off, mitigated by the Finding 19 safeguards.
+    examplecount: int = 10
+    minlen: int = 4
     critical: int = 5
     # Finding 3: sensitive findings are anonymized by default. Plaintext
     # requires the explicit --show-sensitive-values flag.

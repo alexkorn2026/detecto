@@ -217,6 +217,7 @@ def _run() -> int:
 
     if args.status:
         print_status(config, regexp, field, search)
+        _print_pattern_provenance(base_dir, config, source)
         return EXIT_OK
 
     log.info("Patterns: %d regexp, %d field, %d search", len(regexp), len(field), len(search))
@@ -324,6 +325,22 @@ def _print_effective_config(config: DetectoConfig, base_dir: Path, source: str) 
         if key in _SENSITIVE_CONFIG_KEYS:
             val = "<redacted>"
         print(f"  {key} = {val}")
+
+
+def _print_pattern_provenance(
+    base_dir: Path, config: DetectoConfig, source: str,
+) -> None:
+    """Show which pattern/config files were loaded, with hashes (Findings 31/40)."""
+    print("\nGeladene Dateien (Quelle: %s):" % source)
+    files = [
+        ("config", base_dir / "detecto.ini"),
+        ("regexp", base_dir / config.regexp_file),
+        ("field", base_dir / config.field_file),
+        ("suchmuster", base_dir / config.suchmuster_file),
+    ]
+    for label, path in files:
+        marker = "" if path.is_file() else "  [fehlt]"
+        print(f"  {label:<12} {path.resolve()}  sha256:{_file_hash(path)}{marker}")
 
 
 def _resolve_base_dir(config_opt: str | None, use_local: bool) -> tuple[Path, str]:

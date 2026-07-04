@@ -381,8 +381,8 @@ class TestConfigLoading:
     def test_missing_ini_returns_defaults(self, tmp_path):
         """Missing detecto.ini should return default config without error."""
         cfg = load_config(tmp_path)
-        assert cfg.examplecount == 3
-        assert cfg.minlen == 5
+        assert cfg.examplecount == 10
+        assert cfg.minlen == 4
         assert cfg.critical == 5
         assert cfg.prefilter == "off"
 
@@ -393,14 +393,14 @@ class TestConfigLoading:
         # must not crash: invalid values fall back to defaults with a warning
         cfg = load_config(tmp_path)
         assert isinstance(cfg, DetectoConfig)
-        assert cfg.examplecount == 3
+        assert cfg.examplecount == 10
 
     def test_empty_ini_returns_defaults(self, tmp_path):
         """Empty INI file should return default config."""
         ini = tmp_path / "detecto.ini"
         ini.write_text("", encoding="utf-8")
         cfg = load_config(tmp_path)
-        assert cfg.examplecount == 3
+        assert cfg.examplecount == 10
 
     def test_partial_ini_merges(self, tmp_path):
         """INI with only some values should merge with defaults."""
@@ -412,7 +412,7 @@ class TestConfigLoading:
         cfg = load_config(tmp_path)
         assert cfg.examplecount == 7
         assert cfg.critical == 2
-        assert cfg.minlen == 5  # default preserved
+        assert cfg.minlen == 4  # default preserved
 
 
 class TestMergeResults:

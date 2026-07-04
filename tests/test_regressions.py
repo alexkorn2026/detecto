@@ -155,7 +155,7 @@ class TestBrokenIni:
             "kein section header\nexamplecount = 7\n", encoding="utf-8",
         )
         cfg = load_config(tmp_path)  # darf nicht crashen
-        assert cfg.examplecount == 3  # Default, INI ignoriert
+        assert cfg.examplecount == 10  # Default, INI ignoriert
 
     def test_duplicate_option_uses_defaults(self, tmp_path):
         (tmp_path / "detecto.ini").write_text(

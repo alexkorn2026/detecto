@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import logging
+import os
 import re
 import sys
 from collections import OrderedDict
@@ -41,6 +42,20 @@ class ExportContext:
     excelanon: bool = False
     anonymizer: Anonymizer | None = None
     diagnostics: ScanDiagnostics | None = None
+
+
+def _restrict_permissions(path: str) -> None:
+    """Restrict a freshly written report to the current user (Finding 3).
+
+    Report files can contain sensitive findings, so on POSIX we set 0600.
+    Failure (e.g. on Windows or an unusual filesystem) is only a warning.
+    """
+    if os.name != "posix":
+        return
+    try:
+        os.chmod(path, 0o600)
+    except OSError as e:  # pragma: no cover - platform dependent
+        log.warning("Could not restrict permissions on %s: %s", path, e)
 
 
 def _sanitize_cell(value: object) -> object:
@@ -166,6 +181,7 @@ def export_log(
             f.write("\n")
             for sline in ctx.diagnostics.summary_lines():
                 f.write(sline + "\n")
+    _restrict_permissions(filename)
     log.info("Log result saved: %s", filename)
 
 
@@ -198,6 +214,7 @@ def export_xlsx(filename: str, ctx: ExportContext) -> None:
         print(f"FEHLER: Excel-Datei konnte nicht gespeichert werden: {e}",
               file=sys.stderr)
         return
+    _restrict_permissions(filename)
     hint = " (anonymisiert)" if ctx.excelanon else ""
     print(f"Excel-Report gespeichert in: {filename}{hint}")
 

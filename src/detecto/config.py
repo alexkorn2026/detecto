@@ -28,8 +28,10 @@ class DetectoConfig:
     examplecount: int = 3
     minlen: int = 5
     critical: int = 5
-    anon: bool = False
-    excelanon: bool = False
+    # Finding 3: sensitive findings are anonymized by default. Plaintext
+    # requires the explicit --show-sensitive-values flag.
+    anon: bool = True
+    excelanon: bool = True
     full: bool = False
     nocolor: bool = False
     show_sensitive_values: bool = False

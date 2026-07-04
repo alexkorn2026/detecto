@@ -154,6 +154,23 @@ def _run() -> int:
     minlen = args.minlen  # clamped in parse_args()
     anonymizer = Anonymizer(config.anon_muster)
 
+    # Finding 3: sensitive values are anonymized by default; plaintext requires
+    # an explicit, loud opt-in. This never blocks non-interactive use.
+    if args.show_sensitive_values:
+        print(
+            "WARNUNG: --show-sensitive-values ist aktiv - Konsolenausgabe und "
+            "Reports koennen sensible Werte (Passwoerter, Tokens, ...) im "
+            "Klartext enthalten.",
+            file=sys.stderr,
+        )
+        # Explicit opt-in: reveal plaintext.
+        args.anon = False
+        args.excelanon = False
+    else:
+        # Default: anonymize everything, regardless of INI/CLI toggles.
+        args.anon = True
+        args.excelanon = True
+
     regexp, field, search = _load_patterns(base_dir, config, minlen)
     sw_re = load_stopwords(str(base_dir / config.stopword_regexp_file))
     sw_fd = load_stopwords(str(base_dir / config.stopword_field_file))

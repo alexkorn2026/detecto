@@ -49,6 +49,24 @@ log = logging.getLogger(__name__)
 # (VSNR, KVNR, Steuer-ID, IBAN, Telefon, PLZ, ...) and must pass the filter.
 _DIGIT_RUN_RE = re.compile(r"\d{5}")
 
+# Finding 18: a plain string match of a name/place is only a weak hint. These
+# markers, when present on the same line, indicate a genuine person/address
+# context and raise the confidence from "low" to "medium".
+_NAME_CONTEXT_MARKERS = (
+    "name", "vorname", "nachname", "firstname", "lastname", "surname",
+    "person", "kunde", "customer", "patient", "mitarbeiter", "employee",
+    "anschrift", "address", "adresse", "strasse", "straße", "wohnhaft",
+    "geboren", "geburt", "ort", "stadt", "city",
+)
+
+
+def _name_confidence(line_lower: str) -> str:
+    """Confidence for a bare name/place string match (Finding 18)."""
+    for marker in _NAME_CONTEXT_MARKERS:
+        if marker in line_lower:
+            return "medium"
+    return "low"
+
 # Finding 5: only *unambiguous* filesystem paths should suppress a credential
 # value. A password like '/MySecret2026!' or 'C:verySecret' must NOT be
 # discarded just because of a leading slash or 'X:' prefix.
@@ -580,7 +598,7 @@ class LogAnalyzer:
         self, results: OrderedDict, name: str, value: str,
         filename: str, line: str, field_token: str | None = None,
         orig_value: str | None = None, start: int = -1, end: int = -1,
-        lineno: int = 0,
+        lineno: int = 0, confidence: str = "high",
     ) -> None:
         """Store one finding example, enforcing all limits (Finding 4).
 
@@ -620,7 +638,7 @@ class LogAnalyzer:
         examples.append((
             filename, stored, field_token,
             value if orig_value is None else orig_value,
-            start, end, lineno,
+            start, end, lineno, confidence,
         ))
         self._total_examples += 1
 
@@ -796,10 +814,11 @@ class LogAnalyzer:
                 else:  # pragma: no cover - defensive
                     o_start = o_end = -1
                     orig = phrase
+                conf = _name_confidence(line.lower())
                 for name in names:
                     _store(results, name, phrase, filename, line,
                            orig_value=orig, start=o_start, end=o_end,
-                           lineno=lineno)
+                           lineno=lineno, confidence=conf)
 
         for i, token in enumerate(tokens):
             norm = _normalize(token)
@@ -863,15 +882,16 @@ class LogAnalyzer:
                                lineno=lineno)
 
             # --- Inline string search ---
-            if norm not in sw_search:
+            if norm not in sw_search and norm not in _const.NAME_TECH_STOPWORDS:
                 names = search_index.get(norm)
                 if names:
                     pos = line.find(token)
+                    conf = _name_confidence(line.lower())
                     for name in names:
                         _store(results, name, token, filename, line,
                                orig_value=token, start=pos,
                                end=pos + len(token) if pos >= 0 else -1,
-                               lineno=lineno)
+                               lineno=lineno, confidence=conf)
 
 
 # ---------------------------------------------------------------------------

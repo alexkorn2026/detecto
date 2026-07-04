@@ -23,6 +23,7 @@ __all__ = [
     "MASKED_SUFFIX",
     "MAX_JSON_DEPTH",
     "MAX_JSON_VALUES_PER_LINE",
+    "NAME_TECH_STOPWORDS",
     "MIN_LEN_REGEXP",
     "MIN_LEN_FIELD",
     "FIELD_SEPARATORS",
@@ -85,6 +86,16 @@ MASKED_SUFFIX = " (maskiert)"
 # --- JSON parsing bounds (Finding 10) ---
 MAX_JSON_DEPTH = 20
 MAX_JSON_VALUES_PER_LINE = 1000
+
+# --- Finding 19: common technical terms that must not be reported as person
+# names just because they appear in a name string list (mitigates minlen=4
+# false positives). Compared against the normalized token.
+NAME_TECH_STOPWORDS = frozenset({
+    "main", "root", "test", "prod", "auth", "user", "admin", "null", "none",
+    "true", "false", "name", "host", "port", "path", "temp", "data", "info",
+    "code", "type", "list", "item", "page", "home", "help", "mail", "http",
+    "https", "json", "html", "true", "demo", "guest", "system", "service",
+})
 MIN_LEN_REGEXP = 5    # shortest regexp match: a@b.c (email)
 MIN_LEN_FIELD = 3     # shortest field name: pwd
 FIELD_SEPARATORS = frozenset({"->", "=>", ":", "=", "==", "-->", "<<", ">>"})

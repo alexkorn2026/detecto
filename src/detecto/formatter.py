@@ -151,7 +151,17 @@ def build_result_lines(
             display = (
                 [anonymizer.redact(k) for k in keys] if anon and anonymizer else keys
             )
-            lines.append(_format_line(typ, krit, name, ", ".join(display), color))
+            suffix = ", ".join(display)
+            # Finding 18: string (name/place) findings are heuristic hints -
+            # surface the confidence so they are not mistaken for confirmed PII.
+            if typ == "string":
+                order = {"low": 1, "medium": 2, "high": 3}
+                confs = [
+                    hits[k][0][7] if len(hits[k][0]) > 7 else "high" for k in keys
+                ]
+                best = max(confs, key=lambda c: order.get(c, 0)) if confs else "low"
+                suffix += f"  (Konfidenz: {best})"
+            lines.append(_format_line(typ, krit, name, suffix, color))
             if full:
                 for token in keys:
                     entry = hits[token][0]

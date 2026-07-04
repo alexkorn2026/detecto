@@ -264,12 +264,17 @@ def _build_full(sb: _SheetBuilder, sorted_items: list, ctx: ExportContext) -> No
         for value in sorted(hits.keys())[: ctx.example_count]:
             entry = hits[value][0]
             ftk = entry[2] if len(entry) > 2 else None
+            # Finding 7/24: prefer the original value + span over the key.
+            orig = entry[3] if len(entry) > 3 else value
+            start = entry[4] if len(entry) > 4 else -1
+            end = entry[5] if len(entry) > 5 else -1
             display_val = (
-                ctx.anonymizer.redact(value)
+                ctx.anonymizer.redact(orig)
                 if ctx.excelanon and ctx.anonymizer
-                else value
+                else orig
             )
-            marked = _mark_log(entry[1], value, ftk, ctx.excelanon, ctx.anonymizer)
+            marked = _mark_log(entry[1], orig, ftk, ctx.excelanon,
+                               ctx.anonymizer, start, end)
             rows.append([entry[0], typ, name, krit, display_val, ftk or "", marked])
             if ftk:
                 field_rows.append(len(rows) - 1)
@@ -284,10 +289,15 @@ def _build_full(sb: _SheetBuilder, sorted_items: list, ctx: ExportContext) -> No
 def _mark_log(
     log_line: str, value: str, field_token: str | None,
     excelanon: bool, anon: Anonymizer | None,
+    start: int = -1, end: int = -1,
 ) -> str:
-    """Mark matches (>>>value<<<) and fields ([FELD:name]) in log entry."""
-    # Replacements via lambda: values with backslashes (e.g. 'DOMAIN\\user')
-    # would otherwise raise re.error and silently drop the markers.
+    """Mark matches (>>>value<<<) and fields ([FELD:name]) in a log entry.
+
+    Finding 24: ``value`` is the exact original text; when a reliable span is
+    available and no redaction is needed, the exact position is used.
+    """
+    if not value:
+        return log_line
     ml = log_line
     if field_token:
         ml = re.sub(
@@ -296,6 +306,8 @@ def _mark_log(
             count=1, flags=re.IGNORECASE,
         )
     replacement = anon.redact(value) if excelanon and anon else value
+    # Replacements via lambda: values with backslashes (e.g. 'DOMAIN\\user')
+    # would otherwise raise re.error and silently drop the markers.
     return re.sub(
         re.escape(value),
         lambda m: f">>>{replacement}<<<", ml,

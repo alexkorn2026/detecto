@@ -22,7 +22,7 @@ from detecto.regexsafe import RegexTimeout, safe_finditer, safe_search
 from detecto.tokenizer import (
     tokenize, find_field_value, split_inline_field, _TOKEN_RE,
 )
-from detecto.utils import normalize
+from detecto.utils import normalize, normalize_with_offsets
 
 __all__ = ["LogAnalyzer"]
 
@@ -305,6 +305,7 @@ class LogAnalyzer:
                 file=sys.stderr,
             )
 
+        self._finalize(results)
         log.info("Analysis complete: %d lines, %d files", line_count, len(logfiles))
         return results, line_count
 
@@ -324,8 +325,10 @@ class LogAnalyzer:
 
         is_tty = sys.stderr.isatty()
         with multiprocessing.Pool(num_workers) as pool:
+            # Finding 20: ordered imap (not imap_unordered) so results are merged
+            # in input-file order -> deterministic, identical to a sequential run.
             for i, (file_results, file_lines, basename, worker_diag) in enumerate(
-                pool.imap_unordered(_analyze_file_worker, worker_args), 1
+                pool.imap(_analyze_file_worker, worker_args), 1
             ):
                 line_count += file_lines
                 self._merge_results(results, file_results)
@@ -346,6 +349,7 @@ class LogAnalyzer:
             f"{len(logfiles)} Dateien, {total_hits} Findings",
             file=sys.stderr,
         )
+        self._finalize(results)
         log.info("Parallel analysis: %d lines, %d files, %d workers",
                  line_count, len(logfiles), num_workers)
         return results, line_count
@@ -375,8 +379,9 @@ class LogAnalyzer:
 
         is_tty = sys.stderr.isatty()
         with multiprocessing.Pool(num_workers) as pool:
+            # Finding 20: ordered imap so chunks merge in byte order.
             for i, (chunk_results, chunk_lines, worker_diag) in enumerate(
-                pool.imap_unordered(_analyze_chunk_worker, worker_args), 1
+                pool.imap(_analyze_chunk_worker, worker_args), 1
             ):
                 line_count += chunk_lines
                 self._merge_results(results, chunk_results)
@@ -403,6 +408,7 @@ class LogAnalyzer:
             + f"Fertig: {line_count:,} Zeilen, {total_hits} Findings",
             file=sys.stderr,
         )
+        self._finalize(results)
         log.info("Chunk analysis: %d lines, %d chunks, %d workers",
                  line_count, len(chunks), num_workers)
         return results, line_count
@@ -459,6 +465,25 @@ class LogAnalyzer:
                         break
                     existing.append(entry)
                     self._total_examples += 1
+
+    @staticmethod
+    def _finalize(results: OrderedDict) -> None:
+        """Sort each value's examples into a deterministic order (Finding 20).
+
+        Sort key: (filename, line number, start position, original value).
+        This guarantees identical output for sequential and parallel runs and
+        for any worker count.
+        """
+        def key(entry: tuple) -> tuple:
+            filename = entry[0] if len(entry) > 0 else ""
+            orig = entry[3] if len(entry) > 3 else ""
+            start = entry[4] if len(entry) > 4 else -1
+            lineno = entry[6] if len(entry) > 6 else 0
+            return (filename, lineno, start, orig)
+
+        for _typ, _krit, hits in results.values():
+            for value, examples in hits.items():
+                examples.sort(key=key)
 
     def _worker_kwargs(self) -> dict:
         """Bundle all constructor kwargs so workers rebuild an identical analyzer.
@@ -522,12 +547,20 @@ class LogAnalyzer:
     def _store_hit(
         self, results: OrderedDict, name: str, value: str,
         filename: str, line: str, field_token: str | None = None,
+        orig_value: str | None = None, start: int = -1, end: int = -1,
+        lineno: int = 0,
     ) -> None:
         """Store one finding example, enforcing all limits (Finding 4).
 
         Central choke point so per-pattern and global limits are applied
         consistently and every dropped/truncated item is counted for the
         report - no silent data loss.
+
+        The stored example is a 7-tuple (Finding 7 - additive extension):
+        ``(filename, line, field_token, orig_value, start, end, lineno)``.
+        ``start``/``end`` are character offsets of the match in ``line``
+        (``-1`` = not reliably known); ``orig_value`` is the exact substring
+        from the original line (falls back to ``value`` for token matches).
         """
         hits = results[name][2]
         if value not in hits:
@@ -552,7 +585,11 @@ class LogAnalyzer:
         stored, truncated = self._truncate_example(line)
         if truncated:
             self.diag.examples_truncated += 1
-        examples.append((filename, stored, field_token))
+        examples.append((
+            filename, stored, field_token,
+            value if orig_value is None else orig_value,
+            start, end, lineno,
+        ))
         self._total_examples += 1
 
     def _store_masked(
@@ -584,11 +621,11 @@ class LogAnalyzer:
         for line in lines:
             line_count += 1
             if line and passes(line):
-                analyze(line, basename, results)
+                analyze(line, basename, results, line_count)
         return line_count
 
     def _analyze_line(
-        self, line: str, filename: str, results: OrderedDict,
+        self, line: str, filename: str, results: OrderedDict, lineno: int = 0,
     ) -> None:
         """Analyze a single line against all pattern types in one pass.
 
@@ -614,16 +651,23 @@ class LogAnalyzer:
             if disabled and name in disabled:
                 continue
             for m in self._timed_finditer(pat, line, name):
-                value = m.group(0).strip()
+                raw = m.group(0)
+                value = raw.strip()
                 if len(value) < MIN_LEN_REGEXP:
                     continue
                 if _normalize(value) in sw_regexp:
                     continue
-                _store(results, name, value, filename, line)
+                lead = len(raw) - len(raw.lstrip())
+                start = m.start() + lead
+                _store(results, name, value, filename, line,
+                       orig_value=value, start=start, end=start + len(value),
+                       lineno=lineno)
 
         # --- Multi-word search phrases (line-based, normalized) ---
         if self._search_phrases:
-            norm_line = _normalize_plain(line)
+            # Finding 7: keep an offset map so the *original* substring (not the
+            # normalized phrase) is stored and highlighted.
+            norm_line, offsets = normalize_with_offsets(line)
             for phrase, names in self._search_phrases.items():
                 if phrase in sw_search or phrase not in norm_line:
                     continue
@@ -639,8 +683,18 @@ class LogAnalyzer:
                     idx = norm_line.find(phrase, idx + 1)
                 if not bounded:
                     continue
+                # Map the normalized [idx, end) span back to the original line.
+                if 0 <= idx < len(offsets) and end - 1 < len(offsets):
+                    o_start = offsets[idx]
+                    o_end = offsets[end - 1] + 1
+                    orig = line[o_start:o_end]
+                else:  # pragma: no cover - defensive
+                    o_start = o_end = -1
+                    orig = phrase
                 for name in names:
-                    _store(results, name, phrase, filename, line)
+                    _store(results, name, phrase, filename, line,
+                           orig_value=orig, start=o_start, end=o_end,
+                           lineno=lineno)
 
         for i, token in enumerate(tokens):
             norm = _normalize(token)
@@ -659,7 +713,11 @@ class LogAnalyzer:
                     value = m.group(0)
                     if _normalize(value) in sw_regexp or norm in sw_regexp:
                         continue
-                    _store(results, name, value, filename, line)
+                    pos = line.find(value)
+                    _store(results, name, value, filename, line,
+                           orig_value=value, start=pos,
+                           end=pos + len(value) if pos >= 0 else -1,
+                           lineno=lineno)
 
             # --- Inline field check ---
             if tlen >= MIN_LEN_FIELD and field_patterns:
@@ -691,14 +749,22 @@ class LogAnalyzer:
                     if _looks_like_path(value):
                         continue
                     if _normalize(value) not in sw_field:
-                        _store(results, name, value, filename, line, token)
+                        pos = line.find(value)
+                        _store(results, name, value, filename, line, token,
+                               orig_value=value, start=pos,
+                               end=pos + len(value) if pos >= 0 else -1,
+                               lineno=lineno)
 
             # --- Inline string search ---
             if norm not in sw_search:
                 names = search_index.get(norm)
                 if names:
+                    pos = line.find(token)
                     for name in names:
-                        _store(results, name, token, filename, line)
+                        _store(results, name, token, filename, line,
+                               orig_value=token, start=pos,
+                               end=pos + len(token) if pos >= 0 else -1,
+                               lineno=lineno)
 
 
 # ---------------------------------------------------------------------------

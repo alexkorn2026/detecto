@@ -28,6 +28,31 @@ def print_header() -> None:
     print()
 
 
+def _replace_spans(line: str, spans: list[tuple[int, int]], replacement: str) -> str:
+    """Replace merged, non-overlapping spans of ``line`` with ``replacement``.
+
+    Overlapping/duplicate spans are merged first (Finding 24) so nested or
+    repeated matches never corrupt the output.
+    """
+    if not spans:
+        return line
+    spans = sorted(set(spans))
+    merged: list[tuple[int, int]] = []
+    for s, e in spans:
+        if merged and s <= merged[-1][1]:
+            merged[-1] = (merged[-1][0], max(merged[-1][1], e))
+        else:
+            merged.append((s, e))
+    out: list[str] = []
+    prev = 0
+    for s, e in merged:
+        out.append(line[prev:s])
+        out.append(replacement)
+        prev = e
+    out.append(line[prev:])
+    return "".join(out)
+
+
 def highlight(
     line: str,
     token: str,
@@ -35,37 +60,56 @@ def highlight(
     color: bool = True,
     field_token: str | None = None,
     anonymizer: Anonymizer | None = None,
+    start: int = -1,
+    end: int = -1,
 ) -> str:
-    """Highlight occurrences of token in a log line.
+    """Highlight/redact occurrences of a value in a log line.
+
+    Finding 24: ``token`` must be the *original* text found in ``line`` (never a
+    normalized search phrase), so replacement is position-accurate. When a
+    reliable ``[start, end)`` span is supplied and matches, that exact span is
+    used; otherwise the exact text is matched on word boundaries (falling back
+    to substring). For anonymization every occurrence of the exact value is
+    redacted so an identical secret cannot leak elsewhere on the line.
 
     Args:
         line: The complete log line.
-        token: The value to highlight (e.g. a password).
+        token: The exact original value to highlight (e.g. a password).
         anon: If True, redact the value before inserting.
         color: If False, no ANSI codes are inserted.
-        field_token: Optional field name (e.g. 'password'), highlighted in dark green.
+        field_token: Optional field name, highlighted in dark green.
         anonymizer: Anonymizer instance for redaction.
+        start, end: Character span of the match in ``line`` (-1 = unknown).
     """
+    if not token:
+        return line
     display = anonymizer.redact(token) if (anon and anonymizer) else token
-    # Prefer token-boundary matches to avoid marking substrings of other
-    # words (e.g. value 'anna' inside 'Susanna'); fall back to substring.
-    pat = re.compile(r"(?<!\w)" + re.escape(token) + r"(?!\w)", re.IGNORECASE)
-    if not pat.search(line):
-        pat = re.compile(re.escape(token), re.IGNORECASE)
-    if color:
-        # Replacement via lambda: values containing backslashes (e.g.
-        # 'DOMAIN\\user') would otherwise raise re.error ("bad escape").
-        result = pat.sub(lambda m: f"{ANSI_RED}{display}{ANSI_RESET}", line)
-        if field_token:
-            fp = re.compile(
-                r"(?<!\w)" + re.escape(field_token) + r"(?!\w)", re.IGNORECASE,
-            )
-            result = fp.sub(
-                lambda m: f"{ANSI_DARK_GREEN}{m.group(0)}{ANSI_RESET}",
-                result, count=1,
-            )
-        return result
-    return pat.sub(lambda m: display, line)
+    inserted = f"{ANSI_RED}{display}{ANSI_RESET}" if color else display
+
+    # Build the spans to replace (Finding 24): a reliable position plus every
+    # word-boundary occurrence of the *exact* value. A sub-word occurrence
+    # ('anna' inside 'Susanna') is only touched when the value has non-word
+    # edges, so we never anonymize a false occurrence.
+    spans: list[tuple[int, int]] = []
+    if 0 <= start < end <= len(line) and line[start:end].lower() == token.lower():
+        spans.append((start, end))
+    for m in re.finditer(r"(?<!\w)" + re.escape(token) + r"(?!\w)", line, re.IGNORECASE):
+        spans.append((m.start(), m.end()))
+    if not spans and not (token[:1].isalnum() and token[-1:].isalnum()):
+        for m in re.finditer(re.escape(token), line, re.IGNORECASE):
+            spans.append((m.start(), m.end()))
+
+    result = _replace_spans(line, spans, inserted)
+
+    if color and field_token:
+        fp = re.compile(
+            r"(?<!\w)" + re.escape(field_token) + r"(?!\w)", re.IGNORECASE,
+        )
+        result = fp.sub(
+            lambda m: f"{ANSI_DARK_GREEN}{m.group(0)}{ANSI_RESET}",
+            result, count=1,
+        )
+    return result
 
 
 def _format_line(
@@ -112,7 +156,13 @@ def build_result_lines(
                 for token in keys:
                     entry = hits[token][0]
                     ftk = entry[2] if len(entry) > 2 else None
-                    marked = highlight(entry[1], token, anon, color, ftk, anonymizer)
+                    # Finding 7/24: use the original value + position, not the
+                    # (possibly normalized) display key.
+                    orig = entry[3] if len(entry) > 3 else token
+                    start = entry[4] if len(entry) > 4 else -1
+                    end = entry[5] if len(entry) > 5 else -1
+                    marked = highlight(entry[1], orig, anon, color, ftk,
+                                       anonymizer, start, end)
                     lines.append(f"  \u2192 [{entry[0]}] {marked}")
                 lines.append("")
         elif show_skipped:

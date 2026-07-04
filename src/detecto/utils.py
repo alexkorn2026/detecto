@@ -8,7 +8,7 @@ import unicodedata
 
 from detecto.constants import ANSI_RED, ANSI_YELLOW, ANSI_RESET, KRIT_LABELS, NORMALIZE_CACHE_SIZE
 
-__all__ = ["normalize", "find_logfiles", "krit_color"]
+__all__ = ["normalize", "normalize_with_offsets", "find_logfiles", "krit_color"]
 
 
 def krit_color(level: int) -> str:
@@ -35,6 +35,35 @@ def normalize(text: str) -> str:
     lower = lower.replace("\u00df", "ss")
     lower = unicodedata.normalize("NFD", lower)
     return "".join(c for c in lower if unicodedata.category(c) != "Mn")
+
+
+def normalize_with_offsets(text: str) -> tuple[str, list[int]]:
+    """Normalize text and return (normalized, offsets).
+
+    ``offsets[i]`` is the index in the *original* ``text`` of the character
+    that produced ``normalized[i]``. This lets callers map a match position in
+    the normalized string back to the original substring even when
+    normalization changes the length (Finding 7): ``ß`` -> ``ss`` (1->2) and
+    accent stripping (2->1). Combining marks are dropped and contribute no
+    normalized character.
+    """
+    norm_chars: list[str] = []
+    offsets: list[int] = []
+    for orig_idx, ch in enumerate(text):
+        lower = ch.lower()
+        if lower.isascii():
+            for c in lower:
+                norm_chars.append(c)
+                offsets.append(orig_idx)
+            continue
+        lower = lower.replace("ß", "ss")
+        decomposed = unicodedata.normalize("NFD", lower)
+        for c in decomposed:
+            if unicodedata.category(c) == "Mn":
+                continue
+            norm_chars.append(c)
+            offsets.append(orig_idx)
+    return "".join(norm_chars), offsets
 
 
 def find_logfiles(pattern: str) -> list[str]:

@@ -14,8 +14,11 @@ import detecto.constants as _const
 from detecto.constants import (
     PATH_PREFIXES, MIN_LEN_REGEXP, MIN_LEN_FIELD,
     STRIP_CHARS, PREFILTER_MARKERS, CHUNK_THRESHOLD_BYTES,
+    REGEX_TIMEOUT_MS, REGEX_DISABLE_THRESHOLD,
 )
+from detecto.diagnostics import ScanDiagnostics
 from detecto.loaders import RegexpPattern, FieldPattern, SearchPattern
+from detecto.regexsafe import RegexTimeout, safe_finditer, safe_search
 from detecto.tokenizer import (
     tokenize, find_field_value, split_inline_field, _TOKEN_RE,
 )
@@ -54,6 +57,8 @@ class LogAnalyzer:
         parse_json: bool = True,
         prefilter: str = "off",
         max_examples: int = 100,
+        regex_timeout_ms: int = REGEX_TIMEOUT_MS,
+        regex_disable_threshold: int = REGEX_DISABLE_THRESHOLD,
     ) -> None:
         self.regexp = regexp or []
         self.field = field or []
@@ -64,6 +69,11 @@ class LogAnalyzer:
         self.parse_json = parse_json
         self.prefilter = prefilter
         self.max_examples = max_examples
+        # Finding 1: runtime regex protection.
+        self._regex_timeout_ms = regex_timeout_ms
+        self._regex_disable_threshold = regex_disable_threshold
+        self._disabled: set[str] = set()
+        self.diag = ScanDiagnostics()
         # Multi-word search values (e.g. 'Multiple Sklerose') can never
         # match a single token - they are checked against the whole
         # normalized line instead (see _analyze_line).
@@ -227,7 +237,7 @@ class LogAnalyzer:
                 )
 
             file_lines = self._process_lines(
-                _iter_file_lines(logfile), basename, results,
+                _iter_file_lines(logfile, self.diag), basename, results,
             )
             line_count += file_lines
 
@@ -269,17 +279,19 @@ class LogAnalyzer:
         worker_args = [
             (logfile, self.regexp, self.field, self.search,
              self.sw_regexp, self.sw_field, self.sw_search,
-             self.parse_json, self.prefilter, self.max_examples)
+             self.parse_json, self.prefilter, self.max_examples,
+             self._regex_timeout_ms, self._regex_disable_threshold)
             for logfile in logfiles
         ]
 
         is_tty = sys.stderr.isatty()
         with multiprocessing.Pool(num_workers) as pool:
-            for i, (file_results, file_lines, basename) in enumerate(
+            for i, (file_results, file_lines, basename, worker_diag) in enumerate(
                 pool.imap_unordered(_analyze_file_worker, worker_args), 1
             ):
                 line_count += file_lines
                 self._merge_results(results, file_results)
+                self.diag.merge(worker_diag)
                 if is_tty:
                     hits = sum(len(r[2]) for r in results.values())
                     print(
@@ -315,22 +327,25 @@ class LogAnalyzer:
         chunks = _compute_chunks(filepath, num_workers)
         results = self._init_results()
         line_count = 0
+        errs_before = len(self.diag.file_errors)
 
         worker_args = [
             (filepath, byte_start, byte_end,
              self.regexp, self.field, self.search,
              self.sw_regexp, self.sw_field, self.sw_search,
-             self.parse_json, self.prefilter, self.max_examples)
+             self.parse_json, self.prefilter, self.max_examples,
+             self._regex_timeout_ms, self._regex_disable_threshold)
             for byte_start, byte_end in chunks
         ]
 
         is_tty = sys.stderr.isatty()
         with multiprocessing.Pool(num_workers) as pool:
-            for i, (chunk_results, chunk_lines) in enumerate(
+            for i, (chunk_results, chunk_lines, worker_diag) in enumerate(
                 pool.imap_unordered(_analyze_chunk_worker, worker_args), 1
             ):
                 line_count += chunk_lines
                 self._merge_results(results, chunk_results)
+                self.diag.merge(worker_diag)
                 if is_tty:
                     hits = sum(len(r[2]) for r in results.values())
                     print(
@@ -338,6 +353,14 @@ class LogAnalyzer:
                         f"{line_count:,} Zeilen | {hits} Findings",
                         end="", flush=True, file=sys.stderr,
                     )
+
+        # A single file was split into chunks: decide its completion status
+        # once (chunks are not files). If any chunk reported a read error the
+        # file counts as partial, otherwise complete.
+        if len(self.diag.file_errors) == errs_before:
+            self.diag.files_complete += 1
+        else:
+            self.diag.files_partial += 1
 
         total_hits = sum(len(r[2]) for r in results.values())
         print(
@@ -387,6 +410,33 @@ class LogAnalyzer:
                 if remaining > 0:
                     target_hits[value].extend(entries[:remaining])
 
+    def _note_timeout(self, name: str) -> None:
+        """Record a regex timeout and disable repeat offenders (Finding 1)."""
+        count = self.diag.record_timeout(name)
+        if count >= self._regex_disable_threshold and name not in self._disabled:
+            self._disabled.add(name)
+            self.diag.disabled_patterns.add(name)
+            log.warning(
+                "Pattern '%s' disabled for the rest of this scan after "
+                "%d regex timeouts", name, count,
+            )
+
+    def _timed_search(self, pat: object, text: str, name: str) -> object:
+        """search() with a runtime timeout; returns None on timeout."""
+        try:
+            return safe_search(pat, text, self._regex_timeout_ms)
+        except RegexTimeout:
+            self._note_timeout(name)
+            return None
+
+    def _timed_finditer(self, pat: object, text: str, name: str) -> list:
+        """finditer() with a runtime timeout; returns [] on timeout."""
+        try:
+            return safe_finditer(pat, text, self._regex_timeout_ms)
+        except RegexTimeout:
+            self._note_timeout(name)
+            return []
+
     def _process_lines(
         self, lines: Iterator[str], basename: str, results: OrderedDict,
     ) -> int:
@@ -425,9 +475,13 @@ class LogAnalyzer:
         _find_field = find_field_value
         _is_path = self._is_path_or_mask
 
+        disabled = self._disabled
+
         # --- Line-scope regexp check (patterns containing whitespace) ---
         for name, _, _, pat in self._regexp_line:
-            for m in pat.finditer(line):
+            if disabled and name in disabled:
+                continue
+            for m in self._timed_finditer(pat, line, name):
                 value = m.group(0).strip()
                 if len(value) < MIN_LEN_REGEXP:
                     continue
@@ -475,7 +529,9 @@ class LogAnalyzer:
             # --- Inline regexp check ---
             if tlen >= MIN_LEN_REGEXP and regexp_patterns:
                 for name, _, _, pat in regexp_patterns:
-                    m = pat.search(token)
+                    if disabled and name in disabled:
+                        continue
+                    m = self._timed_search(pat, token, name)
                     if m is None:
                         continue
                     # store the actual match, not the whole token
@@ -500,11 +556,13 @@ class LogAnalyzer:
                     if ":" in token or "=" in token else None
                 )
                 for name, _, _, pat, offset in field_patterns:
-                    if not pat.search(token):
+                    if disabled and name in disabled:
+                        continue
+                    if self._timed_search(pat, token, name) is None:
                         continue
                     # key:value in one token (tokenizer keeps ':' intact)
                     if inline_kv is not None and offset == 1 and \
-                            pat.search(inline_kv[0]):
+                            self._timed_search(pat, inline_kv[0], name) is not None:
                         value = inline_kv[1]
                     else:
                         value, _ = _find_field(tokens, i + offset)
@@ -546,31 +604,49 @@ class LogAnalyzer:
 # Shared I/O helpers (used by sequential and worker paths)
 # ---------------------------------------------------------------------------
 
-def _iter_file_lines(filepath: str) -> Iterator[str]:
+def _iter_file_lines(
+    filepath: str, diag: ScanDiagnostics | None = None,
+) -> Iterator[str]:
     """Iterate over decoded, stripped lines from a file.
 
     Handles UTF-8 decoding with replace fallback and logs first encoding error.
+    Records file-completion / error status into ``diag`` (Finding 2) so that a
+    file that could not be fully read is no longer silently treated as success.
     """
     encoding_warned = False
+    yielded = False
     try:
         with open(filepath, "rb") as raw:
             for raw_line in raw:
                 try:
                     line = raw_line.decode("utf-8")
                 except UnicodeDecodeError:
+                    if diag is not None:
+                        diag.decode_errors += 1
                     if not encoding_warned:
                         log.warning("%s: Non-UTF-8 bytes detected", filepath)
                         encoding_warned = True
                     line = raw_line.decode("utf-8", errors="replace")
+                yielded = True
                 yield line.strip()
     except (IOError, OSError) as e:
         log.warning("Error reading %s: %s", filepath, e)
+        if diag is not None:
+            diag.record_file_error(filepath, str(e), partial=yielded)
+        return
+    if diag is not None:
+        diag.files_complete += 1
 
 
-def _iter_chunk_lines(filepath: str, byte_start: int, byte_end: int) -> Iterator[str]:
+def _iter_chunk_lines(
+    filepath: str, byte_start: int, byte_end: int,
+    diag: ScanDiagnostics | None = None,
+) -> Iterator[str]:
     """Iterate over decoded, stripped lines from a byte range of a file.
 
     Aligns to line boundaries within the [byte_start, byte_end) range.
+    File-completion is decided once by the caller (chunks are not files), so
+    this helper only records decode errors and read errors into ``diag``.
     """
     encoding_warned = False
     try:
@@ -583,6 +659,8 @@ def _iter_chunk_lines(filepath: str, byte_start: int, byte_end: int) -> Iterator
                 try:
                     line = raw_line.decode("utf-8")
                 except UnicodeDecodeError:
+                    if diag is not None:
+                        diag.decode_errors += 1
                     if not encoding_warned:
                         log.warning("%s: Non-UTF-8 bytes in chunk", filepath)
                         encoding_warned = True
@@ -590,6 +668,9 @@ def _iter_chunk_lines(filepath: str, byte_start: int, byte_end: int) -> Iterator
                 yield line.strip()
     except (IOError, OSError) as e:
         log.warning("Error reading chunk %s: %s", filepath, e)
+        if diag is not None:
+            diag.file_errors.append((filepath, str(e)))
+            diag.other_errors += 1
 
 
 # ---------------------------------------------------------------------------
@@ -636,20 +717,22 @@ def _analyze_file_worker(args: tuple) -> tuple[OrderedDict, int, str]:
     """
     (logfile, regexp, field, search,
      sw_regexp, sw_field, sw_search, parse_json, prefilter,
-     max_examples) = args
+     max_examples, regex_timeout_ms, regex_disable_threshold) = args
 
     analyzer = LogAnalyzer(
         regexp=regexp, field=field, search=search,
         sw_regexp=sw_regexp, sw_field=sw_field, sw_search=sw_search,
         parse_json=parse_json, prefilter=prefilter,
         max_examples=max_examples,
+        regex_timeout_ms=regex_timeout_ms,
+        regex_disable_threshold=regex_disable_threshold,
     )
     results = analyzer._init_results()
     basename = os.path.basename(logfile)
     line_count = analyzer._process_lines(
-        _iter_file_lines(logfile), basename, results,
+        _iter_file_lines(logfile, analyzer.diag), basename, results,
     )
-    return results, line_count, basename
+    return results, line_count, basename, analyzer.diag
 
 
 def _analyze_chunk_worker(args: tuple) -> tuple[OrderedDict, int]:
@@ -661,17 +744,21 @@ def _analyze_chunk_worker(args: tuple) -> tuple[OrderedDict, int]:
     (filepath, byte_start, byte_end,
      regexp, field, search,
      sw_regexp, sw_field, sw_search,
-     parse_json, prefilter, max_examples) = args
+     parse_json, prefilter, max_examples,
+     regex_timeout_ms, regex_disable_threshold) = args
 
     analyzer = LogAnalyzer(
         regexp=regexp, field=field, search=search,
         sw_regexp=sw_regexp, sw_field=sw_field, sw_search=sw_search,
         parse_json=parse_json, prefilter=prefilter,
         max_examples=max_examples,
+        regex_timeout_ms=regex_timeout_ms,
+        regex_disable_threshold=regex_disable_threshold,
     )
     results = analyzer._init_results()
     basename = os.path.basename(filepath)
     line_count = analyzer._process_lines(
-        _iter_chunk_lines(filepath, byte_start, byte_end), basename, results,
+        _iter_chunk_lines(filepath, byte_start, byte_end, analyzer.diag),
+        basename, results,
     )
-    return results, line_count
+    return results, line_count, analyzer.diag

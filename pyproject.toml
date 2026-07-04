@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "detecto"
-version = "1.6.1"
+version = "2.0.0"
 description = "Log file scanner for critical and personal data"
 readme = "readme.md"
 license = {text = "MIT"}
@@ -23,10 +23,24 @@ classifiers = [
     "Topic :: Security",
     "Topic :: System :: Logging",
 ]
-dependencies = ["openpyxl>=3.1"]
+# 'regex' provides per-match runtime timeouts (Finding 1). Detecto still runs
+# without it (falling back to the stdlib 're', losing only runtime timeouts),
+# but it is a recommended core dependency. Major version is capped.
+dependencies = ["regex>=2023.0,<2026.0"]
 
 [project.optional-dependencies]
-dev = ["pytest>=7.0", "black>=23.0", "ruff>=0.4", "mypy>=1.10"]
+# Excel export is optional (Finding 29): install with `pip install detecto[excel]`.
+excel = ["openpyxl>=3.1,<4"]
+dev = [
+    "pytest>=7.0",
+    "black>=23.0",
+    "ruff>=0.4",
+    "mypy>=1.10",
+    "hypothesis>=6.0",
+    "openpyxl>=3.1,<4",
+    "regex>=2023.0,<2026.0",
+    "build>=1.0",
+]
 
 [project.scripts]
 detecto = "detecto.cli:main"

@@ -6,6 +6,9 @@ __all__ = [
     "LABEL_WIDTH",
     "PATTERN_DELIMITER",
     "REGEX_TIMEOUT_SEC",
+    "REGEX_LOADCHECK_MS",
+    "REGEX_TIMEOUT_MS",
+    "REGEX_DISABLE_THRESHOLD",
     "REGEX_TEST_STRING",
     "MAX_HITS_PER_PATTERN",
     "MAX_EXAMPLES_PER_VALUE",
@@ -40,8 +43,18 @@ LABEL_WIDTH = 25
 PATTERN_DELIMITER = "::"
 
 # --- Security ---
+# Load-time compile pre-check (Finding 1): reject obviously catastrophic
+# patterns before the scan even starts. This is a *first* line of defence,
+# no longer the only one.
 REGEX_TIMEOUT_SEC = 2
+REGEX_LOADCHECK_MS = 2000  # budget for the load-time pre-check
 REGEX_TEST_STRING = "a" * 1000
+# Runtime per-match timeout (Finding 1). Enforced while matching real log
+# lines when the `regex` package is available.
+REGEX_TIMEOUT_MS = 100
+# A pattern that times out this many times is disabled for the rest of the
+# scan (per worker) to keep a single bad pattern from stalling everything.
+REGEX_DISABLE_THRESHOLD = 5
 EXCEL_FORMULA_CHARS = ("=", "+", "-", "@", "\t", "\r")
 
 # --- Analysis ---

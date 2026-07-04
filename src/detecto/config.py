@@ -42,6 +42,9 @@ class DetectoConfig:
     workers: int = 0  # 0 = auto (cpu_count), 1 = single-process
     prefilter: str = "off"  # off | regexp_field | all
     max_examples: int = 100  # max example lines stored per unique value
+    # Finding 1: runtime regex protection
+    regex_timeout_ms: int = 100
+    regex_disable_threshold: int = 5
 
     regexp_file: str = REGEXP_FILE
     field_file: str = FIELD_FILE
@@ -59,6 +62,8 @@ class DetectoConfig:
         self.refresh_status = max(0, self.refresh_status)
         self.workers = max(0, self.workers)
         self.max_examples = max(1, self.max_examples)
+        self.regex_timeout_ms = max(0, self.regex_timeout_ms)
+        self.regex_disable_threshold = max(1, self.regex_disable_threshold)
         if self.prefilter not in ("off", "regexp_field", "all"):
             self.prefilter = "off"
 
@@ -127,6 +132,10 @@ def load_config(base_dir: Path) -> DetectoConfig:
         cfg.workers = _safe_getint(s, "workers", cfg.workers)
         cfg.prefilter = s.get("prefilter", fallback=cfg.prefilter)
         cfg.max_examples = _safe_getint(s, "max_examples", cfg.max_examples)
+        cfg.regex_timeout_ms = _safe_getint(s, "regex_timeout_ms", cfg.regex_timeout_ms)
+        cfg.regex_disable_threshold = _safe_getint(
+            s, "regex_disable_threshold", cfg.regex_disable_threshold
+        )
 
     if cp.has_section("files"):
         s = cp["files"]

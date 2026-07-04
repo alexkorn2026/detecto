@@ -8,7 +8,13 @@ import re
 import signal
 from pathlib import Path
 
-from detecto.constants import PATTERN_DELIMITER, REGEX_TIMEOUT_SEC, REGEX_TEST_STRING
+from detecto.constants import (
+    PATTERN_DELIMITER,
+    REGEX_LOADCHECK_MS,
+    REGEX_TIMEOUT_SEC,
+    REGEX_TEST_STRING,
+)
+from detecto.regexsafe import HAS_REGEX, RegexTimeout, compile_pattern, safe_search
 from detecto.utils import normalize
 
 __all__ = [
@@ -42,14 +48,29 @@ def _timeout_handler(signum: int, frame: object) -> None:
     raise _RegexTimeout()
 
 
-def _safe_compile(pattern: str, source: str) -> re.Pattern | None:
-    """Compile a regex with DoS protection (SIGALRM timeout on Unix)."""
+def _safe_compile(pattern: str, source: str):
+    """Compile a regex with a load-time DoS pre-check.
+
+    This is only the *first* line of defence (Finding 1). The authoritative
+    protection is the per-match runtime timeout applied during the scan
+    (see :mod:`detecto.regexsafe` and the analyzer). We still reject patterns
+    that already blow up on a trivial test string here.
+    """
     try:
-        compiled = re.compile(pattern)
+        compiled = compile_pattern(pattern)
     except re.error as e:
         log.warning("Invalid regex in %s: %s (%s)", source, pattern, e)
         return None
-    if hasattr(signal, "SIGALRM"):
+
+    if HAS_REGEX:
+        # Cross-platform runtime-enforced pre-check via the regex engine.
+        try:
+            safe_search(compiled, REGEX_TEST_STRING, REGEX_LOADCHECK_MS)
+        except RegexTimeout:
+            log.warning("Regex DoS risk (load pre-check) in %s: %s", source, pattern)
+            return None
+    elif hasattr(signal, "SIGALRM"):
+        # Fallback for the re-only build: coarse SIGALRM guard.
         old = signal.signal(signal.SIGALRM, _timeout_handler)
         signal.alarm(REGEX_TIMEOUT_SEC)
         try:

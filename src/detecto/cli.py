@@ -142,6 +142,8 @@ def main() -> None:
         parse_json=config.parse_json,
         prefilter=config.prefilter,
         max_examples=config.max_examples,
+        regex_timeout_ms=config.regex_timeout_ms,
+        regex_disable_threshold=config.regex_disable_threshold,
     )
     start = time.time()
     results, line_count = analyzer.analyze(

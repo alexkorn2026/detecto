@@ -308,19 +308,45 @@ PYTHONPATH=src python3 -m pytest tests/ -v
 make test
 ```
 
-126 Tests in 7 Modulen (inkl. `test_regressions.py` fuer die Review-Befunde):
-- `test_anonymizer.py` – Pattern parsing, redact, error handling (7 Tests)
-- `test_tokenizer.py` – Tokenization, JSON fragments, field values (12 Tests)
-- `test_analyzer.py` – LogAnalyzer: regexp, field, string, stopwords, paths, UTF-8, limits, config, chunks (42 Tests)
-- `test_exporter.py` – Excel: sheets, markers, CSV injection (10 Tests)
-- `test_loaders.py` – Path traversal, regex DoS, stopwords, file parsing (14 Tests)
-- `test_performance_smoke.py` – Performance smoke tests mit 50k synthetischen Zeilen (4 Tests)
+Die Testsuite deckt Unit-, Integrations-, CLI-, Packaging-, Parallelitaets-,
+Fehlerfall-, Export- und Security-Regressionstests sowie hypothesis-basierte
+Property/Fuzz-Tests ab. Die Anzahl bestandener Tests ist ein Entwicklungsstatus
+und **kein** Nachweis der Erkennungsqualitaet.
+
+Die Erkennungsqualitaet (Precision/Recall/F1) wird ueber einen reproduzierbaren
+Benchmark auf einem synthetischen Gold-Datensatz gemessen:
+
+```bash
+python benchmarks/quality_benchmark.py     # Precision/Recall/F1 je Fund-Typ
+python benchmarks/perf_benchmark.py         # Durchsatz inkl. Testbedingungen
+```
+
+Der Gold-Datensatz ist synthetisch und deckt nur ausgewaehlte Datenarten ab;
+eine vollstaendige PII-Erkennung wird nicht garantiert.
+
+## Sicherheit und Grenzen
+
+Detecto arbeitet heuristisch. Konkret gilt:
+
+- Erkennung kann False Positives und False Negatives enthalten; String-Treffer
+  auf Namen/Orte sind Hinweise mit Confidence-Stufe (low/medium/high), kein
+  Beweis personenbezogener Daten.
+- Sensible Werte werden standardmaessig anonymisiert; Klartext nur mit
+  `--show-sensitive-values`.
+- Unvollstaendige/fehlgeschlagene Scans werden ueber Scan-Status und Exit-Codes
+  gekennzeichnet und niemals faelschlich als vollstaendig gemeldet.
+- Pattern-Dateien werden auf ein vertrauenswuerdiges Verzeichnis beschraenkt und
+  ohne Symlink-Folgen geoeffnet; ein Restrisiko (z.B. Verzeichnis-Symlinks)
+  bleibt bestehen.
+- Benutzerdefinierte Regex koennen trotz Laufzeit-Timeout problematisch sein.
+- Unterstuetzte Encodings/Dateiformate und Limits sind in `detecto.ini`
+  dokumentiert.
 
 ## Distribution
 
 ```bash
-make dist    # Erstellt dist/detecto_1.6.1.zip
-make clean   # Bereinigt dist/
+python -m build   # Erstellt sdist + Wheel in dist/
+make clean        # Bereinigt dist/
 ```
 
 ## Lizenz

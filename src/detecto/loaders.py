@@ -2,10 +2,12 @@
 from __future__ import annotations
 
 import csv
+import io
 import logging
 import os
 import re
 import signal
+import stat
 from pathlib import Path
 
 from detecto.constants import (
@@ -78,6 +80,32 @@ def register_pattern_id(
     registry[name] = (typ, str(source), lineno)
 
 
+def _safe_open_text(filepath: str | Path) -> io.TextIOWrapper:
+    """Open a pattern file rejecting symlinks and non-regular files (Finding 41).
+
+    Uses ``O_NOFOLLOW`` so a symlinked final path component fails to open, then
+    verifies the *actually opened* file descriptor is a regular file via
+    ``fstat`` (closing the TOCTOU window between check and open). On platforms
+    without ``O_NOFOLLOW`` this degrades to an fstat check only (documented
+    residual risk).
+    """
+    # O_NONBLOCK so opening a FIFO/device does not block waiting for a writer;
+    # O_NOFOLLOW so a symlinked final component fails to open.
+    flags = os.O_RDONLY | getattr(os, "O_NOFOLLOW", 0) | getattr(os, "O_NONBLOCK", 0)
+    fd = os.open(str(filepath), flags)
+    try:
+        st = os.fstat(fd)
+        if not stat.S_ISREG(st.st_mode):
+            raise OSError(f"not a regular file: {filepath}")
+        # Clear O_NONBLOCK for normal buffered reads on the regular file.
+        if hasattr(os, "get_blocking"):
+            os.set_blocking(fd, True)
+    except Exception:
+        os.close(fd)
+        raise
+    return os.fdopen(fd, "r", encoding="utf-8")
+
+
 def _read_lines(filepath: str | Path) -> list[tuple[int, str, list[str]]]:
     """Read a pattern file, skip empty lines, split by delimiter.
 
@@ -85,7 +113,12 @@ def _read_lines(filepath: str | Path) -> list[tuple[int, str, list[str]]]:
     report exact positions (Finding 6).
     """
     result: list[tuple[int, str, list[str]]] = []
-    with open(filepath, "r", encoding="utf-8") as f:
+    try:
+        f = _safe_open_text(filepath)
+    except OSError as e:
+        log.warning("Refusing to load pattern file %s: %s", filepath, e)
+        return result
+    with f:
         for lineno, raw in enumerate(f, 1):
             line = raw.strip()
             if line:
@@ -250,7 +283,12 @@ def load_search_patterns(
                 log.warning("File not found: %s", csv_path)
             continue
         values: set[str] = set()
-        with open(csv_path, "r", encoding="utf-8") as csv_f:
+        try:
+            csv_f = _safe_open_text(csv_path)
+        except OSError as e:
+            log.warning("Refusing to load search list %s: %s", csv_path, e)
+            continue
+        with csv_f:
             reader = csv.reader(csv_f)
             next(reader, None)
             for row in reader:

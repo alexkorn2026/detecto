@@ -25,9 +25,24 @@ __all__ = [
 
 log = logging.getLogger(__name__)
 
-RegexpPattern = tuple[str, int, str, re.Pattern]
+# Finding 8: regexp patterns carry an explicit scope ("token" | "line") as an
+# optional 5th field. The tuple keeps 4 leading elements for compatibility.
+RegexpPattern = tuple[str, int, str, re.Pattern, str]
 FieldPattern = tuple[str, int, str, re.Pattern, int]
 SearchPattern = tuple[str, int, set[str]]
+
+VALID_SCOPES = ("token", "line")
+DEFAULT_SCOPE = "line"  # Finding 8: safe default for legacy (unscoped) entries
+
+
+def _parse_scope(value: str, source: str, raw: str) -> str:
+    """Validate an explicit scope value ("token" | "line")."""
+    scope = value.strip().lower()
+    if scope not in VALID_SCOPES:
+        log.warning("Invalid scope '%s' in %s (%s), using '%s'",
+                    value, source, raw[:60], DEFAULT_SCOPE)
+        return DEFAULT_SCOPE
+    return scope
 
 
 class DuplicatePatternError(Exception):
@@ -154,8 +169,15 @@ def load_regexp(
     filepath: str | Path,
     registry: dict[str, tuple[str, str, int]] | None = None,
 ) -> list[RegexpPattern]:
-    """Load regexp patterns. Format: name::krit::description::pattern"""
+    """Load regexp patterns.
+
+    Format: ``name::krit::description::pattern[::scope]`` where ``scope`` is
+    ``token`` or ``line`` (Finding 8). Entries without a scope field still load
+    (a warning is logged and the safe default ``line`` is used), so old files
+    remain usable during the migration.
+    """
     result: list[RegexpPattern] = []
+    warned_legacy = False
     for lineno, raw, parts in _read_lines(filepath):
         if len(parts) < 4:
             log.warning("Invalid format in %s: %s", filepath, raw)
@@ -163,10 +185,21 @@ def load_regexp(
         compiled = _safe_compile(parts[3], str(filepath))
         if compiled is None:
             continue
+        if len(parts) >= 5 and parts[4].strip():
+            scope = _parse_scope(parts[4], str(filepath), raw)
+        else:
+            scope = DEFAULT_SCOPE
+            if not warned_legacy:
+                log.warning(
+                    "%s: regexp entries without an explicit scope field are "
+                    "deprecated; defaulting to '%s'. Add '::token' or '::line'.",
+                    filepath, DEFAULT_SCOPE,
+                )
+                warned_legacy = True
         try:
             register_pattern_id(registry, parts[0], "regexp", filepath, lineno)
             result.append((parts[0], _parse_krit(parts[1], str(filepath), raw),
-                           parts[2], compiled))
+                           parts[2], compiled, scope))
         except ValueError as e:
             log.warning("Invalid criticality in %s: %s (%s)", filepath, raw, e)
     log.info("Regexp patterns loaded: %d from %s", len(result), filepath)

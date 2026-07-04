@@ -49,6 +49,19 @@ _MASK_RE = re.compile(
 )
 
 
+def _infer_scope(pattern_src: str) -> str:
+    """Fallback scope for regexp entries built without an explicit scope.
+
+    A pattern containing whitespace cannot match a single (whitespace-split)
+    token, so it is line-scoped; otherwise token-scoped. This is only used for
+    programmatically constructed 4-tuples - file-based patterns carry an
+    explicit scope (Finding 8).
+    """
+    if any(ws in pattern_src for ws in ("\\s", " ", "\\t", "\t")):
+        return "line"
+    return "token"
+
+
 def _looks_like_path(value: str) -> bool:
     """True only for values that are clearly filesystem paths (Finding 5)."""
     if value.startswith(("/", "~/")) and "/" in value[1:]:
@@ -123,18 +136,15 @@ class LogAnalyzer:
         self._search_phrases: dict[str, list[str]] = {}
         self._search_index: dict[str, list[str]] = self._build_search_index()
         self._prefilter_keywords = self._build_prefilter_keywords()
-        # Regexps containing whitespace or '=' can never match a single
-        # token (tokens are split on whitespace and '='). They run once
-        # per line instead. '=' inside lookarounds ('(?=' etc.) is ignored.
+        # Finding 8: the token/line scope is taken from the explicit scope field
+        # (5th tuple element) when present, no longer guessed by manipulating the
+        # regex source. Programmatically-built 4-tuples fall back to a simple
+        # whitespace heuristic.
         self._regexp_token: list[RegexpPattern] = []
         self._regexp_line: list[RegexpPattern] = []
         for entry in self.regexp:
-            pat_src = entry[3].pattern
-            stripped = (pat_src.replace("(?=", "").replace("(?!", "")
-                        .replace("(?<=", "").replace("(?<!", ""))
-            if ("\\s" in pat_src or " " in pat_src
-                    or "\\t" in pat_src or "\t" in pat_src
-                    or "=" in stripped):
+            scope = entry[4] if len(entry) > 4 else _infer_scope(entry[3].pattern)
+            if scope == "line":
                 self._regexp_line.append(entry)
             else:
                 self._regexp_token.append(entry)
@@ -416,7 +426,7 @@ class LogAnalyzer:
     def _init_results(self) -> OrderedDict:
         """Initialize the results OrderedDict with empty slots for each pattern."""
         results: OrderedDict = OrderedDict()
-        for name, krit, _, _ in self.regexp:
+        for name, krit, *_ in self.regexp:
             results[name] = ("regexp", krit, {})
         for name, krit, _, _, _ in self.field:
             if name in results:
@@ -647,7 +657,7 @@ class LogAnalyzer:
         disabled = self._disabled
 
         # --- Line-scope regexp check (patterns containing whitespace) ---
-        for name, _, _, pat in self._regexp_line:
+        for name, _, _, pat, *_ in self._regexp_line:
             if disabled and name in disabled:
                 continue
             for m in self._timed_finditer(pat, line, name):
@@ -702,7 +712,7 @@ class LogAnalyzer:
 
             # --- Inline regexp check ---
             if tlen >= MIN_LEN_REGEXP and regexp_patterns:
-                for name, _, _, pat in regexp_patterns:
+                for name, _, _, pat, *_ in regexp_patterns:
                     if disabled and name in disabled:
                         continue
                     m = self._timed_search(pat, token, name)

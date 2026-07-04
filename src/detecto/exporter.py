@@ -365,10 +365,15 @@ def _build_patterns(
 ) -> None:
     ws = sb.create_sheet(
         "Regexp",
-        ["Name", "Kritikalit\u00e4t", "Beschreibung", "Pattern"],
-        [20, 14, 40, 60],
+        ["Name", "Kritikalit\u00e4t", "Beschreibung", "Pattern", "Scope"],
+        [20, 14, 40, 55, 8],
     )
-    sb.add_rows(ws, [[n, k, d, p.pattern] for n, k, d, p in regexp], "D", krit_col=2)
+    sb.add_rows(
+        ws,
+        [[e[0], e[1], e[2], e[3].pattern, (e[4] if len(e) > 4 else "")]
+         for e in regexp],
+        "E", krit_col=2, center_cols=[5],
+    )
 
     ws = sb.create_sheet(
         "Field",

@@ -215,8 +215,10 @@ def print_status(
     print()
 
     print(f"Regexp: {len(regexp)}")
-    for name, krit, desc, _ in regexp:
-        print(f"  {_krit_label(krit)} {name}: {desc}")
+    for entry in regexp:
+        name, krit, desc = entry[0], entry[1], entry[2]
+        scope = entry[4] if len(entry) > 4 else "?"
+        print(f"  {_krit_label(krit)} {name}: {desc} (scope: {scope})")
 
     print(f"Field: {len(field)}")
     for name, krit, desc, _, offset in field:

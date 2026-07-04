@@ -22,7 +22,7 @@ from detecto.diagnostics import (
 from detecto.exporter import export_xlsx, export_log, ExportContext
 from detecto.formatter import print_header, print_status, print_results
 from detecto.loaders import (
-    RegexpPattern, FieldPattern, SearchPattern,
+    RegexpPattern, FieldPattern, SearchPattern, DuplicatePatternError,
     load_regexp, load_field_patterns, load_search_patterns, load_stopwords,
 )
 from detecto.utils import find_logfiles
@@ -196,6 +196,7 @@ def _run() -> int:
         max_total_findings=config.max_total_findings,
         max_total_examples=config.max_total_examples,
         max_example_chars=config.max_example_chars,
+        masked_criticality=config.masked_value_criticality,
     )
     start = time.time()
     results, line_count = analyzer.analyze(
@@ -280,17 +281,24 @@ def _load_patterns(
         print(f"FEHLER: Suchmuster-Datei nicht gefunden: {search_path}")
         sys.exit(EXIT_CONFIG)
 
-    regexp = load_regexp(regexp_path) if config.search_regexp else []
-    field = (
-        load_field_patterns(field_path)
-        if config.search_field and field_path.is_file()
-        else []
-    )
-    search = (
-        load_search_patterns(search_path, str(search_dir), minlen)
-        if config.search_suchmuster
-        else []
-    )
+    # Finding 6: pattern IDs must be globally unique across all pattern types.
+    # A collision is a fatal configuration error (no auto-rename, no warning).
+    registry: dict[str, tuple[str, str, int]] = {}
+    try:
+        regexp = load_regexp(regexp_path, registry) if config.search_regexp else []
+        field = (
+            load_field_patterns(field_path, registry)
+            if config.search_field and field_path.is_file()
+            else []
+        )
+        search = (
+            load_search_patterns(search_path, str(search_dir), minlen, registry)
+            if config.search_suchmuster
+            else []
+        )
+    except DuplicatePatternError as e:
+        print(f"FEHLER (Konfiguration): {e}")
+        sys.exit(EXIT_CONFIG)
     log.debug("Pattern files: regexp=%s, field=%s, search=%s",
               regexp_path, field_path, search_path)
     return regexp, field, search

@@ -56,6 +56,8 @@ class DetectoConfig:
     max_total_examples: int = 20_000
     max_values_per_pattern: int = 10_000
     max_examples_per_value: int = 100
+    # Finding 5: criticality for masked credential values (lower than plaintext)
+    masked_value_criticality: int = 4
     # Finding 27: oversized single-line handling
     oversized_line_policy: str = "truncate"  # truncate | skip | fail
 
@@ -83,6 +85,7 @@ class DetectoConfig:
         self.max_total_examples = max(1, self.max_total_examples)
         self.max_values_per_pattern = max(1, self.max_values_per_pattern)
         self.max_examples_per_value = max(1, self.max_examples_per_value)
+        self.masked_value_criticality = max(1, min(5, self.masked_value_criticality))
         if self.prefilter not in ("off", "regexp_field", "all"):
             self.prefilter = "off"
         if self.oversized_line_policy not in ("truncate", "skip", "fail"):
@@ -171,6 +174,9 @@ def load_config(base_dir: Path) -> DetectoConfig:
         # max_examples is the legacy alias; max_examples_per_value wins if set.
         cfg.max_examples_per_value = _safe_getint(
             s, "max_examples_per_value", _safe_getint(s, "max_examples", cfg.max_examples_per_value)
+        )
+        cfg.masked_value_criticality = _safe_getint(
+            s, "masked_value_criticality", cfg.masked_value_criticality
         )
         cfg.oversized_line_policy = s.get(
             "oversized_line_policy", fallback=cfg.oversized_line_policy

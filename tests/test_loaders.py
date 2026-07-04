@@ -38,7 +38,9 @@ class TestReadLines:
 
     def test_splits_by_delimiter(self, tmp_path):
         (tmp_path / "t.csv").write_text("a::b::c::d\n")
-        assert len(_read_lines(str(tmp_path / "t.csv"))[0][1]) == 4
+        # _read_lines now returns (lineno, raw, parts) for Finding 6.
+        lineno, raw, parts = _read_lines(str(tmp_path / "t.csv"))[0]
+        assert lineno == 1 and len(parts) == 4
 
 
 class TestStopwords:

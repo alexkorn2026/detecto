@@ -76,19 +76,39 @@ def test_empty_logfile(log_file):
     assert lines == 0 and len(results["email"][2]) == 0
 
 
-class TestIsPathOrMask:
-    @pytest.mark.parametrize("value", [
-        "/etc/passwd", "/opt/app/config", "\\Windows\\System32",
-        "~/config", "C:\\Users", "D:\\data", "****", "**********",
-    ])
-    def test_paths_and_masks_detected(self, value):
-        assert LogAnalyzer._is_path_or_mask(value) is True
+class TestPathAndMaskDetection:
+    """Finding 5: only unambiguous paths suppress values; masks are distinct."""
 
     @pytest.mark.parametrize("value", [
-        "geheim123", "MyPassword!", "admin", "secret_key",
+        "/etc/passwd", "/opt/app/config", "\\\\server\\share",
+        "~/config/app", "C:\\Users", "D:/data",
     ])
-    def test_normal_values_not_filtered(self, value):
-        assert LogAnalyzer._is_path_or_mask(value) is False
+    def test_real_paths_detected(self, value):
+        from detecto.analyzer import _looks_like_path
+        assert _looks_like_path(value) is True
+
+    @pytest.mark.parametrize("value", [
+        # Finding 5: these are passwords, NOT paths - must not be filtered.
+        "/MySecret2026!", "C:verySecret", "geheim123", "MyPassword!",
+        "admin", "secret_key",
+    ])
+    def test_credential_values_not_treated_as_paths(self, value):
+        from detecto.analyzer import _looks_like_path
+        assert _looks_like_path(value) is False
+
+    @pytest.mark.parametrize("value", [
+        "********", "xxxxx", "<redacted>", "[MASKED]", "<hidden>",
+    ])
+    def test_masked_values_detected(self, value):
+        from detecto.analyzer import _is_masked_value
+        assert _is_masked_value(value) is True
+
+    @pytest.mark.parametrize("value", [
+        "geheim123", "MyPassword!", "a@b.example",
+    ])
+    def test_real_values_not_masked(self, value):
+        from detecto.analyzer import _is_masked_value
+        assert _is_masked_value(value) is False
 
 
 def test_normalization_cached(log_file):

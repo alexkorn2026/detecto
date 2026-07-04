@@ -18,6 +18,9 @@ __all__ = [
     "MAX_TOTAL_EXAMPLES",
     "MAX_VALUES_PER_PATTERN",
     "EXAMPLE_TRUNCATE_MARKER",
+    "MASKED_VALUE_CRITICALITY",
+    "MASKED_STATUS",
+    "MASKED_SUFFIX",
     "MIN_LEN_REGEXP",
     "MIN_LEN_FIELD",
     "FIELD_SEPARATORS",
@@ -73,6 +76,10 @@ MAX_TOTAL_FINDINGS = 100_000
 MAX_TOTAL_EXAMPLES = 20_000
 MAX_VALUES_PER_PATTERN = 10_000
 EXAMPLE_TRUNCATE_MARKER = "…[gekuerzt]"
+# --- Masked credential values (Finding 5) ---
+MASKED_VALUE_CRITICALITY = 4
+MASKED_STATUS = "credential field present, value masked"
+MASKED_SUFFIX = " (maskiert)"
 MIN_LEN_REGEXP = 5    # shortest regexp match: a@b.c (email)
 MIN_LEN_FIELD = 3     # shortest field name: pwd
 FIELD_SEPARATORS = frozenset({"->", "=>", ":", "=", "==", "-->", "<<", ">>"})

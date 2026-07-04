@@ -12,7 +12,7 @@ from typing import Iterator
 
 import detecto.constants as _const
 from detecto.constants import (
-    PATH_PREFIXES, MIN_LEN_REGEXP, MIN_LEN_FIELD,
+    MIN_LEN_REGEXP, MIN_LEN_FIELD,
     STRIP_CHARS, PREFILTER_MARKERS, CHUNK_THRESHOLD_BYTES,
     REGEX_TIMEOUT_MS, REGEX_DISABLE_THRESHOLD,
 )
@@ -28,10 +28,39 @@ __all__ = ["LogAnalyzer"]
 
 log = logging.getLogger(__name__)
 
-_ASTERISK_RE = re.compile(r"\*+$")
 # Pre-filter: lines with >=5 consecutive digits may contain numeric PII
 # (VSNR, KVNR, Steuer-ID, IBAN, Telefon, PLZ, ...) and must pass the filter.
 _DIGIT_RUN_RE = re.compile(r"\d{5}")
+
+# Finding 5: only *unambiguous* filesystem paths should suppress a credential
+# value. A password like '/MySecret2026!' or 'C:verySecret' must NOT be
+# discarded just because of a leading slash or 'X:' prefix.
+_WIN_PATH_RE = re.compile(r"^[A-Za-z]:[\\/]")
+# Finding 5: masked credential values are a *distinct*, lower-severity finding,
+# never a plaintext-secret finding. Matches ****, xxxxx, <redacted>, [MASKED].
+_MASK_RE = re.compile(
+    r"^(?:"
+    r"\*{2,}"                                  # ****
+    r"|x{3,}"                                  # xxxxx / XXXXX
+    r"|[<\[]\s*(?:redacted|masked|hidden|removed|sanitized|filtered|secret|xxxx+)\s*[>\]]"
+    r"|(?:redacted|masked|hidden|removed|sanitized|filtered)"  # bare keyword (brackets stripped)
+    r")$",
+    re.IGNORECASE,
+)
+
+
+def _looks_like_path(value: str) -> bool:
+    """True only for values that are clearly filesystem paths (Finding 5)."""
+    if value.startswith(("/", "~/")) and "/" in value[1:]:
+        return True  # /var/log/app.log, ~/foo/bar
+    if value.startswith("\\\\"):
+        return True  # UNC \\server\share
+    return bool(_WIN_PATH_RE.match(value))  # C:\temp, D:/data
+
+
+def _is_masked_value(value: str) -> bool:
+    """True if a value is an obvious mask/redaction placeholder (Finding 5)."""
+    return bool(_MASK_RE.match(value.strip()))
 
 # Uncached normalize for whole lines (the LRU cache is sized for tokens;
 # unique log lines would evict useful entries).
@@ -63,6 +92,7 @@ class LogAnalyzer:
         max_total_findings: int = _const.MAX_TOTAL_FINDINGS,
         max_total_examples: int = _const.MAX_TOTAL_EXAMPLES,
         max_example_chars: int = _const.MAX_EXAMPLE_CHARS,
+        masked_criticality: int = _const.MASKED_VALUE_CRITICALITY,
     ) -> None:
         self.regexp = regexp or []
         self.field = field or []
@@ -83,6 +113,7 @@ class LogAnalyzer:
         self._max_total_examples = max_total_examples
         self._max_example_chars = max_example_chars
         self._max_examples_per_value = max_examples
+        self._masked_criticality = max(1, min(5, masked_criticality))
         self._total_values = 0
         self._total_examples = 0
         self.diag = ScanDiagnostics()
@@ -288,15 +319,8 @@ class LogAnalyzer:
         results = self._init_results()
         line_count = 0
 
-        worker_args = [
-            (logfile, self.regexp, self.field, self.search,
-             self.sw_regexp, self.sw_field, self.sw_search,
-             self.parse_json, self.prefilter, self.max_examples,
-             self._regex_timeout_ms, self._regex_disable_threshold,
-             self._max_values_per_pattern, self._max_total_findings,
-             self._max_total_examples, self._max_example_chars)
-            for logfile in logfiles
-        ]
+        kw = self._worker_kwargs()
+        worker_args = [(logfile, kw) for logfile in logfiles]
 
         is_tty = sys.stderr.isatty()
         with multiprocessing.Pool(num_workers) as pool:
@@ -343,14 +367,9 @@ class LogAnalyzer:
         line_count = 0
         errs_before = len(self.diag.file_errors)
 
+        kw = self._worker_kwargs()
         worker_args = [
-            (filepath, byte_start, byte_end,
-             self.regexp, self.field, self.search,
-             self.sw_regexp, self.sw_field, self.sw_search,
-             self.parse_json, self.prefilter, self.max_examples,
-             self._regex_timeout_ms, self._regex_disable_threshold,
-             self._max_values_per_pattern, self._max_total_findings,
-             self._max_total_examples, self._max_example_chars)
+            (filepath, byte_start, byte_end, kw)
             for byte_start, byte_end in chunks
         ]
 
@@ -441,6 +460,31 @@ class LogAnalyzer:
                     existing.append(entry)
                     self._total_examples += 1
 
+    def _worker_kwargs(self) -> dict:
+        """Bundle all constructor kwargs so workers rebuild an identical analyzer.
+
+        Keeping this in one place avoids brittle positional argument tuples as
+        more options are added.
+        """
+        return {
+            "regexp": self.regexp,
+            "field": self.field,
+            "search": self.search,
+            "sw_regexp": self.sw_regexp,
+            "sw_field": self.sw_field,
+            "sw_search": self.sw_search,
+            "parse_json": self.parse_json,
+            "prefilter": self.prefilter,
+            "max_examples": self._max_examples_per_value,
+            "regex_timeout_ms": self._regex_timeout_ms,
+            "regex_disable_threshold": self._regex_disable_threshold,
+            "max_values_per_pattern": self._max_values_per_pattern,
+            "max_total_findings": self._max_total_findings,
+            "max_total_examples": self._max_total_examples,
+            "max_example_chars": self._max_example_chars,
+            "masked_criticality": self._masked_criticality,
+        }
+
     def _note_timeout(self, name: str) -> None:
         """Record a regex timeout and disable repeat offenders (Finding 1)."""
         count = self.diag.record_timeout(name)
@@ -511,6 +555,22 @@ class LogAnalyzer:
         examples.append((filename, stored, field_token))
         self._total_examples += 1
 
+    def _store_masked(
+        self, results: OrderedDict, name: str,
+        filename: str, line: str, field_token: str | None,
+    ) -> None:
+        """Record a masked credential value as a distinct low-severity finding.
+
+        The masked value itself is never stored as a would-be secret
+        (Finding 5).
+        """
+        key = name + _const.MASKED_SUFFIX
+        if key not in results:
+            results[key] = ("field", self._masked_criticality, {})
+        self._store_hit(
+            results, key, _const.MASKED_STATUS, filename, line, field_token,
+        )
+
     def _process_lines(
         self, lines: Iterator[str], basename: str, results: OrderedDict,
     ) -> int:
@@ -545,7 +605,6 @@ class LogAnalyzer:
         sw_field = self.sw_field
         _normalize = normalize
         _find_field = find_field_value
-        _is_path = self._is_path_or_mask
         _store = self._store_hit
 
         disabled = self._disabled
@@ -621,7 +680,15 @@ class LogAnalyzer:
                         value = inline_kv[1]
                     else:
                         value, _ = _find_field(tokens, i + offset)
-                    if not value or _is_path(value):
+                    if not value:
+                        continue
+                    # Finding 5: masked values are a distinct, lower-severity
+                    # finding - not a plaintext-secret hit, not silently dropped.
+                    if _is_masked_value(value):
+                        self._store_masked(results, name, filename, line, token)
+                        continue
+                    # Only *unambiguous* filesystem paths suppress the value.
+                    if _looks_like_path(value):
                         continue
                     if _normalize(value) not in sw_field:
                         _store(results, name, value, filename, line, token)
@@ -632,15 +699,6 @@ class LogAnalyzer:
                 if names:
                     for name in names:
                         _store(results, name, token, filename, line)
-
-    @staticmethod
-    def _is_path_or_mask(value: str) -> bool:
-        """Check if a value is a file path or asterisk mask."""
-        if value.startswith(PATH_PREFIXES):
-            return True
-        if len(value) >= 2 and value[1] == ":":
-            return True
-        return bool(_ASTERISK_RE.fullmatch(value))
 
 
 # ---------------------------------------------------------------------------
@@ -758,24 +816,8 @@ def _analyze_file_worker(args: tuple) -> tuple[OrderedDict, int, str]:
     Must be a top-level function (pickle requirement).
     Returns (results, line_count, basename).
     """
-    (logfile, regexp, field, search,
-     sw_regexp, sw_field, sw_search, parse_json, prefilter,
-     max_examples, regex_timeout_ms, regex_disable_threshold,
-     max_values_per_pattern, max_total_findings,
-     max_total_examples, max_example_chars) = args
-
-    analyzer = LogAnalyzer(
-        regexp=regexp, field=field, search=search,
-        sw_regexp=sw_regexp, sw_field=sw_field, sw_search=sw_search,
-        parse_json=parse_json, prefilter=prefilter,
-        max_examples=max_examples,
-        regex_timeout_ms=regex_timeout_ms,
-        regex_disable_threshold=regex_disable_threshold,
-        max_values_per_pattern=max_values_per_pattern,
-        max_total_findings=max_total_findings,
-        max_total_examples=max_total_examples,
-        max_example_chars=max_example_chars,
-    )
+    logfile, kwargs = args
+    analyzer = LogAnalyzer(**kwargs)
     results = analyzer._init_results()
     basename = os.path.basename(logfile)
     line_count = analyzer._process_lines(
@@ -790,26 +832,8 @@ def _analyze_chunk_worker(args: tuple) -> tuple[OrderedDict, int]:
     Reads a byte range from the file and analyzes each line.
     Returns (results, line_count).
     """
-    (filepath, byte_start, byte_end,
-     regexp, field, search,
-     sw_regexp, sw_field, sw_search,
-     parse_json, prefilter, max_examples,
-     regex_timeout_ms, regex_disable_threshold,
-     max_values_per_pattern, max_total_findings,
-     max_total_examples, max_example_chars) = args
-
-    analyzer = LogAnalyzer(
-        regexp=regexp, field=field, search=search,
-        sw_regexp=sw_regexp, sw_field=sw_field, sw_search=sw_search,
-        parse_json=parse_json, prefilter=prefilter,
-        max_examples=max_examples,
-        regex_timeout_ms=regex_timeout_ms,
-        regex_disable_threshold=regex_disable_threshold,
-        max_values_per_pattern=max_values_per_pattern,
-        max_total_findings=max_total_findings,
-        max_total_examples=max_total_examples,
-        max_example_chars=max_example_chars,
-    )
+    filepath, byte_start, byte_end, kwargs = args
+    analyzer = LogAnalyzer(**kwargs)
     results = analyzer._init_results()
     basename = os.path.basename(filepath)
     line_count = analyzer._process_lines(

@@ -1,0 +1,48 @@
+name: Bug Report
+description: Einen Fehler in Detecto melden
+title: "[Bug]: "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Danke für den Bug-Report! Bitte **keine echten personenbezogenen Daten**
+        oder echte Secrets in Logausschnitten posten – nutze anonymisierte oder
+        synthetische Beispiele.
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: Was ist passiert?
+      description: Beschreibung des Fehlers und was du stattdessen erwartet hast.
+    validations:
+      required: true
+  - type: textarea
+    id: repro
+    attributes:
+      label: Schritte zur Reproduktion
+      description: Genauer Aufruf (Kommandozeile) und ein minimaler, synthetischer Log-Ausschnitt.
+      placeholder: |
+        1. detecto beispiel.log --critical=2
+        2. Log-Zeile: [2026-01-01] INFO ...
+        3. Fehler / falsches Ergebnis: ...
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Detecto-Version
+      placeholder: "z.B. 1.6.1 (detecto --status)"
+    validations:
+      required: true
+  - type: input
+    id: python
+    attributes:
+      label: Python-Version / OS
+      placeholder: "z.B. Python 3.12 auf macOS 15"
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Relevante Ausgabe / Traceback
+      render: shell

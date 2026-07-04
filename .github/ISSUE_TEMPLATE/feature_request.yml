@@ -1,0 +1,26 @@
+name: Feature Request
+description: Eine Idee oder ein neues Suchmuster vorschlagen
+title: "[Feature]: "
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Welches Problem soll gelöst werden?
+      description: Worum geht es? Welcher Anwendungsfall steckt dahinter?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Vorgeschlagene Lösung
+      description: |
+        Bei einem neuen Suchmuster bitte Typ (regexp/field/string), Kritikalität (1-5)
+        und ein synthetisches Beispiel angeben.
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternativen / Kontext
+      description: Andere Ansätze, die du erwogen hast (optional).

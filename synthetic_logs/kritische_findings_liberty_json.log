@@ -1,0 +1,51 @@
+{"type": "liberty_message", "ibm_datetime": "2026-07-04T10:00:01.000+0200", "loglevel": "INFO", "module": "de.rvbund.detecto.AntragService", "message": "Antrag mit RVNR 65 170839 J 008 eingegangen"}
+{"type": "liberty_message", "ibm_datetime": "2026-07-04T10:00:02.000+0200", "loglevel": "INFO", "module": "de.rvbund.detecto.AntragService", "message": "Verarbeitung vsnr=65170839J008 abgeschlossen"}
+{"type": "liberty_message", "ibm_datetime": "2026-07-04T10:00:03.000+0200", "loglevel": "INFO", "module": "de.rvbund.detecto.StammdatenDAO", "message": "Stammsatz geladen RVNR:65170839J008"}
+{"type": "liberty_message", "ibm_datetime": "2026-07-04T10:00:04.000+0200", "loglevel": "INFO", "module": "de.rvbund.detecto.KontaktService", "message": "Rueckruf unter +49 30 1234 5678 vereinbart"}
+{"type": "liberty_message", "ibm_datetime": "2026-07-04T10:00:05.000+0200", "loglevel": "INFO", "module": "de.rvbund.detecto.ZahlungService", "message": "Ueberweisung auf DE89 3704 0044 0532 0130 00 veranlasst"}
+{"type": "liberty_message", "ibm_datetime": "2026-07-04T10:00:06.000+0200", "loglevel": "WARN", "module": "de.rvbund.detecto.ZahlungService", "message": "Zahlung mit Karte 4532 1111 2222 3333 abgelehnt"}
+{"type": "liberty_message", "ibm_datetime": "2026-07-04T10:00:07.000+0200", "loglevel": "ERROR", "module": "de.rvbund.detecto.DumpWriter", "message": "Dump enthaelt -----BEGIN RSA PRIVATE KEY----- Fragment"}
+{"type": "liberty_message", "ibm_datetime": "2026-07-04T10:00:08.000+0200", "loglevel": "INFO", "module": "de.rvbund.detecto.AuthController", "message": "Request {\"login\":\"m.weber\",\"password\":\"W1nter#Geh31m\"} verarbeitet"}
+{"type": "liberty_message", "ibm_datetime": "2026-07-04T10:00:09.000+0200", "loglevel": "INFO", "module": "de.rvbund.detecto.AuthController", "message": "Anmeldung fehlgeschlagen password = Fr3itag$2026"}
+{"type": "liberty_message", "ibm_datetime": "2026-07-04T10:00:10.000+0200", "loglevel": "INFO", "module": "de.rvbund.detecto.DBAdmin", "message": "Skript ausgefuehrt identified by S3cret#99 durch DBA"}
+{"type": "liberty_message", "ibm_datetime": "2026-07-04T10:00:11.000+0200", "loglevel": "INFO", "module": "de.rvbund.detecto.SecurityFilter", "message": "Header authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxMjMifQ.sflKxwRJSMeKKF2QT4"}
+{"type": "liberty_message", "ibm_datetime": "2026-07-04T10:00:12.000+0200", "loglevel": "INFO", "module": "de.rvbund.detecto.SessionManager", "message": "Neue Session JSESSIONID:9A3B2C1D4E5F6789 erstellt"}
+{"type": "liberty_message", "ibm_datetime": "2026-07-04T10:00:13.000+0200", "loglevel": "INFO", "module": "de.rvbund.detecto.ConnectionPool", "message": "Verbindung jdbc:oracle://db01:1521/PROD aufgebaut"}
+{"type": "liberty_message", "ibm_datetime": "2026-07-04T10:00:14.000+0200", "loglevel": "INFO", "module": "de.rvbund.detecto.DeployJob", "message": "Deployment api_key=Xk29fLpQ7 erfolgreich"}
+{"type": "liberty_message", "ibm_datetime": "2026-07-04T10:00:15.000+0200", "loglevel": "WARN", "module": "de.rvbund.detecto.SecretScanner", "message": "Key im Repo gefunden AKIAIOSFODNN7EXAMPLE bitte rotieren"}
+{"type": "liberty_message", "ibm_datetime": "2026-07-04T10:00:16.000+0200", "loglevel": "WARN", "module": "de.rvbund.detecto.SecretScanner", "message": "Commit enthaelt ghp_a1B2c3D4e5F6g7H8i9J0k1L2m3N4o5P6q7R8"}
+{"type": "liberty_message", "ibm_datetime": "2026-07-04T10:00:17.000+0200", "loglevel": "WARN", "module": "de.rvbund.detecto.SecretScanner", "message": "Webhook nutzt xoxb-123456789012-AbCdEfGhIjKl"}
+{"type": "liberty_message", "ibm_datetime": "2026-07-04T10:00:18.000+0200", "loglevel": "INFO", "module": "de.rvbund.detecto.StorageConfig", "message": "Storage konfiguriert AccountKey aBcDeF1234567890aBcDeF1234567890aBcDeF12345678=="}
+{"type": "liberty_message", "ibm_datetime": "2026-07-04T10:00:19.000+0200", "loglevel": "INFO", "module": "de.rvbund.detecto.CiRunner", "message": "Checkout von git@intranet.example:detecto/core.git"}
+{"type": "liberty_message", "ibm_datetime": "2026-07-04T10:00:20.000+0200", "loglevel": "INFO", "module": "de.rvbund.detecto.KontaktService", "message": "Kontakt max.mustermann@example.org hinterlegt"}
+{"type": "liberty_message", "ibm_datetime": "2026-07-04T10:00:21.000+0200", "loglevel": "INFO", "module": "de.rvbund.detecto.VersandService", "message": "Zustellung an Hauptstrasse 12 beauftragt"}
+{"type": "liberty_message", "ibm_datetime": "2026-07-04T10:00:22.000+0200", "loglevel": "INFO", "module": "de.rvbund.detecto.VersandService", "message": "Meldeanschrift 10115 Berlin uebernommen"}
+{"type": "liberty_message", "ibm_datetime": "2026-07-04T10:00:23.000+0200", "loglevel": "INFO", "module": "de.rvbund.detecto.SteuerService", "message": "Steuerbescheid zur Steuer-ID 12345678901 versendet"}
+{"type": "liberty_message", "ibm_datetime": "2026-07-04T10:00:24.000+0200", "loglevel": "INFO", "module": "de.rvbund.detecto.KrankenkasseDAO", "message": "Versichertenkarte A123456789 eingelesen"}
+{"type": "liberty_message", "ibm_datetime": "2026-07-04T10:00:25.000+0200", "loglevel": "INFO", "module": "de.rvbund.detecto.AusweisPruefer", "message": "Ausweis L01X00T471 geprueft"}
+{"type": "liberty_message", "ibm_datetime": "2026-07-04T10:00:26.000+0200", "loglevel": "INFO", "module": "de.rvbund.detecto.FirmenService", "message": "Firma erfasst HRB 98765 Amtsgericht Muenchen"}
+{"type": "liberty_message", "ibm_datetime": "2026-07-04T10:00:27.000+0200", "loglevel": "INFO", "module": "de.rvbund.detecto.RechnungService", "message": "Rechnung mit USt-IdNr DE811907980 gestellt"}
+{"type": "liberty_message", "ibm_datetime": "2026-07-04T10:00:28.000+0200", "loglevel": "INFO", "module": "de.rvbund.detecto.ZahlungService", "message": "Ueberweisung via COBADEFFXXX gebucht"}
+{"type": "liberty_message", "ibm_datetime": "2026-07-04T10:00:29.000+0200", "loglevel": "INFO", "module": "de.rvbund.detecto.SGVerfahren", "message": "Verfahren S 12 R 345/20 terminiert"}
+{"type": "liberty_message", "ibm_datetime": "2026-07-04T10:00:30.000+0200", "loglevel": "INFO", "module": "de.rvbund.detecto.AccessLog", "message": "Zugriff von 203.0.113.42 protokolliert"}
+{"type": "liberty_message", "ibm_datetime": "2026-07-04T10:00:31.000+0200", "loglevel": "INFO", "module": "de.rvbund.detecto.AccessLog", "message": "Backend erreichbar unter 192.168.1.100"}
+{"type": "liberty_message", "ibm_datetime": "2026-07-04T10:00:32.000+0200", "loglevel": "INFO", "module": "de.rvbund.detecto.DeviceRegistry", "message": "Geraet 00:1A:2B:3C:4D:5E registriert"}
+{"type": "liberty_message", "ibm_datetime": "2026-07-04T10:00:33.000+0200", "loglevel": "INFO", "module": "de.rvbund.detecto.DeviceRegistry", "message": "Endgeraet mit IMEI 490154203237518 gemeldet"}
+{"type": "liberty_message", "ibm_datetime": "2026-07-04T10:00:34.000+0200", "loglevel": "INFO", "module": "de.rvbund.detecto.FuhrparkService", "message": "Fahrzeug B-XY 987 zugeordnet"}
+{"type": "liberty_message", "ibm_datetime": "2026-07-04T10:00:35.000+0200", "loglevel": "INFO", "module": "de.rvbund.detecto.LizenzService", "message": "Aktivierung mit ABCD1-EF234-GH567 erfolgreich"}
+{"type": "liberty_message", "ibm_datetime": "2026-07-04T10:00:36.000+0200", "loglevel": "WARN", "module": "de.rvbund.detecto.ClassifyService", "message": "Dokument als VS-NfD eingestuft"}
+{"type": "liberty_message", "ibm_datetime": "2026-07-04T10:00:37.000+0200", "loglevel": "WARN", "module": "de.rvbund.detecto.ClassifyService", "message": "Anlage traegt Vermerk STRENG GEHEIM"}
+{"type": "liberty_message", "ibm_datetime": "2026-07-04T10:00:38.000+0200", "loglevel": "WARN", "module": "de.rvbund.detecto.ClassifyService", "message": "Datei klassifiziert als NATO SECRET"}
+{"type": "liberty_message", "ibm_datetime": "2026-07-04T10:00:39.000+0200", "loglevel": "INFO", "module": "de.rvbund.detecto.MelderegisterDAO", "message": "Sperrvermerk im Melderegister gesetzt"}
+{"type": "liberty_message", "ibm_datetime": "2026-07-04T10:00:40.000+0200", "loglevel": "INFO", "module": "de.rvbund.detecto.FormularService", "message": "Vorname Anna im Formular uebernommen"}
+{"type": "liberty_message", "ibm_datetime": "2026-07-04T10:00:41.000+0200", "loglevel": "INFO", "module": "de.rvbund.detecto.VorgangService", "message": "Sachbearbeiter Schmidt hat Vorgang uebernommen"}
+{"type": "liberty_message", "ibm_datetime": "2026-07-04T10:00:42.000+0200", "loglevel": "INFO", "module": "de.rvbund.detecto.MelderegisterDAO", "message": "Umzug nach Hamburg gemeldet"}
+{"type": "liberty_message", "ibm_datetime": "2026-07-04T10:00:43.000+0200", "loglevel": "INFO", "module": "de.rvbund.detecto.BefundService", "message": "Befund Diabetes dokumentiert"}
+{"type": "liberty_message", "ibm_datetime": "2026-07-04T10:00:44.000+0200", "loglevel": "INFO", "module": "de.rvbund.detecto.BefundService", "message": "Diagnose:F32.1 an Kasse uebermittelt"}
+{"type": "liberty_message", "ibm_datetime": "2026-07-04T10:00:45.000+0200", "loglevel": "INFO", "module": "de.rvbund.detecto.NotfallService", "message": "Blutgruppe: AB+ im Notfallpass vermerkt"}
+{"type": "liberty_message", "ibm_datetime": "2026-07-04T10:00:46.000+0200", "loglevel": "INFO", "module": "de.rvbund.detecto.PflegeService", "message": "Pflegegrad 3 bewilligt"}
+{"type": "liberty_message", "ibm_datetime": "2026-07-04T10:00:47.000+0200", "loglevel": "INFO", "module": "de.rvbund.detecto.SchwerbehService", "message": "GdB 50 anerkannt"}
+{"type": "liberty_message", "ibm_datetime": "2026-07-04T10:00:48.000+0200", "loglevel": "INFO", "module": "de.rvbund.detecto.GehaltService", "message": "Gehalt 4850 EUR ausgezahlt"}
+{"type": "liberty_message", "ibm_datetime": "2026-07-04T10:00:49.000+0200", "loglevel": "INFO", "module": "de.rvbund.detecto.SterbefallDAO", "message": "Sterbedatum 2025-11-03 nacherfasst"}
+{"type": "liberty_message", "ibm_datetime": "2026-07-04T10:00:50.000+0200", "loglevel": "INFO", "module": "de.rvbund.detecto.RenteService", "message": "Entgeltpunkte 34.5 berechnet"}
+{"type": "liberty_message", "ibm_datetime": "2026-07-04T10:00:51.000+0200", "loglevel": "INFO", "module": "de.rvbund.detecto.GeburtsdatumDAO", "message": "Geburtsdatum 1983-05-17 verifiziert"}

@@ -1,6 +1,13 @@
 # Detecto
 
+[![tests](https://github.com/alexkorn2026/detecto/actions/workflows/tests.yml/badge.svg)](https://github.com/alexkorn2026/detecto/actions/workflows/tests.yml)
+[![Python](https://img.shields.io/badge/python-3.9%2B-blue)](https://www.python.org/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+
 **Detecto** scannt Log-Dateien (Websphere/Liberty) nach kritischen und personenbezogenen Daten und identifiziert diese.
+
+> Schnell ausprobieren: `detecto synthetic_logs/kritische_findings_websphere_application.log`
+> — synthetische Beispiel-Logs liegen in [`synthetic_logs/`](synthetic_logs/).
 
 ## Beschreibung
 

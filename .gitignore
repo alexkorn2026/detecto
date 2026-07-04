@@ -39,6 +39,8 @@ df943309-c882-46d7-8924-d692d26f7bc6.png
 
 # ---- Log-/Testausgaben ----
 *.log
+# ...aber die synthetischen Beispiel-Logs bewusst behalten:
+!synthetic_logs/kritische_findings_*.log
 
 # ---- Grosse synthetische Log-Archive (ueber GitHubs 100-MB-Limit) ----
 synthetic_logs/*.zip

@@ -1,0 +1,51 @@
+[04.07.26 10:00:01:000 CEST] 00000042 AntragService      I Antrag mit RVNR 65 170839 J 008 eingegangen
+[04.07.26 10:00:02:000 CEST] 00000042 AntragService      I Verarbeitung vsnr=65170839J008 abgeschlossen
+[04.07.26 10:00:03:000 CEST] 00000042 StammdatenDAO      I Stammsatz geladen RVNR:65170839J008
+[04.07.26 10:00:04:000 CEST] 00000042 KontaktService     I Rueckruf unter +49 30 1234 5678 vereinbart
+[04.07.26 10:00:05:000 CEST] 00000042 ZahlungService     I Ueberweisung auf DE89 3704 0044 0532 0130 00 veranlasst
+[04.07.26 10:00:06:000 CEST] 00000042 ZahlungService     W Zahlung mit Karte 4532 1111 2222 3333 abgelehnt
+[04.07.26 10:00:07:000 CEST] 00000042 DumpWriter         E Dump enthaelt -----BEGIN RSA PRIVATE KEY----- Fragment
+[04.07.26 10:00:08:000 CEST] 00000042 AuthController     I Request {"login":"m.weber","password":"W1nter#Geh31m"} verarbeitet
+[04.07.26 10:00:09:000 CEST] 00000042 AuthController     I Anmeldung fehlgeschlagen password = Fr3itag$2026
+[04.07.26 10:00:10:000 CEST] 00000042 DBAdmin            I Skript ausgefuehrt identified by S3cret#99 durch DBA
+[04.07.26 10:00:11:000 CEST] 00000042 SecurityFilter     I Header authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxMjMifQ.sflKxwRJSMeKKF2QT4
+[04.07.26 10:00:12:000 CEST] 00000042 SessionManager     I Neue Session JSESSIONID:9A3B2C1D4E5F6789 erstellt
+[04.07.26 10:00:13:000 CEST] 00000042 ConnectionPool     I Verbindung jdbc:oracle://db01:1521/PROD aufgebaut
+[04.07.26 10:00:14:000 CEST] 00000042 DeployJob          I Deployment api_key=Xk29fLpQ7 erfolgreich
+[04.07.26 10:00:15:000 CEST] 00000042 SecretScanner      W Key im Repo gefunden AKIAIOSFODNN7EXAMPLE bitte rotieren
+[04.07.26 10:00:16:000 CEST] 00000042 SecretScanner      W Commit enthaelt ghp_a1B2c3D4e5F6g7H8i9J0k1L2m3N4o5P6q7R8
+[04.07.26 10:00:17:000 CEST] 00000042 SecretScanner      W Webhook nutzt xoxb-123456789012-AbCdEfGhIjKl
+[04.07.26 10:00:18:000 CEST] 00000042 StorageConfig      I Storage konfiguriert AccountKey aBcDeF1234567890aBcDeF1234567890aBcDeF12345678==
+[04.07.26 10:00:19:000 CEST] 00000042 CiRunner           I Checkout von git@intranet.example:detecto/core.git
+[04.07.26 10:00:20:000 CEST] 00000042 KontaktService     I Kontakt max.mustermann@example.org hinterlegt
+[04.07.26 10:00:21:000 CEST] 00000042 VersandService     I Zustellung an Hauptstrasse 12 beauftragt
+[04.07.26 10:00:22:000 CEST] 00000042 VersandService     I Meldeanschrift 10115 Berlin uebernommen
+[04.07.26 10:00:23:000 CEST] 00000042 SteuerService      I Steuerbescheid zur Steuer-ID 12345678901 versendet
+[04.07.26 10:00:24:000 CEST] 00000042 KrankenkasseDAO    I Versichertenkarte A123456789 eingelesen
+[04.07.26 10:00:25:000 CEST] 00000042 AusweisPruefer     I Ausweis L01X00T471 geprueft
+[04.07.26 10:00:26:000 CEST] 00000042 FirmenService      I Firma erfasst HRB 98765 Amtsgericht Muenchen
+[04.07.26 10:00:27:000 CEST] 00000042 RechnungService    I Rechnung mit USt-IdNr DE811907980 gestellt
+[04.07.26 10:00:28:000 CEST] 00000042 ZahlungService     I Ueberweisung via COBADEFFXXX gebucht
+[04.07.26 10:00:29:000 CEST] 00000042 SGVerfahren        I Verfahren S 12 R 345/20 terminiert
+[04.07.26 10:00:30:000 CEST] 00000042 AccessLog          I Zugriff von 203.0.113.42 protokolliert
+[04.07.26 10:00:31:000 CEST] 00000042 AccessLog          I Backend erreichbar unter 192.168.1.100
+[04.07.26 10:00:32:000 CEST] 00000042 DeviceRegistry     I Geraet 00:1A:2B:3C:4D:5E registriert
+[04.07.26 10:00:33:000 CEST] 00000042 DeviceRegistry     I Endgeraet mit IMEI 490154203237518 gemeldet
+[04.07.26 10:00:34:000 CEST] 00000042 FuhrparkService    I Fahrzeug B-XY 987 zugeordnet
+[04.07.26 10:00:35:000 CEST] 00000042 LizenzService      I Aktivierung mit ABCD1-EF234-GH567 erfolgreich
+[04.07.26 10:00:36:000 CEST] 00000042 ClassifyService    W Dokument als VS-NfD eingestuft
+[04.07.26 10:00:37:000 CEST] 00000042 ClassifyService    W Anlage traegt Vermerk STRENG GEHEIM
+[04.07.26 10:00:38:000 CEST] 00000042 ClassifyService    W Datei klassifiziert als NATO SECRET
+[04.07.26 10:00:39:000 CEST] 00000042 MelderegisterDAO   I Sperrvermerk im Melderegister gesetzt
+[04.07.26 10:00:40:000 CEST] 00000042 FormularService    I Vorname Anna im Formular uebernommen
+[04.07.26 10:00:41:000 CEST] 00000042 VorgangService     I Sachbearbeiter Schmidt hat Vorgang uebernommen
+[04.07.26 10:00:42:000 CEST] 00000042 MelderegisterDAO   I Umzug nach Hamburg gemeldet
+[04.07.26 10:00:43:000 CEST] 00000042 BefundService      I Befund Diabetes dokumentiert
+[04.07.26 10:00:44:000 CEST] 00000042 BefundService      I Diagnose:F32.1 an Kasse uebermittelt
+[04.07.26 10:00:45:000 CEST] 00000042 NotfallService     I Blutgruppe: AB+ im Notfallpass vermerkt
+[04.07.26 10:00:46:000 CEST] 00000042 PflegeService      I Pflegegrad 3 bewilligt
+[04.07.26 10:00:47:000 CEST] 00000042 SchwerbehService   I GdB 50 anerkannt
+[04.07.26 10:00:48:000 CEST] 00000042 GehaltService      I Gehalt 4850 EUR ausgezahlt
+[04.07.26 10:00:49:000 CEST] 00000042 SterbefallDAO      I Sterbedatum 2025-11-03 nacherfasst
+[04.07.26 10:00:50:000 CEST] 00000042 RenteService       I Entgeltpunkte 34.5 berechnet
+[04.07.26 10:00:51:000 CEST] 00000042 GeburtsdatumDAO    I Geburtsdatum 1983-05-17 verifiziert

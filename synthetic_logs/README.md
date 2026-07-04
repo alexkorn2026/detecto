@@ -1,45 +1,43 @@
 # Synthetic Log Samples
 
-Dieses Verzeichnis enthaelt synthetische Logdateien mit denselben 400 Findings aus 20 Kategorien kritischer Logdaten.
+Dieses Verzeichnis enthält synthetische Logdateien mit denselben Findings,
+gerendert in mehrere gängige Logformate. **Alle Werte sind fiktiv** und
+ausschließlich für Test-, Demo- und Erkennungszwecke gedacht.
 
-Die Beispiele basieren auf:
+## Regenerieren
 
-- `/Users/alexanderkornbrust/Documents/Claude/Projects/Detecto/kritische_logdaten_findings.md`
+Die Beispiele werden reproduzierbar aus einem gemeinsamen Satz Findings erzeugt:
 
-Alle Werte sind fiktiv und fuer Test-, Demo- und Erkennungszwecke gedacht.
+```bash
+python3 synthetic_logs/generate_samples.py
+```
+
+Neue Findings oder Formate lassen sich in `generate_samples.py` ergänzen.
 
 ## Enthaltene Formate
 
-- `kritische_findings_websphere_application.log`
-  WebSphere Application Log mit klassischem Textformat
+| Datei | Format |
+|---|---|
+| `kritische_findings_websphere_application.log` | WebSphere Application Log (Textformat) |
+| `kritische_findings_liberty_messages.log`      | Open Liberty `messages.log` (Textformat) |
+| `kritische_findings_liberty_json.log`          | Open Liberty JSON-Logformat |
+| `kritische_findings_tomcat_application.log`     | Tomcat Application Log |
+| `kritische_findings_apache_error.log`          | Apache Error Log |
+| `kritische_findings_kubernetes.log`            | Kubernetes/Container Log (JSON) |
+| `kritische_findings_spring_boot.log`           | Spring Boot Log |
 
-- `kritische_findings_liberty_messages.log`
-  Open Liberty `messages.log` Textformat
+Pro Format dieselben Inhalte in unterschiedlicher technischer Darstellung.
 
-- `kritische_findings_liberty_json.log`
-  Open Liberty JSON-Logformat mit `liberty_message`
+## Ausprobieren
 
-- `kritische_findings_tomcat_application.log`
-  Tomcat Application Log
-
-- `kritische_findings_apache_error.log`
-  Apache Error Log Format
-
-- `kritische_findings_kubernetes.log`
-  Kubernetes/Container Log Format mit JSON-Payload
-
-- `kritische_findings_spring_boot.log`
-  Spring Boot Log Format
-
-## Inhalt
-
-- 20 Kategorien kritischer Informationen
-- 400 synthetische Findings insgesamt
-- pro Format dieselben Inhalte in unterschiedlicher technischer Darstellung
+```bash
+detecto synthetic_logs/kritische_findings_websphere_application.log
+detecto synthetic_logs/kritische_findings_liberty_json.log --critical=2
+```
 
 ## Zweck
 
-- Testdaten fuer Logscanner
+- Testdaten für den Logscanner
 - Vergleich unterschiedlicher Logformate
 - Training und Validierung von Suchmustern
-- Demo-Daten fuer Workshops und Dokumentation
+- Demo-Daten für Workshops und Dokumentation

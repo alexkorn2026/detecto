@@ -59,6 +59,10 @@ class LogAnalyzer:
         max_examples: int = 100,
         regex_timeout_ms: int = REGEX_TIMEOUT_MS,
         regex_disable_threshold: int = REGEX_DISABLE_THRESHOLD,
+        max_values_per_pattern: int = _const.MAX_VALUES_PER_PATTERN,
+        max_total_findings: int = _const.MAX_TOTAL_FINDINGS,
+        max_total_examples: int = _const.MAX_TOTAL_EXAMPLES,
+        max_example_chars: int = _const.MAX_EXAMPLE_CHARS,
     ) -> None:
         self.regexp = regexp or []
         self.field = field or []
@@ -73,6 +77,14 @@ class LogAnalyzer:
         self._regex_timeout_ms = regex_timeout_ms
         self._regex_disable_threshold = regex_disable_threshold
         self._disabled: set[str] = set()
+        # Finding 4: global memory / result limits + counters.
+        self._max_values_per_pattern = max_values_per_pattern
+        self._max_total_findings = max_total_findings
+        self._max_total_examples = max_total_examples
+        self._max_example_chars = max_example_chars
+        self._max_examples_per_value = max_examples
+        self._total_values = 0
+        self._total_examples = 0
         self.diag = ScanDiagnostics()
         # Multi-word search values (e.g. 'Multiple Sklerose') can never
         # match a single token - they are checked against the whole
@@ -280,7 +292,9 @@ class LogAnalyzer:
             (logfile, self.regexp, self.field, self.search,
              self.sw_regexp, self.sw_field, self.sw_search,
              self.parse_json, self.prefilter, self.max_examples,
-             self._regex_timeout_ms, self._regex_disable_threshold)
+             self._regex_timeout_ms, self._regex_disable_threshold,
+             self._max_values_per_pattern, self._max_total_findings,
+             self._max_total_examples, self._max_example_chars)
             for logfile in logfiles
         ]
 
@@ -334,7 +348,9 @@ class LogAnalyzer:
              self.regexp, self.field, self.search,
              self.sw_regexp, self.sw_field, self.sw_search,
              self.parse_json, self.prefilter, self.max_examples,
-             self._regex_timeout_ms, self._regex_disable_threshold)
+             self._regex_timeout_ms, self._regex_disable_threshold,
+             self._max_values_per_pattern, self._max_total_findings,
+             self._max_total_examples, self._max_example_chars)
             for byte_start, byte_end in chunks
         ]
 
@@ -394,21 +410,36 @@ class LogAnalyzer:
         return results
 
     def _merge_results(self, target: OrderedDict, source: OrderedDict) -> None:
-        """Merge file-level results into the global results."""
-        max_examples = self.max_examples
-        max_hits = _const.MAX_HITS_PER_PATTERN
+        """Merge worker results into the global results, enforcing limits.
+
+        The global caps (Finding 4) must hold across all workers, so they are
+        re-checked here. Example lines were already truncated by the worker.
+        """
         for name, (typ, krit, hits) in source.items():
             if name not in target:
                 target[name] = (typ, krit, {})
             target_hits = target[name][2]
             for value, entries in hits.items():
-                if max_hits and len(target_hits) >= max_hits:
-                    continue  # skip this value but keep iterating others
                 if value not in target_hits:
+                    if len(target_hits) >= self._max_values_per_pattern:
+                        self.diag.findings_dropped_pattern += 1
+                        continue
+                    if self._total_values >= self._max_total_findings:
+                        if not self.diag.global_limit_hit:
+                            self.diag.global_limit_hit = "max_total_findings"
+                        self.diag.findings_dropped_global += 1
+                        continue
                     target_hits[value] = []
-                remaining = max_examples - len(target_hits[value])
-                if remaining > 0:
-                    target_hits[value].extend(entries[:remaining])
+                    self._total_values += 1
+                existing = target_hits[value]
+                room = self._max_examples_per_value - len(existing)
+                for entry in entries[:room] if room > 0 else []:
+                    if self._total_examples >= self._max_total_examples:
+                        if not self.diag.global_limit_hit:
+                            self.diag.global_limit_hit = "max_total_examples"
+                        break
+                    existing.append(entry)
+                    self._total_examples += 1
 
     def _note_timeout(self, name: str) -> None:
         """Record a regex timeout and disable repeat offenders (Finding 1)."""
@@ -436,6 +467,49 @@ class LogAnalyzer:
         except RegexTimeout:
             self._note_timeout(name)
             return []
+
+    def _truncate_example(self, line: str) -> tuple[str, bool]:
+        """Trim an example line to max_example_chars with a visible marker."""
+        limit = self._max_example_chars
+        if limit and len(line) > limit:
+            return line[:limit] + " " + _const.EXAMPLE_TRUNCATE_MARKER, True
+        return line, False
+
+    def _store_hit(
+        self, results: OrderedDict, name: str, value: str,
+        filename: str, line: str, field_token: str | None = None,
+    ) -> None:
+        """Store one finding example, enforcing all limits (Finding 4).
+
+        Central choke point so per-pattern and global limits are applied
+        consistently and every dropped/truncated item is counted for the
+        report - no silent data loss.
+        """
+        hits = results[name][2]
+        if value not in hits:
+            if len(hits) >= self._max_values_per_pattern:
+                self.diag.findings_dropped_pattern += 1
+                return
+            if self._total_values >= self._max_total_findings:
+                if not self.diag.global_limit_hit:
+                    self.diag.global_limit_hit = "max_total_findings"
+                self.diag.findings_dropped_global += 1
+                return
+            hits[value] = []
+            self._total_values += 1
+            self.diag.findings_stored += 1
+        examples = hits[value]
+        if len(examples) >= self._max_examples_per_value:
+            return
+        if self._total_examples >= self._max_total_examples:
+            if not self.diag.global_limit_hit:
+                self.diag.global_limit_hit = "max_total_examples"
+            return
+        stored, truncated = self._truncate_example(line)
+        if truncated:
+            self.diag.examples_truncated += 1
+        examples.append((filename, stored, field_token))
+        self._total_examples += 1
 
     def _process_lines(
         self, lines: Iterator[str], basename: str, results: OrderedDict,
@@ -469,11 +543,10 @@ class LogAnalyzer:
         sw_search = self.sw_search
         sw_regexp = self.sw_regexp
         sw_field = self.sw_field
-        max_examples = self.max_examples
-        max_hits = _const.MAX_HITS_PER_PATTERN
         _normalize = normalize
         _find_field = find_field_value
         _is_path = self._is_path_or_mask
+        _store = self._store_hit
 
         disabled = self._disabled
 
@@ -487,13 +560,7 @@ class LogAnalyzer:
                     continue
                 if _normalize(value) in sw_regexp:
                     continue
-                hits = results[name][2]
-                if max_hits and len(hits) >= max_hits:
-                    break
-                if value not in hits:
-                    hits[value] = []
-                if len(hits[value]) < max_examples:
-                    hits[value].append((filename, line, None))
+                _store(results, name, value, filename, line)
 
         # --- Multi-word search phrases (line-based, normalized) ---
         if self._search_phrases:
@@ -514,13 +581,7 @@ class LogAnalyzer:
                 if not bounded:
                     continue
                 for name in names:
-                    hits = results[name][2]
-                    if max_hits and len(hits) >= max_hits:
-                        continue
-                    if phrase not in hits:
-                        hits[phrase] = []
-                    if len(hits[phrase]) < max_examples:
-                        hits[phrase].append((filename, line, None))
+                    _store(results, name, phrase, filename, line)
 
         for i, token in enumerate(tokens):
             norm = _normalize(token)
@@ -539,13 +600,7 @@ class LogAnalyzer:
                     value = m.group(0)
                     if _normalize(value) in sw_regexp or norm in sw_regexp:
                         continue
-                    hits = results[name][2]
-                    if max_hits and len(hits) >= max_hits:
-                        continue
-                    if value not in hits:
-                        hits[value] = []
-                    if len(hits[value]) < max_examples:
-                        hits[value].append((filename, line, None))
+                    _store(results, name, value, filename, line)
 
             # --- Inline field check ---
             if tlen >= MIN_LEN_FIELD and field_patterns:
@@ -569,26 +624,14 @@ class LogAnalyzer:
                     if not value or _is_path(value):
                         continue
                     if _normalize(value) not in sw_field:
-                        hits = results[name][2]
-                        if max_hits and len(hits) >= max_hits:
-                            continue
-                        if value not in hits:
-                            hits[value] = []
-                        if len(hits[value]) < max_examples:
-                            hits[value].append((filename, line, token))
+                        _store(results, name, value, filename, line, token)
 
             # --- Inline string search ---
             if norm not in sw_search:
                 names = search_index.get(norm)
                 if names:
                     for name in names:
-                        hits = results[name][2]
-                        if max_hits and len(hits) >= max_hits:
-                            continue
-                        if token not in hits:
-                            hits[token] = []
-                        if len(hits[token]) < max_examples:
-                            hits[token].append((filename, line, None))
+                        _store(results, name, token, filename, line)
 
     @staticmethod
     def _is_path_or_mask(value: str) -> bool:
@@ -717,7 +760,9 @@ def _analyze_file_worker(args: tuple) -> tuple[OrderedDict, int, str]:
     """
     (logfile, regexp, field, search,
      sw_regexp, sw_field, sw_search, parse_json, prefilter,
-     max_examples, regex_timeout_ms, regex_disable_threshold) = args
+     max_examples, regex_timeout_ms, regex_disable_threshold,
+     max_values_per_pattern, max_total_findings,
+     max_total_examples, max_example_chars) = args
 
     analyzer = LogAnalyzer(
         regexp=regexp, field=field, search=search,
@@ -726,6 +771,10 @@ def _analyze_file_worker(args: tuple) -> tuple[OrderedDict, int, str]:
         max_examples=max_examples,
         regex_timeout_ms=regex_timeout_ms,
         regex_disable_threshold=regex_disable_threshold,
+        max_values_per_pattern=max_values_per_pattern,
+        max_total_findings=max_total_findings,
+        max_total_examples=max_total_examples,
+        max_example_chars=max_example_chars,
     )
     results = analyzer._init_results()
     basename = os.path.basename(logfile)
@@ -745,7 +794,9 @@ def _analyze_chunk_worker(args: tuple) -> tuple[OrderedDict, int]:
      regexp, field, search,
      sw_regexp, sw_field, sw_search,
      parse_json, prefilter, max_examples,
-     regex_timeout_ms, regex_disable_threshold) = args
+     regex_timeout_ms, regex_disable_threshold,
+     max_values_per_pattern, max_total_findings,
+     max_total_examples, max_example_chars) = args
 
     analyzer = LogAnalyzer(
         regexp=regexp, field=field, search=search,
@@ -754,6 +805,10 @@ def _analyze_chunk_worker(args: tuple) -> tuple[OrderedDict, int]:
         max_examples=max_examples,
         regex_timeout_ms=regex_timeout_ms,
         regex_disable_threshold=regex_disable_threshold,
+        max_values_per_pattern=max_values_per_pattern,
+        max_total_findings=max_total_findings,
+        max_total_examples=max_total_examples,
+        max_example_chars=max_example_chars,
     )
     results = analyzer._init_results()
     basename = os.path.basename(filepath)

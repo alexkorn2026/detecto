@@ -45,10 +45,19 @@ class DetectoConfig:
     parse_json: bool = False
     workers: int = 0  # 0 = auto (cpu_count), 1 = single-process
     prefilter: str = "off"  # off | regexp_field | all
-    max_examples: int = 100  # max example lines stored per unique value
+    max_examples: int = 100  # deprecated alias for max_examples_per_value
     # Finding 1: runtime regex protection
     regex_timeout_ms: int = 100
     regex_disable_threshold: int = 5
+    # Finding 4: global memory / result limits
+    max_line_bytes: int = 1_048_576
+    max_example_chars: int = 4000
+    max_total_findings: int = 100_000
+    max_total_examples: int = 20_000
+    max_values_per_pattern: int = 10_000
+    max_examples_per_value: int = 100
+    # Finding 27: oversized single-line handling
+    oversized_line_policy: str = "truncate"  # truncate | skip | fail
 
     regexp_file: str = REGEXP_FILE
     field_file: str = FIELD_FILE
@@ -68,8 +77,16 @@ class DetectoConfig:
         self.max_examples = max(1, self.max_examples)
         self.regex_timeout_ms = max(0, self.regex_timeout_ms)
         self.regex_disable_threshold = max(1, self.regex_disable_threshold)
+        self.max_line_bytes = max(1024, self.max_line_bytes)
+        self.max_example_chars = max(0, self.max_example_chars)
+        self.max_total_findings = max(1, self.max_total_findings)
+        self.max_total_examples = max(1, self.max_total_examples)
+        self.max_values_per_pattern = max(1, self.max_values_per_pattern)
+        self.max_examples_per_value = max(1, self.max_examples_per_value)
         if self.prefilter not in ("off", "regexp_field", "all"):
             self.prefilter = "off"
+        if self.oversized_line_policy not in ("truncate", "skip", "fail"):
+            self.oversized_line_policy = "truncate"
 
     def as_dict(self) -> dict[str, object]:
         """Return all fields as a flat dictionary."""
@@ -143,6 +160,20 @@ def load_config(base_dir: Path) -> DetectoConfig:
         cfg.regex_timeout_ms = _safe_getint(s, "regex_timeout_ms", cfg.regex_timeout_ms)
         cfg.regex_disable_threshold = _safe_getint(
             s, "regex_disable_threshold", cfg.regex_disable_threshold
+        )
+        cfg.max_line_bytes = _safe_getint(s, "max_line_bytes", cfg.max_line_bytes)
+        cfg.max_example_chars = _safe_getint(s, "max_example_chars", cfg.max_example_chars)
+        cfg.max_total_findings = _safe_getint(s, "max_total_findings", cfg.max_total_findings)
+        cfg.max_total_examples = _safe_getint(s, "max_total_examples", cfg.max_total_examples)
+        cfg.max_values_per_pattern = _safe_getint(
+            s, "max_values_per_pattern", cfg.max_values_per_pattern
+        )
+        # max_examples is the legacy alias; max_examples_per_value wins if set.
+        cfg.max_examples_per_value = _safe_getint(
+            s, "max_examples_per_value", _safe_getint(s, "max_examples", cfg.max_examples_per_value)
+        )
+        cfg.oversized_line_policy = s.get(
+            "oversized_line_policy", fallback=cfg.oversized_line_policy
         )
 
     if cp.has_section("files"):

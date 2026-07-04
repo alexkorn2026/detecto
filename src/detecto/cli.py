@@ -189,9 +189,13 @@ def _run() -> int:
         regexp, field, search, sw_re, sw_fd, sw_sm,
         parse_json=config.parse_json,
         prefilter=config.prefilter,
-        max_examples=config.max_examples,
+        max_examples=config.max_examples_per_value,
         regex_timeout_ms=config.regex_timeout_ms,
         regex_disable_threshold=config.regex_disable_threshold,
+        max_values_per_pattern=config.max_values_per_pattern,
+        max_total_findings=config.max_total_findings,
+        max_total_examples=config.max_total_examples,
+        max_example_chars=config.max_example_chars,
     )
     start = time.time()
     results, line_count = analyzer.analyze(

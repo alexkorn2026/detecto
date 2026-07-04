@@ -12,6 +12,12 @@ __all__ = [
     "REGEX_TEST_STRING",
     "MAX_HITS_PER_PATTERN",
     "MAX_EXAMPLES_PER_VALUE",
+    "MAX_LINE_BYTES",
+    "MAX_EXAMPLE_CHARS",
+    "MAX_TOTAL_FINDINGS",
+    "MAX_TOTAL_EXAMPLES",
+    "MAX_VALUES_PER_PATTERN",
+    "EXAMPLE_TRUNCATE_MARKER",
     "MIN_LEN_REGEXP",
     "MIN_LEN_FIELD",
     "FIELD_SEPARATORS",
@@ -60,6 +66,13 @@ EXCEL_FORMULA_CHARS = ("=", "+", "-", "@", "\t", "\r")
 # --- Analysis ---
 MAX_HITS_PER_PATTERN = 10_000
 MAX_EXAMPLES_PER_VALUE = 100
+# --- Global limits (Finding 4) ---
+MAX_LINE_BYTES = 1_048_576
+MAX_EXAMPLE_CHARS = 4000
+MAX_TOTAL_FINDINGS = 100_000
+MAX_TOTAL_EXAMPLES = 20_000
+MAX_VALUES_PER_PATTERN = 10_000
+EXAMPLE_TRUNCATE_MARKER = "…[gekuerzt]"
 MIN_LEN_REGEXP = 5    # shortest regexp match: a@b.c (email)
 MIN_LEN_FIELD = 3     # shortest field name: pwd
 FIELD_SEPARATORS = frozenset({"->", "=>", ":", "=", "==", "-->", "<<", ">>"})

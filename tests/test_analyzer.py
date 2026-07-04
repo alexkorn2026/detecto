@@ -116,14 +116,17 @@ def test_non_utf8_warning(caplog):
         os.unlink(f.name)
 
 
-def test_max_hits_per_pattern(log_file, monkeypatch):
+def test_max_hits_per_pattern(log_file):
     content = "\n".join(f"email=user{i}@test.de" for i in range(100))
     path = log_file(content)
-    a = LogAnalyzer(regexp=[("email", 4, "Email", re.compile(r"^\S+@\S+\.\S+$"))])
-    import detecto.constants
-    monkeypatch.setattr(detecto.constants, "MAX_HITS_PER_PATTERN", 10)
+    # Finding 4: the per-pattern value cap is now a constructor/config parameter.
+    a = LogAnalyzer(
+        regexp=[("email", 4, "Email", re.compile(r"^\S+@\S+\.\S+$"))],
+        max_values_per_pattern=10,
+    )
     results, _ = a.analyze([path])
     assert len(results["email"][2]) <= 10
+    assert a.diag.findings_dropped_pattern > 0  # drops are counted, not silent
 
 
 class TestConfigValidation:
@@ -393,15 +396,15 @@ class TestConfigLoading:
 class TestMergeResults:
     """Test _merge_results edge cases."""
 
-    def test_merge_continues_after_max_hits(self, log_file, monkeypatch):
+    def test_merge_continues_after_max_hits(self, log_file):
         """_merge_results should skip full patterns but continue to others."""
-        import detecto.constants
-        monkeypatch.setattr(detecto.constants, "MAX_HITS_PER_PATTERN", 2)
-
-        a = LogAnalyzer(search=[
-            ("Cat1", 4, {"alpha", "beta", "gamma"}),
-            ("Cat2", 4, {"delta"}),
-        ])
+        a = LogAnalyzer(
+            search=[
+                ("Cat1", 4, {"alpha", "beta", "gamma"}),
+                ("Cat2", 4, {"delta"}),
+            ],
+            max_values_per_pattern=2,
+        )
         # Build source results with many hits
         source = a._init_results()
         for i in range(5):

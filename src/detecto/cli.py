@@ -86,6 +86,12 @@ def parse_args(config: DetectoConfig) -> argparse.Namespace:
     parser.add_argument("--show-sensitive-values", action="store_true", default=False,
                         help="Unmaskierte sensible Werte in Ausgaben zulassen "
                              "(WARNUNG: Klartext von Secrets)")
+    parser.add_argument("--encoding", default=config.encoding, metavar="ENC",
+                        help=f"Datei-Encoding (auto|utf-8|windows-1252|... , "
+                             f"default: {config.encoding})")
+    parser.add_argument("--encoding-errors", default=config.encoding_errors,
+                        choices=["strict", "replace", "ignore"],
+                        help=f"Decodierungsfehler-Verhalten (default: {config.encoding_errors})")
 
     args = parser.parse_args()
     if not args.logdateien and not args.status:
@@ -204,6 +210,11 @@ def _run() -> int:
         context_chars_after=config.context_chars_after,
         # Finding 23: full untrimmed lines only with an explicit sensitive opt-in.
         store_full_lines=bool(args.full and args.show_sensitive_values),
+        encoding=args.encoding,
+        encoding_errors=args.encoding_errors,
+        max_line_bytes=config.max_line_bytes,
+        oversized_line_policy=config.oversized_line_policy,
+        follow_input_symlinks=config.follow_input_symlinks,
     )
     start = time.time()
     results, line_count = analyzer.analyze(

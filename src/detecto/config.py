@@ -69,6 +69,10 @@ class DetectoConfig:
     context_chars_after: int = 120
     # Finding 27: oversized single-line handling
     oversized_line_policy: str = "truncate"  # truncate | skip | fail
+    # Finding 26/28: encoding + input symlink handling
+    encoding: str = "auto"
+    encoding_errors: str = "replace"  # strict | replace | ignore
+    follow_input_symlinks: bool = False
 
     regexp_file: str = REGEXP_FILE
     field_file: str = FIELD_FILE
@@ -105,6 +109,8 @@ class DetectoConfig:
         self.parse_json = _normalize_json_mode(self.parse_json)
         if self.oversized_line_policy not in ("truncate", "skip", "fail"):
             self.oversized_line_policy = "truncate"
+        if self.encoding_errors not in ("strict", "replace", "ignore"):
+            self.encoding_errors = "replace"
 
     def as_dict(self) -> dict[str, object]:
         """Return all fields as a flat dictionary."""
@@ -222,6 +228,11 @@ def load_config(base_dir: Path) -> DetectoConfig:
         )
         cfg.oversized_line_policy = s.get(
             "oversized_line_policy", fallback=cfg.oversized_line_policy
+        )
+        cfg.encoding = s.get("encoding", fallback=cfg.encoding)
+        cfg.encoding_errors = s.get("encoding_errors", fallback=cfg.encoding_errors)
+        cfg.follow_input_symlinks = _safe_getboolean(
+            s, "follow_input_symlinks", cfg.follow_input_symlinks
         )
 
     if cp.has_section("files"):

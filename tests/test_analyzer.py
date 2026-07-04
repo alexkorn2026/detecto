@@ -121,17 +121,19 @@ def test_normalization_cached(log_file):
     assert len(results["test"][2]) > 0 and len(results["words"][2]) > 0
 
 
-def test_non_utf8_warning(caplog):
+def test_non_utf8_auto_encoding(caplog):
+    # Finding 26: non-UTF-8 bytes are handled by encoding auto-detection
+    # (windows-1252 fallback) instead of a per-line warning; the whole file is
+    # read and the effective encoding is recorded.
     f = tempfile.NamedTemporaryFile(suffix=".log", delete=False)
     f.write(b"valid line\ninvalid \xbb byte\nanother valid\n")
     f.close()
     try:
-        import logging
-        with caplog.at_level(logging.WARNING):
-            a = LogAnalyzer()
-            results, lines = a.analyze([f.name])
+        a = LogAnalyzer()
+        results, lines = a.analyze([f.name])
         assert lines == 3
-        assert any("Non-UTF-8" in msg for msg in caplog.messages)
+        assert a.diag.encodings_used[f.name] == "windows-1252"
+        assert a.diag.status().value == "complete"
     finally:
         os.unlink(f.name)
 

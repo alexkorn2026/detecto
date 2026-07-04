@@ -19,6 +19,7 @@ from detecto.constants import (
 )
 from detecto.diagnostics import ScanDiagnostics
 from detecto.loaders import RegexpPattern, FieldPattern, SearchPattern
+from detecto.reader import ReaderOptions, iter_file_lines
 from detecto.regexsafe import RegexTimeout, safe_finditer, safe_search
 from detecto.tokenizer import (
     tokenize, find_field_value, split_inline_field, _TOKEN_RE,
@@ -190,6 +191,11 @@ class LogAnalyzer:
         context_chars_before: int = 120,
         context_chars_after: int = 120,
         store_full_lines: bool = False,
+        encoding: str = "auto",
+        encoding_errors: str = "replace",
+        max_line_bytes: int = _const.MAX_LINE_BYTES,
+        oversized_line_policy: str = "truncate",
+        follow_input_symlinks: bool = False,
     ) -> None:
         self.regexp = regexp or []
         self.field = field or []
@@ -224,6 +230,14 @@ class LogAnalyzer:
         self._context_before = max(0, context_chars_before)
         self._context_after = max(0, context_chars_after)
         self._store_full_lines = store_full_lines
+        # Findings 26/27/28: file reading options.
+        self._reader_opts = ReaderOptions(
+            encoding=encoding,
+            errors=encoding_errors,
+            max_line_bytes=max_line_bytes,
+            oversized_policy=oversized_line_policy,
+            follow_symlinks=follow_input_symlinks,
+        )
         self._total_values = 0
         self._total_examples = 0
         self.diag = ScanDiagnostics()
@@ -401,7 +415,8 @@ class LogAnalyzer:
                 )
 
             file_lines = self._process_lines(
-                _iter_file_lines(logfile, self.diag), basename, results,
+                iter_file_lines(logfile, self.diag, self._reader_opts),
+                basename, results,
             )
             line_count += file_lines
 
@@ -632,6 +647,11 @@ class LogAnalyzer:
             "context_chars_before": self._context_before,
             "context_chars_after": self._context_after,
             "store_full_lines": self._store_full_lines,
+            "encoding": self._reader_opts.encoding,
+            "encoding_errors": self._reader_opts.errors,
+            "max_line_bytes": self._reader_opts.max_line_bytes,
+            "oversized_line_policy": self._reader_opts.oversized_policy,
+            "follow_input_symlinks": self._reader_opts.follow_symlinks,
         }
 
     def _note_timeout(self, name: str) -> None:
@@ -999,40 +1019,6 @@ class LogAnalyzer:
 # Shared I/O helpers (used by sequential and worker paths)
 # ---------------------------------------------------------------------------
 
-def _iter_file_lines(
-    filepath: str, diag: ScanDiagnostics | None = None,
-) -> Iterator[str]:
-    """Iterate over decoded, stripped lines from a file.
-
-    Handles UTF-8 decoding with replace fallback and logs first encoding error.
-    Records file-completion / error status into ``diag`` (Finding 2) so that a
-    file that could not be fully read is no longer silently treated as success.
-    """
-    encoding_warned = False
-    yielded = False
-    try:
-        with open(filepath, "rb") as raw:
-            for raw_line in raw:
-                try:
-                    line = raw_line.decode("utf-8")
-                except UnicodeDecodeError:
-                    if diag is not None:
-                        diag.decode_errors += 1
-                    if not encoding_warned:
-                        log.warning("%s: Non-UTF-8 bytes detected", filepath)
-                        encoding_warned = True
-                    line = raw_line.decode("utf-8", errors="replace")
-                yielded = True
-                yield line.strip()
-    except (IOError, OSError) as e:
-        log.warning("Error reading %s: %s", filepath, e)
-        if diag is not None:
-            diag.record_file_error(filepath, str(e), partial=yielded)
-        return
-    if diag is not None:
-        diag.files_complete += 1
-
-
 def _iter_chunk_lines(
     filepath: str, byte_start: int, byte_end: int,
     diag: ScanDiagnostics | None = None,
@@ -1115,7 +1101,8 @@ def _analyze_file_worker(args: tuple) -> tuple[OrderedDict, int, str]:
     results = analyzer._init_results()
     basename = os.path.basename(logfile)
     line_count = analyzer._process_lines(
-        _iter_file_lines(logfile, analyzer.diag), basename, results,
+        iter_file_lines(logfile, analyzer.diag, analyzer._reader_opts),
+        basename, results,
     )
     return results, line_count, basename, analyzer.diag
 

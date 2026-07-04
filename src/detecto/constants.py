@@ -21,6 +21,8 @@ __all__ = [
     "MASKED_VALUE_CRITICALITY",
     "MASKED_STATUS",
     "MASKED_SUFFIX",
+    "MAX_JSON_DEPTH",
+    "MAX_JSON_VALUES_PER_LINE",
     "MIN_LEN_REGEXP",
     "MIN_LEN_FIELD",
     "FIELD_SEPARATORS",
@@ -80,6 +82,9 @@ EXAMPLE_TRUNCATE_MARKER = "…[gekuerzt]"
 MASKED_VALUE_CRITICALITY = 4
 MASKED_STATUS = "credential field present, value masked"
 MASKED_SUFFIX = " (maskiert)"
+# --- JSON parsing bounds (Finding 10) ---
+MAX_JSON_DEPTH = 20
+MAX_JSON_VALUES_PER_LINE = 1000
 MIN_LEN_REGEXP = 5    # shortest regexp match: a@b.c (email)
 MIN_LEN_FIELD = 3     # shortest field name: pwd
 FIELD_SEPARATORS = frozenset({"->", "=>", ":", "=", "==", "-->", "<<", ">>"})

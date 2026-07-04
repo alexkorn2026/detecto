@@ -1,6 +1,7 @@
 """Log analysis: LogAnalyzer class with multiprocessing support."""
 from __future__ import annotations
 
+import json
 import logging
 import multiprocessing
 import os
@@ -113,7 +114,12 @@ class LogAnalyzer:
         self.sw_regexp = sw_regexp or set()
         self.sw_field = sw_field or set()
         self.sw_search = sw_search or set()
-        self.parse_json = parse_json
+        # Finding 10: parse_json is a mode ("auto"|"true"|"false"). Accept a
+        # bool for backward compatibility with programmatic callers/tests.
+        if isinstance(parse_json, bool):
+            self.parse_json = "true" if parse_json else "false"
+        else:
+            self.parse_json = str(parse_json).lower()
         self.prefilter = prefilter
         self.max_examples = max_examples
         # Finding 1: runtime regex protection.
@@ -602,6 +608,31 @@ class LogAnalyzer:
         ))
         self._total_examples += 1
 
+    def _want_json(self, line: str) -> bool:
+        """Decide whether to attempt JSON parsing for a line (Finding 10)."""
+        mode = self.parse_json
+        if mode == "false":
+            return False
+        if mode == "true":
+            return True
+        # auto: only lines that plausibly look like JSON
+        stripped = line.lstrip()
+        return stripped[:1] in "{[" or ("{" in line and '"' in line)
+
+    def _tokenize(self, line: str) -> list[str]:
+        """Tokenize a line, honouring the JSON mode and recording stats."""
+        do_json = self._want_json(line)
+        if do_json:
+            self.diag.json_candidates += 1
+            stripped = line.lstrip()
+            if stripped[:1] in "{[":
+                try:
+                    json.loads(line)
+                    self.diag.json_parsed += 1
+                except (json.JSONDecodeError, ValueError):
+                    self.diag.json_failed += 1
+        return tokenize(line, do_json)
+
     def _store_masked(
         self, results: OrderedDict, name: str,
         filename: str, line: str, field_token: str | None,
@@ -642,7 +673,7 @@ class LogAnalyzer:
         All checks are inlined to eliminate method-call overhead.
         All attribute lookups are cached as local variables.
         """
-        tokens = tokenize(line, self.parse_json)
+        tokens = self._tokenize(line)
 
         regexp_patterns = self._regexp_token
         field_patterns = self.field

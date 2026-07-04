@@ -4,49 +4,89 @@ from __future__ import annotations
 import json
 import logging
 import re
+from urllib.parse import unquote, urlsplit
 
-from detecto.constants import FIELD_SEPARATORS, FIELD_VALUE_LOOKAHEAD
+from detecto.constants import (
+    FIELD_SEPARATORS,
+    FIELD_VALUE_LOOKAHEAD,
+    MAX_JSON_DEPTH,
+    MAX_JSON_VALUES_PER_LINE,
+)
 
 __all__ = [
     "tokenize", "extract_json_fragments", "extract_json_values",
     "extract_json_pairs", "find_field_value", "split_inline_field",
+    "extract_url_tokens",
 ]
 
 log = logging.getLogger(__name__)
 
 _SPLIT_RE = re.compile(r"[\s?&=,;|]+")
 _TOKEN_RE = re.compile(r"[^\s?&=,;|]+")  # Inverse: match non-separator runs
-_URL_PARAM_RE = re.compile(r"[?&](\w+=([^&\n]+))")
-_CRED_IN_URL_RE = re.compile(r"://([^:/?#]+):(.+)@([^@:/?#]+)")
+# Finding 9: query parameter names may contain '-', '.', '_' and '[...]'.
+# The value runs to the next '&'/'#'/newline so space-containing raw log values
+# stay intact (Finding 9 point 11).
+_QUERY_RE = re.compile(r"[?&]([\w.\-\[\]]+)=([^&\n#]+)")
+# Candidate absolute URL (scheme://...). urlsplit does the structured parsing.
+_URL_RE = re.compile(r"[A-Za-z][A-Za-z0-9+.\-]*://[^\s]+")
 _JSON_DECODER = json.JSONDecoder()
-_INLINE_KV_RE = re.compile(r"^(.*?)[:=](.+)$")
+# Key must be a plausible identifier (no embedded ':'/'='), so URLs, JDBC
+# strings, IPv6 literals and timestamps are not mis-split (Finding 9).
+# Optional wrapper chars (quotes/braces) around the key are tolerated so
+# JSON-style '"password":"x"' still splits.
+_INLINE_KV_RE = re.compile(r"""^[\s"'{[(]*([\w.\-]{1,60})[\s"'}\])]*([:=])(.+)$""")
 
 
 def split_inline_field(token: str) -> tuple[str, str] | None:
-    """Split a key:value token (e.g. 'RVNR:65170839J008', '"password":"x"').
+    """Split a ``key:value`` / ``key=value`` token into (name, value).
 
-    The tokenizer does not split on ':', so field name and value can end
-    up in the same token. Returns (name_part, value) or None.
+    The tokenizer does not split on ':', so a field name and its value can end
+    up in the same token (e.g. 'RVNR:65170839J008', '"password":"x"'). Only a
+    *plausible* field name (identifier characters, no further ':' / '=') is
+    accepted, so URLs, JDBC connection strings, IPv6 literals and 'HH:MM:SS'
+    timestamps are not treated as fields (Finding 9). Returns (name, value) or
+    ``None``.
     """
+    # Never treat a URL / JDBC connection string as a key:value field.
+    if "://" in token:
+        return None
     m = _INLINE_KV_RE.match(token)
     if not m:
         return None
+    sep = m.group(2)
     name_part = m.group(1).strip("\"'{}[](),.;!? ")
-    value = m.group(2).strip("\"'{}[](),.:;!?")
+    value = m.group(3).strip("\"'{}[](),.:;!?")
     if not name_part or not value:
+        return None
+    # A colon-separated pair whose key is purely numeric and whose value still
+    # contains ':' is almost certainly a time/IPv6 fragment, not a field.
+    if sep == ":" and name_part.isdigit() and ":" in value:
         return None
     return name_part, value
 
 
-def extract_json_values(obj: object) -> list[str]:
-    """Recursively extract all string values from a JSON object."""
+def extract_json_values(obj: object, _depth: int = 0) -> list[str]:
+    """Recursively extract all string values from a JSON object.
+
+    Bounded by MAX_JSON_DEPTH and MAX_JSON_VALUES_PER_LINE (Finding 10) to
+    prevent pathological nesting or huge arrays from exhausting resources.
+    """
+    if _depth > MAX_JSON_DEPTH:
+        return []
+    out: list[str] = []
     if isinstance(obj, dict):
-        return [v for val in obj.values() for v in extract_json_values(val)]
-    if isinstance(obj, list):
-        return [v for item in obj for v in extract_json_values(item)]
-    if isinstance(obj, str):
-        return [obj]
-    return []
+        for val in obj.values():
+            out.extend(extract_json_values(val, _depth + 1))
+            if len(out) >= MAX_JSON_VALUES_PER_LINE:
+                return out[:MAX_JSON_VALUES_PER_LINE]
+    elif isinstance(obj, list):
+        for item in obj:
+            out.extend(extract_json_values(item, _depth + 1))
+            if len(out) >= MAX_JSON_VALUES_PER_LINE:
+                return out[:MAX_JSON_VALUES_PER_LINE]
+    elif isinstance(obj, str):
+        out.append(obj)
+    return out
 
 
 def extract_json_pairs(obj: object) -> list[tuple[str, str]]:
@@ -56,19 +96,29 @@ def extract_json_pairs(obj: object) -> list[tuple[str, str]]:
     {"password":"x"} with parse_json=true would only yield the value 'x'
     and the field name 'password' would be lost (false negative).
     """
+    return _extract_json_pairs(obj, 0)
+
+
+def _extract_json_pairs(obj: object, depth: int) -> list[tuple[str, str]]:
+    if depth > MAX_JSON_DEPTH:
+        return []
     pairs: list[tuple[str, str]] = []
     if isinstance(obj, dict):
         for k, v in obj.items():
             if isinstance(v, (dict, list)):
-                pairs.extend(extract_json_pairs(v))
+                pairs.extend(_extract_json_pairs(v, depth + 1))
             elif isinstance(v, str):
                 if v:
                     pairs.append((str(k), v))
             elif isinstance(v, (int, float)) and not isinstance(v, bool):
                 pairs.append((str(k), str(v)))
+            if len(pairs) >= MAX_JSON_VALUES_PER_LINE:
+                return pairs[:MAX_JSON_VALUES_PER_LINE]
     elif isinstance(obj, list):
         for item in obj:
-            pairs.extend(extract_json_pairs(item))
+            pairs.extend(_extract_json_pairs(item, depth + 1))
+            if len(pairs) >= MAX_JSON_VALUES_PER_LINE:
+                return pairs[:MAX_JSON_VALUES_PER_LINE]
     return pairs
 
 
@@ -128,6 +178,42 @@ def _bracket_balance(text: str, start: int) -> int:
     return start
 
 
+def extract_url_tokens(text: str) -> list[str]:
+    """Extract userinfo and query-parameter values from URLs in ``text``.
+
+    Uses :func:`urllib.parse.urlsplit` for structured parsing (handles IPv6
+    hosts like ``[2001:db8::1]`` and userinfo without greedy regex groups) and
+    percent-decodes each value exactly once - no unbounded recursive decoding
+    (Finding 9). Query parameter names may contain ``-``, ``.``, ``_`` and
+    ``[...]``.
+    """
+    out: list[str] = []
+
+    def _add(value: str | None) -> None:
+        if value:
+            decoded = unquote(value)  # single controlled percent-decode
+            if decoded:
+                out.append(decoded)
+            if decoded != value:
+                out.append(value)  # keep the raw form too
+
+    if "://" in text:
+        for m in _URL_RE.finditer(text):
+            url = m.group(0).rstrip(".,;)]}\"'>")
+            try:
+                parts = urlsplit(url)
+            except ValueError:
+                continue
+            _add(parts.username)
+            _add(parts.password)
+
+    if "?" in text or "&" in text:
+        for m in _QUERY_RE.finditer(text):
+            _add(m.group(2).strip())
+
+    return out
+
+
 def find_field_value(
     tokens: list[str], start_pos: int,
 ) -> tuple[str | None, str | None]:
@@ -162,18 +248,9 @@ def tokenize(line: str, parse_json: bool = True) -> list[str]:
     # Fast path: no JSON parsing needed
     if not parse_json:
         result = _TOKEN_RE.findall(line)
-        if "?" in line or "&" in line:
-            for m in _URL_PARAM_RE.finditer(line):
-                val = m.group(2).strip()
-                if val and val not in result:
-                    result.append(val)
-        if "://" in line:
-            for m in _CRED_IN_URL_RE.finditer(line):
-                user, password = m.group(1), m.group(2)
-                if user and user not in result:
-                    result.append(user)
-                if password and password not in result:
-                    result.append(password)
+        for val in extract_url_tokens(line):
+            if val not in result:
+                result.append(val)
         return result
 
     text_parts = [line]
@@ -213,21 +290,10 @@ def tokenize(line: str, parse_json: bool = True) -> list[str]:
         else:
             result.extend(_findall(text))
 
-        # URL parameters (only if query string indicators present)
-        if "?" in text or "&" in text:
-            for m in _URL_PARAM_RE.finditer(text):
-                val = m.group(2).strip()
-                if val and val not in result:
-                    result.append(val)
-        # Credentials embedded in URLs (only if protocol present)
-        if "://" in text:
-            for m in _CRED_IN_URL_RE.finditer(text):
-                user, password = m.group(1), m.group(2)
-                if user and user not in result:
-                    result.append(user)
-                if password and password not in result:
-                    result.append(password)
-                log.debug("URL credentials extracted: user=%s", user)
+        # URL userinfo + query values (urllib-based, single-decode) - Finding 9
+        for val in extract_url_tokens(text):
+            if val not in result:
+                result.append(val)
 
     # Synthetic key:value tokens keep the JSON key context for field
     # detection (inline split handles them like 'password:Secret123').

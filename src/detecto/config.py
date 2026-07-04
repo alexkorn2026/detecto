@@ -42,7 +42,9 @@ class DetectoConfig:
     search_field: bool = True
     search_suchmuster: bool = True
     refresh_status: int = 5
-    parse_json: bool = False
+    # Finding 10: JSON parsing mode - "auto" (only JSON-looking lines),
+    # "true" (attempt on all lines) or "false" (never).
+    parse_json: str = "auto"
     workers: int = 0  # 0 = auto (cpu_count), 1 = single-process
     prefilter: str = "off"  # off | regexp_field | all
     max_examples: int = 100  # deprecated alias for max_examples_per_value
@@ -88,12 +90,27 @@ class DetectoConfig:
         self.masked_value_criticality = max(1, min(5, self.masked_value_criticality))
         if self.prefilter not in ("off", "regexp_field", "all"):
             self.prefilter = "off"
+        self.parse_json = _normalize_json_mode(self.parse_json)
         if self.oversized_line_policy not in ("truncate", "skip", "fail"):
             self.oversized_line_policy = "truncate"
 
     def as_dict(self) -> dict[str, object]:
         """Return all fields as a flat dictionary."""
         return asdict(self)
+
+
+def _normalize_json_mode(value: object) -> str:
+    """Normalize a parse_json value to 'auto' | 'true' | 'false' (Finding 10)."""
+    if isinstance(value, bool):
+        return "true" if value else "false"
+    text = str(value).strip().lower()
+    if text in ("auto",):
+        return "auto"
+    if text in ("true", "on", "1", "yes"):
+        return "true"
+    if text in ("false", "off", "0", "no"):
+        return "false"
+    return "auto"
 
 
 def _safe_getint(section, key: str, fallback: int) -> int:
@@ -156,7 +173,7 @@ def load_config(base_dir: Path) -> DetectoConfig:
             s, "search_suchmuster", cfg.search_suchmuster
         )
         cfg.refresh_status = _safe_getint(s, "refresh_status", cfg.refresh_status)
-        cfg.parse_json = _safe_getboolean(s, "parse_json", cfg.parse_json)
+        cfg.parse_json = _normalize_json_mode(s.get("parse_json", fallback=cfg.parse_json))
         cfg.workers = _safe_getint(s, "workers", cfg.workers)
         cfg.prefilter = s.get("prefilter", fallback=cfg.prefilter)
         cfg.max_examples = _safe_getint(s, "max_examples", cfg.max_examples)

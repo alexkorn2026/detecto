@@ -6,7 +6,7 @@ JWT::1::JSON Web Token (eyJ...)::eyJ[A-Za-z0-9_-]+\.eyJ[A-Za-z0-9_-]+\.[A-Za-z0-
 SSHPrivateKey::1::SSH Private Key Header::-----BEGIN\s+(RSA\s+|EC\s+|OPENSSH\s+)?PRIVATE\s+KEY-----::line
 TLSPrivateKey::1::TLS/Zertifikats Private Key::-----BEGIN\s+(ENCRYPTED\s+)?PRIVATE\s+KEY-----::line
 Kreditkarte::1::Kreditkartennummer (mit Leerzeichen/Bindestrichen)::(?i)\b\d{4}[\s-]?\d{4}[\s-]?\d{4}[\s-]?\d{4}\b::line
-IBAN::3::Internationale Bankkontonummer (mit Leerzeichen)::(?i)\b[A-Z]{2}\d{2}[\s]?[A-Z0-9]{4}[\s]?\d{4}[\s]?\d{4}[\s]?\d{4}[\s]?\d{0,4}\b::line
+IBAN::2::Internationale Bankkontonummer (mit Leerzeichen)::(?i)\b[A-Z]{2}\d{2}[\s]?[A-Z0-9]{4}[\s]?\d{4}[\s]?\d{4}[\s]?\d{4}[\s]?\d{0,4}\b::line
 SteuerID::3::Deutsche Steuer-ID (11 Ziffern)::\b\d{11}\b::token
 Telefon::4::Deutsche Telefonnummer (mind. 10 Zeichen, beginnt mit + oder 0)::(?<![\d/-])(\+\d[\d\s/-]{8,20}\d|0\d[\d\s/-]{7,20}\d)(?![\d/-])::line
 PLZ::4::Deutsche Postleitzahl::\b\d{5}\b::token

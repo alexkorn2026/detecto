@@ -82,6 +82,9 @@ class ScanDiagnostics:
     json_parsed: int = 0
     json_failed: int = 0
 
+    # --- Validator rejections (Findings 11-13, 16) ---
+    candidates_rejected: dict[str, int] = field(default_factory=dict)
+
     # --- Encoding (Finding 26) ---
     decode_errors: int = 0
     replaced_chars: int = 0
@@ -126,6 +129,11 @@ class ScanDiagnostics:
         self.json_candidates += other.json_candidates
         self.json_parsed += other.json_parsed
         self.json_failed += other.json_failed
+
+        for name, count in other.candidates_rejected.items():
+            self.candidates_rejected[name] = (
+                self.candidates_rejected.get(name, 0) + count
+            )
 
         self.decode_errors += other.decode_errors
         self.replaced_chars += other.replaced_chars
@@ -193,6 +201,12 @@ class ScanDiagnostics:
                 f"{self.json_candidates} Kandidaten, "
                 f"{self.json_parsed} geparst, {self.json_failed} fehlgeschlagen"
             )
+        if self.candidates_rejected:
+            total = sum(self.candidates_rejected.values())
+            detail = ", ".join(
+                f"{n}: {c}" for n, c in sorted(self.candidates_rejected.items())
+            )
+            lines.append(f"Validierung verworfen: {total} ({detail})")
         if self.decode_errors or self.replaced_chars:
             lines.append(
                 "Encoding: "

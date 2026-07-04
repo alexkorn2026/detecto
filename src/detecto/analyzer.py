@@ -24,6 +24,22 @@ from detecto.tokenizer import (
     tokenize, find_field_value, split_inline_field, _TOKEN_RE,
 )
 from detecto.utils import normalize, normalize_with_offsets
+from detecto.validators import (
+    credit_card_valid, iban_valid, jwt_structure_valid,
+    private_key_status, steuer_id_valid, street_status,
+)
+
+# Findings 11-13, 16: validators that confirm broad regex candidates. Keyed by
+# the shipped pattern IDs; renamed/custom patterns are not affected.
+_VALIDATORS = {
+    "Kreditkarte": credit_card_valid,
+    "IBAN": iban_valid,
+    "SteuerID": steuer_id_valid,
+    "JWT": jwt_structure_valid,
+}
+# Finding 17: private-key patterns need completeness classification, not a
+# simple bool.
+_PRIVKEY_PATTERNS = frozenset({"SSHPrivateKey", "TLSPrivateKey"})
 
 __all__ = ["LogAnalyzer"]
 
@@ -608,6 +624,52 @@ class LogAnalyzer:
         ))
         self._total_examples += 1
 
+    def _regexp_rejected(
+        self, name: str, value: str, line: str,
+        results: OrderedDict, filename: str, lineno: int,
+    ) -> bool:
+        """Post-regex validation (Findings 11-13, 16, 17).
+
+        Returns True if the caller must NOT store the match as a normal finding
+        (either it failed validation, or it was stored specially as an
+        incomplete private key).
+        """
+        validator = _VALIDATORS.get(name)
+        if validator is not None and not validator(value):
+            self.diag.candidates_rejected[name] = (
+                self.diag.candidates_rejected.get(name, 0) + 1
+            )
+            return True
+        # Finding 14: context-sensitive street handling.
+        if name == "strasse":
+            status = street_status(value, line)
+            if status == "drop":
+                self.diag.candidates_rejected[name] = (
+                    self.diag.candidates_rejected.get(name, 0) + 1
+                )
+                return True
+            if status == "low":
+                key = name + " (niedrige Konfidenz)"
+                if key not in results:
+                    results[key] = ("regexp", 5, {})
+                self._store_hit(results, key, value, filename, line,
+                                orig_value=value, lineno=lineno)
+                return True
+            # "high" -> normal store
+        if name in _PRIVKEY_PATTERNS:
+            status = private_key_status(line)
+            if status != "complete":
+                # A lone header / truncated block is not a full private key.
+                key = name + " (unvollstaendig)"
+                if key not in results:
+                    results[key] = ("regexp", self._masked_criticality, {})
+                self._store_hit(
+                    results, key, f"private key: {status}",
+                    filename, line, lineno=lineno,
+                )
+                return True
+        return False
+
     def _want_json(self, line: str) -> bool:
         """Decide whether to attempt JSON parsing for a line (Finding 10)."""
         mode = self.parse_json
@@ -698,6 +760,8 @@ class LogAnalyzer:
                     continue
                 if _normalize(value) in sw_regexp:
                     continue
+                if self._regexp_rejected(name, value, line, results, filename, lineno):
+                    continue
                 lead = len(raw) - len(raw.lstrip())
                 start = m.start() + lead
                 _store(results, name, value, filename, line,
@@ -753,6 +817,8 @@ class LogAnalyzer:
                     # ('contact=<alice@example.com>' -> 'alice@example.com')
                     value = m.group(0)
                     if _normalize(value) in sw_regexp or norm in sw_regexp:
+                        continue
+                    if self._regexp_rejected(name, value, line, results, filename, lineno):
                         continue
                     pos = line.find(value)
                     _store(results, name, value, filename, line,

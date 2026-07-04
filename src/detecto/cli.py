@@ -13,7 +13,7 @@ from pathlib import Path
 from detecto import VERSION
 from detecto.analyzer import LogAnalyzer
 from detecto.anonymizer import Anonymizer
-from detecto.config import DetectoConfig, load_config
+from detecto.config import ConfigError, DetectoConfig, load_config
 from detecto.constants import LABEL_WIDTH
 from detecto.diagnostics import (
     EXIT_CONFIG, EXIT_FAILED, EXIT_FINDINGS, EXIT_INTERNAL,
@@ -86,6 +86,16 @@ def parse_args(config: DetectoConfig) -> argparse.Namespace:
     parser.add_argument("--show-sensitive-values", action="store_true", default=False,
                         help="Unmaskierte sensible Werte in Ausgaben zulassen "
                              "(WARNUNG: Klartext von Secrets)")
+    parser.add_argument("--config", default=None, metavar="PATH",
+                        help="Explizite detecto.ini (Datei oder Verzeichnis)")
+    parser.add_argument("--use-local-config", action="store_true", default=False,
+                        help="detecto.ini aus dem aktuellen Verzeichnis erlauben "
+                             "(standardmaessig NICHT vertraut)")
+    parser.add_argument("--lenient-config", action="store_true", default=False,
+                        help="Ungueltige Config-Werte auf Default zuruecksetzen "
+                             "statt Fehler")
+    parser.add_argument("--print-effective-config", action="store_true", default=False,
+                        help="Effektive Konfiguration ausgeben (ohne sensible Werte)")
     parser.add_argument("--encoding", default=config.encoding, metavar="ENC",
                         help=f"Datei-Encoding (auto|utf-8|windows-1252|... , "
                              f"default: {config.encoding})")
@@ -94,7 +104,7 @@ def parse_args(config: DetectoConfig) -> argparse.Namespace:
                         help=f"Decodierungsfehler-Verhalten (default: {config.encoding_errors})")
 
     args = parser.parse_args()
-    if not args.logdateien and not args.status:
+    if not args.logdateien and not args.status and not args.print_effective_config:
         parser.print_help()
         sys.exit(0)
     # CLI values bypass DetectoConfig.__post_init__() - clamp them here.
@@ -147,8 +157,19 @@ def main() -> None:
 
 def _run() -> int:
     """Run a scan and return the process exit code (Finding 2)."""
-    base_dir = _resolve_base_dir()
-    config = load_config(base_dir)
+    # Pre-parse config-location flags before loading the INI (Finding 31/32).
+    pre = argparse.ArgumentParser(add_help=False)
+    pre.add_argument("--config", default=None)
+    pre.add_argument("--use-local-config", action="store_true", default=False)
+    pre.add_argument("--lenient-config", action="store_true", default=False)
+    pre_args, _ = pre.parse_known_args()
+
+    base_dir, source = _resolve_base_dir(pre_args.config, pre_args.use_local_config)
+    try:
+        config = load_config(base_dir, strict=not pre_args.lenient_config)
+    except ConfigError as e:
+        print(f"FEHLER (Konfiguration): {e}", file=sys.stderr)
+        return EXIT_CONFIG
 
     # Parse args early so --verbose can affect logging level
     args = parse_args(config)
@@ -156,6 +177,18 @@ def _run() -> int:
     logging.basicConfig(level=level, format="%(levelname)s: %(message)s")
 
     print_header()
+
+    # Finding 31: report the effective config source; warn loudly on local use.
+    ini_path = base_dir / "detecto.ini"
+    if source == "local":
+        print(f"WARNUNG: Lokale Konfiguration wird verwendet: {ini_path.resolve()} "
+              f"(sha256:{_file_hash(ini_path)})", file=sys.stderr)
+    log.info("Config source=%s: %s (sha256:%s)",
+             source, ini_path.resolve(), _file_hash(ini_path))
+
+    if args.print_effective_config:
+        _print_effective_config(config, base_dir, source)
+        return EXIT_OK
 
     minlen = args.minlen  # clamped in parse_args()
     anonymizer = Anonymizer(config.anon_muster)
@@ -259,28 +292,63 @@ def _compute_exit_code(
     return EXIT_OK
 
 
-def _resolve_base_dir() -> Path:
-    """Determine directory with detecto.ini and pattern files.
+def _file_hash(path: Path) -> str:
+    """Short SHA-256 of a file, for config/pattern provenance (Finding 31)."""
+    import hashlib
+    try:
+        h = hashlib.sha256(path.read_bytes()).hexdigest()
+        return h[:12]
+    except OSError:
+        return "??"
 
-    Precedence:
-    1. Current working directory (if it contains detecto.ini)
-    2. Source/ZIP checkout (repo root relative to this file)
-    3. Installed package data (src/detecto/data via importlib.resources)
-    """
-    cwd = Path.cwd()
-    if (cwd / "detecto.ini").is_file():
-        return cwd
-    repo = Path(__file__).resolve().parent.parent.parent
-    if (repo / "detecto.ini").is_file():
-        return repo
+
+def _package_data_dir() -> Path | None:
     try:
         from importlib.resources import files
         data_dir = Path(str(files("detecto") / "data"))
         if (data_dir / "detecto.ini").is_file():
             return data_dir
     except (ImportError, TypeError, FileNotFoundError):  # pragma: no cover
-        pass
-    return repo
+        return None
+    return None
+
+
+_SENSITIVE_CONFIG_KEYS = frozenset({"anon_muster"})
+
+
+def _print_effective_config(config: DetectoConfig, base_dir: Path, source: str) -> None:
+    """Print the effective config without sensitive values (Finding 32)."""
+    print("=== Effektive Konfiguration ===")
+    print(f"Quelle: {source}  ({(base_dir / 'detecto.ini').resolve()})")
+    for key, val in sorted(config.as_dict().items()):
+        if key in _SENSITIVE_CONFIG_KEYS:
+            val = "<redacted>"
+        print(f"  {key} = {val}")
+
+
+def _resolve_base_dir(config_opt: str | None, use_local: bool) -> tuple[Path, str]:
+    """Determine the directory with detecto.ini and pattern files (Finding 31).
+
+    Precedence (a stray ./detecto.ini is NOT trusted automatically):
+      1. explicit --config PATH (file or directory)
+      2. local ./detecto.ini only if --use-local-config / allow_local_config
+      3. source/ZIP checkout (repo root)
+      4. installed package data
+    Returns (base_dir, source_label).
+    """
+    if config_opt:
+        p = Path(config_opt).expanduser().resolve()
+        base = p.parent if p.is_file() else p
+        return base, "explicit"
+    if use_local and (Path.cwd() / "detecto.ini").is_file():
+        return Path.cwd(), "local"
+    repo = Path(__file__).resolve().parent.parent.parent
+    if (repo / "detecto.ini").is_file():
+        return repo, "repo"
+    data_dir = _package_data_dir()
+    if data_dir is not None:
+        return data_dir, "package"
+    return repo, "repo"
 
 
 def _load_patterns(

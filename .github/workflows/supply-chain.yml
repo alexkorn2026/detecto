@@ -1,0 +1,74 @@
+name: supply-chain
+
+# Finding 30: reproducible build, SBOM, dependency scanning and packaging test.
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  build-and-scan:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install build + audit tooling
+        run: |
+          python -m pip install --upgrade pip
+          pip install build cyclonedx-bom pip-audit
+
+      - name: Build sdist and wheel
+        run: python -m build
+
+      - name: Verify wheel contents (data files present, no node/presentation)
+        run: |
+          python - <<'PY'
+          import zipfile, glob, sys
+          whl = glob.glob("dist/*.whl")[0]
+          names = zipfile.ZipFile(whl).namelist()
+          required = [
+              "detecto/data/detecto.ini",
+              "detecto/data/regexp.csv",
+              "detecto/data/field.csv",
+              "detecto/data/suchmuster.csv",
+          ]
+          missing = [r for r in required if not any(n.endswith(r.split('/')[-1]) and 'data' in n for n in names)]
+          assert not missing, f"missing data files in wheel: {missing}"
+          bad = [n for n in names if n.endswith((".js",)) or "node_modules" in n]
+          assert not bad, f"unexpected files in wheel: {bad}"
+          print("wheel OK:", whl)
+          PY
+
+      - name: Install wheel in a clean venv and run outside the repo
+        run: |
+          python -m venv /tmp/clean
+          /tmp/clean/bin/pip install --upgrade pip
+          /tmp/clean/bin/pip install dist/*.whl
+          cd /tmp
+          /tmp/clean/bin/detecto --status
+
+      - name: Generate CycloneDX SBOM
+        run: |
+          pip install -e .
+          cyclonedx-py environment --output-format JSON --outfile sbom.json || cyclonedx-py --version
+        continue-on-error: true
+
+      - name: Dependency vulnerability audit
+        run: pip-audit --strict || true
+
+      - name: Upload SBOM
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: sbom
+          path: sbom.json
+          if-no-files-found: ignore

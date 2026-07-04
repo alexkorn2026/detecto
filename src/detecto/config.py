@@ -6,9 +6,40 @@ import logging
 from dataclasses import asdict, dataclass
 from pathlib import Path
 
-__all__ = ["DetectoConfig", "load_config"]
+__all__ = ["DetectoConfig", "load_config", "ConfigError"]
 
 log = logging.getLogger(__name__)
+
+
+class ConfigError(Exception):
+    """Raised for an invalid configuration in strict mode (Finding 32)."""
+
+
+# Finding 32: recognised INI keys per section. Unknown keys are an error in
+# strict mode. Includes historical aliases (search_feld, max_examples).
+_DEFAULTS_KEYS = frozenset({
+    "examplecount", "minlen", "critical", "anon", "excelanon", "full",
+    "nocolor", "showskipped", "verbose", "anon_muster", "search_regexp",
+    "search_field", "search_feld", "search_suchmuster", "refresh_status",
+    "parse_json", "workers", "prefilter", "max_examples", "regex_timeout_ms",
+    "regex_disable_threshold", "max_line_bytes", "max_example_chars",
+    "max_total_findings", "max_total_examples", "max_values_per_pattern",
+    "max_examples_per_value", "oversized_line_policy", "max_auto_workers",
+    "multiprocessing_min_total_bytes", "multiprocessing_min_file_count",
+    "masked_value_criticality", "context_chars_before", "context_chars_after",
+    "encoding", "encoding_errors", "follow_input_symlinks",
+    "show_sensitive_values",
+})
+_FILES_KEYS = frozenset({
+    "regexp", "field", "suchmuster", "suchmuster_verzeichnis",
+    "stopword_regexp", "stopword_field", "stopword_suchmuster",
+})
+_ENUMS = {
+    "prefilter": ("off", "regexp_field", "all"),
+    "parse_json": ("auto", "true", "false", "on", "off", "1", "0", "yes", "no"),
+    "oversized_line_policy": ("truncate", "skip", "fail"),
+    "encoding_errors": ("strict", "replace", "ignore"),
+}
 
 INI_FILE = "detecto.ini"
 REGEXP_FILE = "regexp.csv"
@@ -149,8 +180,50 @@ def _safe_getboolean(section, key: str, fallback: bool) -> bool:
         return fallback
 
 
-def load_config(base_dir: Path) -> DetectoConfig:
-    """Load detecto.ini and return a DetectoConfig object."""
+def _validate_strict(cp: "configparser.ConfigParser") -> None:
+    """Reject unknown keys, bad enum values and non-numeric ints (Finding 32)."""
+    for section, allowed in (("defaults", _DEFAULTS_KEYS), ("files", _FILES_KEYS)):
+        if cp.has_section(section):
+            for key in cp[section]:
+                if key not in allowed:
+                    raise ConfigError(
+                        f"Unbekannter Konfigurationsschluessel: [{section}] {key}"
+                    )
+    if not cp.has_section("defaults"):
+        return
+    s = cp["defaults"]
+    for key, allowed in _ENUMS.items():
+        if key in s and s.get(key).strip().lower() not in allowed:
+            raise ConfigError(
+                f"Ungueltiger Wert fuer '{key}': '{s.get(key)}' "
+                f"(erlaubt: {', '.join(allowed)})"
+            )
+    int_keys = (
+        "examplecount", "minlen", "critical", "refresh_status", "workers",
+        "max_examples", "regex_timeout_ms", "regex_disable_threshold",
+        "max_line_bytes", "max_example_chars", "max_total_findings",
+        "max_total_examples", "max_values_per_pattern", "max_examples_per_value",
+        "max_auto_workers", "multiprocessing_min_total_bytes",
+        "multiprocessing_min_file_count", "masked_value_criticality",
+        "context_chars_before", "context_chars_after",
+    )
+    for key in int_keys:
+        if key in s:
+            try:
+                int(s.get(key))
+            except ValueError:
+                raise ConfigError(
+                    f"Ungueltiger Ganzzahlwert fuer '{key}': '{s.get(key)}'"
+                ) from None
+
+
+def load_config(base_dir: Path, strict: bool = False) -> DetectoConfig:
+    """Load detecto.ini and return a DetectoConfig object.
+
+    With ``strict=True`` (Finding 32) unknown keys, invalid enum values and
+    non-numeric integers raise :class:`ConfigError` instead of being silently
+    corrected.
+    """
     ini_path = base_dir / INI_FILE
     cfg = DetectoConfig()
 
@@ -162,8 +235,13 @@ def load_config(base_dir: Path) -> DetectoConfig:
     try:
         cp.read(str(ini_path), encoding="utf-8")
     except configparser.Error as e:
+        if strict:
+            raise ConfigError(f"Ungueltige detecto.ini: {e}") from e
         log.warning("Invalid detecto.ini (%s) - using defaults", e)
         return cfg
+
+    if strict:
+        _validate_strict(cp)
 
     if cp.has_section("defaults"):
         s = cp["defaults"]

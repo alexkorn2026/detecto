@@ -212,7 +212,10 @@ def export_xlsx(filename: str, ctx: ExportContext) -> None:
     try:
         from openpyxl import Workbook
     except ImportError:
-        log.error("openpyxl not installed. pip install openpyxl")
+        msg = ("Excel-Export benoetigt 'openpyxl' (optionale Abhaengigkeit). "
+               "Installieren mit: pip install detecto[excel]")
+        log.error(msg)
+        print(f"FEHLER: {msg}", file=sys.stderr)
         return
 
     wb = Workbook()

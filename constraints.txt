@@ -1,0 +1,17 @@
+# Finding 30: development constraints for more reproducible builds.
+# Pin to the tested major versions. Regenerate with:
+#   pip install -e ".[dev]" && pip freeze > constraints-lock.txt
+#
+# Runtime dependencies are declared in pyproject.toml with capped majors:
+#   regex>=2023.0,<2026.0
+#   openpyxl>=3.1,<4        (optional [excel] extra)
+#
+# Development / CI toolchain (upper-bounded):
+pytest>=7.0,<9
+hypothesis>=6.0,<7
+build>=1.0,<2
+ruff>=0.4,<1
+mypy>=1.10,<2
+black>=23.0,<25
+openpyxl>=3.1,<4
+regex>=2023.0,<2026.0

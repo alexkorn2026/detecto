@@ -15,6 +15,10 @@ from detecto.analyzer import LogAnalyzer
 from detecto.anonymizer import Anonymizer
 from detecto.config import DetectoConfig, load_config
 from detecto.constants import LABEL_WIDTH
+from detecto.diagnostics import (
+    EXIT_CONFIG, EXIT_FAILED, EXIT_FINDINGS, EXIT_INTERNAL,
+    EXIT_OK, EXIT_PARTIAL, ScanDiagnostics, ScanStatus,
+)
 from detecto.exporter import export_xlsx, export_log, ExportContext
 from detecto.formatter import print_header, print_status, print_results
 from detecto.loaders import (
@@ -72,8 +76,16 @@ def parse_args(config: DetectoConfig) -> argparse.Namespace:
                         help="Save anonymized result to file")
     parser.add_argument("--xlsx", nargs="?", const="", default=None, metavar="FILE",
                         help="Export findings as Excel file")
-    parser.add_argument("--excelanon", action="store_true", default=False,
+    parser.add_argument("--excelanon", action="store_true", default=config.excelanon,
                         help="Anonymize values in Excel file")
+    parser.add_argument("--continue-on-error", action="store_true", default=False,
+                        help="Weiterscannen bei Datei-Lesefehlern (Standardverhalten). "
+                             "Der Scan wird nie faelschlich als 'complete' gemeldet.")
+    parser.add_argument("--exit-on-findings", action="store_true", default=False,
+                        help="Exit-Code 1, wenn Findings gefunden wurden")
+    parser.add_argument("--show-sensitive-values", action="store_true", default=False,
+                        help="Unmaskierte sensible Werte in Ausgaben zulassen "
+                             "(WARNUNG: Klartext von Secrets)")
 
     args = parser.parse_args()
     if not args.logdateien and not args.status:
@@ -98,9 +110,12 @@ def _build_call_string(
         parts.append(f"--minlen={args.minlen}")
     if args.critical != config.critical:
         parts.append(f"--critical={args.critical}")
-    for flag in ("anon", "full", "nocolor", "showskipped", "verbose", "excelanon"):
-        if getattr(args, flag):
-            parts.append(f"--{flag}")
+    for flag in (
+        "anon", "full", "nocolor", "showskipped", "verbose", "excelanon",
+        "continue_on_error", "exit_on_findings", "show_sensitive_values",
+    ):
+        if getattr(args, flag, False):
+            parts.append(f"--{flag.replace('_', '-')}")
     for param in ("logresult", "logresultanon", "xlsx"):
         val = getattr(args, param)
         if val is not None:
@@ -109,7 +124,23 @@ def _build_call_string(
 
 
 def main() -> None:
-    """Detecto main entry point."""
+    """Detecto entry point. Wraps :func:`_run` and maps errors to exit codes."""
+    try:
+        code = _run()
+    except SystemExit:
+        raise
+    except KeyboardInterrupt:  # pragma: no cover
+        print("Abgebrochen.", file=sys.stderr)
+        sys.exit(EXIT_INTERNAL)
+    except Exception as exc:  # noqa: BLE001 - top-level guard
+        log.exception("Interner Fehler")
+        print(f"INTERNER FEHLER: {exc}", file=sys.stderr)
+        sys.exit(EXIT_INTERNAL)
+    sys.exit(code)
+
+
+def _run() -> int:
+    """Run a scan and return the process exit code (Finding 2)."""
     base_dir = _resolve_base_dir()
     config = load_config(base_dir)
 
@@ -130,7 +161,7 @@ def main() -> None:
 
     if args.status:
         print_status(config, regexp, field, search)
-        sys.exit(0)
+        return EXIT_OK
 
     log.info("Patterns: %d regexp, %d field, %d search", len(regexp), len(field), len(search))
 
@@ -158,8 +189,34 @@ def main() -> None:
     duration_text = _format_duration(duration)
     _print_statistics(len(logfiles), line_count, duration_text, results,
                       duration, config, critical=args.critical)
+
+    # --- Scan status (Finding 2) ---
+    diag = analyzer.diag
+    status = diag.status()
+    print("Scan-Status")
+    for sline in diag.summary_lines():
+        print(f"  {sline}")
+    print()
+
     _handle_exports(args, results, logfiles, line_count, duration_text,
-                    config, regexp, field, search, anonymizer)
+                    config, regexp, field, search, anonymizer, diag)
+
+    return _compute_exit_code(status, results, args)
+
+
+def _compute_exit_code(
+    status: ScanStatus, results: OrderedDict, args: argparse.Namespace,
+) -> int:
+    """Map scan status (and optional --exit-on-findings) to an exit code."""
+    if status is ScanStatus.FAILED:
+        return EXIT_FAILED
+    if status is ScanStatus.PARTIAL:
+        return EXIT_PARTIAL
+    if getattr(args, "exit_on_findings", False):
+        has_findings = any(hits for _, _, hits in results.values())
+        if has_findings:
+            return EXIT_FINDINGS
+    return EXIT_OK
 
 
 def _resolve_base_dir() -> Path:
@@ -197,10 +254,10 @@ def _load_patterns(
 
     if not regexp_path.is_file():
         print(f"FEHLER: Regexp-Datei nicht gefunden: {regexp_path}")
-        sys.exit(1)
+        sys.exit(EXIT_CONFIG)
     if not search_path.is_file():
         print(f"FEHLER: Suchmuster-Datei nicht gefunden: {search_path}")
-        sys.exit(1)
+        sys.exit(EXIT_CONFIG)
 
     regexp = load_regexp(regexp_path) if config.search_regexp else []
     field = (
@@ -226,7 +283,7 @@ def _collect_logfiles(inputs: list[str]) -> list[str]:
     result = list(dict.fromkeys(result))
     if not result:
         print(f"FEHLER: Keine Logdateien gefunden fuer: {' '.join(inputs)}")
-        sys.exit(1)
+        sys.exit(EXIT_CONFIG)
     return result
 
 
@@ -317,6 +374,7 @@ def _handle_exports(
     config: DetectoConfig,
     regexp: list[RegexpPattern], field: list[FieldPattern],
     search: list[SearchPattern], anonymizer: Anonymizer,
+    diagnostics: ScanDiagnostics | None = None,
 ) -> None:
     """Handle log and Excel exports based on CLI arguments."""
     ts = datetime.now().strftime("%Y%m%d_%H%M%S")
@@ -328,6 +386,7 @@ def _handle_exports(
         line_count=line_count, duration_text=duration_text,
         regexp=regexp, field=field, search=search,
         full=args.full, excelanon=args.excelanon, anonymizer=anonymizer,
+        diagnostics=diagnostics,
     )
 
     # --logresult und --logresultanon sind unabhaengig kombinierbar

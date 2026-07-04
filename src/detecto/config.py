@@ -29,8 +29,10 @@ class DetectoConfig:
     minlen: int = 5
     critical: int = 5
     anon: bool = False
+    excelanon: bool = False
     full: bool = False
     nocolor: bool = False
+    show_sensitive_values: bool = False
     showskipped: bool = False
     verbose: bool = False
     anon_muster: str = ANON_PATTERN_DEFAULT
@@ -112,7 +114,11 @@ def load_config(base_dir: Path) -> DetectoConfig:
         cfg.minlen = _safe_getint(s, "minlen", cfg.minlen)
         cfg.critical = _safe_getint(s, "critical", cfg.critical)
         cfg.anon = _safe_getboolean(s, "anon", cfg.anon)
+        cfg.excelanon = _safe_getboolean(s, "excelanon", cfg.excelanon)
         cfg.full = _safe_getboolean(s, "full", cfg.full)
+        cfg.show_sensitive_values = _safe_getboolean(
+            s, "show_sensitive_values", cfg.show_sensitive_values
+        )
         cfg.nocolor = _safe_getboolean(s, "nocolor", cfg.nocolor)
         cfg.showskipped = _safe_getboolean(s, "showskipped", cfg.showskipped)
         cfg.verbose = _safe_getboolean(s, "verbose", cfg.verbose)

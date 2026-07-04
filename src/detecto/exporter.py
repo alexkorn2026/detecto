@@ -14,6 +14,7 @@ from detecto.constants import (
     COPYRIGHT_YEAR, LABEL_WIDTH, EXCEL_FORMULA_CHARS,
     CLR_HEADER, CLR_CUSTOMER, CLR_VALUE, CLR_FIELD, CLR_KRIT,
 )
+from detecto.diagnostics import ScanDiagnostics
 from detecto.formatter import build_result_lines
 from detecto.loaders import RegexpPattern, FieldPattern, SearchPattern
 
@@ -39,6 +40,7 @@ class ExportContext:
     full: bool = False
     excelanon: bool = False
     anonymizer: Anonymizer | None = None
+    diagnostics: ScanDiagnostics | None = None
 
 
 def _sanitize_cell(value: object) -> object:
@@ -160,6 +162,10 @@ def export_log(
         f.write(f"{'Anzahl der Zeilen:':<{LABEL_WIDTH}} "
                 f"{ctx.line_count:,}\n".replace(",", "."))
         f.write(f"{'Analyse-Dauer:':<{LABEL_WIDTH}} {ctx.duration_text}\n")
+        if ctx.diagnostics is not None:
+            f.write("\n")
+            for sline in ctx.diagnostics.summary_lines():
+                f.write(sline + "\n")
     log.info("Log result saved: %s", filename)
 
 
@@ -301,6 +307,20 @@ def _build_tool(sb: _SheetBuilder, ctx: ExportContext) -> None:
         ("Critical-Filter", str(ctx.critical)),
         ("Beispiele pro Typ", str(ctx.example_count)),
     ]
+    if ctx.diagnostics is not None:
+        d = ctx.diagnostics
+        data.extend([
+            ("", ""),
+            ("Scan-Status", d.status().value),
+            ("Dateien vollstaendig", str(d.files_complete)),
+            ("Dateien teilweise", str(d.files_partial)),
+            ("Dateien nicht lesbar", str(d.files_unreadable)),
+            ("Sonstige Scanfehler", str(d.other_errors)),
+            ("Regex-Timeouts", str(sum(d.regex_timeouts.values()))),
+            ("Deaktivierte Muster", ", ".join(sorted(d.disabled_patterns)) or "-"),
+            ("Verworfen (Limits)",
+             str(d.findings_dropped_global + d.findings_dropped_pattern)),
+        ])
     for r, (label, val) in enumerate(data, 1):
         ws.cell(row=r, column=1, value=_sanitize_cell(label)).font = bold
         ws.cell(row=r, column=2, value=_sanitize_cell(val))

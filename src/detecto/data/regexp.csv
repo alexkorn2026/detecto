@@ -1,0 +1,35 @@
+email::4::Regexp fuer Email::[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}
+vsnr::2::Deutsche Rentenversicherungsnummer (kompakt, z.B. 65170839J008)::\b\d{2}\d{6}[A-Za-z]\d{2}\d\b
+vsnr_formatiert::2::Deutsche Rentenversicherungsnummer (formatiert, z.B. 65 170839 J 008)::\b\d{2} \d{6} ?[A-Za-z] ?\d{2} ?\d\b
+strasse::4::Strassenname mit Suffix::(?i)\b\w*(strasse|straße|street)\b|\b\w{3,}(weg|allee|platz|gasse|damm|ufer)\b
+JWT::1::JSON Web Token (eyJ...)::eyJ[A-Za-z0-9_-]+\.eyJ[A-Za-z0-9_-]+\.[A-Za-z0-9_-]+
+SSHPrivateKey::1::SSH Private Key Header::-----BEGIN\s+(RSA\s+|EC\s+|OPENSSH\s+)?PRIVATE\s+KEY-----
+TLSPrivateKey::1::TLS/Zertifikats Private Key::-----BEGIN\s+(ENCRYPTED\s+)?PRIVATE\s+KEY-----
+Kreditkarte::1::Kreditkartennummer (mit Leerzeichen/Bindestrichen)::(?i)\b\d{4}[\s-]?\d{4}[\s-]?\d{4}[\s-]?\d{4}\b
+IBAN::3::Internationale Bankkontonummer (mit Leerzeichen)::(?i)\b[A-Z]{2}\d{2}[\s]?[A-Z0-9]{4}[\s]?\d{4}[\s]?\d{4}[\s]?\d{4}[\s]?\d{0,4}\b
+SteuerID::3::Deutsche Steuer-ID (11 Ziffern)::\b\d{11}\b
+Telefon::4::Deutsche Telefonnummer (mind. 10 Zeichen, beginnt mit + oder 0)::(?<![\d/-])(\+\d[\d\s/-]{8,20}\d|0\d[\d\s/-]{7,20}\d)(?![\d/-])
+PLZ::4::Deutsche Postleitzahl::\b\d{5}\b
+JDBC::3::JDBC Connection String::(?i)jdbc:[a-z]+://[^\s]+
+PersonalausweisNr::4::Deutsche Personalausweisnummer (10-stellig)::\b[CFGHJKLMNPRTVWXYZ][0-9A-Z]{8}\d\b
+KVNR::2::Deutsche Krankenversichertennummer (Buchstabe + 9 Ziffern)::\b[A-Z]\d{9}\b
+IPAdresse::4::IPv4-Adresse::\b(?:(?:25[0-5]|2[0-4]\d|[01]?\d\d?)\.){3}(?:25[0-5]|2[0-4]\d|[01]?\d\d?)\b
+InterneIP::3::Private IPv4-Adresse (RFC1918, nur gueltige Oktette)::\b(?:10\.(?:(?:25[0-5]|2[0-4]\d|[01]?\d\d?)\.){2}(?:25[0-5]|2[0-4]\d|[01]?\d\d?)|172\.(?:1[6-9]|2\d|3[01])\.(?:25[0-5]|2[0-4]\d|[01]?\d\d?)\.(?:25[0-5]|2[0-4]\d|[01]?\d\d?)|192\.168\.(?:25[0-5]|2[0-4]\d|[01]?\d\d?)\.(?:25[0-5]|2[0-4]\d|[01]?\d\d?))\b(?!\.\d)
+MACAdresse::4::MAC-Adresse::(?i)\b(?:[0-9A-F]{2}[:-]){5}[0-9A-F]{2}\b
+IMEI::4::IMEI (15 Ziffern)::\b\d{15}\b
+Kennzeichen::4::Deutsches Kfz-Kennzeichen::\b[A-ZÄÖÜ]{1,3}-[A-Z]{1,2} ?\d{1,4}[EH]?\b
+BIC::3::BIC/SWIFT-Code (gaengige Laenderkennungen)::\b[A-Z]{4}(DE|AT|CH|FR|GB|NL|BE|LU|IT|ES|PL|CZ|DK|SE|NO|FI|US)[A-Z0-9]{2}([A-Z0-9]{3})?\b
+UStIdNr::3::Deutsche USt-IdNr.::\bDE\d{9}\b
+HRNummer::3::Handelsregisternummer (HRA/HRB)::\bHR[AB] ?\d{3,8}\b
+KindergeldNr::3::Kindergeldnummer (Familienkasse)::\bFK\d{6}\b
+AWSAccessKey::1::AWS Access Key ID::\bAKIA[0-9A-Z]{16}\b
+AzureAccountKey::1::Azure Storage AccountKey::(?i)AccountKey=[A-Za-z0-9+/=]{40,}
+GitHubToken::1::GitHub Token (ghp_/gho_/ghu_/ghs_/ghr_)::\b(?:ghp|gho|ghu|ghs|ghr)_[A-Za-z0-9]{36,}\b
+SlackToken::1::Slack Token (xoxb/xoxp/...)::\bxox[bpors]-[A-Za-z0-9-]{10,}\b
+Lizenzschluessel::2::Lizenzschluessel (3-4 Bloecke a 4-5 Zeichen, mind. 1 Buchstabe)::(?<![A-Za-z0-9-])(?=[0-9-]*[A-Z])[A-Z0-9]{4,5}(?:-[A-Z0-9]{4,5}){2,3}(?![A-Za-z0-9-])
+VSStufe::1::Deutsche VS-Einstufung::(?i)\bVS-(?:NfD|VERTRAULICH|GEHEIM)\b
+StrengGeheim::1::STRENG GEHEIM / TOP SECRET::(?i)\bSTRENG[- _]?GEHEIM\b|\bTOP[- _]?SECRET\b
+NATOStufe::1::NATO-Einstufung::(?i)\bNATO[- _](?:RESTRICTED|CONFIDENTIAL|SECRET|UNCLASSIFIED)\b
+EUStufe::1::EU-Einstufung::(?i)\bRESTREINT[- _]UE\b|\bCONFIDENTIEL[- _]UE\b|\bEU[- _](?:RESTRICTED|CONFIDENTIAL|SECRET)\b
+SGAktenzeichen::2::Sozialgericht-Aktenzeichen (z.B. S 12 R 345/20)::\bS ?\d{1,3} ?R ?\d{1,5}/\d{2}\b
+SourceCodeURL::3::Source-Code-Repository-Referenz::(?i)(git@|git://|svn://|ssh://git|bitbucket\.org/|gitlab\.|github\.com/)

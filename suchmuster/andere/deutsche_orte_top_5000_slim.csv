@@ -1,0 +1,5001 @@
+place_name,state,population,rank
+Berlin,Berlin,3685265,1
+Hamburg,Hamburg,1862565,2
+München,Bayern,1505005,3
+Köln,Nordrhein-Westfalen,1024621,4
+Frankfurt am Main,Hessen,756021,5
+Düsseldorf,Nordrhein-Westfalen,618685,6
+Stuttgart,Baden-Württemberg,612663,7
+Leipzig,Sachsen,611850,8
+Dortmund,Nordrhein-Westfalen,603462,9
+Bremen,Bremen,586271,10
+Essen,Nordrhein-Westfalen,574682,11
+Dresden,Sachsen,564904,12
+Nürnberg,Bayern,529508,13
+Hannover,Niedersachsen,522131,14
+Duisburg,Nordrhein-Westfalen,502270,15
+Bochum,Nordrhein-Westfalen,358676,16
+Wuppertal,Nordrhein-Westfalen,358193,17
+Bielefeld,Nordrhein-Westfalen,331605,18
+Bonn,Nordrhein-Westfalen,323336,19
+"Mannheim, Universitätsstadt",Baden-Württemberg,318035,20
+Karlsruhe,Baden-Württemberg,309050,21
+Münster,Nordrhein-Westfalen,308258,22
+Augsburg,Bayern,301105,23
+Wiesbaden,Hessen,288850,24
+Gelsenkirchen,Nordrhein-Westfalen,267930,25
+Mönchengladbach,Nordrhein-Westfalen,267213,26
+Aachen,Nordrhein-Westfalen,262670,27
+Braunschweig,Niedersachsen,252962,28
+Kiel,Schleswig-Holstein,252668,29
+Chemnitz,Sachsen,245618,30
+Magdeburg,Sachsen-Anhalt,244329,31
+Freiburg im Breisgau,Baden-Württemberg,237460,32
+Krefeld,Nordrhein-Westfalen,231406,33
+Halle (Saale),Sachsen-Anhalt,226767,34
+Mainz,Rheinland-Pfalz,224684,35
+Erfurt,Thüringen,218793,36
+Lübeck,Schleswig-Holstein,216889,37
+Oberhausen,Nordrhein-Westfalen,213646,38
+"Rostock, Hanse- und Universitätsstadt",Mecklenburg-Vorpommern,205307,39
+"Kassel, documenta-Stadt",Hessen,197230,40
+"Hagen, Stadt der FernUniversität",Nordrhein-Westfalen,190384,41
+Potsdam,Brandenburg,184754,42
+Saarbrücken,Saarland,182971,43
+Hamm,Nordrhein-Westfalen,179968,44
+Ludwigshafen am Rhein,Rheinland-Pfalz,177222,45
+Oldenburg (Oldb),Niedersachsen,176614,46
+Mülheim an der Ruhr,Nordrhein-Westfalen,173050,47
+Leverkusen,Nordrhein-Westfalen,168581,48
+"Darmstadt, Wissenschaftsstadt",Hessen,167029,49
+Osnabrück,Niedersachsen,166057,50
+"Solingen, Klingenstadt",Nordrhein-Westfalen,165626,51
+Paderborn,Nordrhein-Westfalen,156378,52
+Herne,Nordrhein-Westfalen,155851,53
+Heidelberg,Baden-Württemberg,155756,54
+Neuss,Nordrhein-Westfalen,154317,55
+Regensburg,Bayern,151389,56
+Ingolstadt,Bayern,141185,57
+Pforzheim,Baden-Württemberg,134912,58
+Würzburg,Bayern,133258,59
+Offenbach am Main,Hessen,132746,60
+Fürth,Bayern,132036,61
+"Heilbronn, Universitätsstadt",Baden-Württemberg,131986,62
+"Ulm, Universitätsstadt",Baden-Württemberg,129882,63
+Wolfsburg,Niedersachsen,129560,64
+Göttingen,Niedersachsen,127259,65
+Reutlingen,Baden-Württemberg,118852,66
+Bremerhaven,Bremen,118610,67
+Bottrop,Nordrhein-Westfalen,118535,68
+Erlangen,Bayern,115928,69
+Recklinghausen,Nordrhein-Westfalen,115344,70
+Remscheid,Nordrhein-Westfalen,113828,71
+Koblenz,Rheinland-Pfalz,113378,72
+Bergisch Gladbach,Nordrhein-Westfalen,111361,73
+Jena,Thüringen,109725,74
+Salzgitter,Niedersachsen,104970,75
+Trier,Rheinland-Pfalz,104342,76
+"Siegen, Universitätsstadt",Nordrhein-Westfalen,102685,77
+Moers,Nordrhein-Westfalen,101503,78
+Gütersloh,Nordrhein-Westfalen,100479,79
+Kaiserslautern,Rheinland-Pfalz,100426,80
+Hildesheim,Niedersachsen,98510,81
+Schwerin,Mecklenburg-Vorpommern,98308,82
+"Hanau, Brüder-Grimm-Stadt",Hessen,97956,83
+Flensburg,Schleswig-Holstein,96326,84
+Esslingen am Neckar,Baden-Württemberg,96182,85
+Gera,Thüringen,95608,86
+Cottbus/Chóśebuz,Brandenburg,95123,87
+Düren,Nordrhein-Westfalen,94568,88
+Ludwigsburg,Baden-Württemberg,92858,89
+"Tübingen, Universitätsstadt",Baden-Württemberg,92322,90
+Iserlohn,Nordrhein-Westfalen,91811,91
+Witten,Nordrhein-Westfalen,91808,92
+Villingen-Schwenningen,Baden-Württemberg,89756,93
+Ratingen,Nordrhein-Westfalen,89368,94
+"Gießen, Universitätsstadt",Hessen,89179,95
+"Zwickau, Stadt, Hochschulstadt",Sachsen,87410,96
+"Konstanz, Universitätsstadt",Baden-Württemberg,86919,97
+Marl,Nordrhein-Westfalen,86766,98
+Worms,Rheinland-Pfalz,86753,99
+Lünen,Nordrhein-Westfalen,86163,100
+Minden,Nordrhein-Westfalen,84013,101
+Norderstedt,Schleswig-Holstein,82844,102
+Velbert,Nordrhein-Westfalen,82463,103
+Delmenhorst,Niedersachsen,81406,104
+Neumünster,Schleswig-Holstein,79809,105
+Viersen,Nordrhein-Westfalen,78373,106
+Rheine,Nordrhein-Westfalen,77209,107
+Bamberg,Bayern,77150,108
+Troisdorf,Nordrhein-Westfalen,75901,109
+Wilhelmshaven,Niedersachsen,75745,110
+Gladbeck,Nordrhein-Westfalen,75499,111
+Dessau-Roßlau,Sachsen-Anhalt,75402,112
+Dorsten,Nordrhein-Westfalen,75277,113
+Arnsberg,Nordrhein-Westfalen,74879,114
+Lüneburg,Niedersachsen,74785,115
+Detmold,Nordrhein-Westfalen,74278,116
+Brandenburg an der Havel,Brandenburg,74113,117
+"Marburg, Universitätsstadt",Hessen,73544,118
+Castrop-Rauxel,Nordrhein-Westfalen,73282,119
+Bocholt,Nordrhein-Westfalen,73257,120
+Aschaffenburg,Bayern,73091,121
+Bayreuth,Bayern,72940,122
+Landshut,Bayern,71863,123
+Lüdenscheid,Nordrhein-Westfalen,71212,124
+Lippstadt,Nordrhein-Westfalen,68739,125
+Kempten (Allgäu),Bayern,67645,126
+Aalen,Baden-Württemberg,67621,127
+Herford,Nordrhein-Westfalen,67503,128
+Neuwied,Rheinland-Pfalz,67083,129
+Dinslaken,Nordrhein-Westfalen,66993,130
+Celle,Niedersachsen,66834,131
+"Kerpen, Kolpingstadt",Nordrhein-Westfalen,66585,132
+Grevenbroich,Nordrhein-Westfalen,65983,133
+Weimar,Thüringen,65954,134
+Rüsselsheim am Main,Hessen,65627,135
+"Plauen, Stadt, Hochschulstadt",Sachsen,65599,136
+Fulda,Hessen,65434,137
+Rosenheim,Bayern,65274,138
+Schwäbisch Gmünd,Baden-Württemberg,64416,139
+Dormagen,Nordrhein-Westfalen,63799,140
+Offenburg,Baden-Württemberg,62993,141
+Friedrichshafen,Baden-Württemberg,62796,142
+"Neu-Ulm, GKSt",Bayern,62641,143
+Hürth,Nordrhein-Westfalen,62160,144
+Bergheim,Nordrhein-Westfalen,61611,145
+Sindelfingen,Baden-Württemberg,61422,146
+Herten,Nordrhein-Westfalen,60941,147
+Wesel,Nordrhein-Westfalen,60785,148
+"Neubrandenburg, Vier-Tore-Stadt",Mecklenburg-Vorpommern,60344,149
+Euskirchen,Nordrhein-Westfalen,60021,150
+Langenfeld (Rheinland),Nordrhein-Westfalen,59975,151
+Garbsen,Niedersachsen,59903,152
+Göppingen,Baden-Württemberg,58937,153
+Unna,Nordrhein-Westfalen,58333,154
+Hameln,Niedersachsen,58244,155
+"Stolberg (Rhld.), Kupferstadt",Nordrhein-Westfalen,57684,156
+Eschweiler,Nordrhein-Westfalen,57534,157
+Waiblingen,Baden-Württemberg,57313,158
+Frankfurt (Oder),Brandenburg,57107,159
+Meerbusch,Nordrhein-Westfalen,57078,160
+Nordhorn,Niedersachsen,56973,161
+Baden-Baden,Baden-Württemberg,56881,162
+Bad Homburg v. d. Höhe,Hessen,56688,163
+Sankt Augustin,Nordrhein-Westfalen,56521,164
+Lingen (Ems),Niedersachsen,56498,165
+Pulheim,Nordrhein-Westfalen,56150,166
+"Greifswald, Universitäts- und Hansestadt",Mecklenburg-Vorpommern,56092,167
+"Görlitz, Stadt, Hochschulstadt",Sachsen,55186,168
+Hilden,Nordrhein-Westfalen,55157,169
+Wetzlar,Hessen,54665,170
+Schweinfurt,Bayern,54481,171
+Bad Kreuznach,Rheinland-Pfalz,54168,172
+Langenhagen,Niedersachsen,54142,173
+Stralsund,Mecklenburg-Vorpommern,54094,174
+Bad Salzuflen,Nordrhein-Westfalen,53958,175
+Hattingen,Nordrhein-Westfalen,53044,176
+Passau,Bayern,53039,177
+Kleve,Nordrhein-Westfalen,53028,178
+Neustadt an der Weinstraße,Rheinland-Pfalz,52945,179
+Ahlen,Nordrhein-Westfalen,52666,180
+Wolfenbüttel,Niedersachsen,52604,181
+Frechen,Nordrhein-Westfalen,52309,182
+Menden (Sauerland),Nordrhein-Westfalen,52255,183
+Ibbenbüren,Nordrhein-Westfalen,51803,184
+Böblingen,Baden-Württemberg,51483,185
+Lörrach,Baden-Württemberg,51349,186
+Elmshorn,Schleswig-Holstein,51342,187
+Gummersbach,Nordrhein-Westfalen,51290,188
+Peine,Niedersachsen,50987,189
+Lahr/Schwarzwald,Baden-Württemberg,50775,190
+Rastatt,Baden-Württemberg,50741,191
+Ravensburg,Baden-Württemberg,50628,192
+Bad Oeynhausen,Nordrhein-Westfalen,50620,193
+Heidenheim an der Brenz,Baden-Württemberg,50618,194
+Gronau (Westf.),Nordrhein-Westfalen,50547,195
+Cuxhaven,Niedersachsen,49697,196
+Speyer,Rheinland-Pfalz,49564,197
+Leonberg,Baden-Württemberg,49480,198
+Willich,Nordrhein-Westfalen,49413,199
+Emden,Niedersachsen,49202,200
+Bergkamen,Nordrhein-Westfalen,49143,201
+Oranienburg,Brandenburg,49122,202
+Straubing,Bayern,49002,203
+"Freising, GKSt",Bayern,48928,204
+Alsdorf,Nordrhein-Westfalen,48810,205
+Erftstadt,Nordrhein-Westfalen,48772,206
+Stade,Niedersachsen,48633,207
+Herzogenrath,Nordrhein-Westfalen,48574,208
+Landau in der Pfalz,Rheinland-Pfalz,48209,209
+Bornheim,Nordrhein-Westfalen,48203,210
+Hennef (Sieg),Nordrhein-Westfalen,48188,211
+Frankenthal (Pfalz),Rheinland-Pfalz,48140,212
+Rheda-Wiedenbrück,Nordrhein-Westfalen,48030,213
+Dülmen,Nordrhein-Westfalen,47989,214
+Bruchsal,Baden-Württemberg,47784,215
+Soest,Nordrhein-Westfalen,47776,216
+Singen (Hohentwiel),Baden-Württemberg,47621,217
+Goslar,Niedersachsen,47419,218
+"Neunkirchen, Kreisstadt",Saarland,47344,219
+"Dachau, GKSt",Bayern,47138,220
+Fellbach,Baden-Württemberg,47120,221
+Albstadt,Baden-Württemberg,46950,222
+Hof,Bayern,46778,223
+Oberursel (Taunus),Hessen,46736,224
+Melle,Niedersachsen,46436,225
+Gotha,Thüringen,46400,226
+Bünde,Nordrhein-Westfalen,46365,227
+Filderstadt,Baden-Württemberg,46243,228
+Kaufbeuren,Bayern,46193,229
+Weinheim,Baden-Württemberg,45852,230
+"Schwerte, Hansestadt an der Ruhr",Nordrhein-Westfalen,45821,231
+Falkensee,Brandenburg,45720,232
+Rottenburg am Neckar,Baden-Württemberg,45677,233
+Brühl,Nordrhein-Westfalen,45555,234
+Erkelenz,Nordrhein-Westfalen,45315,235
+Rodgau,Hessen,45277,236
+"Wittenberg, Lutherstadt",Sachsen-Anhalt,45249,237
+Pinneberg,Schleswig-Holstein,44865,238
+Neustadt am Rübenberge,Niedersachsen,44668,239
+Bernau bei Berlin,Brandenburg,44597,240
+Lehrte,Niedersachsen,44255,241
+Memmingen,Bayern,44192,242
+Seevetal,Niedersachsen,44158,243
+"Erkrath, Fundort des Neanderthalers",Nordrhein-Westfalen,43706,244
+Monheim am Rhein,Nordrhein-Westfalen,43630,245
+Bietigheim-Bissingen,Baden-Württemberg,43556,246
+"Homburg, Kreisstadt",Saarland,43382,247
+Wismar,Mecklenburg-Vorpommern,43329,248
+Kaarst,Nordrhein-Westfalen,43295,249
+Heinsberg,Nordrhein-Westfalen,43163,250
+Borken,Nordrhein-Westfalen,43035,251
+Gifhorn,Niedersachsen,42726,252
+Aurich,Niedersachsen,42612,253
+Schwäbisch Hall,Baden-Württemberg,42598,254
+Amberg,Bayern,42553,255
+Siegburg,Nordrhein-Westfalen,42445,256
+Weiden i.d.OPf.,Bayern,42444,257
+Kamen,Nordrhein-Westfalen,42319,258
+Kirchheim unter Teck,Baden-Württemberg,42299,259
+Nettetal,Nordrhein-Westfalen,41955,260
+Laatzen,Niedersachsen,41838,261
+Buchholz in der Nordheide,Niedersachsen,41737,262
+Dreieich,Hessen,41692,263
+Schorndorf,Baden-Württemberg,41647,264
+"Freiberg, Stadt, Universitätsstadt",Sachsen,41519,265
+Eberswalde,Brandenburg,41481,266
+Wunstorf,Niedersachsen,41211,267
+Hückelhoven,Nordrhein-Westfalen,41192,268
+Leinfelden-Echterdingen,Baden-Württemberg,41185,269
+Bensheim,Hessen,41124,270
+"Neumarkt i.d.OPf., GKSt",Bayern,41103,271
+Coburg,Bayern,41064,272
+Völklingen,Saarland,40952,273
+"Germering, GKSt",Bayern,40916,274
+Buxtehude,Niedersachsen,40886,275
+Schwabach,Bayern,40835,276
+Löhne,Nordrhein-Westfalen,40826,277
+Nürtingen,Baden-Württemberg,40773,278
+Nordhausen,Thüringen,40767,279
+Eisenach,Thüringen,40747,280
+Ansbach,Bayern,40742,281
+Königswinter,Nordrhein-Westfalen,40574,282
+Ahaus,Nordrhein-Westfalen,40176,283
+Würselen,Nordrhein-Westfalen,40145,284
+Pirna,Sachsen,40128,285
+Lemgo,Nordrhein-Westfalen,39905,286
+Ostfildern,Baden-Württemberg,39778,287
+Pirmasens,Rheinland-Pfalz,39761,288
+Kehl,Baden-Württemberg,39584,289
+Mettmann,Nordrhein-Westfalen,39542,290
+Königs Wusterhausen,Brandenburg,39360,291
+Freital,Sachsen,39281,292
+"Hofheim am Taunus, Kreisstadt",Hessen,39259,293
+Maintal,Hessen,38987,294
+Ilmenau,Thüringen,38834,295
+Backnang,Baden-Württemberg,38818,296
+Langen (Hessen),Hessen,38785,297
+Ettlingen,Baden-Württemberg,38578,298
+Niederkassel,Nordrhein-Westfalen,38485,299
+Coesfeld,Nordrhein-Westfalen,38237,300
+Kamp-Lintfort,Nordrhein-Westfalen,38217,301
+Greven,Nordrhein-Westfalen,38212,302
+Haltern am See,Nordrhein-Westfalen,38142,303
+Wesseling,Nordrhein-Westfalen,38106,304
+Weißenfels,Sachsen-Anhalt,37929,305
+"Neu-Isenburg, Hugenotten- und Waldenserstadt",Hessen,37926,306
+Halberstadt,Sachsen-Anhalt,37898,307
+Stendal,Sachsen-Anhalt,37850,308
+Warendorf,Nordrhein-Westfalen,37703,309
+"Saarlouis, Kreisstadt",Saarland,37667,310
+"Bautzen / Budyšin, Stadt, Hochschulstadt / Wysokošulske město",Sachsen,37566,311
+"Fürstenfeldbruck, GKSt",Bayern,37420,312
+Papenburg,Niedersachsen,37206,313
+"Erding, GKSt",Bayern,37171,314
+Beckum,Nordrhein-Westfalen,37133,315
+Tuttlingen,Baden-Württemberg,37109,316
+Sinsheim,Baden-Württemberg,37036,317
+Winsen (Luhe),Niedersachsen,36961,318
+Meppen,Niedersachsen,36930,319
+Bitterfeld-Wolfen,Sachsen-Anhalt,36592,320
+Cloppenburg,Niedersachsen,36565,321
+Porta Westfalica,Nordrhein-Westfalen,36521,322
+Mühlhausen/Thüringen,Thüringen,36353,323
+Emsdetten,Nordrhein-Westfalen,36159,324
+Bad Vilbel,Hessen,35961,325
+"Limburg a. d. Lahn, Kreisstadt",Hessen,35938,326
+Crailsheim,Baden-Württemberg,35755,327
+Voerde (Niederrhein),Nordrhein-Westfalen,35661,328
+Balingen,Baden-Württemberg,35623,329
+"Dietzenbach, Kreisstadt",Hessen,35561,330
+Datteln,Nordrhein-Westfalen,35473,331
+St. Ingbert,Saarland,35453,332
+Lage,Nordrhein-Westfalen,35054,333
+"Deggendorf, GKSt",Bayern,35044,334
+Ingelheim am Rhein,Rheinland-Pfalz,35016,335
+Hemer,Nordrhein-Westfalen,35005,336
+Geldern,Nordrhein-Westfalen,34962,337
+Wedel,Schleswig-Holstein,34912,338
+Goch,Nordrhein-Westfalen,34907,339
+Jülich,Nordrhein-Westfalen,34890,340
+Steinfurt,Nordrhein-Westfalen,34860,341
+Suhl,Thüringen,34685,342
+Rheinfelden (Baden),Baden-Württemberg,34674,343
+Korschenbroich,Nordrhein-Westfalen,34600,344
+Biberach an der Riß,Baden-Württemberg,34576,345
+Ahrensburg,Schleswig-Holstein,34534,346
+Viernheim,Hessen,34426,347
+Merseburg,Sachsen-Anhalt,34392,348
+Wermelskirchen,Nordrhein-Westfalen,34375,349
+Seelze,Niedersachsen,34364,350
+Herrenberg,Baden-Württemberg,34192,351
+Kempen,Nordrhein-Westfalen,34105,352
+Leer (Ostfriesland),Niedersachsen,34025,353
+Kornwestheim,Baden-Württemberg,33980,354
+Barsinghausen,Niedersachsen,33941,355
+Stuhr,Niedersachsen,33913,356
+Schwedt/Oder,Brandenburg,33730,357
+Vechta,Niedersachsen,33728,358
+Geesthacht,Schleswig-Holstein,33519,359
+Zweibrücken,Rheinland-Pfalz,33323,360
+"Forchheim, GKSt",Bayern,33017,361
+Radebeul,Sachsen,32979,362
+Bad Nauheim,Hessen,32894,363
+Achim,Niedersachsen,32870,364
+Uelzen,Niedersachsen,32821,365
+Itzehoe,Schleswig-Holstein,32725,366
+Nienburg (Weser),Niedersachsen,32608,367
+Lampertheim,Hessen,32400,368
+Weil am Rhein,Baden-Württemberg,32236,369
+Wernigerode,Sachsen-Anhalt,32167,370
+Delbrück,Nordrhein-Westfalen,32166,371
+Fürstenwalde/Spree,Brandenburg,32002,372
+Neuruppin,Brandenburg,31962,373
+Naumburg (Saale),Sachsen-Anhalt,31940,374
+Emmerich am Rhein,Nordrhein-Westfalen,31829,375
+Radolfzell am Bodensee,Baden-Württemberg,31734,376
+"Merzig, Kreisstadt",Saarland,31697,377
+Mörfelden-Walldorf,Hessen,31638,378
+Ganderkesee,Niedersachsen,31494,379
+Oer-Erkenschwick,Nordrhein-Westfalen,31404,380
+Georgsmarienhütte,Niedersachsen,31244,381
+Rheinberg,Nordrhein-Westfalen,31172,382
+Altenburg,Thüringen,31093,383
+Geestland,Niedersachsen,31093,384
+Burgdorf,Niedersachsen,31051,385
+Walsrode,Niedersachsen,31019,386
+Bernburg (Saale),Sachsen-Anhalt,30992,387
+Lohmar,Nordrhein-Westfalen,30992,388
+Weyhe,Niedersachsen,30975,389
+Kreuztal,Nordrhein-Westfalen,30905,390
+"Bad Hersfeld, Kreisstadt",Hessen,30846,391
+Hoyerswerda / Wojerecy,Sachsen,30759,392
+Rendsburg,Schleswig-Holstein,30633,393
+Schönebeck (Elbe),Sachsen-Anhalt,30419,394
+"Friedberg (Hessen), Kreisstadt",Hessen,30409,395
+Bretten,Baden-Württemberg,30274,396
+Werne,Nordrhein-Westfalen,30202,397
+Idar-Oberstein,Rheinland-Pfalz,30170,398
+Taunusstein,Hessen,30145,399
+"Neuburg a.d.Donau, GKSt",Bayern,30135,400
+Oelde,Nordrhein-Westfalen,30129,401
+Haan,Nordrhein-Westfalen,30086,402
+Rietberg,Nordrhein-Westfalen,30055,403
+Andernach,Rheinland-Pfalz,30039,404
+Gevelsberg,Nordrhein-Westfalen,30006,405
+"Friedberg, St",Bayern,29953,406
+"Schwandorf, GKSt",Bayern,29877,407
+Winnenden,Baden-Württemberg,29876,408
+Wedemark,Niedersachsen,29803,409
+Einbeck,Niedersachsen,29751,410
+Osterholz-Scharmbeck,Niedersachsen,29710,411
+Bad Zwischenahn,Niedersachsen,29698,412
+"Meschede, Kreis- und  Hochschulstadt",Nordrhein-Westfalen,29615,413
+Werl,Nordrhein-Westfalen,29600,414
+Gaggenau,Baden-Württemberg,29529,415
+Ludwigsfelde,Brandenburg,29514,416
+Emmendingen,Baden-Württemberg,29502,417
+"Ennepetal, Stadt der Kluterthöhle",Nordrhein-Westfalen,29446,418
+Riesa,Sachsen,29373,419
+Griesheim,Hessen,29309,420
+"Landsberg am Lech, GKSt",Bayern,29257,421
+Tönisvorst,Nordrhein-Westfalen,29251,422
+Baesweiler,Nordrhein-Westfalen,29206,423
+Mühlheim am Main,Hessen,29194,424
+Mechernich,Nordrhein-Westfalen,29187,425
+Waltrop,Nordrhein-Westfalen,29177,426
+Blankenfelde-Mahlow,Brandenburg,29129,427
+Saalfeld/Saale,Thüringen,29086,428
+"Güstrow, Barlachstadt",Mecklenburg-Vorpommern,28959,429
+Vaihingen an der Enz,Baden-Württemberg,28798,430
+Meißen,Sachsen,28753,431
+Rödermark,Hessen,28753,432
+Rösrath,Nordrhein-Westfalen,28709,433
+Springe,Niedersachsen,28669,434
+Arnstadt,Thüringen,28615,435
+Bühl,Baden-Württemberg,28608,436
+Geilenkirchen,Nordrhein-Westfalen,28494,437
+"Unterschleißheim, St",Bayern,28482,438
+Hattersheim am Main,Hessen,28467,439
+Wangen im Allgäu,Baden-Württemberg,28412,440
+Zeitz,Sachsen-Anhalt,28328,441
+Henstedt-Ulzburg,Schleswig-Holstein,28325,442
+"Garmisch-Partenkirchen, M",Bayern,28305,443
+Kevelaer,Nordrhein-Westfalen,28296,444
+Reinbek,Schleswig-Holstein,28274,445
+Bramsche,Niedersachsen,28220,446
+Kelkheim (Taunus),Hessen,28175,447
+Höxter,Nordrhein-Westfalen,28166,448
+Lohne (Oldenburg),Niedersachsen,28089,449
+Wegberg,Nordrhein-Westfalen,28089,450
+"Leichlingen (Rheinland), Blütenstadt",Nordrhein-Westfalen,28078,451
+Bad Neuenahr-Ahrweiler,Rheinland-Pfalz,27961,452
+Schwelm,Nordrhein-Westfalen,27953,453
+Baunatal,Hessen,27929,454
+"Königsbrunn, St",Bayern,27879,455
+"Heppenheim (Bergstraße), Kreisstadt",Hessen,27864,456
+Geislingen an der Steige,Baden-Württemberg,27791,457
+Ehingen (Donau),Baden-Württemberg,27764,458
+Wiesloch,Baden-Württemberg,27731,459
+Strausberg,Brandenburg,27719,460
+Teltow,Brandenburg,27682,461
+Sundern (Sauerland),Nordrhein-Westfalen,27654,462
+Grimma,Sachsen,27529,463
+Northeim,Niedersachsen,27326,464
+"Olching, St",Bayern,27310,465
+Neukirchen-Vluyn,Nordrhein-Westfalen,27140,466
+Verden (Aller),Niedersachsen,27121,467
+Weinstadt,Baden-Württemberg,27074,468
+Werder (Havel),Brandenburg,27065,469
+"Butzbach, Friedrich-Ludwig-Weidig-Stadt",Hessen,27046,470
+"Pfaffenhofen a.d.Ilm, St",Bayern,26996,471
+Rheinbach,Nordrhein-Westfalen,26918,472
+Hamminkeln,Nordrhein-Westfalen,26873,473
+Leimen,Baden-Württemberg,26873,474
+Hohen Neuendorf,Brandenburg,26857,475
+Lübbecke,Nordrhein-Westfalen,26815,476
+Mühlacker,Baden-Württemberg,26787,477
+Achern,Baden-Württemberg,26733,478
+Hennigsdorf,Brandenburg,26677,479
+Overath,Nordrhein-Westfalen,26663,480
+"Kulmbach, GKSt",Bayern,26625,481
+Weiterstadt,Hessen,26583,482
+Unterhaching,Bayern,26507,483
+Neckarsulm,Baden-Württemberg,26431,484
+Schloß Holte-Stukenbrock,Nordrhein-Westfalen,26297,485
+Heiligenhaus,Nordrhein-Westfalen,26252,486
+"Zirndorf, St",Bayern,26243,487
+Remseck am Neckar,Baden-Württemberg,26188,488
+"Lauf a.d.Pegnitz, St",Bayern,26106,489
+Wetter (Ruhr),Nordrhein-Westfalen,26090,490
+"Geretsried, St",Bayern,25997,491
+Selm,Nordrhein-Westfalen,25969,492
+Delitzsch,Sachsen,25895,493
+Nordenham,Niedersachsen,25889,494
+"Friedrichsdorf, Philipp-Reis-Stadt",Hessen,25871,495
+"Lindau (Bodensee), GKSt",Bayern,25845,496
+Verl,Nordrhein-Westfalen,25762,497
+"Waldkraiburg, St",Bayern,25737,498
+"Idstein, Hochschulstadt",Hessen,25736,499
+Öhringen,Baden-Württemberg,25673,500
+Horb am Neckar,Baden-Württemberg,25651,501
+Aschersleben,Sachsen-Anhalt,25647,502
+Rinteln,Niedersachsen,25602,503
+Espelkamp,Nordrhein-Westfalen,25576,504
+"Harsewinkel, Die Mähdrescherstadt",Nordrhein-Westfalen,25523,505
+"Roth, St",Bayern,25458,506
+"St. Wendel, Kreisstadt",Saarland,25441,507
+Salzkotten,Nordrhein-Westfalen,25429,508
+Brilon,Nordrhein-Westfalen,25424,509
+Pfungstadt,Hessen,25415,510
+Sangerhausen,Sachsen-Anhalt,25392,511
+Groß-Gerau,Hessen,25388,512
+Bingen am Rhein,Rheinland-Pfalz,25384,513
+Schleswig,Schleswig-Holstein,25352,514
+Petershagen,Nordrhein-Westfalen,25340,515
+Markkleeberg,Sachsen,25331,516
+Bedburg,Nordrhein-Westfalen,25316,517
+Obertshausen,Hessen,25316,518
+"Zittau, Stadt, Hochschulstadt",Sachsen,25286,519
+Syke,Niedersachsen,25270,520
+Lüdinghausen,Nordrhein-Westfalen,25265,521
+Stutensee,Baden-Württemberg,25259,522
+Norden,Niedersachsen,25178,523
+Wiehl,Nordrhein-Westfalen,25164,524
+Helmstedt,Niedersachsen,25099,525
+Rathenow,Brandenburg,25087,526
+Bad Honnef,Nordrhein-Westfalen,25061,527
+Waldshut-Tiengen,Baden-Württemberg,25019,528
+Meiningen,Thüringen,25002,529
+Calw,Baden-Württemberg,25001,530
+Ellwangen (Jagst),Baden-Württemberg,25001,531
+Warstein,Nordrhein-Westfalen,24988,532
+Rottweil,Baden-Württemberg,24985,533
+Vaterstetten,Bayern,24981,534
+Weingarten,Baden-Württemberg,24940,535
+Meckenheim,Nordrhein-Westfalen,24925,536
+Rudolstadt,Thüringen,24852,537
+Bad Oldesloe,Schleswig-Holstein,24846,538
+Schmallenberg,Nordrhein-Westfalen,24711,539
+Varel,Niedersachsen,24704,540
+Eisenhüttenstadt,Brandenburg,24703,541
+Olpe,Nordrhein-Westfalen,24695,542
+Wandlitz,Brandenburg,24503,543
+"Starnberg, St",Bayern,24471,544
+Freudenstadt,Baden-Württemberg,24464,545
+Mosbach,Baden-Württemberg,24459,546
+Plettenberg,Nordrhein-Westfalen,24429,547
+Haren (Ems),Niedersachsen,24365,548
+Übach-Palenberg,Nordrhein-Westfalen,24277,549
+Lennestadt,Nordrhein-Westfalen,24238,550
+"Herzogenaurach, St",Bayern,24237,551
+Sprockhövel,Nordrhein-Westfalen,24232,552
+Leutkirch im Allgäu,Baden-Württemberg,24226,553
+Köthen (Anhalt),Sachsen-Anhalt,24110,554
+Husum,Schleswig-Holstein,24090,555
+Isernhagen,Niedersachsen,24074,556
+Bad Mergentheim,Baden-Württemberg,24023,557
+Westerstede,Niedersachsen,23938,558
+Jüchen,Nordrhein-Westfalen,23926,559
+Nagold,Baden-Württemberg,23864,560
+Döbeln,Sachsen,23819,561
+Ronnenberg,Niedersachsen,23814,562
+Alfter,Nordrhein-Westfalen,23719,563
+Limbach-Oberfrohna,Sachsen,23673,564
+"Senden, St",Bayern,23641,565
+Attendorn,Nordrhein-Westfalen,23554,566
+Neu Wulmstorf,Niedersachsen,23550,567
+Kaltenkirchen,Schleswig-Holstein,23502,568
+Hann. Münden,Niedersachsen,23478,569
+Senftenberg/Zły Komorow,Brandenburg,23466,570
+Sehnde,Niedersachsen,23431,571
+"Gersthofen, St",Bayern,23427,572
+Moormerland,Niedersachsen,23365,573
+"Gelnhausen, Barbarossastadt, Kreisstadt",Hessen,23290,574
+"Weilheim i.OB, St",Bayern,23279,575
+Warburg,Nordrhein-Westfalen,23252,576
+"Bad Kissingen, GKSt",Bayern,23223,577
+"Staßfurt, Salzstadt",Sachsen-Anhalt,23181,578
+Metzingen,Baden-Württemberg,23178,579
+"Riedstadt, Büchnerstadt",Hessen,23146,580
+"Quedlinburg, Welterbestadt",Sachsen-Anhalt,23139,581
+Rotenburg (Wümme),Niedersachsen,23117,582
+Bad Soden am Taunus,Hessen,23103,583
+Vreden,Nordrhein-Westfalen,23099,584
+Netphen,Nordrhein-Westfalen,23080,585
+"Dillenburg, Oranienstadt",Hessen,22974,586
+Salzwedel,Sachsen-Anhalt,22964,587
+"Kitzingen, GKSt",Bayern,22936,588
+"Neusäß, St",Bayern,22904,589
+"Korbach, Hansestadt, Kreisstadt",Hessen,22901,590
+Rastede,Niedersachsen,22896,591
+"Haar, St",Bayern,22878,592
+Wertheim,Baden-Württemberg,22874,593
+Sonneberg,Thüringen,22843,594
+Laupheim,Baden-Württemberg,22839,595
+Ottobrunn,Bayern,22829,596
+Apolda,Thüringen,22787,597
+Herdecke,Nordrhein-Westfalen,22772,598
+Überlingen,Baden-Württemberg,22735,599
+Bad Rappenau,Baden-Württemberg,22703,600
+Friesoythe,Niedersachsen,22685,601
+Ditzingen,Baden-Württemberg,22666,602
+Eppingen,Baden-Württemberg,22666,603
+Stadthagen,Niedersachsen,22638,604
+Edewecht,Niedersachsen,22632,605
+Wallenhorst,Niedersachsen,22614,606
+Karben,Hessen,22600,607
+Burg,Sachsen-Anhalt,22585,608
+Bad Salzungen,Thüringen,22557,609
+Lengerich,Nordrhein-Westfalen,22557,610
+Quickborn,Schleswig-Holstein,22521,611
+Soltau,Niedersachsen,22511,612
+"Eisleben, Lutherstadt",Sachsen-Anhalt,22505,613
+"Mühldorf a.Inn, St",Bayern,22503,614
+Waghäusel,Baden-Württemberg,22466,615
+Büdingen,Hessen,22411,616
+Eschborn,Hessen,22403,617
+Eislingen/Fils,Baden-Württemberg,22325,618
+"Aichach, St",Bayern,22015,619
+Heide,Schleswig-Holstein,22002,620
+Rees,Nordrhein-Westfalen,21913,621
+Gauting,Bayern,21860,622
+Gardelegen,Sachsen-Anhalt,21822,623
+Donaueschingen,Baden-Württemberg,21790,624
+Zülpich,Nordrhein-Westfalen,21780,625
+Schwetzingen,Baden-Württemberg,21767,626
+Bad Krozingen,Baden-Württemberg,21755,627
+Mössingen,Baden-Württemberg,21751,628
+"Sonthofen, St",Bayern,21734,629
+Germersheim,Rheinland-Pfalz,21715,630
+Hockenheim,Baden-Württemberg,21623,631
+Lindlar,Nordrhein-Westfalen,21615,632
+Wipperfürth,Nordrhein-Westfalen,21604,633
+Osterode am Harz,Niedersachsen,21598,634
+Büren,Nordrhein-Westfalen,21593,635
+"Radevormwald, Stadt auf der Höhe",Nordrhein-Westfalen,21565,636
+Eckernförde,Schleswig-Holstein,21563,637
+Dillingen/ Saar,Saarland,21529,638
+Versmold,Nordrhein-Westfalen,21513,639
+Waldkirch,Baden-Württemberg,21510,640
+Ilsede,Niedersachsen,21469,641
+"Glauchau, Stadt, Hochschulstadt",Sachsen,21442,642
+Stadtallendorf,Hessen,21425,643
+Elsdorf,Nordrhein-Westfalen,21424,644
+"Günzburg, GKSt",Bayern,21423,645
+Zossen,Brandenburg,21412,646
+Karlsfeld,Bayern,21403,647
+Halle (Westf.),Nordrhein-Westfalen,21393,648
+Schifferstadt,Rheinland-Pfalz,21387,649
+Flörsheim am Main,Hessen,21344,650
+"Seligenstadt, Einhardstadt",Hessen,21298,651
+Rheinstetten,Baden-Württemberg,21267,652
+Groß-Umstadt,Hessen,21245,653
+Xanten,Nordrhein-Westfalen,21179,654
+Wildeshausen,Niedersachsen,21155,655
+Panketal,Brandenburg,21153,656
+Spremberg/Grodk,Brandenburg,21140,657
+Westoverledingen,Niedersachsen,21127,658
+Zerbst/Anhalt,Sachsen-Anhalt,21124,659
+Neufahrn b.Freising,Bayern,21061,660
+Luckenwalde,Brandenburg,21010,661
+Schortens,Niedersachsen,20995,662
+Stadtlohn,Nordrhein-Westfalen,20946,663
+Geseke,Nordrhein-Westfalen,20930,664
+Sondershausen,Thüringen,20910,665
+"Traunstein, GKSt",Bayern,20877,666
+"Puchheim, St",Bayern,20858,667
+Senden,Nordrhein-Westfalen,20844,668
+Bad Waldsee,Baden-Württemberg,20838,669
+"Dingolfing, St",Bayern,20749,670
+Wülfrath,Nordrhein-Westfalen,20731,671
+"Enger, Widukindstadt",Nordrhein-Westfalen,20688,672
+Schramberg,Baden-Württemberg,20610,673
+Tettnang,Baden-Württemberg,20520,674
+Werdau,Sachsen,20520,675
+Bruchköbel,Hessen,20509,676
+Fröndenberg/Ruhr,Nordrhein-Westfalen,20504,677
+"Lichtenfels, St",Bayern,20488,678
+Coswig,Sachsen,20479,679
+Wachtberg,Nordrhein-Westfalen,20471,680
+Herborn,Hessen,20421,681
+Haßloch,Rheinland-Pfalz,20396,682
+Ochtrup,Nordrhein-Westfalen,20394,683
+Burgwedel,Niedersachsen,20379,684
+"Traunreut, St",Bayern,20379,685
+Duderstadt,Niedersachsen,20375,686
+"Nördlingen, GKSt",Bayern,20352,687
+Schopfheim,Baden-Württemberg,20332,688
+Steinhagen,Nordrhein-Westfalen,20302,689
+Neunkirchen-Seelscheid,Nordrhein-Westfalen,20283,690
+Waren (Müritz),Mecklenburg-Vorpommern,20260,691
+Nottuln,Nordrhein-Westfalen,20205,692
+Blieskastel,Saarland,20197,693
+"Neustrelitz, Residenzstadt",Mecklenburg-Vorpommern,20191,694
+Hörstel,Nordrhein-Westfalen,20166,695
+Lilienthal,Niedersachsen,20166,696
+Borna,Sachsen,20131,697
+Nidderau,Hessen,20119,698
+Müllheim im Markgräflerland,Baden-Württemberg,20097,699
+Telgte,Nordrhein-Westfalen,20069,700
+Uetze,Niedersachsen,20064,701
+Wilnsdorf,Nordrhein-Westfalen,20039,702
+Wittmund,Niedersachsen,20037,703
+Kürten,Nordrhein-Westfalen,20033,704
+Meinerzhagen,Nordrhein-Westfalen,20019,705
+"Moosburg a.d.Isar, St",Bayern,20012,706
+Torgau,Sachsen,19992,707
+"Donauwörth, GKSt",Bayern,19990,708
+Giengen an der Brenz,Baden-Württemberg,19967,709
+Leinefelde-Worbis,Thüringen,19957,710
+Bad Schwartau,Schleswig-Holstein,19954,711
+Schwanewede,Niedersachsen,19937,712
+Schenefeld,Schleswig-Holstein,19909,713
+Bad Friedrichshall,Baden-Württemberg,19853,714
+Oberkirch,Baden-Württemberg,19847,715
+Ennigerloh,Nordrhein-Westfalen,19841,716
+"Bad Tölz, St",Bayern,19826,717
+Hechingen,Baden-Württemberg,19807,718
+"Dillingen a.d.Donau, GKSt",Bayern,19806,719
+Reichenbach im Vogtland,Sachsen,19797,720
+Waldbröl,Nordrhein-Westfalen,19795,721
+Greiz,Thüringen,19766,722
+Pfullingen,Baden-Württemberg,19759,723
+Engelskirchen,Nordrhein-Westfalen,19737,724
+Bad Pyrmont,Niedersachsen,19722,725
+Mayen,Rheinland-Pfalz,19713,726
+Wassenberg,Nordrhein-Westfalen,19713,727
+Nauen,Brandenburg,19679,728
+Rhede,Nordrhein-Westfalen,19674,729
+Hiddenhausen,Nordrhein-Westfalen,19669,730
+"Wolfratshausen, St",Bayern,19658,731
+Korntal-Münchingen,Baden-Württemberg,19654,732
+Mölln,Schleswig-Holstein,19627,733
+"Burghausen, St",Bayern,19558,734
+Marsberg,Nordrhein-Westfalen,19555,735
+Windeck,Nordrhein-Westfalen,19555,736
+Bad Harzburg,Niedersachsen,19489,737
+Alzey,Rheinland-Pfalz,19468,738
+Lebach,Saarland,19468,739
+Wenden,Nordrhein-Westfalen,19415,740
+Sarstedt,Niedersachsen,19405,741
+"Sulzbach-Rosenberg, St",Bayern,19379,742
+Gröbenzell,Bayern,19362,743
+Weil der Stadt,Baden-Württemberg,19353,744
+Schmalkalden,Thüringen,19323,745
+Heusenstamm,Hessen,19312,746
+Kleinmachnow,Brandenburg,19274,747
+Burscheid,Nordrhein-Westfalen,19272,748
+Neuenhagen bei Berlin,Brandenburg,19225,749
+Bückeburg,Niedersachsen,19221,750
+Eitorf,Nordrhein-Westfalen,19172,751
+Bad Dürkheim,Rheinland-Pfalz,19159,752
+Schönefeld,Brandenburg,19154,753
+Haldensleben,Sachsen-Anhalt,19121,754
+"Kolbermoor, St",Bayern,19094,755
+Bad Driburg,Nordrhein-Westfalen,19080,756
+Gilching,Bayern,19062,757
+Wittlich,Rheinland-Pfalz,19049,758
+Schneverdingen,Niedersachsen,19016,759
+Weilerswist,Nordrhein-Westfalen,18980,760
+Blankenburg (Harz),Sachsen-Anhalt,18970,761
+Hemmingen,Niedersachsen,18932,762
+Prenzlau,Brandenburg,18928,763
+Holzminden,Niedersachsen,18921,764
+Schkeuditz,Sachsen,18905,765
+Haiger,Hessen,18888,766
+Aue-Bad Schlema,Sachsen,18868,767
+Oschersleben (Bode),Sachsen-Anhalt,18859,768
+Uetersen,Schleswig-Holstein,18827,769
+Schwalmtal,Nordrhein-Westfalen,18826,770
+Annaberg-Buchholz,Sachsen,18815,771
+Hohe Börde,Sachsen-Anhalt,18747,772
+"Eschwege, Kreisstadt",Hessen,18743,773
+Lahnstein,Rheinland-Pfalz,18719,774
+Reichshof,Nordrhein-Westfalen,18688,775
+Radeberg,Sachsen,18683,776
+Glinde,Schleswig-Holstein,18681,777
+Kronberg im Taunus,Hessen,18671,778
+Seesen,Niedersachsen,18657,779
+Sachsenheim,Baden-Württemberg,18638,780
+Bergneustadt,Nordrhein-Westfalen,18628,781
+"Marktoberdorf, St",Bayern,18617,782
+Swisttal,Nordrhein-Westfalen,18580,783
+Hessisch Oldendorf,Niedersachsen,18567,784
+Renningen,Baden-Württemberg,18567,785
+Bremervörde,Niedersachsen,18564,786
+Sömmerda,Thüringen,18503,787
+"Bad Aibling, St",Bayern,18497,788
+"Illertissen, St",Bayern,18433,789
+Heusweiler,Saarland,18427,790
+Hochheim am Main,Hessen,18422,791
+"Schwalmstadt, Konfirmationsstadt",Hessen,18420,792
+Bad Berleburg,Nordrhein-Westfalen,18400,793
+Bad Segeberg,Schleswig-Holstein,18399,794
+Gerlingen,Baden-Württemberg,18392,795
+Wörth am Rhein,Rheinland-Pfalz,18387,796
+Südbrookmerland,Niedersachsen,18368,797
+Püttlingen,Saarland,18361,798
+"Weißenburg i.Bay., GKSt",Bayern,18345,799
+Vlotho,Nordrhein-Westfalen,18335,800
+Rhauderfehn,Niedersachsen,18310,801
+Bad Münstereifel,Nordrhein-Westfalen,18297,802
+"Bad Reichenhall, GKSt",Bayern,18288,803
+Crimmitschau,Sachsen,18272,804
+Heilbad Heiligenstadt,Thüringen,18230,805
+Buchen (Odenwald),Baden-Württemberg,18226,806
+Hoppegarten,Brandenburg,18218,807
+Großenhain,Sachsen,18183,808
+Pfinztal,Baden-Württemberg,18178,809
+Kreuzau,Nordrhein-Westfalen,18149,810
+Taufkirchen,Bayern,18140,811
+Vechelde,Niedersachsen,18138,812
+Konz,Rheinland-Pfalz,18121,813
+Schwalbach,Saarland,18108,814
+Ismaning,Bayern,18093,815
+"Vilshofen an der Donau, St",Bayern,18084,816
+Halstenbek,Schleswig-Holstein,18082,817
+"Alzenau, St",Bayern,18034,818
+Wadgassen,Saarland,18025,819
+Alfeld (Leine),Niedersachsen,17956,820
+"Bobingen, St",Bayern,17905,821
+Parchim,Mecklenburg-Vorpommern,17893,822
+Bad Saulgau,Baden-Württemberg,17889,823
+"Schrobenhausen, St",Bayern,17815,824
+Bürstadt,Hessen,17804,825
+Bexbach,Saarland,17793,826
+Bad Säckingen,Baden-Württemberg,17767,827
+Bönen,Nordrhein-Westfalen,17734,828
+Bendorf,Rheinland-Pfalz,17726,829
+Babenhausen,Hessen,17695,830
+Pohlheim,Hessen,17677,831
+Vellmar,Hessen,17663,832
+"Garching b.München, St",Bayern,17656,833
+Diepholz,Niedersachsen,17648,834
+"Oberasbach, St",Bayern,17647,835
+Stockach,Baden-Württemberg,17646,836
+"Frankenberg (Eder), Philipp-Soldan-Stadt",Hessen,17635,837
+"Freilassing, St",Bayern,17619,838
+Werdohl,Nordrhein-Westfalen,17618,839
+Remagen,Rheinland-Pfalz,17603,840
+Holzwickede,Nordrhein-Westfalen,17596,841
+Nümbrecht,Nordrhein-Westfalen,17580,842
+Damme,Niedersachsen,17508,843
+Trossingen,Baden-Württemberg,17489,844
+"Cham, St",Bayern,17433,845
+"Gescher, Glockenstadt",Nordrhein-Westfalen,17433,846
+Bad Wildungen,Hessen,17364,847
+Freudenberg,Nordrhein-Westfalen,17355,848
+Horn-Bad Meinberg,Nordrhein-Westfalen,17320,849
+Auerbach/Vogtl.,Sachsen,17314,850
+Eutin,Schleswig-Holstein,17275,851
+Bad Münder am Deister,Niedersachsen,17261,852
+Sinzig,Rheinland-Pfalz,17256,853
+Bad Lippspringe,Nordrhein-Westfalen,17252,854
+Oerlinghausen,Nordrhein-Westfalen,17233,855
+Leopoldshöhe,Nordrhein-Westfalen,17226,856
+Forst (Lausitz)/Baršć (Łužyca),Brandenburg,17155,857
+"Marktredwitz, GKSt",Bayern,17121,858
+"Kelheim, St",Bayern,17066,859
+Nidda,Hessen,17060,860
+Wittenberge,Brandenburg,17058,861
+Eltville am Rhein,Hessen,17031,862
+"Penzberg, St",Bayern,17028,863
+Finnentrop,Nordrhein-Westfalen,17022,864
+Schwarzenbek,Schleswig-Holstein,16999,865
+Schmelz,Saarland,16981,866
+"Hünfeld, Konrad-Zuse-Stadt",Hessen,16955,867
+"Bad Wörishofen, St",Bayern,16933,868
+Kamenz / Kamjenc,Sachsen,16918,869
+Künzell,Hessen,16903,870
+Sigmaringen,Baden-Württemberg,16884,871
+"Hövelhof, Sennegemeinde",Nordrhein-Westfalen,16809,872
+Bad Bentheim,Niedersachsen,16798,873
+Eggenstein-Leopoldshafen,Baden-Württemberg,16798,874
+Thale,Sachsen-Anhalt,16788,875
+Brackenheim,Baden-Württemberg,16774,876
+Wurster Nordseeküste,Niedersachsen,16769,877
+"Bruckmühl, M",Bayern,16735,878
+Bad Langensalza,Thüringen,16717,879
+Heidenau,Sachsen,16686,880
+Königstein im Taunus,Hessen,16680,881
+"Gunzenhausen, St",Bayern,16665,882
+Eppelborn,Saarland,16661,883
+Kelsterbach,Hessen,16622,884
+Altena,Nordrhein-Westfalen,16621,885
+"Kronach, St",Bayern,16616,886
+Simmerath,Nordrhein-Westfalen,16612,887
+Bassum,Niedersachsen,16604,888
+Poing,Bayern,16585,889
+Blaustein,Baden-Württemberg,16581,890
+Eilenburg,Sachsen,16539,891
+Losheim am See,Saarland,16535,892
+Preetz,Schleswig-Holstein,16503,893
+Reinheim,Hessen,16503,894
+Ginsheim-Gustavsburg,Hessen,16488,895
+Breisach am Rhein,Baden-Württemberg,16487,896
+Wardenburg,Niedersachsen,16484,897
+Wiefelstede,Niedersachsen,16469,898
+Straelen,Nordrhein-Westfalen,16458,899
+Wadern,Saarland,16453,900
+Kierspe,Nordrhein-Westfalen,16450,901
+"Wendelstein, M",Bayern,16446,902
+Herzebrock-Clarholz,Nordrhein-Westfalen,16419,903
+"Pocking, St",Bayern,16414,904
+Seeheim-Jugenheim,Hessen,16392,905
+Oyten,Niedersachsen,16380,906
+Sulzbach/ Saar,Saarland,16376,907
+Künzelsau,Baden-Württemberg,16348,908
+Kirchlengern,Nordrhein-Westfalen,16334,909
+Halver,Nordrhein-Westfalen,16322,910
+"Regenstauf, M",Bayern,16318,911
+"Holzkirchen, M",Bayern,16310,912
+Erwitte,Nordrhein-Westfalen,16300,913
+Stockelsdorf,Schleswig-Holstein,16289,914
+Drensteinfurt,Nordrhein-Westfalen,16282,915
+Hille,Nordrhein-Westfalen,16274,916
+Bad Essen,Niedersachsen,16265,917
+Kirchhain,Hessen,16254,918
+Bargteheide,Schleswig-Holstein,16245,919
+Wurzen,Sachsen,16238,920
+"Brüggen, Burggemeinde",Nordrhein-Westfalen,16198,921
+Rahden,Nordrhein-Westfalen,16195,922
+Markranstädt,Sachsen,16194,923
+Brakel,Nordrhein-Westfalen,16193,924
+Walldorf,Baden-Württemberg,16188,925
+Marienberg,Sachsen,16139,926
+Stahnsdorf,Brandenburg,16087,927
+Bad Arolsen,Hessen,16050,928
+Karlsbad,Baden-Württemberg,16049,929
+Petersberg,Hessen,16038,930
+Loxstedt,Niedersachsen,16012,931
+Hude (Oldb),Niedersachsen,15994,932
+Wendlingen am Neckar,Baden-Württemberg,15988,933
+Illingen,Saarland,15935,934
+Neustadt in Holstein,Schleswig-Holstein,15930,935
+Erlensee,Hessen,15907,936
+Kernen im Remstal,Baden-Württemberg,15906,937
+Rüdersdorf bei Berlin,Brandenburg,15889,938
+"Großostheim, M",Bayern,15873,939
+Taucha,Sachsen,15866,940
+Ascheberg,Nordrhein-Westfalen,15831,941
+Schiffweiler,Saarland,15805,942
+Dieburg,Hessen,15798,943
+Guben,Brandenburg,15794,944
+Odenthal,Nordrhein-Westfalen,15782,945
+Lübbenau/Spreewald / Lubnjow/Błota,Brandenburg,15778,946
+Boppard,Rheinland-Pfalz,15771,947
+Schlüchtern,Hessen,15723,948
+Usingen,Hessen,15683,949
+Zeulenroda-Triebes,Thüringen,15677,950
+Eppelheim,Baden-Württemberg,15663,951
+"Stadtbergen, St",Bayern,15649,952
+Großenkneten,Niedersachsen,15613,953
+Templin,Brandenburg,15590,954
+Bitburg,Rheinland-Pfalz,15554,955
+"Mindelheim, St",Bayern,15531,956
+Ratekau,Schleswig-Holstein,15527,957
+Freiberg am Neckar,Baden-Württemberg,15520,958
+Finsterwalde,Brandenburg,15496,959
+Blomberg,Nordrhein-Westfalen,15485,960
+"Altdorf b.Nürnberg, St",Bayern,15478,961
+Grenzach-Wyhlen,Baden-Württemberg,15476,962
+Schwarzenberg/Erzgeb.,Sachsen,15475,963
+Marbach am Neckar,Baden-Württemberg,15474,964
+Baiersbronn,Baden-Württemberg,15465,965
+Schwalbach am Taunus,Hessen,15443,966
+Beckingen,Saarland,15442,967
+Bad Bramstedt,Schleswig-Holstein,15439,968
+"Bad Neustadt a.d.Saale, St",Bayern,15434,969
+Petershagen/Eggersdorf,Brandenburg,15432,970
+Ebersbach an der Fils,Baden-Württemberg,15420,971
+Michelstadt,Hessen,15396,972
+Königslutter am Elm,Niedersachsen,15395,973
+"Ribnitz-Damgarten, Bernsteinstadt",Mecklenburg-Vorpommern,15333,974
+Sandhausen,Baden-Württemberg,15330,975
+Alsfeld,Hessen,15307,976
+Gehrden,Niedersachsen,15301,977
+Raunheim,Hessen,15297,978
+"Füssen, St",Bayern,15287,979
+"Schwabmünchen, St",Bayern,15277,980
+Langenau,Baden-Württemberg,15274,981
+"Mainburg, St",Bayern,15271,982
+Weener,Niedersachsen,15215,983
+Schriesheim,Baden-Württemberg,15209,984
+Brake (Unterweser),Niedersachsen,15200,985
+Mühlenbecker Land,Brandenburg,15177,986
+"Mering, M",Bayern,15164,987
+Garrel,Niedersachsen,15152,988
+Isny im Allgäu,Baden-Württemberg,15145,989
+Witzenhausen,Hessen,15132,990
+"Grefrath, Sport- und Freizeitgemeinde",Nordrhein-Westfalen,15117,991
+Reken,Nordrhein-Westfalen,15109,992
+Ober-Ramstadt,Hessen,15078,993
+Munster,Niedersachsen,15062,994
+"Abensberg, St",Bayern,15061,995
+Niederzier,Nordrhein-Westfalen,15060,996
+Ratzeburg,Schleswig-Holstein,15026,997
+Rellingen,Schleswig-Holstein,15026,998
+"Weißwasser/O.L., Stadt / Běła Woda",Sachsen,15002,999
+"Lohr a.Main, St",Bayern,14996,1000
+Langerwehe,Nordrhein-Westfalen,14976,1001
+Bad Wurzach,Baden-Württemberg,14942,1002
+Rehlingen-Siersburg,Saarland,14932,1003
+Montabaur,Rheinland-Pfalz,14884,1004
+Malsch,Baden-Württemberg,14880,1005
+"Stein, St",Bayern,14866,1006
+Oberndorf am Neckar,Baden-Württemberg,14853,1007
+Ritterhude,Niedersachsen,14836,1008
+"Neustadt b.Coburg, GKSt",Bayern,14824,1009
+Münster (Hessen),Hessen,14813,1010
+"Landau a.d.Isar, St",Bayern,14801,1011
+Harsefeld,Niedersachsen,14782,1012
+"Neustadt a.d.Donau, St",Bayern,14778,1013
+Jever,Niedersachsen,14774,1014
+Landsberg,Sachsen-Anhalt,14772,1015
+Münsingen,Baden-Württemberg,14772,1016
+"Dorfen, St",Bayern,14759,1017
+"Selb, GKSt",Bayern,14743,1018
+"Karlstadt, St",Bayern,14739,1019
+Eberbach,Baden-Württemberg,14727,1020
+"Homberg (Efze), Reformationsstadt, Kreisstadt",Hessen,14703,1021
+Olsberg,Nordrhein-Westfalen,14700,1022
+Büttelborn,Hessen,14685,1023
+Pattensen,Niedersachsen,14666,1024
+Langwedel,Niedersachsen,14645,1025
+Fredersdorf-Vogelsdorf,Brandenburg,14644,1026
+Eching,Bayern,14627,1027
+Spenge,Nordrhein-Westfalen,14620,1028
+Niederkrüchten,Nordrhein-Westfalen,14619,1029
+Bissendorf,Niedersachsen,14614,1030
+Edingen-Neckarhausen,Baden-Württemberg,14612,1031
+Groß-Zimmern,Hessen,14607,1032
+Kraichtal,Baden-Württemberg,14602,1033
+Langelsheim,Niedersachsen,14599,1034
+Schiffdorf,Niedersachsen,14598,1035
+Tornesch,Schleswig-Holstein,14588,1036
+Wilsdruff,Sachsen,14583,1037
+Lengede,Niedersachsen,14575,1038
+"Burglengenfeld, St",Bayern,14569,1039
+Much,Nordrhein-Westfalen,14561,1040
+Gründau,Hessen,14560,1041
+Sassenberg,Nordrhein-Westfalen,14558,1042
+Burbach,Nordrhein-Westfalen,14553,1043
+Murrhardt,Baden-Württemberg,14551,1044
+Kalkar,Nordrhein-Westfalen,14513,1045
+"Fritzlar, Dom- und Kaiserstadt",Hessen,14493,1046
+Plochingen,Baden-Württemberg,14487,1047
+Aßlar,Hessen,14482,1048
+"Hückeswagen, Schloss-Stadt",Nordrhein-Westfalen,14480,1049
+"Eckental, M",Bayern,14476,1050
+Löbau,Sachsen,14467,1051
+Hainburg,Hessen,14465,1052
+Langenselbold,Hessen,14440,1053
+Hofgeismar,Hessen,14439,1054
+Ahrensfelde,Brandenburg,14423,1055
+Grünstadt,Rheinland-Pfalz,14419,1056
+Hilchenbach,Nordrhein-Westfalen,14412,1057
+Gernsbach,Baden-Württemberg,14405,1058
+"Immenstadt i.Allgäu, St",Bayern,14391,1059
+Saterland,Niedersachsen,14378,1060
+Niedernhausen,Hessen,14345,1061
+Neu-Anspach,Hessen,14342,1062
+Tostedt,Niedersachsen,14341,1063
+Remshalden,Baden-Württemberg,14337,1064
+Neubiberg,Bayern,14329,1065
+Brühl,Baden-Württemberg,14328,1066
+Aldenhoven,Nordrhein-Westfalen,14324,1067
+Löningen,Niedersachsen,14307,1068
+Uhingen,Baden-Württemberg,14304,1069
+Markdorf,Baden-Württemberg,14300,1070
+Riegelsberg,Saarland,14296,1071
+"Lorsch, Karolingerstadt",Hessen,14283,1072
+"Eggenfelden, St",Bayern,14271,1073
+Bad Camberg,Hessen,14268,1074
+Ottweiler,Saarland,14255,1075
+Wennigsen (Deister),Niedersachsen,14251,1076
+Hatten,Niedersachsen,14250,1077
+Angermünde,Brandenburg,14233,1078
+"Neutraubling, St",Bayern,14224,1079
+"Weißenhorn, St",Bayern,14186,1080
+Holzgerlingen,Baden-Württemberg,14184,1081
+Oschatz,Sachsen,14184,1082
+Lauda-Königshofen,Baden-Württemberg,14180,1083
+"Krumbach (Schwaben), St",Bayern,14178,1084
+Lich,Hessen,14167,1085
+Sendenhorst,Nordrhein-Westfalen,14167,1086
+Sylt,Schleswig-Holstein,14167,1087
+Freigericht,Hessen,14165,1088
+Erbach,Baden-Württemberg,14140,1089
+Markgröningen,Baden-Württemberg,14138,1090
+Leuna,Sachsen-Anhalt,14131,1091
+Sandersdorf-Brehna,Sachsen-Anhalt,14130,1092
+Schwentinental,Schleswig-Holstein,14091,1093
+Rommerskirchen,Nordrhein-Westfalen,14079,1094
+Bovenden,Niedersachsen,14078,1095
+"Vöhringen, St",Bayern,14044,1096
+Lauchhammer,Brandenburg,14042,1097
+Rosengarten,Niedersachsen,14033,1098
+Großefehn,Niedersachsen,14029,1099
+Lübben (Spreewald) / Lubin (Błota),Brandenburg,14028,1100
+Quakenbrück,Niedersachsen,14007,1101
+Melsungen,Hessen,13994,1102
+St. Leon-Rot,Baden-Württemberg,13979,1103
+Maisach,Bayern,13974,1104
+Zeven,Niedersachsen,13958,1105
+Schmölln,Thüringen,13953,1106
+Mühltal,Hessen,13951,1107
+"Grafing b.München, St",Bayern,13942,1108
+"Erbach, Kreisstadt",Hessen,13935,1109
+Dippoldiswalde,Sachsen,13915,1110
+Neuenkirchen,Nordrhein-Westfalen,13915,1111
+"Clausthal-Zellerfeld, Berg- und Universitätsstadt",Niedersachsen,13912,1112
+Belm,Niedersachsen,13905,1113
+"Eichstätt, GKSt",Bayern,13891,1114
+Beelitz,Brandenburg,13879,1115
+Wiesmoor,Niedersachsen,13875,1116
+Lohfelden,Hessen,13870,1117
+"Haßfurt, St",Bayern,13867,1118
+"Höchstadt a.d.Aisch, St",Bayern,13867,1119
+Friesenheim,Baden-Württemberg,13858,1120
+"Mittweida, Stadt, Hochschulstadt",Sachsen,13839,1121
+Waldbronn,Baden-Württemberg,13838,1122
+"Buchloe, St",Bayern,13815,1123
+Wittstock/Dosse,Brandenburg,13804,1124
+Hohenstein-Ernstthal,Sachsen,13788,1125
+Barßel,Niedersachsen,13780,1126
+Lotte,Nordrhein-Westfalen,13770,1127
+Obersulm,Baden-Württemberg,13756,1128
+Philippsburg,Baden-Württemberg,13748,1129
+Meckenbeuren,Baden-Württemberg,13735,1130
+Wanzleben-Börde,Sachsen-Anhalt,13724,1131
+Ettenheim,Baden-Württemberg,13722,1132
+Borchen,Nordrhein-Westfalen,13721,1133
+Denzlingen,Baden-Württemberg,13720,1134
+Bad Soden-Salmünster,Hessen,13719,1135
+"Feucht, M",Bayern,13714,1136
+Spaichingen,Baden-Württemberg,13714,1137
+Michendorf,Brandenburg,13708,1138
+Grünberg,Hessen,13683,1139
+Hünxe,Nordrhein-Westfalen,13676,1140
+"Pegnitz, St",Bayern,13665,1141
+"Frankenberg/Sa., Stadt, Garnisonsstadt",Sachsen,13659,1142
+"Hilpoltstein, St",Bayern,13654,1143
+Linnich,Nordrhein-Westfalen,13653,1144
+Asperg,Baden-Württemberg,13650,1145
+"Markt Schwaben, M",Bayern,13643,1146
+Jessen (Elster),Sachsen-Anhalt,13639,1147
+Dinklage,Niedersachsen,13622,1148
+Saarwellingen,Saarland,13616,1149
+Bedburg-Hau,Nordrhein-Westfalen,13599,1150
+Bad Schönborn,Baden-Württemberg,13583,1151
+Solms,Hessen,13579,1152
+Schleiden,Nordrhein-Westfalen,13578,1153
+Meerane,Sachsen,13567,1154
+Schüttorf,Niedersachsen,13562,1155
+Uslar,Niedersachsen,13536,1156
+Haselünne,Niedersachsen,13527,1157
+Schermbeck,Nordrhein-Westfalen,13516,1158
+Gräfelfing,Bayern,13472,1159
+Stemwede,Nordrhein-Westfalen,13460,1160
+Bergen auf Rügen,Mecklenburg-Vorpommern,13457,1161
+Östringen,Baden-Württemberg,13450,1162
+Tauberbischofsheim,Baden-Württemberg,13445,1163
+Pfullendorf,Baden-Württemberg,13442,1164
+"Lappersdorf, M",Bayern,13419,1165
+Genthin,Sachsen-Anhalt,13416,1166
+Wentorf bei Hamburg,Schleswig-Holstein,13414,1167
+Gangelt,Nordrhein-Westfalen,13410,1168
+Mutterstadt,Rheinland-Pfalz,13403,1169
+Sulingen,Niedersachsen,13394,1170
+Kirchheim b.München,Bayern,13392,1171
+Schneeberg,Sachsen,13377,1172
+Marienheide,Nordrhein-Westfalen,13356,1173
+Beverstedt,Niedersachsen,13354,1174
+Neckargemünd,Baden-Württemberg,13335,1175
+"Ergolding, M",Bayern,13323,1176
+Oberhaching,Bayern,13318,1177
+Linden,Hessen,13308,1178
+Hüllhorst,Nordrhein-Westfalen,13304,1179
+Barsbüttel,Schleswig-Holstein,13302,1180
+"Neustadt a.d.Aisch, St",Bayern,13294,1181
+Hagen am Teutoburger Wald,Niedersachsen,13275,1182
+Weinsberg,Baden-Württemberg,13268,1183
+Kalletal,Nordrhein-Westfalen,13256,1184
+Herbrechtingen,Baden-Württemberg,13238,1185
+Fehmarn,Schleswig-Holstein,13200,1186
+Brieselang,Brandenburg,13187,1187
+Kerken,Nordrhein-Westfalen,13186,1188
+Ubstadt-Weiher,Baden-Württemberg,13178,1189
+Olfen,Nordrhein-Westfalen,13175,1190
+Winterberg,Nordrhein-Westfalen,13168,1191
+Ottersberg,Niedersachsen,13166,1192
+Twistringen,Niedersachsen,13162,1193
+"Plattling, St",Bayern,13160,1194
+"Treuchtlingen, St",Bayern,13159,1195
+"Roding, St",Bayern,13157,1196
+Bad Dürrheim,Baden-Württemberg,13149,1197
+Bad Laasphe,Nordrhein-Westfalen,13148,1198
+"Peißenberg, M",Bayern,13148,1199
+"Altötting, St",Bayern,13138,1200
+Wehr,Baden-Württemberg,13126,1201
+Ketsch,Baden-Württemberg,13117,1202
+Schöneiche bei Berlin,Brandenburg,13102,1203
+Roßdorf,Hessen,13096,1204
+Rosbach v. d. Höhe,Hessen,13084,1205
+Bohmte,Niedersachsen,13083,1206
+Hadamar,Hessen,13082,1207
+Spiesen-Elversberg,Saarland,13080,1208
+Bad Doberan,Mecklenburg-Vorpommern,13079,1209
+Eppstein,Hessen,13070,1210
+"Lauterbach (Hessen), Kreisstadt",Hessen,13047,1211
+"Hösbach, M",Bayern,13046,1212
+"Manching, M",Bayern,13042,1213
+Zehdenick,Brandenburg,13040,1214
+Teutschenthal,Sachsen-Anhalt,13038,1215
+Bad Salzdetfurth,Niedersachsen,13037,1216
+Oebisfelde-Weferlingen,Sachsen-Anhalt,13002,1217
+Weilburg,Hessen,12992,1218
+Bergen,Niedersachsen,12991,1219
+Bischofsheim,Hessen,12979,1220
+Biedenkopf,Hessen,12969,1221
+Wietmarschen,Niedersachsen,12959,1222
+Bebra,Hessen,12945,1223
+Rotenburg a. d. Fulda,Hessen,12937,1224
+Gärtringen,Baden-Württemberg,12934,1225
+Jüterbog,Brandenburg,12926,1226
+Ladenburg,Baden-Württemberg,12914,1227
+Cremlingen,Niedersachsen,12907,1228
+Quierschied,Saarland,12895,1229
+Waltershausen,Thüringen,12871,1230
+Südliches Anhalt,Sachsen-Anhalt,12857,1231
+Wadersloh,Nordrhein-Westfalen,12848,1232
+Sulz am Neckar,Baden-Württemberg,12847,1233
+"Kaufungen, Kunigundengemeinde",Hessen,12838,1234
+Trebur,Hessen,12799,1235
+Titisee-Neustadt,Baden-Württemberg,12797,1236
+Herzberg am Harz,Niedersachsen,12792,1237
+Bad Fallingbostel,Niedersachsen,12783,1238
+Hettstedt,Sachsen-Anhalt,12783,1239
+Weeze,Nordrhein-Westfalen,12766,1240
+Altenstadt,Hessen,12764,1241
+"Pfarrkirchen, St",Bayern,12764,1242
+Hungen,Hessen,12754,1243
+Fuldatal,Hessen,12752,1244
+Bad Urach,Baden-Württemberg,12751,1245
+Wächtersbach,Hessen,12731,1246
+Velten,Brandenburg,12727,1247
+Blaubeuren,Baden-Württemberg,12719,1248
+Bretzfeld,Baden-Württemberg,12713,1249
+Winsen (Aller),Niedersachsen,12711,1250
+Neunkirchen,Nordrhein-Westfalen,12705,1251
+Brunsbüttel,Schleswig-Holstein,12692,1252
+Dossenheim,Baden-Württemberg,12690,1253
+Neuenburg am Rhein,Baden-Württemberg,12690,1254
+Scheeßel,Niedersachsen,12690,1255
+Velen,Nordrhein-Westfalen,12678,1256
+Beverungen,Nordrhein-Westfalen,12669,1257
+Mettlach,Saarland,12621,1258
+Möckern,Sachsen-Anhalt,12591,1259
+"Wolfhagen, Hans-Staden-Stadt",Hessen,12582,1260
+"Schongau, St",Bayern,12572,1261
+"Feuchtwangen, St",Bayern,12551,1262
+"Bad Abbach, M",Bayern,12545,1263
+"Röthenbach a.d.Pegnitz, St",Bayern,12529,1264
+Buseck,Hessen,12527,1265
+Alpen,Nordrhein-Westfalen,12515,1266
+Neuhausen auf den Fildern,Baden-Württemberg,12506,1267
+Emstek,Niedersachsen,12487,1268
+Linkenheim-Hochstetten,Baden-Württemberg,12484,1269
+"Gaimersheim, M",Bayern,12468,1270
+"Rödental, St",Bayern,12457,1271
+Graben-Neudorf,Baden-Württemberg,12453,1272
+"Bad Windsheim, St",Bayern,12446,1273
+Preußisch Oldendorf,Nordrhein-Westfalen,12439,1274
+"Hirschaid, M",Bayern,12429,1275
+Issum,Nordrhein-Westfalen,12428,1276
+Laichingen,Baden-Württemberg,12425,1277
+Bad Wünnenberg,Nordrhein-Westfalen,12418,1278
+Gladenbach,Hessen,12415,1279
+"Ebersberg, St",Bayern,12408,1280
+Niefern-Öschelbronn,Baden-Württemberg,12402,1281
+Monschau,Nordrhein-Westfalen,12389,1282
+Ense,Nordrhein-Westfalen,12383,1283
+Ihlow,Niedersachsen,12376,1284
+"Wasserburg a.Inn, St",Bayern,12375,1285
+Tholey,Saarland,12358,1286
+Havixbeck,Nordrhein-Westfalen,12357,1287
+"Hersbruck, St",Bayern,12346,1288
+Hessisch Lichtenau,Hessen,12337,1289
+Wolmirstedt,Sachsen-Anhalt,12323,1290
+"Meitingen, M",Bayern,12307,1291
+Tamm,Baden-Württemberg,12305,1292
+St. Georgen im Schwarzwald,Baden-Württemberg,12301,1293
+Heddesheim,Baden-Württemberg,12294,1294
+Zetel,Niedersachsen,12293,1295
+Edemissen,Niedersachsen,12281,1296
+"Osterhofen, St",Bayern,12280,1297
+Oftersheim,Baden-Württemberg,12272,1298
+Borken (Hessen),Hessen,12268,1299
+Rielasingen-Worblingen,Baden-Württemberg,12268,1300
+Besigheim,Baden-Württemberg,12267,1301
+"Dinkelsbühl, GKSt",Bayern,12260,1302
+Salem,Baden-Württemberg,12243,1303
+Rosdorf,Niedersachsen,12239,1304
+"Vilsbiburg, St",Bayern,12237,1305
+Kronshagen,Schleswig-Holstein,12235,1306
+Dingelstädt,Thüringen,12204,1307
+Wernau (Neckar),Baden-Württemberg,12200,1308
+Bad Sassendorf,Nordrhein-Westfalen,12194,1309
+Lauffen am Neckar,Baden-Württemberg,12189,1310
+Gundelfingen,Baden-Württemberg,12168,1311
+Glienicke/Nordbahn,Brandenburg,12159,1312
+Zella-Mehlis,Thüringen,12157,1313
+Oberkrämer,Brandenburg,12145,1314
+Nörvenich,Nordrhein-Westfalen,12131,1315
+Geeste,Niedersachsen,12129,1316
+Burladingen,Baden-Württemberg,12124,1317
+Frohburg,Sachsen,12120,1318
+Apen,Niedersachsen,12118,1319
+Überherrn,Saarland,12109,1320
+Steinheim,Nordrhein-Westfalen,12107,1321
+Leutenbach,Baden-Württemberg,12093,1322
+Wettenberg,Hessen,12077,1323
+"Maxhütte-Haidhof, St",Bayern,12053,1324
+Hagenow,Mecklenburg-Vorpommern,12022,1325
+Perleberg,Brandenburg,12022,1326
+Gaildorf,Baden-Württemberg,12005,1327
+Welver,Nordrhein-Westfalen,11999,1328
+"Essenbach, M",Bayern,11998,1329
+"Murnau a.Staffelsee, M",Bayern,11994,1330
+Stelle,Niedersachsen,11974,1331
+"Hauzenberg, St",Bayern,11965,1332
+Ludwigslust,Mecklenburg-Vorpommern,11961,1333
+Pößneck,Thüringen,11960,1334
+Hallbergmoos,Bayern,11959,1335
+Billerbeck,Nordrhein-Westfalen,11945,1336
+Uplengen,Niedersachsen,11930,1337
+Anklam,Mecklenburg-Vorpommern,11917,1338
+Hemsbach,Baden-Württemberg,11915,1339
+Drolshagen,Nordrhein-Westfalen,11913,1340
+Sassenburg,Niedersachsen,11913,1341
+Steinheim an der Murr,Baden-Württemberg,11908,1342
+Ostrhauderfehn,Niedersachsen,11885,1343
+Teningen,Baden-Württemberg,11884,1344
+Lippetal,Nordrhein-Westfalen,11883,1345
+Bad Freienwalde (Oder),Brandenburg,11877,1346
+Nordstemmen,Niedersachsen,11876,1347
+Lehre,Niedersachsen,11874,1348
+Pritzwalk,Brandenburg,11866,1349
+Unterföhring,Bayern,11866,1350
+Oberschleißheim,Bayern,11857,1351
+Eichenzell,Hessen,11852,1352
+Schöneck,Hessen,11837,1353
+Harrislee,Schleswig-Holstein,11811,1354
+Neustadt in Sachsen,Sachsen,11810,1355
+"Peiting, M",Bayern,11798,1356
+Remchingen,Baden-Württemberg,11798,1357
+Durmersheim,Baden-Württemberg,11780,1358
+Rangsdorf,Brandenburg,11754,1359
+Raesfeld,Nordrhein-Westfalen,11709,1360
+Scharbeutz,Schleswig-Holstein,11694,1361
+Jork,Niedersachsen,11693,1362
+Oberderdingen,Baden-Württemberg,11690,1363
+Bad Nenndorf,Niedersachsen,11686,1364
+Limburgerhof,Rheinland-Pfalz,11684,1365
+Schwaigern,Baden-Württemberg,11661,1366
+Kissing,Bayern,11657,1367
+Lauenburg/ Elbe,Schleswig-Holstein,11657,1368
+Mettingen,Nordrhein-Westfalen,11654,1369
+Erkner,Brandenburg,11641,1370
+Leingarten,Baden-Württemberg,11637,1371
+Wickede (Ruhr),Nordrhein-Westfalen,11637,1372
+Hildburghausen,Thüringen,11632,1373
+"Wolnzach, M",Bayern,11623,1374
+Neuenrade,Nordrhein-Westfalen,11621,1375
+Walldürn,Baden-Württemberg,11614,1376
+Sinzheim,Baden-Württemberg,11608,1377
+Korb,Baden-Württemberg,11607,1378
+"Lindenberg i.Allgäu, St",Bayern,11587,1379
+"Miesbach, St",Bayern,11573,1380
+"Geisenfeld, St",Bayern,11563,1381
+Bopfingen,Baden-Württemberg,11560,1382
+Handewitt,Schleswig-Holstein,11556,1383
+Rudersberg,Baden-Württemberg,11555,1384
+Gerstetten,Baden-Württemberg,11551,1385
+Eichenau,Bayern,11540,1386
+Muldestausee,Sachsen-Anhalt,11540,1387
+"Bad Schwalbach, Kreisstadt",Hessen,11532,1388
+Ammerbuch,Baden-Württemberg,11522,1389
+"Bad Dürrenberg, Solestadt",Sachsen-Anhalt,11521,1390
+"Lauingen (Donau), St",Bayern,11510,1391
+Kirchhundem,Nordrhein-Westfalen,11509,1392
+Eningen unter Achalm,Baden-Württemberg,11506,1393
+Ostbevern,Nordrhein-Westfalen,11469,1394
+Burgthann,Bayern,11466,1395
+Dautphetal,Hessen,11466,1396
+Oestrich-Winkel,Hessen,11443,1397
+Zeuthen,Brandenburg,11431,1398
+Diez,Rheinland-Pfalz,11428,1399
+Nußloch,Baden-Württemberg,11418,1400
+Glückstadt,Schleswig-Holstein,11410,1401
+"Marktheidenfeld, St",Bayern,11402,1402
+Krummhörn,Niedersachsen,11384,1403
+"Geisenheim, Hochschulstadt",Hessen,11369,1404
+Straubenhardt,Baden-Württemberg,11367,1405
+"Rothenburg ob der Tauber, GKSt",Bayern,11365,1406
+Zwönitz,Sachsen,11358,1407
+Kriftel,Hessen,11356,1408
+"Waldkirchen, St",Bayern,11356,1409
+Rheinau,Baden-Württemberg,11346,1410
+Recke,Nordrhein-Westfalen,11341,1411
+"Trostberg, St",Bayern,11337,1412
+Schwieberdingen,Baden-Württemberg,11318,1413
+Drochtersen,Niedersachsen,11313,1414
+Engen,Baden-Württemberg,11311,1415
+Kranenburg,Nordrhein-Westfalen,11303,1416
+"Altdorf, M",Bayern,11300,1417
+Möhnesee,Nordrhein-Westfalen,11274,1418
+Salzatal,Sachsen-Anhalt,11267,1419
+Welzheim,Baden-Württemberg,11264,1420
+Kloster Lehnin,Brandenburg,11261,1421
+Rutesheim,Baden-Württemberg,11258,1422
+Isselburg,Nordrhein-Westfalen,11251,1423
+"Cadolzburg, M",Bayern,11250,1424
+Rosendahl,Nordrhein-Westfalen,11249,1425
+Extertal,Nordrhein-Westfalen,11248,1426
+Balve,Nordrhein-Westfalen,11240,1427
+Gräfenhainichen,Sachsen-Anhalt,11228,1428
+"Ochsenfurt, St",Bayern,11219,1429
+"Mömbris, M",Bayern,11202,1430
+Südheide,Niedersachsen,11182,1431
+Kall,Nordrhein-Westfalen,11180,1432
+Grünwald,Bayern,11179,1433
+Riedlingen,Baden-Württemberg,11176,1434
+Raubling,Bayern,11161,1435
+Mülheim-Kärlich,Rheinland-Pfalz,11159,1436
+Wittingen,Niedersachsen,11136,1437
+Coswig (Anhalt),Sachsen-Anhalt,11129,1438
+Stollberg/Erzgeb.,Sachsen,11127,1439
+Bannewitz,Sachsen,11122,1440
+Bad Belzig,Brandenburg,11118,1441
+Niestetal,Hessen,11118,1442
+Herrsching a.Ammersee,Bayern,11099,1443
+Herxheim bei Landau/ Pfalz,Rheinland-Pfalz,11093,1444
+Denkendorf,Baden-Württemberg,11092,1445
+Gengenbach,Baden-Württemberg,11081,1446
+Schöningen,Niedersachsen,11078,1447
+Rodenbach,Hessen,11074,1448
+Werther (Westf.),Nordrhein-Westfalen,11051,1449
+Boizenburg/ Elbe,Mecklenburg-Vorpommern,11048,1450
+Braunfels,Hessen,11045,1451
+Osterwieck,Sachsen-Anhalt,11045,1452
+Höhenkirchen-Siegertsbrunn,Bayern,11039,1453
+Wustermark,Brandenburg,11024,1454
+"Regen, St",Bayern,11018,1455
+Planegg,Bayern,11007,1456
+Burgkirchen a.d.Alz,Bayern,11006,1457
+Wolgast,Mecklenburg-Vorpommern,10991,1458
+Lichtenau,Nordrhein-Westfalen,10985,1459
+Langgöns,Hessen,10965,1460
+Egelsbach,Hessen,10960,1461
+Eisenberg,Thüringen,10955,1462
+Oelsnitz/Erzgeb.,Sachsen,10954,1463
+Ebersbach-Neugersdorf,Sachsen,10937,1464
+Haigerloch,Baden-Württemberg,10930,1465
+"Prien a.Chiemsee, M",Bayern,10915,1466
+Neuhof,Hessen,10893,1467
+Neuenhaus,Niedersachsen,10890,1468
+Ruppichteroth,Nordrhein-Westfalen,10887,1469
+Dallgow-Döberitz,Brandenburg,10882,1470
+Westerkappeln,Nordrhein-Westfalen,10876,1471
+Lichtenstein/Sa.,Sachsen,10875,1472
+Hasbergen,Niedersachsen,10874,1473
+Gottmadingen,Baden-Württemberg,10871,1474
+Malente,Schleswig-Holstein,10858,1475
+Kleinblittersdorf,Saarland,10856,1476
+Steinbach (Taunus),Hessen,10856,1477
+Harsum,Niedersachsen,10846,1478
+Mandelbachtal,Saarland,10844,1479
+"Bad Staffelstein, St",Bayern,10821,1480
+Adendorf,Niedersachsen,10818,1481
+Grafschaft,Rheinland-Pfalz,10817,1482
+Schkopau,Sachsen-Anhalt,10815,1483
+Fürth,Hessen,10810,1484
+Lorch,Baden-Württemberg,10806,1485
+Altensteig,Baden-Württemberg,10798,1486
+Selfkant,Nordrhein-Westfalen,10786,1487
+Möglingen,Baden-Württemberg,10784,1488
+Herbolzheim,Baden-Württemberg,10783,1489
+Nideggen,Nordrhein-Westfalen,10764,1490
+Nordkirchen,Nordrhein-Westfalen,10762,1491
+Kenzingen,Baden-Württemberg,10748,1492
+Feldkirchen-Westerham,Bayern,10742,1493
+Schwielowsee,Brandenburg,10723,1494
+Wildau,Brandenburg,10717,1495
+Hagen im Bremischen,Niedersachsen,10705,1496
+"Diedorf, M",Bayern,10699,1497
+"Hammelburg, St",Bayern,10694,1498
+Karlsdorf-Neuthard,Baden-Württemberg,10693,1499
+"Gernsheim, Schöfferstadt",Hessen,10685,1500
+Meßstetten,Baden-Württemberg,10677,1501
+"Dießen am Ammersee, M",Bayern,10673,1502
+"Burgau, St",Bayern,10670,1503
+Weinböhla,Sachsen,10659,1504
+Bad Iburg,Niedersachsen,10652,1505
+Taufkirchen (Vils),Bayern,10652,1506
+Böhl-Iggelheim,Rheinland-Pfalz,10645,1507
+Plankstadt,Baden-Württemberg,10644,1508
+Schorfheide,Brandenburg,10632,1509
+Mülsen,Sachsen,10613,1510
+Bischofswerda,Sachsen,10576,1511
+Donzdorf,Baden-Württemberg,10568,1512
+Emsbüren,Niedersachsen,10559,1513
+Stephanskirchen,Bayern,10558,1514
+Morsbach,Nordrhein-Westfalen,10555,1515
+Hüttenberg,Hessen,10550,1516
+Morbach,Rheinland-Pfalz,10542,1517
+Felsberg,Hessen,10535,1518
+Weingarten (Baden),Baden-Württemberg,10534,1519
+Gronau (Leine),Niedersachsen,10527,1520
+Schönwalde-Glien,Brandenburg,10523,1521
+Merzenich,Nordrhein-Westfalen,10508,1522
+Nauheim,Hessen,10496,1523
+Schönaich,Baden-Württemberg,10495,1524
+Nossen,Sachsen,10486,1525
+Barmstedt,Schleswig-Holstein,10470,1526
+Schalksmühle,Nordrhein-Westfalen,10463,1527
+Wald-Michelbach,Hessen,10455,1528
+"Bogen, St",Bayern,10453,1529
+"Langenzenn, St",Bayern,10438,1530
+Aerzen,Niedersachsen,10424,1531
+Dissen am Teutoburger Wald,Niedersachsen,10423,1532
+Aulendorf,Baden-Württemberg,10417,1533
+Büdelsdorf,Schleswig-Holstein,10417,1534
+Burgstädt,Sachsen,10413,1535
+Steinen,Baden-Württemberg,10409,1536
+Reiskirchen,Hessen,10389,1537
+Bad Wildbad,Baden-Württemberg,10388,1538
+Klipphausen,Sachsen,10384,1539
+Werlte,Niedersachsen,10382,1540
+Endingen am Kaiserstuhl,Baden-Württemberg,10381,1541
+Hünstetten,Hessen,10380,1542
+Appenweier,Baden-Württemberg,10374,1543
+Betzdorf,Rheinland-Pfalz,10363,1544
+Braunsbedra,Sachsen-Anhalt,10352,1545
+Schauenburg,Hessen,10352,1546
+"Kirchseeon, M",Bayern,10342,1547
+Goldenstedt,Niedersachsen,10313,1548
+Anröchte,Nordrhein-Westfalen,10304,1549
+Marpingen,Saarland,10297,1550
+Rüthen,Nordrhein-Westfalen,10290,1551
+"Altusried, M",Bayern,10289,1552
+"Markt Indersdorf, M",Bayern,10283,1553
+Friedeburg,Niedersachsen,10280,1554
+Altenberge,Nordrhein-Westfalen,10278,1555
+Kirchzarten,Baden-Württemberg,10266,1556
+"Simbach a.Inn, St",Bayern,10261,1557
+Neuenstadt am Kocher,Baden-Württemberg,10249,1558
+Mörlenbach,Hessen,10245,1559
+Steinfeld (Oldenburg),Niedersachsen,10228,1560
+Schleusingen,Thüringen,10225,1561
+Birkenfeld,Baden-Württemberg,10224,1562
+Lollar,Hessen,10222,1563
+"Beilngries, St",Bayern,10218,1564
+Tangermünde,Sachsen-Anhalt,10212,1565
+Hambühren,Niedersachsen,10208,1566
+Königsbach-Stein,Baden-Württemberg,10201,1567
+Wendeburg,Niedersachsen,10199,1568
+Kirkel,Saarland,10191,1569
+"Steinau an der Straße, Brüder-Grimm-Stadt",Hessen,10189,1570
+Süßen,Baden-Württemberg,10185,1571
+Flöha,Sachsen,10183,1572
+Friedrichsthal,Saarland,10180,1573
+Niebüll,Schleswig-Holstein,10173,1574
+Grevesmühlen,Mecklenburg-Vorpommern,10167,1575
+Bad Lauterberg im Harz,Niedersachsen,10164,1576
+Kirchlinteln,Niedersachsen,10148,1577
+Mengen,Baden-Württemberg,10148,1578
+Meuselwitz,Thüringen,10148,1579
+Bestwig,Nordrhein-Westfalen,10147,1580
+Lenggries,Bayern,10147,1581
+Heubach,Baden-Württemberg,10145,1582
+Willstätt,Baden-Württemberg,10124,1583
+Tangerhütte,Sachsen-Anhalt,10108,1584
+Merchweiler,Saarland,10099,1585
+"Gemünden a.Main, St",Bayern,10098,1586
+Gommern,Sachsen-Anhalt,10090,1587
+Hilter am Teutoburger Wald,Niedersachsen,10067,1588
+Rödinghausen,Nordrhein-Westfalen,10064,1589
+Oelsnitz/Vogtl.,Sachsen,10062,1590
+"Werneck, M",Bayern,10051,1591
+Bobenheim-Roxheim,Rheinland-Pfalz,10045,1592
+Bad Ems,Rheinland-Pfalz,10030,1593
+Schwaikheim,Baden-Württemberg,10028,1594
+Mittenwalde,Brandenburg,10027,1595
+Nordwalde,Nordrhein-Westfalen,10024,1596
+Querfurt,Sachsen-Anhalt,10007,1597
+Blumberg,Baden-Württemberg,10003,1598
+Dettingen an der Erms,Baden-Württemberg,9993,1599
+Ammersbek,Schleswig-Holstein,9991,1600
+Ohrdruf,Thüringen,9991,1601
+Wildberg,Baden-Württemberg,9977,1602
+Weil im Schönbuch,Baden-Württemberg,9970,1603
+"Münchberg, St",Bayern,9969,1604
+"Kaufering, M",Bayern,9957,1605
+Olbernhau,Sachsen,9953,1606
+Nohfelden,Saarland,9949,1607
+Rehburg-Loccum,Niedersachsen,9942,1608
+Bad Orb,Hessen,9934,1609
+Tutzing,Bayern,9926,1610
+Gudensberg,Hessen,9925,1611
+Bleicherode,Thüringen,9920,1612
+Neuried,Baden-Württemberg,9919,1613
+Ottendorf-Okrilla,Sachsen,9909,1614
+Walzbachtal,Baden-Württemberg,9904,1615
+Vettweiß,Nordrhein-Westfalen,9903,1616
+Waltenhofen,Bayern,9901,1617
+Biebertal,Hessen,9893,1618
+Twist,Niedersachsen,9891,1619
+Weilheim an der Teck,Baden-Württemberg,9887,1620
+Rüdesheim am Rhein,Hessen,9879,1621
+Elchingen,Bayern,9869,1622
+Altenholz,Schleswig-Holstein,9865,1623
+Niddatal,Hessen,9861,1624
+Südlohn,Nordrhein-Westfalen,9861,1625
+"Goldbach, M",Bayern,9857,1626
+Spelle,Niedersachsen,9856,1627
+Emmerthal,Niedersachsen,9834,1628
+Wahlstedt,Schleswig-Holstein,9831,1629
+Kümmersbruck,Bayern,9830,1630
+Nersingen,Bayern,9827,1631
+Ilsfeld,Baden-Württemberg,9826,1632
+Pliezhausen,Baden-Württemberg,9821,1633
+Hünfelden,Hessen,9818,1634
+Ainring,Bayern,9800,1635
+Eschenburg,Hessen,9795,1636
+"Kösching, M",Bayern,9788,1637
+Augustdorf,Nordrhein-Westfalen,9774,1638
+Everswinkel,Nordrhein-Westfalen,9772,1639
+Plüderhausen,Baden-Württemberg,9766,1640
+Höchst i. Odw.,Hessen,9744,1641
+Visbek,Niedersachsen,9735,1642
+Ostercappeln,Niedersachsen,9734,1643
+"Erlenbach a.Main, St",Bayern,9717,1644
+Köngen,Baden-Württemberg,9716,1645
+Bad Frankenhausen/Kyffhäuser,Thüringen,9715,1646
+Oldenburg in Holstein,Schleswig-Holstein,9711,1647
+Nieder-Olm,Rheinland-Pfalz,9703,1648
+Trebbin,Brandenburg,9700,1649
+Klötze,Sachsen-Anhalt,9699,1650
+Laubach,Hessen,9699,1651
+"Heilsbronn, St",Bayern,9692,1652
+Linsengericht,Hessen,9679,1653
+Veitshöchheim,Bayern,9671,1654
+Pasewalk,Mecklenburg-Vorpommern,9666,1655
+"Roßtal, M",Bayern,9663,1656
+Brandis,Sachsen,9654,1657
+Osthofen,Rheinland-Pfalz,9650,1658
+Hirschberg an der Bergstraße,Baden-Württemberg,9647,1659
+Schotten,Hessen,9641,1660
+Römerberg,Rheinland-Pfalz,9634,1661
+Altlandsberg,Brandenburg,9630,1662
+Bad Breisig,Rheinland-Pfalz,9623,1663
+Aichtal,Baden-Württemberg,9599,1664
+Demmin,Mecklenburg-Vorpommern,9583,1665
+Birkenau,Hessen,9565,1666
+Oberhausen-Rheinhausen,Baden-Württemberg,9565,1667
+"Höchberg, M",Bayern,9564,1668
+Schulzendorf,Brandenburg,9562,1669
+Wettin-Löbejün,Sachsen-Anhalt,9554,1670
+Oberharz am Brocken,Sachsen-Anhalt,9547,1671
+Runkel,Hessen,9543,1672
+Kißlegg,Baden-Württemberg,9530,1673
+Magstadt,Baden-Württemberg,9513,1674
+Bad König,Hessen,9508,1675
+Bisingen,Baden-Württemberg,9506,1676
+Perl,Saarland,9503,1677
+"Töging a.Inn, St",Bayern,9496,1678
+"Wertingen, St",Bayern,9486,1679
+Heiligenhafen,Schleswig-Holstein,9484,1680
+Mainhausen,Hessen,9483,1681
+Großröhrsdorf,Sachsen,9477,1682
+Großhansdorf,Schleswig-Holstein,9469,1683
+Bad Bevensen,Niedersachsen,9466,1684
+Bockenem,Niedersachsen,9465,1685
+Visselhövede,Niedersachsen,9458,1686
+Zorneding,Bayern,9452,1687
+Fürstenau,Niedersachsen,9443,1688
+Oberzent,Hessen,9429,1689
+Sebnitz,Sachsen,9421,1690
+Wilkau-Haßlau,Sachsen,9418,1691
+Wölfersheim,Hessen,9417,1692
+Höhr-Grenzhausen,Rheinland-Pfalz,9415,1693
+Ilsenburg (Harz),Sachsen-Anhalt,9414,1694
+"Hemau, St",Bayern,9408,1695
+Ehringshausen,Hessen,9399,1696
+Werneuchen,Brandenburg,9397,1697
+Hohenhameln,Niedersachsen,9396,1698
+Giesen,Niedersachsen,9382,1699
+Nuthetal,Brandenburg,9376,1700
+"Ichenhausen, St",Bayern,9373,1701
+Osterburg (Altmark),Sachsen-Anhalt,9371,1702
+Pfedelbach,Baden-Württemberg,9369,1703
+Ochsenhausen,Baden-Württemberg,9358,1704
+Essen (Oldenburg),Niedersachsen,9356,1705
+"Miltenberg, St",Bayern,9351,1706
+Großbeeren,Brandenburg,9344,1707
+Kandel,Rheinland-Pfalz,9337,1708
+Laufenburg (Baden),Baden-Württemberg,9335,1709
+Petersberg,Sachsen-Anhalt,9329,1710
+Worpswede,Niedersachsen,9328,1711
+Wallerfangen,Saarland,9324,1712
+Schmitten im Taunus,Hessen,9323,1713
+Neustadt (Hessen),Hessen,9316,1714
+March,Baden-Württemberg,9309,1715
+Molbergen,Niedersachsen,9306,1716
+Zwenkau,Sachsen,9305,1717
+Aidlingen,Baden-Württemberg,9302,1718
+Bad Liebenzell,Baden-Württemberg,9301,1719
+"Oberstdorf, M",Bayern,9279,1720
+Ehningen,Baden-Württemberg,9277,1721
+Urbach,Baden-Württemberg,9277,1722
+Alsbach-Hähnlein,Hessen,9273,1723
+Schlitz,Hessen,9271,1724
+Wehrheim,Hessen,9271,1725
+Mücke,Hessen,9267,1726
+"Teisendorf, M",Bayern,9267,1727
+Kolkwitz/Gołkojce,Brandenburg,9265,1728
+Schlangen,Nordrhein-Westfalen,9257,1729
+Nalbach,Saarland,9251,1730
+Waldfeucht,Nordrhein-Westfalen,9242,1731
+Dornstadt,Baden-Württemberg,9241,1732
+Salzhemmendorf,Niedersachsen,9233,1733
+"Lügde, Stadt der Osterräder",Nordrhein-Westfalen,9232,1734
+"Elsenfeld, M",Bayern,9225,1735
+Kemberg,Sachsen-Anhalt,9217,1736
+Gnarrenburg,Niedersachsen,9216,1737
+Hohenmölsen,Sachsen-Anhalt,9211,1738
+Ebsdorfergrund,Hessen,9207,1739
+Ilvesheim,Baden-Württemberg,9207,1740
+Luckau,Brandenburg,9203,1741
+Frickenhausen,Baden-Württemberg,9201,1742
+Hilzingen,Baden-Württemberg,9196,1743
+Hürtgenwald,Nordrhein-Westfalen,9196,1744
+Storkow (Mark),Brandenburg,9196,1745
+Lichtenstein,Baden-Württemberg,9191,1746
+Gäufelden,Baden-Württemberg,9181,1747
+Bestensee,Brandenburg,9171,1748
+Lüchow (Wendland),Niedersachsen,9170,1749
+Trittau,Schleswig-Holstein,9170,1750
+Altenbeken,Nordrhein-Westfalen,9161,1751
+Bleckede,Niedersachsen,9154,1752
+"Freystadt, St",Bayern,9151,1753
+Aschheim,Bayern,9149,1754
+Wangerland,Niedersachsen,9149,1755
+Kyritz,Brandenburg,9147,1756
+"Nittenau, St",Bayern,9145,1757
+Dassel,Niedersachsen,9142,1758
+Barleben,Sachsen-Anhalt,9137,1759
+Eisenberg (Pfalz),Rheinland-Pfalz,9137,1760
+Steinbach-Hallenberg,Thüringen,9130,1761
+"Rain, St",Bayern,9127,1762
+Adelsdorf,Bayern,9126,1763
+Schaafheim,Hessen,9113,1764
+Reinfeld (Holstein),Schleswig-Holstein,9107,1765
+Tecklenburg,Nordrhein-Westfalen,9098,1766
+Florstadt,Hessen,9097,1767
+Dielheim,Baden-Württemberg,9094,1768
+Gomaringen,Baden-Württemberg,9080,1769
+Biblis,Hessen,9076,1770
+Fehrbellin,Brandenburg,9076,1771
+Grimmen,Mecklenburg-Vorpommern,9076,1772
+Vallendar,Rheinland-Pfalz,9062,1773
+"Zwiesel, St",Bayern,9059,1774
+Titz,Nordrhein-Westfalen,9052,1775
+"Rehau, St",Bayern,9045,1776
+Bad Schussenried,Baden-Württemberg,9044,1777
+Mendig,Rheinland-Pfalz,9034,1778
+Hohenbrunn,Bayern,9032,1779
+Weißenthurm,Rheinland-Pfalz,9020,1780
+Kusterdingen,Baden-Württemberg,9016,1781
+"Berching, St",Bayern,9008,1782
+Elsfleth,Niedersachsen,9004,1783
+"Neuötting, St",Bayern,8991,1784
+Waldheim,Sachsen,8989,1785
+Zahna-Elster,Sachsen-Anhalt,8984,1786
+Bad Gandersheim,Niedersachsen,8983,1787
+Grünheide (Mark),Brandenburg,8978,1788
+Bruchhausen-Vilsen,Niedersachsen,8970,1789
+"Wunsiedel, St",Bayern,8970,1790
+Oststeinbek,Schleswig-Holstein,8961,1791
+Niesky,Sachsen,8956,1792
+"Bad Griesbach i.Rottal, St",Bayern,8952,1793
+"Nittendorf, M",Bayern,8920,1794
+Obernkirchen,Niedersachsen,8912,1795
+Nettersheim,Nordrhein-Westfalen,8902,1796
+Bad Liebenwerda,Brandenburg,8899,1797
+Torgelow,Mecklenburg-Vorpommern,8899,1798
+Zörbig,Sachsen-Anhalt,8899,1799
+Bad Laer,Niedersachsen,8895,1800
+Sassnitz,Mecklenburg-Vorpommern,8893,1801
+"Vohburg a.d.Donau, St",Bayern,8891,1802
+Liederbach am Taunus,Hessen,8887,1803
+Gerstungen,Thüringen,8884,1804
+"Bad Lauchstädt, Goethestadt",Sachsen-Anhalt,8883,1805
+Elze,Niedersachsen,8880,1806
+Steinheim am Albuch,Baden-Württemberg,8876,1807
+Wetter (Hessen),Hessen,8867,1808
+Kabelsketal,Sachsen-Anhalt,8859,1809
+Memmelsdorf,Bayern,8858,1810
+Neuenkirchen-Vörden,Niedersachsen,8858,1811
+Bockhorn,Niedersachsen,8851,1812
+Borgholzhausen,Nordrhein-Westfalen,8847,1813
+"Auerbach i.d.OPf., St",Bayern,8846,1814
+Sulzbach (Taunus),Hessen,8846,1815
+Plön,Schleswig-Holstein,8844,1816
+Groß Kreutz (Havel),Brandenburg,8838,1817
+Bösel,Niedersachsen,8837,1818
+Südharz,Sachsen-Anhalt,8829,1819
+Breckerfeld,Nordrhein-Westfalen,8816,1820
+Kappeln,Schleswig-Holstein,8812,1821
+Schemmerhofen,Baden-Württemberg,8807,1822
+Brand-Erbisdorf,Sachsen,8797,1823
+Neuried,Bayern,8795,1824
+"Roetgen, Tor zur Eifel",Nordrhein-Westfalen,8786,1825
+"Hallstadt, St",Bayern,8781,1826
+Obertraubling,Bayern,8779,1827
+Naunhof,Sachsen,8776,1828
+Heek,Nordrhein-Westfalen,8773,1829
+"Ueckermünde, Seebad ",Mecklenburg-Vorpommern,8768,1830
+Schwaig b.Nürnberg,Bayern,8761,1831
+"Zschopau, Stadt, Motorradstadt",Sachsen,8760,1832
+Wenzenbach,Bayern,8757,1833
+Mühlhausen,Baden-Württemberg,8753,1834
+Waldenbuch,Baden-Württemberg,8750,1835
+Neustadt an der Orla,Thüringen,8743,1836
+Rimbach,Hessen,8738,1837
+Langweid a.Lech,Bayern,8737,1838
+Dörverden,Niedersachsen,8735,1839
+Herzberg (Elster),Brandenburg,8732,1840
+Kressbronn am Bodensee,Baden-Württemberg,8727,1841
+Bad Bergzabern,Rheinland-Pfalz,8724,1842
+Mainaschaff,Bayern,8721,1843
+Eslohe (Sauerland),Nordrhein-Westfalen,8717,1844
+Großenlüder,Hessen,8714,1845
+Kandern,Baden-Württemberg,8710,1846
+Hemmoor,Niedersachsen,8709,1847
+Bellheim,Rheinland-Pfalz,8706,1848
+Heiden,Nordrhein-Westfalen,8704,1849
+Raguhn-Jeßnitz,Sachsen-Anhalt,8702,1850
+Keltern,Baden-Württemberg,8693,1851
+Sonsbeck,Nordrhein-Westfalen,8688,1852
+Efringen-Kirchen,Baden-Württemberg,8683,1853
+Möckmühl,Baden-Württemberg,8680,1854
+Sinntal,Hessen,8680,1855
+Wissen,Rheinland-Pfalz,8679,1856
+Meßkirch,Baden-Württemberg,8676,1857
+Rauenberg,Baden-Württemberg,8675,1858
+"Weilmünster, Marktflecken",Hessen,8674,1859
+Untergruppenbach,Baden-Württemberg,8670,1860
+Gleichen,Niedersachsen,8663,1861
+"Furth im Wald, St",Bayern,8659,1862
+"Borgentreich, Orgelstadt",Nordrhein-Westfalen,8632,1863
+Flieden,Hessen,8620,1864
+Sande,Niedersachsen,8619,1865
+Pullach i.Isartal,Bayern,8601,1866
+Sülzetal,Sachsen-Anhalt,8577,1867
+"Obernburg a.Main, St",Bayern,8575,1868
+Schladen-Werla,Niedersachsen,8566,1869
+"Fürstenzell, M",Bayern,8565,1870
+"Schnaittach, M",Bayern,8561,1871
+Kirn,Rheinland-Pfalz,8551,1872
+"Allersberg, M",Bayern,8550,1873
+"Tirschenreuth, St",Bayern,8516,1874
+Wörrstadt,Rheinland-Pfalz,8515,1875
+Lienen,Nordrhein-Westfalen,8512,1876
+"Volkach, St",Bayern,8512,1877
+Biederitz,Sachsen-Anhalt,8508,1878
+Löwenberger Land,Brandenburg,8508,1879
+Dornburg,Hessen,8506,1880
+Geratal,Thüringen,8504,1881
+Schleiz,Thüringen,8501,1882
+"Dietmannsried, M",Bayern,8498,1883
+"Ergoldsbach, M",Bayern,8491,1884
+Garching a.d.Alz,Bayern,8491,1885
+"Ottobeuren, M",Bayern,8486,1886
+"Rottenburg a.d.Laaber, St",Bayern,8486,1887
+Nonnweiler,Saarland,8484,1888
+Nordheim,Baden-Württemberg,8480,1889
+Fuldabrück,Hessen,8474,1890
+Seegebiet Mansfelder Land,Sachsen-Anhalt,8474,1891
+Rülzheim,Rheinland-Pfalz,8472,1892
+Neuhaus am Rennweg,Thüringen,8468,1893
+Staufen im Breisgau,Baden-Württemberg,8459,1894
+Kahl a.Main,Bayern,8457,1895
+Doberlug-Kirchhain,Brandenburg,8438,1896
+Blankenheim,Nordrhein-Westfalen,8434,1897
+Ortenberg,Hessen,8423,1898
+Ballenstedt,Sachsen-Anhalt,8422,1899
+Furtwangen im Schwarzwald,Baden-Württemberg,8420,1900
+Reilingen,Baden-Württemberg,8404,1901
+"Schierling, M",Bayern,8395,1902
+Möser,Sachsen-Anhalt,8386,1903
+Woltersdorf,Brandenburg,8386,1904
+Bad Rothenfelde,Niedersachsen,8385,1905
+Heikendorf,Schleswig-Holstein,8372,1906
+Reichenbach an der Fils,Baden-Württemberg,8362,1907
+"Viechtach, St",Bayern,8361,1908
+Kleinostheim,Bayern,8360,1909
+Großräschen/Rań,Brandenburg,8355,1910
+Friedland,Niedersachsen,8332,1911
+"Landstuhl, Sickingenstadt",Rheinland-Pfalz,8332,1912
+Niederwerrn,Bayern,8331,1913
+Timmendorfer Strand,Schleswig-Holstein,8320,1914
+Kirchen (Sieg),Rheinland-Pfalz,8318,1915
+Siegsdorf,Bayern,8314,1916
+Stadtilm,Thüringen,8312,1917
+Langenberg,Nordrhein-Westfalen,8311,1918
+Barntrup,Nordrhein-Westfalen,8297,1919
+"Herrieden, St",Bayern,8295,1920
+Wettringen,Nordrhein-Westfalen,8295,1921
+Staufenberg,Hessen,8291,1922
+Meine,Niedersachsen,8286,1923
+Reichelsheim (Odenwald),Hessen,8282,1924
+"Arnstein, St",Bayern,8281,1925
+"Heroldsberg, M",Bayern,8281,1926
+Willebadessen,Nordrhein-Westfalen,8281,1927
+Großheide,Niedersachsen,8275,1928
+Unterwellenborn,Thüringen,8261,1929
+Hainichen,Sachsen,8255,1930
+Colditz,Sachsen,8249,1931
+Kellinghusen,Schleswig-Holstein,8243,1932
+Lützen,Sachsen-Anhalt,8242,1933
+Schwarzenbruck,Bayern,8241,1934
+Biebergemünd,Hessen,8240,1935
+Borsdorf,Sachsen,8229,1936
+Kuppenheim,Baden-Württemberg,8224,1937
+Bersenbrück,Niedersachsen,8221,1938
+Moritzburg,Sachsen,8217,1939
+Wachtendonk,Nordrhein-Westfalen,8217,1940
+Hermsdorf,Thüringen,8210,1941
+Uhldingen-Mühlhofen,Baden-Württemberg,8210,1942
+"Grafenau, St",Bayern,8203,1943
+Bad Feilnbach,Bayern,8198,1944
+Simmern/ Hunsrück,Rheinland-Pfalz,8195,1945
+Dornstetten,Baden-Württemberg,8194,1946
+Knittlingen,Baden-Württemberg,8188,1947
+Hohberg,Baden-Württemberg,8186,1948
+"Teterow, Bergringstadt",Mecklenburg-Vorpommern,8186,1949
+Mücheln (Geiseltal),Sachsen-Anhalt,8185,1950
+Föritztal,Thüringen,8183,1951
+Lahnau,Hessen,8181,1952
+Lauter-Bernsbach,Sachsen,8179,1953
+Aspach,Baden-Württemberg,8178,1954
+Hausham,Bayern,8177,1955
+Ransbach-Baumbach,Rheinland-Pfalz,8176,1956
+Uedem,Nordrhein-Westfalen,8163,1957
+Neuenbürg,Baden-Württemberg,8162,1958
+Selters (Taunus),Hessen,8158,1959
+Bad Sooden-Allendorf,Hessen,8141,1960
+Neuendettelsau,Bayern,8138,1961
+Lauchringen,Baden-Württemberg,8137,1962
+Zell am Harmersbach,Baden-Württemberg,8129,1963
+"Reichertshofen, M",Bayern,8126,1964
+"Helmbrechts, St",Bayern,8125,1965
+Bönnigheim,Baden-Württemberg,8123,1966
+"Bad Endorf, M",Bayern,8117,1967
+Freisen,Saarland,8115,1968
+Budenheim,Rheinland-Pfalz,8104,1969
+Schieder-Schwalenberg,Nordrhein-Westfalen,8098,1970
+Mansfeld,Sachsen-Anhalt,8096,1971
+"Neunburg vorm Wald, St",Bayern,8093,1972
+Ahrensbök,Schleswig-Holstein,8092,1973
+Thedinghausen,Niedersachsen,8092,1974
+"Kühlungsborn, Ostseebad",Mecklenburg-Vorpommern,8088,1975
+Ankum,Niedersachsen,8085,1976
+Elz,Hessen,8083,1977
+Forst,Baden-Württemberg,8083,1978
+Nierstein,Rheinland-Pfalz,8078,1979
+Sauerlach,Bayern,8063,1980
+Hüfingen,Baden-Württemberg,8060,1981
+"Teublitz, St",Bayern,8060,1982
+Penig,Sachsen,8059,1983
+Premnitz,Brandenburg,8057,1984
+"Neunkirchen a.Brand, M",Bayern,8056,1985
+Bruchmühlbach-Miesau,Rheinland-Pfalz,8049,1986
+Berg b.Neumarkt i.d.OPf.,Bayern,8048,1987
+Bad Lausick,Sachsen,8043,1988
+Salach,Baden-Württemberg,8042,1989
+Amt Wachsenburg,Thüringen,8041,1990
+Meinersen,Niedersachsen,8038,1991
+Calbe (Saale),Sachsen-Anhalt,8030,1992
+Leisnig,Sachsen,8028,1993
+Haibach,Bayern,8019,1994
+Jettingen,Baden-Württemberg,8012,1995
+Berg,Bayern,8009,1996
+Großbottwar,Baden-Württemberg,8005,1997
+Bad Sulza,Thüringen,8001,1998
+Beeskow,Brandenburg,7998,1999
+Oranienbaum-Wörlitz,Sachsen-Anhalt,7998,2000
+Bad Füssing,Bayern,7981,2001
+Lenningen,Baden-Württemberg,7974,2002
+Dannenberg (Elbe),Niedersachsen,7966,2003
+Kirchheimbolanden,Rheinland-Pfalz,7956,2004
+Neresheim,Baden-Württemberg,7954,2005
+Salzbergen,Niedersachsen,7949,2006
+Bad Schmiedeberg,Sachsen-Anhalt,7941,2007
+Weida,Thüringen,7939,2008
+Nessetal,Thüringen,7938,2009
+Birkenwerder,Brandenburg,7935,2010
+Bad Endbach,Hessen,7933,2011
+Osternienburger Land,Sachsen-Anhalt,7928,2012
+Loßburg,Baden-Württemberg,7919,2013
+"Postbauer-Heng, M",Bayern,7912,2014
+Medebach,Nordrhein-Westfalen,7906,2015
+Weikersheim,Baden-Württemberg,7902,2016
+Hemmingen,Baden-Württemberg,7901,2017
+Saulheim,Rheinland-Pfalz,7893,2018
+"Baiersdorf, St",Bayern,7890,2019
+Althengstett,Baden-Württemberg,7886,2020
+Leck,Schleswig-Holstein,7883,2021
+Drei Gleichen,Thüringen,7882,2022
+Könnern,Sachsen-Anhalt,7875,2023
+Liebenburg,Niedersachsen,7860,2024
+Aldingen,Baden-Württemberg,7858,2025
+Bordesholm,Schleswig-Holstein,7855,2026
+Krailling,Bayern,7847,2027
+"Stockstadt a.Main, M",Bayern,7837,2028
+Großrosseln,Saarland,7835,2029
+Hellenthal,Nordrhein-Westfalen,7834,2030
+Strullendorf,Bayern,7828,2031
+Georgenthal,Thüringen,7824,2032
+"Altomünster, M",Bayern,7818,2033
+"Parsberg, St",Bayern,7818,2034
+Barby,Sachsen-Anhalt,7813,2035
+Ehrenkirchen,Baden-Württemberg,7813,2036
+"Hengersberg, M",Bayern,7810,2037
+Asbach,Rheinland-Pfalz,7807,2038
+Erzhausen,Hessen,7794,2039
+Illingen,Baden-Württemberg,7791,2040
+Untermeitingen,Bayern,7789,2041
+"Gundelfingen a.d.Donau, St",Bayern,7783,2042
+Feldkirchen,Bayern,7780,2043
+Heuchelheim a. d. Lahn,Hessen,7773,2044
+Elsteraue,Sachsen-Anhalt,7765,2045
+Bühlertal,Baden-Württemberg,7764,2046
+Jesteburg,Niedersachsen,7758,2047
+Oberkochen,Baden-Württemberg,7746,2048
+Bützow,Mecklenburg-Vorpommern,7745,2049
+Weissach,Baden-Württemberg,7745,2050
+Bad Grund (Harz),Niedersachsen,7738,2051
+Lauta,Sachsen,7726,2052
+Nörten-Hardenberg,Niedersachsen,7719,2053
+"Reisbach, M",Bayern,7719,2054
+Sögel,Niedersachsen,7718,2055
+Hopsten,Nordrhein-Westfalen,7717,2056
+Grasberg,Niedersachsen,7714,2057
+Bad Düben,Sachsen,7713,2058
+Teuchern,Sachsen-Anhalt,7712,2059
+Lastrup,Niedersachsen,7700,2060
+Rheinsberg,Brandenburg,7699,2061
+"Berchtesgaden, M",Bayern,7697,2062
+"Küps, M",Bayern,7697,2063
+Bad Herrenalb,Baden-Württemberg,7694,2064
+Löffingen,Baden-Württemberg,7692,2065
+Emlichheim,Niedersachsen,7691,2066
+Pfronten,Bayern,7687,2067
+Bad Wimpfen,Baden-Württemberg,7686,2068
+Kirchberg,Sachsen,7678,2069
+Elsterwerda,Brandenburg,7663,2070
+Bad Liebenstein,Thüringen,7662,2071
+Bismark (Altmark),Sachsen-Anhalt,7660,2072
+Algermissen,Niedersachsen,7658,2073
+Nordharz,Sachsen-Anhalt,7656,2074
+"Oberstaufen, M",Bayern,7654,2075
+Bodenheim,Rheinland-Pfalz,7651,2076
+Altrip,Rheinland-Pfalz,7648,2077
+Schweich,Rheinland-Pfalz,7643,2078
+Winterbach,Baden-Württemberg,7638,2079
+Ramstein-Miesenbach,Rheinland-Pfalz,7636,2080
+Vetschau/Spreewald / Wětošow/Błota,Brandenburg,7635,2081
+Bergkirchen,Bayern,7630,2082
+Schonungen,Bayern,7628,2083
+Seefeld,Bayern,7628,2084
+Calau/Kalawa,Brandenburg,7626,2085
+Inden,Nordrhein-Westfalen,7624,2086
+Schömberg,Baden-Württemberg,7620,2087
+Radeburg,Sachsen,7615,2088
+Daun,Rheinland-Pfalz,7608,2089
+Treuen,Sachsen,7597,2090
+Karlstein a.Main,Bayern,7590,2091
+"Rimpar, M",Bayern,7587,2092
+Holdorf,Niedersachsen,7586,2093
+Renchen,Baden-Württemberg,7582,2094
+"Münnerstadt, St",Bayern,7577,2095
+Großmehring,Bayern,7576,2096
+"Vohenstrauß, St",Bayern,7576,2097
+Weissach im Tal,Baden-Württemberg,7576,2098
+Oederan,Sachsen,7569,2099
+Barth,Mecklenburg-Vorpommern,7568,2100
+Dummerstorf,Mecklenburg-Vorpommern,7562,2101
+Stadland,Niedersachsen,7561,2102
+Lößnitz,Sachsen,7557,2103
+Seeland,Sachsen-Anhalt,7553,2104
+Gettorf,Schleswig-Holstein,7540,2105
+Treuenbrietzen,Brandenburg,7539,2106
+Oberstenfeld,Baden-Württemberg,7537,2107
+Allstedt,Sachsen-Anhalt,7535,2108
+Kremmen,Brandenburg,7535,2109
+Dörentrup,Nordrhein-Westfalen,7528,2110
+"Horstmar, Stadt der Burgmannshöfe",Nordrhein-Westfalen,7528,2111
+Jockgrim,Rheinland-Pfalz,7528,2112
+Langenargen,Baden-Württemberg,7525,2113
+Dittelbrunn,Bayern,7519,2114
+Allendorf (Eder),Hessen,7518,2115
+Elzach,Baden-Württemberg,7515,2116
+Otterndorf,Niedersachsen,7515,2117
+Ahnatal,Hessen,7513,2118
+Legden,Nordrhein-Westfalen,7511,2119
+Staufenberg,Niedersachsen,7506,2120
+Cappeln (Oldenburg),Niedersachsen,7504,2121
+Saarburg,Rheinland-Pfalz,7504,2122
+Abtsgmünd,Baden-Württemberg,7501,2123
+"Bad Kötzting, St",Bayern,7494,2124
+Dannstadt-Schauernheim,Rheinland-Pfalz,7487,2125
+Flintbek,Schleswig-Holstein,7486,2126
+Söhlde,Niedersachsen,7486,2127
+"Naila, St",Bayern,7482,2128
+Lugau/Erzgeb.,Sachsen,7481,2129
+Bördeland,Sachsen-Anhalt,7466,2130
+Sontra,Hessen,7466,2131
+Bunde,Niedersachsen,7463,2132
+Altenberg,Sachsen,7462,2133
+Albbruck,Baden-Württemberg,7451,2134
+Gundelsheim,Baden-Württemberg,7449,2135
+Klettgau,Baden-Württemberg,7445,2136
+Groitzsch,Sachsen,7442,2137
+Heidenrod,Hessen,7437,2138
+"Leipheim, St",Bayern,7434,2139
+Flein,Baden-Württemberg,7432,2140
+Schellerten,Niedersachsen,7428,2141
+"Sulzbach a.Main, M",Bayern,7423,2142
+"Türkheim, M",Bayern,7410,2143
+Heidesee,Brandenburg,7407,2144
+Bad Berka,Thüringen,7389,2145
+Falkenstein/Vogtl.,Sachsen,7388,2146
+Großkarolinenfeld,Bayern,7387,2147
+Wietze,Niedersachsen,7387,2148
+Hasselroth,Hessen,7386,2149
+Baienfurt,Baden-Württemberg,7382,2150
+Edermünde,Hessen,7371,2151
+Belgern-Schildau,Sachsen,7363,2152
+"Burkardroth, M",Bayern,7361,2153
+Allensbach,Baden-Württemberg,7353,2154
+Friedrichroda,Thüringen,7352,2155
+"Pleinfeld, M",Bayern,7350,2156
+"Laufen, St",Bayern,7336,2157
+Sinzing,Bayern,7332,2158
+"Ortenburg, M",Bayern,7330,2159
+Schwülper,Niedersachsen,7328,2160
+"Mittenwald, M",Bayern,7323,2161
+Schutterwald,Baden-Württemberg,7320,2162
+"Pfaffenhofen a.d.Roth, M",Bayern,7311,2163
+Harzgerode,Sachsen-Anhalt,7309,2164
+Harztor,Thüringen,7306,2165
+Klingenthal,Sachsen,7289,2166
+Pfalzgrafenweiler,Baden-Württemberg,7286,2167
+Großkrotzenburg,Hessen,7284,2168
+Delligsen,Niedersachsen,7283,2169
+Zwingenberg,Hessen,7283,2170
+"Geisenhausen, M",Bayern,7278,2171
+Pockau-Lengefeld,Sachsen,7273,2172
+Aichwald,Baden-Württemberg,7271,2173
+Hinte,Niedersachsen,7269,2174
+Wabern,Hessen,7262,2175
+Alfdorf,Baden-Württemberg,7260,2176
+Hardegsen,Niedersachsen,7250,2177
+Pulsnitz,Sachsen,7246,2178
+"Wallersdorf, M",Bayern,7246,2179
+Weimar (Lahn),Hessen,7240,2180
+Enkenbach-Alsenborn,Rheinland-Pfalz,7236,2181
+Ampfing,Bayern,7234,2182
+Am Mellensee,Brandenburg,7224,2183
+Gerolstein,Rheinland-Pfalz,7210,2184
+Breuberg,Hessen,7196,2185
+Bad Sachsa,Niedersachsen,7193,2186
+"Ebern, St",Bayern,7193,2187
+Bous,Saarland,7191,2188
+Haslach im Kinzigtal,Baden-Württemberg,7190,2189
+Nortorf,Schleswig-Holstein,7190,2190
+Eisfeld,Thüringen,7181,2191
+"Schwanstetten, M",Bayern,7167,2192
+Meldorf,Schleswig-Holstein,7166,2193
+Neulußheim,Baden-Württemberg,7162,2194
+Annweiler am Trifels,Rheinland-Pfalz,7160,2195
+"Pilsting, M",Bayern,7158,2196
+Bindlach,Bayern,7156,2197
+"Greding, St",Bayern,7154,2198
+Aken (Elbe),Sachsen-Anhalt,7153,2199
+"Altmannstein, M",Bayern,7150,2200
+"Burgebrach, M",Bayern,7149,2201
+Roßwein,Sachsen,7149,2202
+Neukieritzsch,Sachsen,7147,2203
+"Scheßlitz, St",Bayern,7129,2204
+"Ruhstorf a.d.Rott, M",Bayern,7115,2205
+"Frielendorf, Marktflecken",Hessen,7114,2206
+Fernwald,Hessen,7109,2207
+Wriezen,Brandenburg,7107,2208
+Schwendi,Baden-Württemberg,7098,2209
+Namborn,Saarland,7096,2210
+Stolzenau,Niedersachsen,7079,2211
+"Freyung, St",Bayern,7078,2212
+Immenhausen,Hessen,7078,2213
+Maxdorf,Rheinland-Pfalz,7075,2214
+Tuntenhausen,Bayern,7074,2215
+Oppenheim,Rheinland-Pfalz,7071,2216
+Waldstetten,Baden-Württemberg,7067,2217
+Ostrach,Baden-Württemberg,7066,2218
+Birkenfeld,Rheinland-Pfalz,7062,2219
+Roßleben-Wiehe,Thüringen,7062,2220
+Markneukirchen,Sachsen,7061,2221
+Bischofswiesen,Bayern,7055,2222
+Schwanau,Baden-Württemberg,7054,2223
+Berne,Niedersachsen,7053,2224
+Schöppingen,Nordrhein-Westfalen,7033,2225
+Königsbronn,Baden-Württemberg,7028,2226
+Sonnenbühl,Baden-Württemberg,7022,2227
+"Pöttmes, M",Bayern,7012,2228
+Am Ettersberg,Thüringen,7010,2229
+Reinsdorf,Sachsen,7009,2230
+"Waging a.See, M",Bayern,7007,2231
+Reppenstedt,Niedersachsen,7005,2232
+Lemwerder,Niedersachsen,6999,2233
+Esens,Niedersachsen,6998,2234
+"Jettingen-Scheppach, M",Bayern,6996,2235
+Wagenfeld,Niedersachsen,6995,2236
+Laer,Nordrhein-Westfalen,6993,2237
+Lautertal (Odenwald),Hessen,6991,2238
+Ilshofen,Baden-Württemberg,6990,2239
+Königsee,Thüringen,6979,2240
+Kalbe (Milde),Sachsen-Anhalt,6976,2241
+Homberg (Ohm),Hessen,6973,2242
+"Geiselhöring, St",Bayern,6964,2243
+Nobitz,Thüringen,6962,2244
+Reichelsheim (Wetterau),Hessen,6961,2245
+Calden,Hessen,6956,2246
+Lahntal,Hessen,6953,2247
+Neuhofen,Rheinland-Pfalz,6946,2248
+Rednitzhembach,Bayern,6945,2249
+"Eiterfeld, Marktgemeinde",Hessen,6940,2250
+Schallstadt,Baden-Württemberg,6937,2251
+Ensdorf,Saarland,6928,2252
+Coppenbrügge,Niedersachsen,6918,2253
+Durach,Bayern,6918,2254
+Lichtenau,Sachsen,6912,2255
+Lambsheim,Rheinland-Pfalz,6911,2256
+"Grassau, M",Bayern,6910,2257
+Lengenfeld,Sachsen,6910,2258
+Georgensgmünd,Bayern,6907,2259
+Ladbergen,Nordrhein-Westfalen,6906,2260
+"Saerbeck, NRW-Klimakommune",Nordrhein-Westfalen,6906,2261
+"Waldeck, Nationalparkstadt",Hessen,6905,2262
+"Höchstädt a.d.Donau, St",Bayern,6902,2263
+Murg,Baden-Württemberg,6900,2264
+Emmering,Bayern,6899,2265
+Edenkoben,Rheinland-Pfalz,6896,2266
+Kottmar,Sachsen,6892,2267
+Dermbach,Thüringen,6889,2268
+Stegaurach,Bayern,6885,2269
+Bakum,Niedersachsen,6872,2270
+Geithain,Sachsen,6870,2271
+"Dettelbach, St",Bayern,6866,2272
+Berglen,Baden-Württemberg,6860,2273
+Weilrod,Hessen,6856,2274
+Bernau a.Chiemsee,Bayern,6855,2275
+Neukirchen/Erzgeb.,Sachsen,6845,2276
+Putzbrunn,Bayern,6845,2277
+Dietenheim,Baden-Württemberg,6843,2278
+Auenwald,Baden-Württemberg,6833,2279
+Müncheberg,Brandenburg,6831,2280
+Kahla,Thüringen,6825,2281
+Horneburg,Niedersachsen,6823,2282
+Herscheid,Nordrhein-Westfalen,6821,2283
+Grömitz,Schleswig-Holstein,6812,2284
+Bonndorf im Schwarzwald,Baden-Württemberg,6802,2285
+Hardheim,Baden-Württemberg,6802,2286
+Eberdingen,Baden-Württemberg,6800,2287
+"Dinkelscherben, M",Bayern,6797,2288
+Eibenstock,Sachsen,6795,2289
+Schönkirchen,Schleswig-Holstein,6794,2290
+Erndtebrück,Nordrhein-Westfalen,6792,2291
+Böhlen,Sachsen,6787,2292
+Mutlangen,Baden-Württemberg,6786,2293
+Stadtroda,Thüringen,6785,2294
+Dettenheim,Baden-Württemberg,6782,2295
+Neukirchen,Hessen,6782,2296
+Wiernsheim,Baden-Württemberg,6778,2297
+Ruhpolding,Bayern,6772,2298
+"Gerolzhofen, St",Bayern,6767,2299
+Lathen,Niedersachsen,6767,2300
+Malchin,Mecklenburg-Vorpommern,6767,2301
+Altenkirchen (Westerwald),Rheinland-Pfalz,6758,2302
+Lützelbach,Hessen,6755,2303
+Gröditz,Sachsen,6752,2304
+Katlenburg-Lindau,Niedersachsen,6735,2305
+Breidenbach,Hessen,6734,2306
+Büchen,Schleswig-Holstein,6733,2307
+Leegebruch,Brandenburg,6732,2308
+Bernkastel-Kues,Rheinland-Pfalz,6727,2309
+Argenbühl,Baden-Württemberg,6726,2310
+Niedere Börde,Sachsen-Anhalt,6726,2311
+Schipkau,Brandenburg,6726,2312
+Wutöschingen,Baden-Württemberg,6726,2313
+"Mallersdorf-Pfaffenberg, M",Bayern,6722,2314
+"Waldsassen, St",Bayern,6711,2315
+Boxberg,Baden-Württemberg,6709,2316
+Gedern,Hessen,6709,2317
+Deizisau,Baden-Württemberg,6707,2318
+Kropp,Schleswig-Holstein,6694,2319
+Wüstenrot,Baden-Württemberg,6692,2320
+"Ebermannstadt, St",Bayern,6688,2321
+Barnstorf,Niedersachsen,6685,2322
+Ketzin/Havel,Brandenburg,6684,2323
+Hermeskeil,Rheinland-Pfalz,6677,2324
+Polch,Rheinland-Pfalz,6675,2325
+Leinburg,Bayern,6674,2326
+Heringen (Werra),Hessen,6669,2327
+Kupferzell,Baden-Württemberg,6665,2328
+Brannenburg,Bayern,6658,2329
+"Zusmarshausen, M",Bayern,6655,2330
+"Eichendorf, M",Bayern,6651,2331
+Tiefenbach,Bayern,6650,2332
+Osterburken,Baden-Württemberg,6639,2333
+"Villmar, Marktflecken",Hessen,6622,2334
+Neuenstein,Baden-Württemberg,6618,2335
+Schelklingen,Baden-Württemberg,6616,2336
+Gau-Algesheim,Rheinland-Pfalz,6606,2337
+Bardowick,Niedersachsen,6604,2338
+"Mitterteich, St",Bayern,6604,2339
+Gerbstedt,Sachsen-Anhalt,6601,2340
+Bienenbüttel,Niedersachsen,6597,2341
+"Weisendorf, M",Bayern,6597,2342
+Wöllstadt,Hessen,6593,2343
+"Schliersee, M",Bayern,6591,2344
+Schöffengrund,Hessen,6590,2345
+Klingenberg,Sachsen,6588,2346
+Immendingen,Baden-Württemberg,6585,2347
+Grasbrunn,Bayern,6581,2348
+Oedheim,Baden-Württemberg,6580,2349
+Grafenau,Baden-Württemberg,6578,2350
+Huy,Sachsen-Anhalt,6578,2351
+Murr,Baden-Württemberg,6578,2352
+Pegau,Sachsen,6578,2353
+Heitersheim,Baden-Württemberg,6577,2354
+Laudenbach,Baden-Württemberg,6573,2355
+Bispingen,Niedersachsen,6572,2356
+Jerichow,Sachsen-Anhalt,6571,2357
+"Schwarzenbach a.d.Saale, St",Bayern,6570,2358
+Neustadt-Glewe,Mecklenburg-Vorpommern,6566,2359
+"Waldmünchen, St",Bayern,6565,2360
+Bad Sobernheim,Rheinland-Pfalz,6564,2361
+Fockbek,Schleswig-Holstein,6561,2362
+Holle,Niedersachsen,6561,2363
+Greifenstein,Hessen,6560,2364
+Nattheim,Baden-Württemberg,6555,2365
+Machern,Sachsen,6548,2366
+Blankenhain,Thüringen,6543,2367
+Neulingen,Baden-Württemberg,6543,2368
+Moringen,Niedersachsen,6540,2369
+Metelen,Nordrhein-Westfalen,6539,2370
+Volkmarsen,Hessen,6535,2371
+Einhausen,Hessen,6533,2372
+Salzweg,Bayern,6533,2373
+Sanitz,Mecklenburg-Vorpommern,6533,2374
+"Haag i.OB, M",Bayern,6532,2375
+Weiskirchen,Saarland,6528,2376
+Rheinmünster,Baden-Württemberg,6527,2377
+Neustadt (Wied),Rheinland-Pfalz,6526,2378
+Hage,Niedersachsen,6520,2379
+Biebesheim am Rhein,Hessen,6515,2380
+Kiefersfelden,Bayern,6513,2381
+Herdorf,Rheinland-Pfalz,6508,2382
+Hartha,Sachsen,6503,2383
+"Arnstorf, M",Bayern,6495,2384
+Gerbrunn,Bayern,6493,2385
+Cölbe,Hessen,6491,2386
+"Velden, M",Bayern,6491,2387
+Sinn,Hessen,6485,2388
+Glandorf,Niedersachsen,6483,2389
+Sottrum,Niedersachsen,6479,2390
+Kalbach,Hessen,6477,2391
+Fredenbeck,Niedersachsen,6475,2392
+Tangstedt,Schleswig-Holstein,6471,2393
+"Bad Brückenau, St",Bayern,6470,2394
+Buttstädt,Thüringen,6470,2395
+Bietigheim,Baden-Württemberg,6468,2396
+Kölleda,Thüringen,6467,2397
+"Burgkunstadt, St",Bayern,6463,2398
+Artern,Thüringen,6462,2399
+Maulbronn,Baden-Württemberg,6452,2400
+Rheurdt,Nordrhein-Westfalen,6450,2401
+Röhrmoos,Bayern,6449,2402
+Dunningen,Baden-Württemberg,6448,2403
+Immenstaad am Bodensee,Baden-Württemberg,6448,2404
+Hecklingen,Sachsen-Anhalt,6446,2405
+Knetzgau,Bayern,6446,2406
+Essingen,Baden-Württemberg,6444,2407
+Grammetal,Thüringen,6437,2408
+"Uffenheim, St",Bayern,6431,2409
+Eppertshausen,Hessen,6429,2410
+Nienhagen,Niedersachsen,6420,2411
+Südeichsfeld,Thüringen,6419,2412
+"Eggolsheim, M",Bayern,6414,2413
+Glashütte,Sachsen,6414,2414
+"Wassertrüdingen, St",Bayern,6414,2415
+Beilstein,Baden-Württemberg,6412,2416
+"Mainleus, M",Bayern,6410,2417
+"Thannhausen, St",Bayern,6406,2418
+"Dietfurt a.d.Altmühl, St",Bayern,6405,2419
+Wathlingen,Niedersachsen,6405,2420
+"Burghaun, Marktgemeinde",Hessen,6404,2421
+Güglingen,Baden-Württemberg,6394,2422
+Rosenfeld,Baden-Württemberg,6393,2423
+"Zellingen, M",Bayern,6390,2424
+"Obergünzburg, M",Bayern,6387,2425
+Römhild,Thüringen,6383,2426
+"Vilseck, St",Bayern,6382,2427
+Rodalben,Rheinland-Pfalz,6378,2428
+Unstrut-Hainich,Thüringen,6378,2429
+"Bechhofen, M",Bayern,6365,2430
+"Weiler-Simmerberg, M",Bayern,6365,2431
+Elbe-Parey,Sachsen-Anhalt,6362,2432
+"Grafenwöhr, St",Bayern,6360,2433
+Bad Hönningen,Rheinland-Pfalz,6355,2434
+Hanstedt,Niedersachsen,6354,2435
+Petershausen,Bayern,6353,2436
+Ottersweier,Baden-Württemberg,6350,2437
+Waldachtal,Baden-Württemberg,6346,2438
+Eichwalde,Brandenburg,6341,2439
+Bad Saarow,Brandenburg,6340,2440
+Winterlingen,Baden-Württemberg,6339,2441
+Hachenburg,Rheinland-Pfalz,6336,2442
+Satow,Mecklenburg-Vorpommern,6336,2443
+"Neumarkt-Sankt Veit, St",Bayern,6334,2444
+"Hutthurm, M",Bayern,6332,2445
+Steinenbronn,Baden-Württemberg,6332,2446
+Pentling,Bayern,6328,2447
+Nuthe-Urstromtal,Brandenburg,6325,2448
+Rötha,Sachsen,6325,2449
+Kappelrodeck,Baden-Württemberg,6324,2450
+Benningen am Neckar,Baden-Württemberg,6323,2451
+Otzberg,Hessen,6322,2452
+Brechen,Hessen,6321,2453
+Altlußheim,Baden-Württemberg,6317,2454
+Sohland a. d. Spree,Sachsen,6317,2455
+Veitsbronn,Bayern,6312,2456
+Schwabhausen,Bayern,6311,2457
+Annaburg,Sachsen-Anhalt,6309,2458
+Ihringen,Baden-Württemberg,6308,2459
+Glücksburg (Ostsee),Schleswig-Holstein,6306,2460
+Offenbach an der Queich,Rheinland-Pfalz,6305,2461
+Wittenburg,Mecklenburg-Vorpommern,6300,2462
+Zimmern ob Rottweil,Baden-Württemberg,6296,2463
+Biesenthal,Brandenburg,6295,2464
+"Au i.d.Hallertau, M",Bayern,6290,2465
+Rodenberg,Niedersachsen,6287,2466
+Kämpfelbach,Baden-Württemberg,6283,2467
+Bammental,Baden-Württemberg,6278,2468
+"Nabburg, St",Bayern,6276,2469
+Hofbieber,Hessen,6275,2470
+Litzendorf,Bayern,6274,2471
+Wutha-Farnroda,Thüringen,6268,2472
+Linz am Rhein,Rheinland-Pfalz,6265,2473
+Trochtelfingen,Baden-Württemberg,6264,2474
+Laage,Mecklenburg-Vorpommern,6253,2475
+Oberding,Bayern,6251,2476
+"Schwarzenfeld, M",Bayern,6251,2477
+Havelberg,Sachsen-Anhalt,6246,2478
+Bernsdorf,Sachsen,6242,2479
+Vogtsburg im Kaiserstuhl,Baden-Württemberg,6234,2480
+Arendsee (Altmark),Sachsen-Anhalt,6232,2481
+Gersheim,Saarland,6232,2482
+Bondorf,Baden-Württemberg,6230,2483
+Geisingen,Baden-Württemberg,6225,2484
+Ingersheim,Baden-Württemberg,6223,2485
+Neckartenzlingen,Baden-Württemberg,6223,2486
+Dornhan,Baden-Württemberg,6219,2487
+Sittensen,Niedersachsen,6211,2488
+Aarbergen,Hessen,6210,2489
+Deißlingen,Baden-Württemberg,6208,2490
+Erdweg,Bayern,6206,2491
+Schönberg (Holstein),Schleswig-Holstein,6206,2492
+Zell im Wiesental,Baden-Württemberg,6204,2493
+Zierenberg,Hessen,6203,2494
+Schliengen,Baden-Württemberg,6200,2495
+Wolfschlugen,Baden-Württemberg,6199,2496
+Dierdorf,Rheinland-Pfalz,6192,2497
+"Edertal, Nationalparkgemeinde",Hessen,6181,2498
+Adelebsen,Niedersachsen,6180,2499
+"Bad Rodach, St",Bayern,6179,2500
+Ilmtal-Weinstraße,Thüringen,6169,2501
+"Gangkofen, M",Bayern,6161,2502
+Nachrodt-Wiblingwerde,Nordrhein-Westfalen,6159,2503
+Dötlingen,Niedersachsen,6155,2504
+Gammertingen,Baden-Württemberg,6155,2505
+Dußlingen,Baden-Württemberg,6153,2506
+Niedergörsdorf,Brandenburg,6147,2507
+Dettingen unter Teck,Baden-Württemberg,6138,2508
+Westhausen,Baden-Württemberg,6136,2509
+Uder,Thüringen,6134,2510
+Rodewisch,Sachsen,6131,2511
+Wrestedt,Niedersachsen,6130,2512
+Arnstein,Sachsen-Anhalt,6123,2513
+Eutingen im Gäu,Baden-Württemberg,6120,2514
+Ebersdorf b.Coburg,Bayern,6119,2515
+Ellerau,Schleswig-Holstein,6117,2516
+Alpirsbach,Baden-Württemberg,6114,2517
+"Windsbach, St",Bayern,6114,2518
+"Klingenberg a.Main, St",Bayern,6112,2519
+Neuffen,Baden-Württemberg,6104,2520
+Muggensturm,Baden-Württemberg,6103,2521
+Bad Marienberg (Westerwald),Rheinland-Pfalz,6096,2522
+Birstein,Hessen,6094,2523
+Gochsheim,Bayern,6093,2524
+Großalmerode,Hessen,6090,2525
+"Riedenburg, St",Bayern,6090,2526
+Pleidelsheim,Baden-Württemberg,6087,2527
+Moosinning,Bayern,6083,2528
+Buttenwiesen,Bayern,6081,2529
+Nieheim,Nordrhein-Westfalen,6081,2530
+Oberthal,Saarland,6073,2531
+Falkenberg/Elster,Brandenburg,6070,2532
+Lossatal,Sachsen,6067,2533
+Mengkofen,Bayern,6065,2534
+Billigheim,Baden-Württemberg,6063,2535
+Hüttlingen,Baden-Württemberg,6060,2536
+Lachendorf,Niedersachsen,6059,2537
+"Neustadt a.d.Waldnaab, St",Bayern,6057,2538
+Bischberg,Bayern,6056,2539
+Dudenhofen,Rheinland-Pfalz,6054,2540
+Altbach,Baden-Württemberg,6047,2541
+Friedland,Mecklenburg-Vorpommern,6044,2542
+"Bad Königshofen i.Grabfeld, St",Bayern,6034,2543
+"Untergriesbach, M",Bayern,6033,2544
+Bickenbach,Hessen,6031,2545
+Isenbüttel,Niedersachsen,6031,2546
+Dohna,Sachsen,6030,2547
+Werra-Suhl-Tal,Thüringen,6028,2548
+Nesse-Apfelstädt,Thüringen,6021,2549
+Waldsee,Rheinland-Pfalz,6016,2550
+Kirchheim am Neckar,Baden-Württemberg,6004,2551
+Plaidt,Rheinland-Pfalz,6003,2552
+Beelen,Nordrhein-Westfalen,6002,2553
+Westerburg,Rheinland-Pfalz,6002,2554
+Auetal,Niedersachsen,6001,2555
+Sehmatal,Sachsen,5998,2556
+Karlshuld,Bayern,5997,2557
+Michelau i.OFr.,Bayern,5995,2558
+Unstruttal,Thüringen,5993,2559
+Diekholzen,Niedersachsen,5982,2560
+Allershausen,Bayern,5980,2561
+Hörselberg-Hainich,Thüringen,5979,2562
+Mainhardt,Baden-Württemberg,5973,2563
+Rohrbach,Bayern,5970,2564
+Kronau,Baden-Württemberg,5969,2565
+Ispringen,Baden-Württemberg,5968,2566
+Schlangenbad,Hessen,5967,2567
+Sickte,Niedersachsen,5967,2568
+"Spangenberg, Liebenbachstadt",Hessen,5967,2569
+Butjadingen,Niedersachsen,5966,2570
+Horst (Holstein),Schleswig-Holstein,5961,2571
+"Malchow, Inselstadt",Mecklenburg-Vorpommern,5961,2572
+Königsfeld im Schwarzwald,Baden-Württemberg,5960,2573
+Plau am See,Mecklenburg-Vorpommern,5960,2574
+Lichtentanne,Sachsen,5958,2575
+Meersburg,Baden-Württemberg,5956,2576
+Thalheim/Erzgeb.,Sachsen,5956,2577
+Stockstadt am Rhein,Hessen,5945,2578
+Kirchardt,Baden-Württemberg,5939,2579
+Burkhardtsdorf,Sachsen,5936,2580
+"Langquaid, M",Bayern,5936,2581
+"Schlüsselfeld, St",Bayern,5932,2582
+Hohenlockstedt,Schleswig-Holstein,5918,2583
+Pliening,Bayern,5910,2584
+Uelsen,Niedersachsen,5909,2585
+Hebertshausen,Bayern,5894,2586
+Mudersbach,Rheinland-Pfalz,5894,2587
+Lübz,Mecklenburg-Vorpommern,5892,2588
+Lingenfeld,Rheinland-Pfalz,5891,2589
+Faßberg,Niedersachsen,5890,2590
+Tarp,Schleswig-Holstein,5890,2591
+Großbreitenbach,Thüringen,5884,2592
+An der Schmücke,Thüringen,5881,2593
+Haiterbach,Baden-Württemberg,5872,2594
+"Pyrbaum, M",Bayern,5872,2595
+Geislingen,Baden-Württemberg,5870,2596
+Boostedt,Schleswig-Holstein,5868,2597
+Gransee,Brandenburg,5868,2598
+"Kemnath, St",Bayern,5864,2599
+"Weidenberg, M",Bayern,5864,2600
+Barbing,Bayern,5861,2601
+Niedereschach,Baden-Württemberg,5857,2602
+"Emskirchen, M",Bayern,5854,2603
+Rohrdorf,Bayern,5853,2604
+Hausach,Baden-Württemberg,5851,2605
+Schirgiswalde-Kirschau,Sachsen,5849,2606
+Waldbrunn (Westerwald),Hessen,5847,2607
+Bad Blankenburg,Thüringen,5843,2608
+Jade,Niedersachsen,5843,2609
+Berga-Wünschendorf,Thüringen,5840,2610
+Schäftlarn,Bayern,5840,2611
+Speichersdorf,Bayern,5840,2612
+Dasing,Bayern,5838,2613
+Beselich,Hessen,5835,2614
+"Bad Birnbach, M",Bayern,5833,2615
+Hohenstein,Hessen,5829,2616
+"Tittmoning, St",Bayern,5826,2617
+Lohra,Hessen,5823,2618
+Geltendorf,Bayern,5817,2619
+Elztal,Baden-Württemberg,5814,2620
+Gmund a.Tegernsee,Bayern,5813,2621
+Nufringen,Baden-Württemberg,5806,2622
+Bodelshausen,Baden-Württemberg,5805,2623
+Karstädt,Brandenburg,5803,2624
+Waibstadt,Baden-Württemberg,5794,2625
+Bredstedt,Schleswig-Holstein,5790,2626
+"Heringsdorf, Ostseebad",Mecklenburg-Vorpommern,5790,2627
+Rühen,Niedersachsen,5790,2628
+Bräunlingen,Baden-Württemberg,5784,2629
+"Bad Grönenbach, M",Bayern,5780,2630
+Löchgau,Baden-Württemberg,5778,2631
+Schrozberg,Baden-Württemberg,5777,2632
+Treffurt,Thüringen,5772,2633
+"Dietenhofen, M",Bayern,5771,2634
+Sontheim an der Brenz,Baden-Württemberg,5771,2635
+"Kipfenberg, M",Bayern,5767,2636
+Schwarzheide,Brandenburg,5765,2637
+Schwarmstedt,Niedersachsen,5759,2638
+"Wemding, St",Bayern,5757,2639
+Umkirch,Baden-Württemberg,5755,2640
+Nottertal-Heilinger Höhen,Thüringen,5750,2641
+Fürstenberg/Havel,Brandenburg,5741,2642
+Kalefeld,Niedersachsen,5732,2643
+"Hirschau, St",Bayern,5726,2644
+Kastellaun,Rheinland-Pfalz,5722,2645
+Oberlungwitz,Sachsen,5716,2646
+Leun,Hessen,5715,2647
+Neubulach,Baden-Württemberg,5713,2648
+Ober-Mörlen,Hessen,5706,2649
+Satteldorf,Baden-Württemberg,5703,2650
+Bruckberg,Bayern,5700,2651
+Herrnhut,Sachsen,5695,2652
+Wirges,Rheinland-Pfalz,5694,2653
+Saal a.d.Donau,Bayern,5685,2654
+Böhmenkirch,Baden-Württemberg,5684,2655
+Willingen (Upland),Hessen,5672,2656
+Kolitzheim,Bayern,5671,2657
+Odelzhausen,Bayern,5671,2658
+"Babenhausen, M",Bayern,5669,2659
+Münzenberg,Hessen,5663,2660
+Hambergen,Niedersachsen,5651,2661
+Bobritzsch-Hilbersdorf,Sachsen,5647,2662
+Oberboihingen,Baden-Württemberg,5644,2663
+Neudenau,Baden-Württemberg,5643,2664
+Tacherting,Bayern,5643,2665
+"Nandlstadt, M",Bayern,5635,2666
+Nienburg (Saale),Sachsen-Anhalt,5635,2667
+"Kleinwallstadt, M",Bayern,5632,2668
+Wusterhausen/Dosse,Brandenburg,5626,2669
+"Isen, M",Bayern,5619,2670
+"Giebelstadt, M",Bayern,5617,2671
+Weischlitz,Sachsen,5617,2672
+Haimhausen,Bayern,5615,2673
+"Ebensfeld, M",Bayern,5614,2674
+"Mengerskirchen, Marktflecken",Hessen,5612,2675
+"Harburg (Schwaben), St",Bayern,5598,2676
+"Beratzhausen, M",Bayern,5594,2677
+Gemmingen,Baden-Württemberg,5593,2678
+Pöcking,Bayern,5589,2679
+Marne,Schleswig-Holstein,5586,2680
+Merzhausen,Baden-Württemberg,5584,2681
+Aying,Bayern,5581,2682
+Hambrücken,Baden-Württemberg,5581,2683
+Saaldorf-Surheim,Bayern,5578,2684
+Affing,Bayern,5575,2685
+Dietramszell,Bayern,5572,2686
+Brotterode-Trusetal,Thüringen,5571,2687
+Wolfach,Baden-Württemberg,5571,2688
+Großpösna,Sachsen,5570,2689
+"Leutershausen, St",Bayern,5570,2690
+Niedenstein,Hessen,5570,2691
+Tegernheim,Bayern,5570,2692
+Grünhain-Beierfeld,Sachsen,5569,2693
+Bad Emstal,Hessen,5566,2694
+Floh-Seligenthal,Thüringen,5566,2695
+Zeithain,Sachsen,5565,2696
+Limeshain,Hessen,5563,2697
+Fischbachau,Bayern,5562,2698
+Kaltennordheim,Thüringen,5562,2699
+Kippenheim,Baden-Württemberg,5559,2700
+"Markt Erlbach, M",Bayern,5557,2701
+Schönenberg-Kübelberg,Rheinland-Pfalz,5557,2702
+Schöntal,Baden-Württemberg,5557,2703
+Wittichenau / Kulow,Sachsen,5554,2704
+Riedering,Bayern,5550,2705
+"Rochlitz, Stadt, Stadt des Roten Porphyr",Sachsen,5549,2706
+Wesendorf,Niedersachsen,5549,2707
+"Abenberg, St",Bayern,5547,2708
+Laboe,Schleswig-Holstein,5546,2709
+Bötzingen,Baden-Württemberg,5544,2710
+Greußen,Thüringen,5544,2711
+Kuchen,Baden-Württemberg,5544,2712
+Wiedemar,Sachsen,5544,2713
+Dettenhausen,Baden-Württemberg,5543,2714
+Seelow,Brandenburg,5541,2715
+"Zeil a.Main, St",Bayern,5540,2716
+"Wartenberg, M",Bayern,5539,2717
+Kumhausen,Bayern,5538,2718
+Rot am See,Baden-Württemberg,5531,2719
+Heimsheim,Baden-Württemberg,5530,2720
+"Mellrichstadt, St",Bayern,5530,2721
+Baltmannsweiler,Baden-Württemberg,5525,2722
+Bad Lobenstein,Thüringen,5523,2723
+Küssaberg,Baden-Württemberg,5520,2724
+Weßling,Bayern,5519,2725
+Blaichach,Bayern,5518,2726
+Igersheim,Baden-Württemberg,5517,2727
+Schweitenkirchen,Bayern,5517,2728
+Büchenbach,Bayern,5514,2729
+Mügeln,Sachsen,5505,2730
+Ofterdingen,Baden-Württemberg,5505,2731
+Altenkunstadt,Bayern,5502,2732
+Ingelfingen,Baden-Württemberg,5501,2733
+"Wernberg-Köblitz, M",Bayern,5494,2734
+Kirchentellinsfurt,Baden-Württemberg,5492,2735
+Rechberghausen,Baden-Württemberg,5491,2736
+Baar-Ebenhausen,Bayern,5488,2737
+Echzell,Hessen,5474,2738
+Aschau i.Chiemgau,Bayern,5471,2739
+Zeitlarn,Bayern,5463,2740
+Lamspringe,Niedersachsen,5460,2741
+"Vöhl, Nationalparkgemeinde",Hessen,5460,2742
+Walddorfhäslach,Baden-Württemberg,5457,2743
+Ahlerstedt,Niedersachsen,5456,2744
+Drebkau/Drjowk,Brandenburg,5455,2745
+Rackwitz,Sachsen,5452,2746
+Brunnthal,Bayern,5451,2747
+Battenberg (Eder),Hessen,5450,2748
+"Monheim, St",Bayern,5450,2749
+Sersheim,Baden-Württemberg,5448,2750
+Eschede,Niedersachsen,5443,2751
+"Pfeffenhausen, M",Bayern,5441,2752
+Rottach-Egern,Bayern,5441,2753
+Blaufelden,Baden-Württemberg,5439,2754
+Horgenzell,Baden-Württemberg,5436,2755
+Stolpen,Sachsen,5436,2756
+Frankenblick,Thüringen,5434,2757
+Hohenwestedt,Schleswig-Holstein,5428,2758
+"Triftern, M",Bayern,5428,2759
+Bessenbach,Bayern,5425,2760
+Grabfeld,Thüringen,5425,2761
+Lütjenburg,Schleswig-Holstein,5424,2762
+"Velburg, St",Bayern,5424,2763
+Grabow,Mecklenburg-Vorpommern,5422,2764
+Ovelgönne,Niedersachsen,5421,2765
+Sulzbach an der Murr,Baden-Württemberg,5421,2766
+Traben-Trarbach,Rheinland-Pfalz,5421,2767
+Waakirchen,Bayern,5419,2768
+"Altenstadt, M",Bayern,5416,2769
+Munderkingen,Baden-Württemberg,5408,2770
+Walluf,Hessen,5407,2771
+Dörpen,Niedersachsen,5405,2772
+Forchtenberg,Baden-Württemberg,5405,2773
+Rehfelde,Brandenburg,5403,2774
+Rottendorf,Bayern,5398,2775
+"Wegscheid, M",Bayern,5394,2776
+Deining,Bayern,5392,2777
+Ertingen,Baden-Württemberg,5381,2778
+Ochtendung,Rheinland-Pfalz,5377,2779
+Grävenwiesbach,Hessen,5376,2780
+Ludwigsau,Hessen,5375,2781
+Rockenhausen,Rheinland-Pfalz,5371,2782
+Bad Gottleuba-Berggießhübel,Sachsen,5367,2783
+Bernhardswald,Bayern,5366,2784
+Neuenkirchen,Niedersachsen,5365,2785
+Wackersdorf,Bayern,5364,2786
+Külsheim,Baden-Württemberg,5360,2787
+Grebenstein,Hessen,5358,2788
+Nackenheim,Rheinland-Pfalz,5358,2789
+Esterwegen,Niedersachsen,5357,2790
+Niederorschel,Thüringen,5357,2791
+Obrigheim,Baden-Württemberg,5357,2792
+Sasbach,Baden-Württemberg,5357,2793
+Obersontheim,Baden-Württemberg,5355,2794
+Hagenbach,Rheinland-Pfalz,5354,2795
+Gersfeld (Rhön),Hessen,5352,2796
+Wannweil,Baden-Württemberg,5352,2797
+Stühlingen,Baden-Württemberg,5351,2798
+Otterberg,Rheinland-Pfalz,5348,2799
+Guxhagen,Hessen,5347,2800
+Norderney,Niedersachsen,5343,2801
+Rangendingen,Baden-Württemberg,5343,2802
+Wasungen,Thüringen,5342,2803
+Kirchdorf a.Inn,Bayern,5341,2804
+Warthausen,Baden-Württemberg,5341,2805
+Ranstadt,Hessen,5340,2806
+Nünchritz,Sachsen,5339,2807
+Kusel,Rheinland-Pfalz,5332,2808
+Großaitingen,Bayern,5331,2809
+Wörthsee,Bayern,5330,2810
+Dietzhölztal,Hessen,5328,2811
+Estenfeld,Bayern,5323,2812
+Mittelangeln,Schleswig-Holstein,5321,2813
+Uhlstädt-Kirchhasel,Thüringen,5320,2814
+Schechen,Bayern,5316,2815
+Schönau a.Königssee,Bayern,5315,2816
+Tiefenbronn,Baden-Württemberg,5315,2817
+Zarrentin am Schaalsee,Mecklenburg-Vorpommern,5312,2818
+"Eltmann, St",Bayern,5311,2819
+Glashütten,Hessen,5311,2820
+Sibbesse,Niedersachsen,5311,2821
+Rosengarten,Baden-Württemberg,5309,2822
+Helsa,Hessen,5305,2823
+"Weitnau, M",Bayern,5302,2824
+Angelbachtal,Baden-Württemberg,5299,2825
+Meckesheim,Baden-Württemberg,5298,2826
+Neuberg,Hessen,5296,2827
+Seubersdorf i.d.OPf.,Bayern,5295,2828
+Jestetten,Baden-Württemberg,5290,2829
+"Laaber, M",Bayern,5290,2830
+Moosthenning,Bayern,5290,2831
+Dornburg-Camburg,Thüringen,5289,2832
+Calberlah,Niedersachsen,5288,2833
+"Ebstorf,Klosterflecken",Niedersachsen,5288,2834
+Waldems,Hessen,5288,2835
+Piding,Bayern,5284,2836
+Prüm,Rheinland-Pfalz,5284,2837
+Bergrheinfeld,Bayern,5276,2838
+Egling,Bayern,5273,2839
+Baindt,Baden-Württemberg,5269,2840
+Schöppenstedt,Niedersachsen,5265,2841
+"Thalmässing, M",Bayern,5264,2842
+"Oberkotzau, M",Bayern,5263,2843
+Bodenkirchen,Bayern,5262,2844
+Jahnsdorf/Erzgeb.,Sachsen,5262,2845
+Erdmannhausen,Baden-Württemberg,5261,2846
+Süderbrarup,Schleswig-Holstein,5255,2847
+Ühlingen-Birkendorf,Baden-Württemberg,5255,2848
+Mahlberg,Baden-Württemberg,5254,2849
+Mühlhausen,Bayern,5251,2850
+Kappel-Grafenhausen,Baden-Württemberg,5246,2851
+Pommelsbrunn,Bayern,5242,2852
+Ellrich,Thüringen,5239,2853
+"Niederaula, Marktgemeinde",Hessen,5225,2854
+Hemhofen,Bayern,5220,2855
+Iffezheim,Baden-Württemberg,5219,2856
+Großschirma,Sachsen,5217,2857
+Müden (Aller),Niedersachsen,5216,2858
+Adelsheim,Baden-Württemberg,5207,2859
+St. Johann,Baden-Württemberg,5202,2860
+Lenzkirch,Baden-Württemberg,5201,2861
+"Oettingen i.Bay., St",Bayern,5196,2862
+"Spalt, St",Bayern,5196,2863
+"Wörth a.d.Donau, St",Bayern,5196,2864
+"Pottenstein, St",Bayern,5190,2865
+Reichenau,Baden-Württemberg,5189,2866
+Reichertshausen,Bayern,5188,2867
+Diemelstadt,Hessen,5186,2868
+Wettstetten,Bayern,5184,2869
+Frensdorf,Bayern,5175,2870
+Himmelpforten,Niedersachsen,5172,2871
+Burg Stargard,Mecklenburg-Vorpommern,5171,2872
+Lonsee,Baden-Württemberg,5170,2873
+Tharandt,Sachsen,5170,2874
+Habichtswald,Hessen,5168,2875
+Lüdersdorf,Mecklenburg-Vorpommern,5159,2876
+Steyerberg,Niedersachsen,5159,2877
+"Wilhermsdorf, M",Bayern,5158,2878
+Erlenbach,Baden-Württemberg,5155,2879
+Karlskron,Bayern,5150,2880
+Wermsdorf,Sachsen,5148,2881
+Kitzscher,Sachsen,5140,2882
+Bennewitz,Sachsen,5135,2883
+Bad Bellingen,Baden-Württemberg,5134,2884
+Steißlingen,Baden-Württemberg,5133,2885
+Oberammergau,Bayern,5132,2886
+Sulzfeld,Baden-Württemberg,5131,2887
+Ruhla,Thüringen,5126,2888
+"Hofheim i.UFr., St",Bayern,5125,2889
+Waldmohr,Rheinland-Pfalz,5124,2890
+Achstetten,Baden-Württemberg,5116,2891
+Bad Boll,Baden-Württemberg,5116,2892
+Großschönau,Sachsen,5114,2893
+Ötigheim,Baden-Württemberg,5110,2894
+Büsum,Schleswig-Holstein,5105,2895
+Sundhagen,Mecklenburg-Vorpommern,5096,2896
+"Erbendorf, St",Bayern,5095,2897
+Neuhausen,Baden-Württemberg,5095,2898
+Oberaudorf,Bayern,5095,2899
+Modautal,Hessen,5090,2900
+Gadebusch,Mecklenburg-Vorpommern,5087,2901
+"Glonn, M",Bayern,5085,2902
+Heiningen,Baden-Württemberg,5077,2903
+Laufach,Bayern,5075,2904
+Talheim,Baden-Württemberg,5074,2905
+Trappenkamp,Schleswig-Holstein,5073,2906
+Espenau,Hessen,5069,2907
+Deggingen,Baden-Württemberg,5066,2908
+Lensahn,Schleswig-Holstein,5066,2909
+Mammendorf,Bayern,5066,2910
+"Wiggensbach, M",Bayern,5065,2911
+Fahrenzhausen,Bayern,5064,2912
+"Igensdorf, M",Bayern,5063,2913
+Brigachtal,Baden-Württemberg,5059,2914
+Lindenfels,Hessen,5059,2915
+"Bad Hindelang, M",Bayern,5058,2916
+Driedorf,Hessen,5056,2917
+Eckersdorf,Bayern,5054,2918
+Haßmersheim,Baden-Württemberg,5052,2919
+Oerlenbach,Bayern,5051,2920
+Unkel,Rheinland-Pfalz,5051,2921
+Heroldsbach,Bayern,5050,2922
+"Binz, Ostseebad",Mecklenburg-Vorpommern,5049,2923
+Münstertal/Schwarzwald,Baden-Württemberg,5043,2924
+Engstingen,Baden-Württemberg,5041,2925
+Marxzell,Baden-Württemberg,5040,2926
+"Sulzberg, M",Bayern,5040,2927
+Denkendorf,Bayern,5036,2928
+Illerkirchberg,Baden-Württemberg,5036,2929
+Oberteuringen,Baden-Württemberg,5035,2930
+Weitramsdorf,Bayern,5029,2931
+Frankenhardt,Baden-Württemberg,5026,2932
+Krauchenwies,Baden-Württemberg,5023,2933
+Mintraching,Bayern,5020,2934
+Zschorlau,Sachsen,5018,2935
+Lichtenau,Baden-Württemberg,5015,2936
+"Großheubach, M",Bayern,5013,2937
+Übersee,Bayern,5013,2938
+Osterrönfeld,Schleswig-Holstein,5008,2939
+"Windorf, M",Bayern,5005,2940
+Fraureuth,Sachsen,5003,2941
+"Fischach, M",Bayern,5001,2942
+Petersaurach,Bayern,5000,2943
+Halsbrücke,Sachsen,4999,2944
+Hügelsheim,Baden-Württemberg,4999,2945
+Rheinzabern,Rheinland-Pfalz,4998,2946
+Altentreptow,Mecklenburg-Vorpommern,4992,2947
+"Hahnbach, M",Bayern,4987,2948
+Fronreute,Baden-Württemberg,4983,2949
+Emmelshausen,Rheinland-Pfalz,4980,2950
+"Windischeschenbach, St",Bayern,4980,2951
+Lohsa / Łaz,Sachsen,4978,2952
+Süsel,Schleswig-Holstein,4978,2953
+Schwaan,Mecklenburg-Vorpommern,4976,2954
+Abstatt,Baden-Württemberg,4975,2955
+Unterschneidheim,Baden-Württemberg,4975,2956
+Amöneburg,Hessen,4972,2957
+Molfsee,Schleswig-Holstein,4972,2958
+Ronneburg,Thüringen,4971,2959
+Allmersbach im Tal,Baden-Württemberg,4969,2960
+Lindern (Oldenburg),Niedersachsen,4968,2961
+Arnsdorf,Sachsen,4960,2962
+Todtnau,Baden-Württemberg,4960,2963
+Dahme/Mark,Brandenburg,4957,2964
+Zolling,Bayern,4956,2965
+"Oberthulba, M",Bayern,4948,2966
+Cochem,Rheinland-Pfalz,4946,2967
+"Pfreimd, St",Bayern,4943,2968
+Königsmoos,Bayern,4938,2969
+Mudau,Baden-Württemberg,4936,2970
+Naumburg,Hessen,4935,2971
+Velpke,Niedersachsen,4934,2972
+Unterensingen,Baden-Württemberg,4933,2973
+Burgwald,Hessen,4932,2974
+Allmendingen,Baden-Württemberg,4927,2975
+Waldbüttelbrunn,Bayern,4926,2976
+Falkenstein/Harz,Sachsen-Anhalt,4924,2977
+"Zapfendorf, M",Bayern,4922,2978
+Niederstotzingen,Baden-Württemberg,4916,2979
+"Creußen, St",Bayern,4914,2980
+Amt Creuzburg,Thüringen,4910,2981
+"Arzberg, St",Bayern,4908,2982
+Niederstetten,Baden-Württemberg,4906,2983
+"Oberviechtach, St",Bayern,4905,2984
+Uebigau-Wahrenbrück,Brandenburg,4905,2985
+"Hohenwart, M",Bayern,4903,2986
+Kröpelin,Mecklenburg-Vorpommern,4899,2987
+Lenting,Bayern,4895,2988
+Bibertal,Bayern,4892,2989
+Vacha,Thüringen,4891,2990
+Ebhausen,Baden-Württemberg,4890,2991
+Hartheim am Rhein,Baden-Württemberg,4887,2992
+Salzhausen,Niedersachsen,4887,2993
+Westerrönfeld,Schleswig-Holstein,4887,2994
+Mockrehna,Sachsen,4884,2995
+Scheyern,Bayern,4883,2996
+Wehretal,Hessen,4883,2997
+Rabenau,Hessen,4881,2998
+"Wiesentheid, M",Bayern,4875,2999
+Hohenahr,Hessen,4874,3000
+Winhöring,Bayern,4871,3001
+Freren,Niedersachsen,4868,3002
+Heeslingen,Niedersachsen,4868,3003
+Stadtoldendorf,Niedersachsen,4868,3004
+Rust,Baden-Württemberg,4865,3005
+Brensbach,Hessen,4860,3006
+Stetten am kalten Markt,Baden-Württemberg,4859,3007
+Lauchheim,Baden-Württemberg,4857,3008
+Emmingen-Liptingen,Baden-Württemberg,4856,3009
+"Stavenhagen, Reuterstadt",Mecklenburg-Vorpommern,4855,3010
+Brachttal,Hessen,4844,3011
+Drebach,Sachsen,4844,3012
+Hammersbach,Hessen,4843,3013
+Stadecken-Elsheim,Rheinland-Pfalz,4842,3014
+Nassau,Rheinland-Pfalz,4840,3015
+"Rennertshofen, M",Bayern,4840,3016
+Tespe,Niedersachsen,4840,3017
+Braunlage,Niedersachsen,4839,3018
+Bodman-Ludwigshafen,Baden-Württemberg,4838,3019
+Eriskirch,Baden-Württemberg,4834,3020
+Seelbach,Baden-Württemberg,4828,3021
+Aglasterhausen,Baden-Württemberg,4825,3022
+Inning a.Ammersee,Bayern,4822,3023
+Appen,Schleswig-Holstein,4821,3024
+"Frontenhausen, M",Bayern,4821,3025
+Bad Wiessee,Bayern,4820,3026
+Alheim,Hessen,4819,3027
+Krayenberggemeinde,Thüringen,4818,3028
+Malschwitz / Malešecy,Sachsen,4818,3029
+Tengen,Baden-Württemberg,4818,3030
+Oppenau,Baden-Württemberg,4815,3031
+Neuhausen/Spree / Kopańce/Sprjewja,Brandenburg,4814,3032
+Schömberg,Baden-Württemberg,4814,3033
+Tönning,Schleswig-Holstein,4814,3034
+Wilhelmsdorf,Baden-Württemberg,4813,3035
+Eggesin,Mecklenburg-Vorpommern,4812,3036
+Kruft,Rheinland-Pfalz,4800,3037
+Schacht-Audorf,Schleswig-Holstein,4795,3038
+Seddiner See,Brandenburg,4794,3039
+"Breitenbrunn/Erzgeb., Hochschulort",Sachsen,4793,3040
+Marienmünster,Nordrhein-Westfalen,4791,3041
+Uttenreuth,Bayern,4790,3042
+Herzlake,Niedersachsen,4788,3043
+"Weismain, St",Bayern,4786,3044
+"Hollfeld, St",Bayern,4784,3045
+Chieming,Bayern,4778,3046
+Altenmünster,Bayern,4776,3047
+Mömlingen,Bayern,4774,3048
+Hochdorf,Baden-Württemberg,4773,3049
+Freinsheim,Rheinland-Pfalz,4772,3050
+"Wörth a.Main, St",Bayern,4769,3051
+"Iphofen, St",Bayern,4768,3052
+Winnweiler,Rheinland-Pfalz,4765,3053
+"Schöllnach, M",Bayern,4763,3054
+Ötisheim,Baden-Württemberg,4761,3055
+"Bischofsheim i.d.Rhön, St",Bayern,4755,3056
+Trendelburg,Hessen,4755,3057
+Asbach-Bäumenheim,Bayern,4750,3058
+Vellberg,Baden-Württemberg,4747,3059
+Gablingen,Bayern,4746,3060
+Uchte,Niedersachsen,4745,3061
+Rückersdorf,Bayern,4744,3062
+Mietingen,Baden-Württemberg,4743,3063
+Neukirch/Lausitz,Sachsen,4742,3064
+Finsing,Bayern,4740,3065
+Herbertingen,Baden-Württemberg,4738,3066
+Lommatzsch,Sachsen,4737,3067
+Bernried,Bayern,4736,3068
+Maselheim,Baden-Württemberg,4736,3069
+"Bad Bocklet, M",Bayern,4734,3070
+Harpstedt,Niedersachsen,4733,3071
+"Hilders, Marktgemeinde",Hessen,4733,3072
+Raschau-Markersbach,Sachsen,4730,3073
+Stockheim,Bayern,4723,3074
+Hochspeyer,Rheinland-Pfalz,4721,3075
+Niedernberg,Bayern,4720,3076
+Vogt,Baden-Württemberg,4717,3077
+Hesel,Niedersachsen,4714,3078
+Wesertal,Hessen,4713,3079
+Möhrendorf,Bayern,4712,3080
+Niederwiesa,Sachsen,4712,3081
+Geisa,Thüringen,4708,3082
+Inzell,Bayern,4704,3083
+Börnsen,Schleswig-Holstein,4702,3084
+Jahnatal,Sachsen,4702,3085
+Wildeck,Hessen,4701,3086
+Thum,Sachsen,4695,3087
+Bellenberg,Bayern,4694,3088
+"Aindling, M",Bayern,4691,3089
+Buchholz (Westerwald),Rheinland-Pfalz,4688,3090
+Altenstadt a.d.Waldnaab,Bayern,4687,3091
+"Heideck, St",Bayern,4684,3092
+Röbel/Müritz,Mecklenburg-Vorpommern,4684,3093
+Otterfing,Bayern,4682,3094
+Duingen,Niedersachsen,4680,3095
+"Burgheim, M",Bayern,4678,3096
+"Rotthalmünster, M",Bayern,4676,3097
+"Bodenwerder, Münchhausenstadt",Niedersachsen,4672,3098
+Waldbrunn,Baden-Württemberg,4670,3099
+Callenberg,Sachsen,4669,3100
+Oderwitz,Sachsen,4667,3101
+Königsbrück,Sachsen,4665,3102
+Ebersburg,Hessen,4663,3103
+Neunkirchen a.Sand,Bayern,4662,3104
+Waldsolms,Hessen,4660,3105
+Vierkirchen,Bayern,4654,3106
+Bad Buchau,Baden-Württemberg,4651,3107
+Moorrege,Schleswig-Holstein,4650,3108
+Eisingen,Baden-Württemberg,4648,3109
+Löhnberg,Hessen,4643,3110
+Leidersbach,Bayern,4642,3111
+Wilthen,Sachsen,4642,3112
+Neuenkirchen,Niedersachsen,4640,3113
+Hörsel,Thüringen,4636,3114
+Lähden,Niedersachsen,4631,3115
+Badenweiler,Baden-Württemberg,4629,3116
+Kreischa,Sachsen,4629,3117
+Pausa-Mühltroff,Sachsen,4625,3118
+Röttenbach,Bayern,4625,3119
+Müllrose,Brandenburg,4622,3120
+Gemmrigheim,Baden-Württemberg,4620,3121
+Utting am Ammersee,Bayern,4616,3122
+Bad Bodenteich,Niedersachsen,4609,3123
+Mittenaar,Hessen,4604,3124
+Crivitz,Mecklenburg-Vorpommern,4601,3125
+Gutach im Breisgau,Baden-Württemberg,4599,3126
+Windhagen,Rheinland-Pfalz,4597,3127
+Marklohe,Niedersachsen,4594,3128
+Amt Neuhaus,Niedersachsen,4592,3129
+Bergen,Bayern,4592,3130
+Kutenholz,Niedersachsen,4589,3131
+Fichtenau,Baden-Württemberg,4588,3132
+Nastätten,Rheinland-Pfalz,4588,3133
+Herbstein,Hessen,4583,3134
+"Scheinfeld, St",Bayern,4583,3135
+Gschwend,Baden-Württemberg,4581,3136
+Eberhardzell,Baden-Württemberg,4580,3137
+Triberg im Schwarzwald,Baden-Württemberg,4580,3138
+Kürnach,Bayern,4578,3139
+Reichenbach/O.L.,Sachsen,4574,3140
+Striegistal,Sachsen,4570,3141
+Willingshausen,Hessen,4567,3142
+Hitzacker (Elbe),Niedersachsen,4566,3143
+Oy-Mittelberg,Bayern,4564,3144
+Forbach,Baden-Württemberg,4562,3145
+Groß-Bieberau,Hessen,4562,3146
+Krautheim,Baden-Württemberg,4561,3147
+Hosenfeld,Hessen,4560,3148
+Bönningstedt,Schleswig-Holstein,4559,3149
+Sankt Wolfgang,Bayern,4557,3150
+"Rattelsdorf, M",Bayern,4554,3151
+Seehausen (Altmark),Sachsen-Anhalt,4554,3152
+Bubenreuth,Bayern,4547,3153
+Aßling,Bayern,4545,3154
+Oberhaid,Bayern,4542,3155
+Breitscheid,Hessen,4539,3156
+Böbingen an der Rems,Baden-Württemberg,4539,3157
+Bahlingen am Kaiserstuhl,Baden-Württemberg,4538,3158
+Altdorf,Baden-Württemberg,4529,3159
+Weilerbach,Rheinland-Pfalz,4524,3160
+Söhrewald,Hessen,4521,3161
+Adlkofen,Bayern,4517,3162
+Hagenburg,Niedersachsen,4516,3163
+Limbach,Baden-Württemberg,4513,3164
+Freden (Leine),Niedersachsen,4508,3165
+Diemelsee,Hessen,4507,3166
+Rot an der Rot,Baden-Württemberg,4500,3167
+Ober-Olm,Rheinland-Pfalz,4497,3168
+Neuburg a.Inn,Bayern,4496,3169
+Owingen,Baden-Württemberg,4492,3170
+Tann (Rhön),Hessen,4492,3171
+Wöllstein,Rheinland-Pfalz,4492,3172
+Seeon-Seebruck,Bayern,4490,3173
+Heimbach,Nordrhein-Westfalen,4487,3174
+Marlow,Mecklenburg-Vorpommern,4487,3175
+Breitengüßbach,Bayern,4481,3176
+Hardthausen am Kocher,Baden-Württemberg,4478,3177
+Heringen/Helme,Thüringen,4474,3178
+Tambach-Dietharz/Thür. Wald,Thüringen,4474,3179
+Engelsbrand,Baden-Württemberg,4470,3180
+Rhede (Ems),Niedersachsen,4465,3181
+Rennerod,Rheinland-Pfalz,4464,3182
+Rauschenberg,Hessen,4463,3183
+Vöhringen,Baden-Württemberg,4462,3184
+Rheinbreitbach,Rheinland-Pfalz,4460,3185
+Cunewalde,Sachsen,4458,3186
+Ummendorf,Baden-Württemberg,4456,3187
+Creglingen,Baden-Württemberg,4453,3188
+Adorf/Vogtl.,Sachsen,4451,3189
+Gerabronn,Baden-Württemberg,4451,3190
+Gessertshausen,Bayern,4450,3191
+Buggingen,Baden-Württemberg,4449,3192
+Mohlsdorf-Teichwolframsdorf,Thüringen,4447,3193
+Röthlein,Bayern,4444,3194
+Knüllwald,Hessen,4443,3195
+Gingen an der Fils,Baden-Württemberg,4441,3196
+Obing,Bayern,4441,3197
+Putbus,Mecklenburg-Vorpommern,4441,3198
+Grebenhain,Hessen,4436,3199
+Oppenweiler,Baden-Württemberg,4435,3200
+Freyburg (Unstrut),Sachsen-Anhalt,4433,3201
+Lübtheen,Mecklenburg-Vorpommern,4433,3202
+Mittelbiberach,Baden-Württemberg,4433,3203
+"Scheidegg, M",Bayern,4432,3204
+Apensen,Niedersachsen,4431,3205
+Deggenhausertal,Baden-Württemberg,4430,3206
+Sonnefeld,Bayern,4430,3207
+Rettenberg,Bayern,4428,3208
+Maikammer,Rheinland-Pfalz,4426,3209
+Wachenheim an der Weinstraße,Rheinland-Pfalz,4421,3210
+Dahlem,Nordrhein-Westfalen,4416,3211
+Liebenwalde,Brandenburg,4413,3212
+Stegen,Baden-Württemberg,4413,3213
+Hartenstein,Sachsen,4411,3214
+Wörth,Bayern,4409,3215
+Albershausen,Baden-Württemberg,4408,3216
+Berg,Baden-Württemberg,4408,3217
+Lautertal,Bayern,4404,3218
+"Frammersbach, M",Bayern,4402,3219
+Breitungen/Werra,Thüringen,4394,3220
+Kirchberg i.Wald,Bayern,4392,3221
+Nehren,Baden-Württemberg,4390,3222
+Anzing,Bayern,4388,3223
+Güntersleben,Bayern,4382,3224
+Hartmannsdorf,Sachsen,4382,3225
+Augustusburg,Sachsen,4379,3226
+Suderburg,Niedersachsen,4379,3227
+Dischingen,Baden-Württemberg,4374,3228
+Steinhöfel,Brandenburg,4374,3229
+"Bad Berneck i.Fichtelgebirge, St",Bayern,4373,3230
+Münsing,Bayern,4373,3231
+Starzach,Baden-Württemberg,4373,3232
+Büchlberg,Bayern,4371,3233
+Poppenhausen,Bayern,4371,3234
+Schönau,Baden-Württemberg,4369,3235
+Hallenberg,Nordrhein-Westfalen,4367,3236
+Untereisesheim,Baden-Württemberg,4367,3237
+Maulburg,Baden-Württemberg,4366,3238
+Affalterbach,Baden-Württemberg,4364,3239
+"Zell a.Main, M",Bayern,4360,3240
+Rabenau,Sachsen,4359,3241
+"Donaustauf, M",Bayern,4357,3242
+Langenlonsheim,Rheinland-Pfalz,4357,3243
+Ellerbek,Schleswig-Holstein,4356,3244
+Hankensbüttel,Niedersachsen,4354,3245
+Heiligengrabe,Brandenburg,4352,3246
+Dornum,Niedersachsen,4351,3247
+Leiblfing,Bayern,4349,3248
+Contwig,Rheinland-Pfalz,4348,3249
+"Maßbach, M",Bayern,4348,3250
+Surwold,Niedersachsen,4346,3251
+Ehrenfriedersdorf,Sachsen,4343,3252
+Eurasburg,Bayern,4343,3253
+"Buch, M",Bayern,4337,3254
+Feldafing,Bayern,4337,3255
+Fridolfing,Bayern,4337,3256
+"Offingen, M",Bayern,4336,3257
+Rheinhausen im Breisgau,Baden-Württemberg,4333,3258
+Ebersbach,Sachsen,4326,3259
+Borkum,Niedersachsen,4325,3260
+Grabenstätt,Bayern,4324,3261
+"Röhrnbach, M",Bayern,4323,3262
+Penzing,Bayern,4321,3263
+Schönberg,Mecklenburg-Vorpommern,4321,3264
+Mögglingen,Baden-Württemberg,4317,3265
+Feldberger Seenlandschaft,Mecklenburg-Vorpommern,4315,3266
+"Waldershof, St",Bayern,4315,3267
+Aldersbach,Bayern,4310,3268
+Drage,Niedersachsen,4309,3269
+"Eschenbach i.d.OPf., St",Bayern,4308,3270
+Edling,Bayern,4307,3271
+Kranzberg,Bayern,4304,3272
+"Schnaittenbach, St",Bayern,4304,3273
+Boxberg/O.L. / Hamor,Sachsen,4303,3274
+Wilster,Schleswig-Holstein,4302,3275
+Peitz/Picnjo,Brandenburg,4301,3276
+"Gößweinstein, M",Bayern,4298,3277
+Badbergen,Niedersachsen,4297,3278
+Dahn,Rheinland-Pfalz,4297,3279
+Rheinböllen,Rheinland-Pfalz,4296,3280
+Burgrieden,Baden-Württemberg,4291,3281
+Reinhardshagen,Hessen,4291,3282
+Dransfeld,Niedersachsen,4290,3283
+"Triefenstein, M",Bayern,4289,3284
+"Metten, M",Bayern,4288,3285
+Milower Land,Brandenburg,4287,3286
+Olbersdorf,Sachsen,4281,3287
+Daaden,Rheinland-Pfalz,4280,3288
+Strasburg (Uckermark),Mecklenburg-Vorpommern,4278,3289
+Emmerting,Bayern,4274,3290
+Hohenthann,Bayern,4270,3291
+Dürrröhrsdorf-Dittersbach,Sachsen,4269,3292
+Empfingen,Baden-Württemberg,4269,3293
+Barchfeld-Immelborn,Thüringen,4268,3294
+Meinhard,Hessen,4267,3295
+Baumholder,Rheinland-Pfalz,4265,3296
+Neufahrn i.NB,Bayern,4263,3297
+Anger,Bayern,4260,3298
+Brück,Brandenburg,4258,3299
+Biessenhofen,Bayern,4254,3300
+Eching,Bayern,4254,3301
+Grettstadt,Bayern,4251,3302
+Freiamt,Baden-Württemberg,4243,3303
+Großhabersdorf,Bayern,4243,3304
+"Gefrees, St",Bayern,4240,3305
+Neureichenau,Bayern,4238,3306
+Traitsching,Bayern,4237,3307
+Wachau,Sachsen,4233,3308
+Waldfischbach-Burgalben,Rheinland-Pfalz,4232,3309
+Leiferde,Niedersachsen,4231,3310
+"Schwarzenbach a.Wald, St",Bayern,4231,3311
+Aichhalden,Baden-Württemberg,4225,3312
+Großbettlingen,Baden-Württemberg,4225,3313
+Amtzell,Baden-Württemberg,4223,3314
+Neuzelle,Brandenburg,4223,3315
+Bodenwöhr,Bayern,4221,3316
+Kirchberg an der Jagst,Baden-Württemberg,4221,3317
+Niederaichbach,Bayern,4220,3318
+Twistetal,Hessen,4219,3319
+Rheinbrohl,Rheinland-Pfalz,4218,3320
+"Pressath, St",Bayern,4217,3321
+Schenklengsfeld,Hessen,4217,3322
+Nienstädt,Niedersachsen,4216,3323
+Messel,Hessen,4215,3324
+Niederdorfelden,Hessen,4215,3325
+Sonnenstein,Thüringen,4215,3326
+Sennfeld,Bayern,4212,3327
+Amstetten,Baden-Württemberg,4208,3328
+Neuhausen ob Eck,Baden-Württemberg,4206,3329
+Riederich,Baden-Württemberg,4206,3330
+Dietingen,Baden-Württemberg,4204,3331
+Doberschau-Gaußig / Dobruša-Huska,Sachsen,4203,3332
+Langerringen,Bayern,4203,3333
+Großwallstadt,Bayern,4198,3334
+"Simbach, M",Bayern,4197,3335
+"Tittling, M",Bayern,4197,3336
+Neckarbischofsheim,Baden-Württemberg,4195,3337
+"Bürgstadt, M",Bayern,4193,3338
+Lauenau,Niedersachsen,4191,3339
+Kirchberg (Hunsrück),Rheinland-Pfalz,4189,3340
+Loitz,Mecklenburg-Vorpommern,4189,3341
+Elmenhorst/Lichtenhagen,Mecklenburg-Vorpommern,4186,3342
+Sengenthal,Bayern,4186,3343
+Niedernhall,Baden-Württemberg,4185,3344
+Althütte,Baden-Württemberg,4184,3345
+Ihrlerstein,Bayern,4184,3346
+Winkelhaid,Bayern,4184,3347
+Wiesenburg/Mark,Brandenburg,4182,3348
+Vogtei,Thüringen,4180,3349
+Burg (Spreewald)/Bórkowy (Błota),Brandenburg,4179,3350
+Gorxheimertal,Hessen,4178,3351
+Weisenheim am Sand,Rheinland-Pfalz,4177,3352
+Weinbach,Hessen,4176,3353
+Wietzendorf,Niedersachsen,4176,3354
+Lindhorst,Niedersachsen,4175,3355
+Görwihl,Baden-Württemberg,4174,3356
+Rockenberg,Hessen,4173,3357
+Gondelsheim,Baden-Württemberg,4172,3358
+"Kühbach, M",Bayern,4170,3359
+Alfhausen,Niedersachsen,4168,3360
+Baruth/Mark,Brandenburg,4168,3361
+"Eging a.See, M",Bayern,4168,3362
+"Bruck i.d.OPf., M",Bayern,4167,3363
+Beilrode,Sachsen,4161,3364
+Hallerndorf,Bayern,4161,3365
+Bermatingen,Baden-Württemberg,4160,3366
+"Gräfenberg, St",Bayern,4160,3367
+"Siegenburg, M",Bayern,4160,3368
+Zaberfeld,Baden-Württemberg,4156,3369
+Hornberg,Baden-Württemberg,4154,3370
+Fuchstal,Bayern,4151,3371
+Krostitz,Sachsen,4151,3372
+"Pförring, M",Bayern,4150,3373
+Thyrnau,Bayern,4150,3374
+Meißenheim,Baden-Württemberg,4149,3375
+"Stadtlauringen, M",Bayern,4149,3376
+"Reichenberg, M",Bayern,4148,3377
+Hohentengen,Baden-Württemberg,4147,3378
+Rietz-Neuendorf,Brandenburg,4147,3379
+Dahlen,Sachsen,4144,3380
+Kirchberg an der Murr,Baden-Württemberg,4144,3381
+Rott a.Inn,Bayern,4142,3382
+Stammham,Bayern,4142,3383
+Tapfheim,Bayern,4142,3384
+Altenmarkt a.d.Alz,Bayern,4141,3385
+"Graal-Müritz, Ostseeheilbad",Mecklenburg-Vorpommern,4141,3386
+"Selbitz, St",Bayern,4141,3387
+"Tessin, Blumenstadt",Mecklenburg-Vorpommern,4139,3388
+"Schöllkrippen, M",Bayern,4136,3389
+"Neubeuern, M",Bayern,4131,3390
+Niederfischbach,Rheinland-Pfalz,4129,3391
+Durbach,Baden-Württemberg,4123,3392
+Moorenweis,Bayern,4122,3393
+Untersiemau,Bayern,4116,3394
+Wyk auf Föhr,Schleswig-Holstein,4113,3395
+"Buchenberg, M",Bayern,4110,3396
+"Baunach, St",Bayern,4109,3397
+Fronhausen,Hessen,4108,3398
+Waldaschaff,Bayern,4106,3399
+Alling,Bayern,4105,3400
+Pfaffing,Bayern,4104,3401
+Schwebheim,Bayern,4103,3402
+Dargun,Mecklenburg-Vorpommern,4100,3403
+"Thierhaupten, M",Bayern,4100,3404
+Nordwestuckermark,Brandenburg,4097,3405
+Kochel a.See,Bayern,4095,3406
+Römerstein,Baden-Württemberg,4094,3407
+Großrinderfeld,Baden-Württemberg,4088,3408
+Wolpertswende,Baden-Württemberg,4087,3409
+Johannesberg,Bayern,4079,3410
+Niederau,Sachsen,4076,3411
+Escheburg,Schleswig-Holstein,4075,3412
+Mauer,Baden-Württemberg,4073,3413
+Burg (Dithmarschen),Schleswig-Holstein,4070,3414
+Langenbach,Bayern,4068,3415
+"Massing, M",Bayern,4067,3416
+Geringswalde,Sachsen,4066,3417
+Tarmstedt,Niedersachsen,4066,3418
+Freudenberg,Bayern,4064,3419
+Friolzheim,Baden-Württemberg,4062,3420
+Sörup,Schleswig-Holstein,4060,3421
+Neckarwestheim,Baden-Württemberg,4059,3422
+Doberschütz,Sachsen,4057,3423
+Mühlhausen-Ehingen,Baden-Württemberg,4054,3424
+Schlier,Baden-Württemberg,4054,3425
+Oberaurach,Bayern,4053,3426
+"Thurnau, M",Bayern,4053,3427
+Walkenried,Niedersachsen,4053,3428
+Waldkappel,Hessen,4052,3429
+Lichtenfels,Hessen,4051,3430
+Riegel am Kaiserstuhl,Baden-Württemberg,4051,3431
+Wanfried,Hessen,4050,3432
+Wyhl am Kaiserstuhl,Baden-Württemberg,4050,3433
+Ahorn,Bayern,4047,3434
+"Rothenburg/O.L., Stadt, Hochschulstadt",Sachsen,4047,3435
+"Woldegk, Windmühlenstadt",Mecklenburg-Vorpommern,4045,3436
+Gelenau/Erzgeb.,Sachsen,4039,3437
+Graben,Bayern,4038,3438
+Penzlin,Mecklenburg-Vorpommern,4033,3439
+Bockhorn,Bayern,4031,3440
+Großdubrau / Wulka Dubrawa,Sachsen,4029,3441
+Mönkeberg,Schleswig-Holstein,4025,3442
+Kirchdorf an der Iller,Baden-Württemberg,4024,3443
+Weil,Bayern,4022,3444
+"Gars a.Inn, M",Bayern,4021,3445
+"Kraiburg a.Inn, M",Bayern,4021,3446
+Lauf,Baden-Württemberg,4021,3447
+"Markt Rettenbach, M",Bayern,4019,3448
+Schönheide,Sachsen,4017,3449
+Kreßberg,Baden-Württemberg,4008,3450
+Otterbach,Rheinland-Pfalz,4008,3451
+Altshausen,Baden-Württemberg,3999,3452
+Ellhofen,Baden-Württemberg,3998,3453
+Gau-Odernheim,Rheinland-Pfalz,3995,3454
+Lambrecht (Pfalz),Rheinland-Pfalz,3995,3455
+Zell (Mosel),Rheinland-Pfalz,3993,3456
+Hasloh,Schleswig-Holstein,3990,3457
+Grasellenbach,Hessen,3982,3458
+Mertingen,Bayern,3980,3459
+Seckach,Baden-Württemberg,3978,3460
+"Kaisheim, M",Bayern,3977,3461
+Kisdorf,Schleswig-Holstein,3976,3462
+Waldalgesheim,Rheinland-Pfalz,3975,3463
+Bad Tabarz,Thüringen,3973,3464
+Hattorf am Harz,Niedersachsen,3972,3465
+"Wienhausen, Klostergemeinde",Niedersachsen,3970,3466
+"Neubukow, Schliemannstadt",Mecklenburg-Vorpommern,3969,3467
+Kritzmow,Mecklenburg-Vorpommern,3964,3468
+Tiefenbach,Bayern,3962,3469
+Sprendlingen,Rheinland-Pfalz,3959,3470
+Kirchroth,Bayern,3958,3471
+Wurmlingen,Baden-Württemberg,3949,3472
+Langenwetzendorf,Thüringen,3942,3473
+"Pappenheim, St",Bayern,3942,3474
+Bad Zwesten,Hessen,3941,3475
+Guntersblum,Rheinland-Pfalz,3941,3476
+Mildstedt,Schleswig-Holstein,3941,3477
+Steinach,Baden-Württemberg,3941,3478
+Waldenburg,Sachsen,3941,3479
+Schlierbach,Baden-Württemberg,3940,3480
+Hütschenhausen,Rheinland-Pfalz,3937,3481
+Schefflenz,Baden-Württemberg,3933,3482
+Buch a.Erlbach,Bayern,3929,3483
+Rosenbach/Vogtl.,Sachsen,3927,3484
+"Philippsthal (Werra), Marktgemeinde",Hessen,3926,3485
+Neukloster,Mecklenburg-Vorpommern,3925,3486
+"Schönberg, M",Bayern,3925,3487
+Dassow,Mecklenburg-Vorpommern,3922,3488
+Falkenberg,Bayern,3921,3489
+Cadenberge,Niedersachsen,3917,3490
+"Wiesau, M",Bayern,3916,3491
+"Eschau, M",Bayern,3915,3492
+Fraunberg,Bayern,3914,3493
+Risum-Lindholm,Schleswig-Holstein,3914,3494
+Wiesenfelden,Bayern,3912,3495
+Süderholz,Mecklenburg-Vorpommern,3911,3496
+"Amorbach, St",Bayern,3907,3497
+"Ellingen, St",Bayern,3897,3498
+Marschacht,Niedersachsen,3895,3499
+Wäschenbeuren,Baden-Württemberg,3895,3500
+Langenbrettach,Baden-Württemberg,3894,3501
+Steinhöring,Bayern,3894,3502
+Spiegelau,Bayern,3890,3503
+Gensingen,Rheinland-Pfalz,3889,3504
+Helmstadt-Bargen,Baden-Württemberg,3887,3505
+Grafrath,Bayern,3885,3506
+Haselbachtal,Sachsen,3882,3507
+Syrgenstein,Bayern,3882,3508
+Lunzenau,Sachsen,3880,3509
+Kiedrich,Hessen,3873,3510
+Eich,Rheinland-Pfalz,3868,3511
+Hohenpeißenberg,Bayern,3865,3512
+Hoya,Niedersachsen,3862,3513
+Nüdlingen,Bayern,3861,3514
+Wolfegg,Baden-Württemberg,3861,3515
+Germaringen,Bayern,3860,3516
+Mehlingen,Rheinland-Pfalz,3857,3517
+Bad Heilbrunn,Bayern,3855,3518
+"Hamm (Sieg), Raiffeisengemeinde",Rheinland-Pfalz,3851,3519
+Weiherhammer,Bayern,3849,3520
+"Welden, M",Bayern,3849,3521
+Owschlag,Schleswig-Holstein,3847,3522
+Güsten,Sachsen-Anhalt,3843,3523
+"Pressig, M",Bayern,3843,3524
+Neckartailfingen,Baden-Württemberg,3841,3525
+Bad Ditzenbach,Baden-Württemberg,3840,3526
+Gerolsbach,Bayern,3836,3527
+Billigheim-Ingenheim,Rheinland-Pfalz,3833,3528
+Mistelgau,Bayern,3832,3529
+Andechs,Bayern,3830,3530
+Steffenberg,Hessen,3830,3531
+Neckarsteinach,Hessen,3828,3532
+Allendorf (Lumda),Hessen,3824,3533
+Diepenau,Niedersachsen,3824,3534
+Kindelbrück,Thüringen,3823,3535
+Wasserburg (Bodensee),Bayern,3823,3536
+Eigeltingen,Baden-Württemberg,3821,3537
+"Kreuzwertheim, M",Bayern,3819,3538
+Crottendorf,Sachsen,3818,3539
+St. Blasien,Baden-Württemberg,3818,3540
+Windach,Bayern,3817,3541
+Loiching,Bayern,3814,3542
+Marklkofen,Bayern,3813,3543
+"Tann, M",Bayern,3813,3544
+Bitz,Baden-Württemberg,3812,3545
+Kyffhäuserland,Thüringen,3810,3546
+"Seßlach, St",Bayern,3809,3547
+Ursensollen,Bayern,3809,3548
+Heßdorf,Bayern,3808,3549
+Regis-Breitingen,Sachsen,3803,3550
+Ebelsbach,Bayern,3802,3551
+Groß Pankow (Prignitz),Brandenburg,3801,3552
+Dauchingen,Baden-Württemberg,3800,3553
+Schonach im Schwarzwald,Baden-Württemberg,3800,3554
+Biberach,Baden-Württemberg,3799,3555
+Groß Grönau,Schleswig-Holstein,3795,3556
+Aukrug,Schleswig-Holstein,3794,3557
+Neustetten,Baden-Württemberg,3794,3558
+"Marktbreit, St",Bayern,3793,3559
+"Winzer, M",Bayern,3792,3560
+Weyarn,Bayern,3790,3561
+Göllheim,Rheinland-Pfalz,3789,3562
+"Nesselwang, M",Bayern,3789,3563
+Bad Überkingen,Baden-Württemberg,3788,3564
+Hohenstein,Baden-Württemberg,3788,3565
+Eppendorf,Sachsen,3787,3566
+"Lichtenau, M",Bayern,3784,3567
+Eichstetten am Kaiserstuhl,Baden-Württemberg,3780,3568
+Lorch,Hessen,3780,3569
+Haldenwang,Bayern,3779,3570
+Buxheim,Bayern,3778,3571
+Schondorf am Ammersee,Bayern,3776,3572
+Rimsting,Bayern,3775,3573
+Neudrossenfeld,Bayern,3774,3574
+Hollenstedt,Niedersachsen,3771,3575
+Sternberg,Mecklenburg-Vorpommern,3769,3576
+Warngau,Bayern,3768,3577
+Amelinghausen,Niedersachsen,3767,3578
+Döhlau,Bayern,3767,3579
+"Zinnowitz, Ostseebad",Mecklenburg-Vorpommern,3765,3580
+Rickenbach,Baden-Württemberg,3764,3581
+Wolkenstein,Sachsen,3762,3582
+Üchtelhausen,Bayern,3762,3583
+Neukirchen/Pleiße,Sachsen,3761,3584
+Massenbachhausen,Baden-Württemberg,3760,3585
+Wahrenholz,Niedersachsen,3760,3586
+Märkische Heide/Markojska Góla,Brandenburg,3757,3587
+Burgoberbach,Bayern,3754,3588
+Uttenweiler,Baden-Württemberg,3751,3589
+Gieboldehausen,Niedersachsen,3750,3590
+Holzheim,Bayern,3748,3591
+Trebsen/Mulde,Sachsen,3744,3592
+Broderstorf,Mecklenburg-Vorpommern,3743,3593
+Albersdorf,Schleswig-Holstein,3742,3594
+"Lauterhofen, M",Bayern,3742,3595
+Bergtheim,Bayern,3740,3596
+Amerang,Bayern,3739,3597
+Forstinning,Bayern,3737,3598
+Letschin,Brandenburg,3735,3599
+Sigmaringendorf,Baden-Württemberg,3735,3600
+Rohr,Bayern,3733,3601
+Ruhland,Brandenburg,3728,3602
+Diespeck,Bayern,3724,3603
+Sankt Peter-Ording,Schleswig-Holstein,3724,3604
+Gosheim,Baden-Württemberg,3720,3605
+Michelfeld,Baden-Württemberg,3720,3606
+Sachsen b.Ansbach,Bayern,3720,3607
+"Buttenheim, M",Bayern,3719,3608
+Mötzingen,Baden-Württemberg,3719,3609
+Vettelschoß,Rheinland-Pfalz,3718,3610
+Icking,Bayern,3715,3611
+Bevern,Niedersachsen,3714,3612
+Mirow,Mecklenburg-Vorpommern,3711,3613
+Markersdorf,Sachsen,3709,3614
+Bad Kleinen,Mecklenburg-Vorpommern,3704,3615
+Wehingen,Baden-Württemberg,3703,3616
+"Breitenbrunn, M",Bayern,3702,3617
+Nickenich,Rheinland-Pfalz,3701,3618
+Heinersreuth,Bayern,3700,3619
+Wackersberg,Bayern,3700,3620
+Hausen,Bayern,3698,3621
+Malsfeld,Hessen,3698,3622
+Liebenau,Niedersachsen,3695,3623
+Merzen,Niedersachsen,3691,3624
+Tauche,Brandenburg,3691,3625
+Mettenheim,Bayern,3689,3626
+Helbra,Sachsen-Anhalt,3687,3627
+Gornau/Erzgeb.,Sachsen,3686,3628
+Trierweiler,Rheinland-Pfalz,3686,3629
+Notzingen,Baden-Württemberg,3684,3630
+Forstern,Bayern,3683,3631
+"Bissingen, M",Bayern,3682,3632
+Burgstetten,Baden-Württemberg,3681,3633
+Speicher,Rheinland-Pfalz,3681,3634
+Benediktbeuern,Bayern,3679,3635
+Schnaitsee,Bayern,3679,3636
+Ehekirchen,Bayern,3674,3637
+Wallhausen,Baden-Württemberg,3671,3638
+Hechthausen,Niedersachsen,3669,3639
+Rosenthal am Rennsteig,Thüringen,3669,3640
+Deutsch Evern,Niedersachsen,3667,3641
+"Schwarzach a.Main, M",Bayern,3665,3642
+Thiendorf,Sachsen,3661,3643
+Gersdorf,Sachsen,3659,3644
+Pürgen,Bayern,3659,3645
+Bad Köstritz,Thüringen,3651,3646
+Langenenslingen,Baden-Württemberg,3649,3647
+Mühlheim an der Donau,Baden-Württemberg,3649,3648
+Kraftsdorf,Thüringen,3646,3649
+Strehla,Sachsen,3644,3650
+Dipperz,Hessen,3643,3651
+"Bodenmais, M",Bayern,3641,3652
+"Neukirchen b.Hl.Blut, M",Bayern,3641,3653
+Weichs,Bayern,3641,3654
+Grünsfeld,Baden-Württemberg,3640,3655
+Groß-Rohrheim,Hessen,3638,3656
+"Obernzell, M",Bayern,3638,3657
+Hebertsfelden,Bayern,3633,3658
+Hohentengen am Hochrhein,Baden-Württemberg,3633,3659
+Polling,Bayern,3633,3660
+Unterwössen,Bayern,3633,3661
+Vöhrenbach,Baden-Württemberg,3631,3662
+Furth,Bayern,3630,3663
+Bad Salzschlirf,Hessen,3629,3664
+Viereth-Trunstadt,Bayern,3625,3665
+Deidesheim,Rheinland-Pfalz,3623,3666
+Kirchheim,Hessen,3623,3667
+Gechingen,Baden-Württemberg,3621,3668
+Türkenfeld,Bayern,3619,3669
+Röderland,Brandenburg,3618,3670
+"Heiligenstadt i.OFr., M",Bayern,3616,3671
+Freudenberg,Baden-Württemberg,3615,3672
+Netzschkau,Sachsen,3615,3673
+Oeversee,Schleswig-Holstein,3611,3674
+Dänischenhagen,Schleswig-Holstein,3610,3675
+Elsterberg,Sachsen,3609,3676
+"Kleinheubach, M",Bayern,3607,3677
+Gemünden (Wohra),Hessen,3606,3678
+Triptis,Thüringen,3606,3679
+Mulfingen,Baden-Württemberg,3604,3680
+Klein-Winternheim,Rheinland-Pfalz,3600,3681
+Rieste,Niedersachsen,3599,3682
+Weißensee,Thüringen,3598,3683
+Eystrup,Niedersachsen,3597,3684
+Hettstadt,Bayern,3597,3685
+Beuren,Baden-Württemberg,3591,3686
+Amtsberg,Sachsen,3590,3687
+Orsingen-Nenzingen,Baden-Württemberg,3588,3688
+Bentwisch,Mecklenburg-Vorpommern,3582,3689
+Hildrizhausen,Baden-Württemberg,3581,3690
+Thalmassing,Bayern,3581,3691
+Am Ohmberg,Thüringen,3577,3692
+Bad Muskau / Mužakow,Sachsen,3577,3693
+Selsingen,Niedersachsen,3574,3694
+Farchant,Bayern,3571,3695
+Sexau,Baden-Württemberg,3568,3696
+Johanngeorgenstadt,Sachsen,3567,3697
+Schnelldorf,Bayern,3567,3698
+"Tegernsee, St",Bayern,3567,3699
+Upgant-Schott,Niedersachsen,3567,3700
+Grainau,Bayern,3564,3701
+Aiterhofen,Bayern,3563,3702
+"Burtenbach, M",Bayern,3562,3703
+Hohenroth,Bayern,3562,3704
+Laußig,Sachsen,3561,3705
+Öhningen,Baden-Württemberg,3559,3706
+Palling,Bayern,3555,3707
+Sailauf,Bayern,3555,3708
+"Marktrodach, M",Bayern,3554,3709
+Ortenberg,Baden-Württemberg,3553,3710
+Bad Elster,Sachsen,3552,3711
+Dörfles-Esbach,Bayern,3549,3712
+Gundelsheim,Bayern,3549,3713
+Zornheim,Rheinland-Pfalz,3549,3714
+Happurg,Bayern,3547,3715
+Eilsleben,Sachsen-Anhalt,3546,3716
+Parthenstein,Sachsen,3545,3717
+"Königsberg i.Bay., St",Bayern,3543,3718
+Rehna,Mecklenburg-Vorpommern,3542,3719
+Hauenstein,Rheinland-Pfalz,3541,3720
+Seifhennersdorf,Sachsen,3536,3721
+"Hofkirchen, M",Bayern,3534,3722
+Carlsberg,Rheinland-Pfalz,3533,3723
+Ronneburg,Hessen,3532,3724
+Laberweinting,Bayern,3531,3725
+Mundelsheim,Baden-Württemberg,3531,3726
+Schiltach,Baden-Württemberg,3517,3727
+Kettig,Rheinland-Pfalz,3516,3728
+Thallwitz,Sachsen,3516,3729
+Heideblick,Brandenburg,3514,3730
+Stromberg,Rheinland-Pfalz,3514,3731
+"Biberbach, M",Bayern,3513,3732
+"Burgbernheim, St",Bayern,3512,3733
+Rudelzhausen,Bayern,3508,3734
+"Rohr i.NB, M",Bayern,3507,3735
+Jemgum,Niedersachsen,3506,3736
+Unterneukirchen,Bayern,3506,3737
+Lemberg,Rheinland-Pfalz,3496,3738
+"Floß, M",Bayern,3494,3739
+Lalendorf,Mecklenburg-Vorpommern,3493,3740
+Meeder,Bayern,3493,3741
+Fürstenstein,Bayern,3492,3742
+Mittelherwigsdorf,Sachsen,3491,3743
+Schwindegg,Bayern,3490,3744
+Straßkirchen,Bayern,3489,3745
+Sankt Michaelisdonn,Schleswig-Holstein,3487,3746
+"Heimenkirch, M",Bayern,3484,3747
+Ettringen,Bayern,3483,3748
+Ölbronn-Dürrn,Baden-Württemberg,3483,3749
+Hirschhorn (Neckar),Hessen,3482,3750
+Sasbach am Kaiserstuhl,Baden-Württemberg,3481,3751
+Hoisdorf,Schleswig-Holstein,3479,3752
+Malsch,Baden-Württemberg,3478,3753
+Oberrot,Baden-Württemberg,3476,3754
+Belgershain,Sachsen,3470,3755
+Neustadt (Dosse),Brandenburg,3469,3756
+Wartenberg,Hessen,3469,3757
+Malterdingen,Baden-Württemberg,3467,3758
+Löwenstein,Baden-Württemberg,3460,3759
+Lucka,Thüringen,3457,3760
+Steinach,Thüringen,3456,3761
+Wildenfels,Sachsen,3452,3762
+Beindersheim,Rheinland-Pfalz,3451,3763
+"Goldkronach, St",Bayern,3451,3764
+Lauben,Bayern,3448,3765
+Egenhofen,Bayern,3443,3766
+Redwitz a.d.Rodach,Bayern,3442,3767
+Pettendorf,Bayern,3438,3768
+Berge,Niedersachsen,3436,3769
+Grafenrheinfeld,Bayern,3435,3770
+Sankt Katharinen (Landkreis Neuwied),Rheinland-Pfalz,3434,3771
+Ulmen,Rheinland-Pfalz,3432,3772
+Bösingen,Baden-Württemberg,3428,3773
+Wasserlosen,Bayern,3425,3774
+Wielenbach,Bayern,3425,3775
+Essenheim,Rheinland-Pfalz,3424,3776
+Meckenheim,Rheinland-Pfalz,3424,3777
+Kreuth,Bayern,3421,3778
+Dassendorf,Schleswig-Holstein,3420,3779
+"Luhe-Wildenau, M",Bayern,3419,3780
+Neuhaus a.Inn,Bayern,3419,3781
+Moos,Baden-Württemberg,3417,3782
+Owen,Baden-Württemberg,3417,3783
+Spreenhagen,Brandenburg,3417,3784
+Brombachtal,Hessen,3416,3785
+Gößnitz,Thüringen,3413,3786
+Bornhöved,Schleswig-Holstein,3412,3787
+Lemförde,Niedersachsen,3412,3788
+Angelburg,Hessen,3410,3789
+Jossgrund,Hessen,3407,3790
+Klein Nordende,Schleswig-Holstein,3407,3791
+Bissingen an der Teck,Baden-Württemberg,3406,3792
+Joachimsthal,Brandenburg,3402,3793
+Schenkendöbern/Derbno,Brandenburg,3401,3794
+Bad Klosterlausnitz,Thüringen,3399,3795
+"Falkenstein, M",Bayern,3398,3796
+Lustadt,Rheinland-Pfalz,3396,3797
+Eisingen,Bayern,3395,3798
+Münstermaifeld,Rheinland-Pfalz,3394,3799
+Langenbernsdorf,Sachsen,3392,3800
+Mamming,Bayern,3391,3801
+Steinach,Bayern,3390,3802
+Wilhelmsthal,Bayern,3390,3803
+Hötensleben,Sachsen-Anhalt,3388,3804
+Breuna,Hessen,3386,3805
+Herdwangen-Schönach,Baden-Württemberg,3385,3806
+Valley,Bayern,3385,3807
+Kölln-Reisiek,Schleswig-Holstein,3382,3808
+Eschershausen,Niedersachsen,3378,3809
+Villingendorf,Baden-Württemberg,3377,3810
+Baierbrunn,Bayern,3376,3811
+Kranichfeld,Thüringen,3376,3812
+Bad Karlshafen,Hessen,3373,3813
+Bosau,Schleswig-Holstein,3373,3814
+Urmitz,Rheinland-Pfalz,3373,3815
+"Buchbach, M",Bayern,3371,3816
+Au am Rhein,Baden-Württemberg,3368,3817
+Ohlsbach,Baden-Württemberg,3368,3818
+Wesselburen,Schleswig-Holstein,3368,3819
+"Wurmannsquick, M",Bayern,3364,3820
+Langenhorn,Schleswig-Holstein,3363,3821
+Röttenbach,Bayern,3363,3822
+Hoppstädten-Weiersbach,Rheinland-Pfalz,3362,3823
+Illerrieden,Baden-Württemberg,3361,3824
+Erolzheim,Baden-Württemberg,3360,3825
+Poppenricht,Bayern,3360,3826
+Königswartha / Rakecy,Sachsen,3359,3827
+"Wallerstein, M",Bayern,3359,3828
+Halblech,Bayern,3357,3829
+Rainau,Baden-Württemberg,3354,3830
+Volkertshausen,Baden-Württemberg,3354,3831
+"Randersacker, M",Bayern,3353,3832
+Westhofen,Rheinland-Pfalz,3348,3833
+Bad Schandau,Sachsen,3346,3834
+Kötz,Bayern,3346,3835
+Kammeltal,Bayern,3345,3836
+Kirchdorf a.d.Amper,Bayern,3344,3837
+"Ostheim v.d.Rhön, St",Bayern,3344,3838
+Gröningen,Sachsen-Anhalt,3343,3839
+Hilgertshausen-Tandern,Bayern,3342,3840
+Hohenlinden,Bayern,3339,3841
+Kirchanschöring,Bayern,3338,3842
+Sülfeld,Schleswig-Holstein,3338,3843
+Mildenau,Sachsen,3337,3844
+Hohndorf,Sachsen,3335,3845
+Spraitbach,Baden-Württemberg,3335,3846
+Gaienhofen,Baden-Württemberg,3334,3847
+Offenberg,Bayern,3334,3848
+Wilhelmsfeld,Baden-Württemberg,3332,3849
+Bischofsmais,Bayern,3331,3850
+Colbitz,Sachsen-Anhalt,3331,3851
+Leutersdorf,Sachsen,3330,3852
+Jandelsbrunn,Bayern,3329,3853
+Michelbach an der Bilz,Baden-Württemberg,3325,3854
+Auma-Weidatal,Thüringen,3324,3855
+Krakow am See,Mecklenburg-Vorpommern,3324,3856
+Ohlstadt,Bayern,3323,3857
+Parkstetten,Bayern,3323,3858
+Schwarzatal,Thüringen,3319,3859
+Lamstedt,Niedersachsen,3317,3860
+Wellendingen,Baden-Württemberg,3317,3861
+"Merenberg, Marktflecken",Hessen,3316,3862
+Walheim,Baden-Württemberg,3316,3863
+Polling,Bayern,3315,3864
+"Eschlkam, M",Bayern,3314,3865
+Rodenbach,Rheinland-Pfalz,3311,3866
+Jevenstedt,Schleswig-Holstein,3309,3867
+Mühlberg/Elbe,Brandenburg,3309,3868
+Großenwiehe,Schleswig-Holstein,3307,3869
+Otterstadt,Rheinland-Pfalz,3307,3870
+Wingst,Niedersachsen,3307,3871
+Oberriexingen,Baden-Württemberg,3306,3872
+Tanna,Thüringen,3304,3873
+Rossau,Sachsen,3302,3874
+Bempflingen,Baden-Württemberg,3301,3875
+"Steinwiesen, M",Bayern,3297,3876
+Eiselfing,Bayern,3295,3877
+Altenstadt,Bayern,3294,3878
+Tuningen,Baden-Württemberg,3292,3879
+Schernfeld,Bayern,3291,3880
+Oberschneiding,Bayern,3290,3881
+Marzling,Bayern,3287,3882
+Lütjensee,Schleswig-Holstein,3285,3883
+Plate,Mecklenburg-Vorpommern,3283,3884
+"Wolframs-Eschenbach, St",Bayern,3282,3885
+Staig,Baden-Württemberg,3281,3886
+Löcknitz,Mecklenburg-Vorpommern,3280,3887
+Melbeck,Niedersachsen,3280,3888
+Holm,Schleswig-Holstein,3279,3889
+Scharnebeck,Niedersachsen,3279,3890
+Brietlingen,Niedersachsen,3278,3891
+Leinach,Bayern,3277,3892
+Berkheim,Baden-Württemberg,3275,3893
+Deckenpfronn,Baden-Württemberg,3274,3894
+"Kirchenthumbach, M",Bayern,3274,3895
+Saalburg-Ebersdorf,Thüringen,3271,3896
+Neuler,Baden-Württemberg,3270,3897
+"Tüßling, M",Bayern,3270,3898
+Elsterheide / Halštrowska Hola,Sachsen,3269,3899
+Hohenau,Bayern,3269,3900
+Hollern-Twielenfleth,Niedersachsen,3269,3901
+Schwegenheim,Rheinland-Pfalz,3267,3902
+Waldburg,Baden-Württemberg,3267,3903
+Surberg,Bayern,3265,3904
+Wurmberg,Baden-Württemberg,3264,3905
+Merching,Bayern,3263,3906
+Schwangau,Bayern,3263,3907
+Burgbrohl,Rheinland-Pfalz,3262,3908
+Elchesheim-Illingen,Baden-Württemberg,3262,3909
+Heldburg,Thüringen,3261,3910
+Unterbreizbach,Thüringen,3261,3911
+"Neuburg a.d.Kammel, M",Bayern,3260,3912
+Künzing,Bayern,3258,3913
+Straßlach-Dingharting,Bayern,3258,3914
+Haina (Kloster),Hessen,3256,3915
+Kaisersesch,Rheinland-Pfalz,3256,3916
+"Rötz, St",Bayern,3256,3917
+Geyer,Sachsen,3255,3918
+Warin,Mecklenburg-Vorpommern,3255,3919
+Aumühle,Schleswig-Holstein,3254,3920
+Oberaula,Hessen,3251,3921
+Himmelkron,Bayern,3249,3922
+Lorup,Niedersachsen,3247,3923
+Aschau a.Inn,Bayern,3245,3924
+Münchhausen,Hessen,3243,3925
+"Legau, M",Bayern,3242,3926
+"Bad Steben, M",Bayern,3240,3927
+Hunderdorf,Bayern,3238,3928
+Goldberg,Mecklenburg-Vorpommern,3236,3929
+Bodnegg,Baden-Württemberg,3235,3930
+Münchsmünster,Bayern,3235,3931
+Ried,Bayern,3234,3932
+Ursberg,Bayern,3233,3933
+Oberhausen,Bayern,3231,3934
+Harthausen,Rheinland-Pfalz,3230,3935
+Mauerstetten,Bayern,3229,3936
+Simmelsdorf,Bayern,3229,3937
+Gosen-Neu Zittau,Brandenburg,3226,3938
+Irschenberg,Bayern,3226,3939
+Glottertal,Baden-Württemberg,3225,3940
+Bad Teinach-Zavelstein,Baden-Württemberg,3220,3941
+Höhn,Rheinland-Pfalz,3218,3942
+Obermichelbach,Bayern,3217,3943
+Wörth a.d.Isar,Bayern,3214,3944
+Eberstadt,Baden-Württemberg,3209,3945
+Hillesheim,Rheinland-Pfalz,3207,3946
+Gaißach,Bayern,3203,3947
+Steinmauern,Baden-Württemberg,3201,3948
+Ascheberg (Holstein),Schleswig-Holstein,3196,3949
+Bischoffen,Hessen,3196,3950
+Kelbra (Kyffhäuser),Sachsen-Anhalt,3196,3951
+Vörstetten,Baden-Württemberg,3196,3952
+Stephansposching,Bayern,3189,3953
+Glattbach,Bayern,3186,3954
+Calvörde,Sachsen-Anhalt,3185,3955
+Sohren,Rheinland-Pfalz,3184,3956
+Dorf Mecklenburg,Mecklenburg-Vorpommern,3183,3957
+Gumtow,Brandenburg,3183,3958
+Wangen,Baden-Württemberg,3183,3959
+Wehringen,Bayern,3183,3960
+Bergatreute,Baden-Württemberg,3181,3961
+Havelsee,Brandenburg,3181,3962
+Wiesenbach,Baden-Württemberg,3181,3963
+"Ziemetshausen, M",Bayern,3181,3964
+Werbach,Baden-Württemberg,3180,3965
+Großrückerswalde,Sachsen,3178,3966
+Leubsdorf,Sachsen,3178,3967
+Urbar,Rheinland-Pfalz,3177,3968
+Diera-Zehren,Sachsen,3174,3969
+Alteglofsheim,Bayern,3171,3970
+Hammah,Niedersachsen,3171,3971
+Krauschwitz i.d. O.L. / Krušwica,Sachsen,3171,3972
+Schuttertal,Baden-Württemberg,3170,3973
+Flörsheim-Dalsheim,Rheinland-Pfalz,3167,3974
+Weilheim,Baden-Württemberg,3167,3975
+Buckenhof,Bayern,3161,3976
+Konradsreuth,Bayern,3161,3977
+Ingoldingen,Baden-Württemberg,3159,3978
+"Plößberg, M",Bayern,3159,3979
+Fridingen an der Donau,Baden-Württemberg,3157,3980
+Oberschöna,Sachsen,3157,3981
+Fischen i.Allgäu,Bayern,3156,3982
+Gottenheim,Baden-Württemberg,3156,3983
+Eicklingen,Niedersachsen,3151,3984
+Seeshaupt,Bayern,3151,3985
+Hohnstein,Sachsen,3150,3986
+Plattenburg,Brandenburg,3149,3987
+Königsdorf,Bayern,3148,3988
+Birkenheide,Rheinland-Pfalz,3146,3989
+Buchenbach,Baden-Württemberg,3144,3990
+Jetzendorf,Bayern,3144,3991
+Breitenworbis,Thüringen,3140,3992
+Lychen,Brandenburg,3139,3993
+Hülben,Baden-Württemberg,3135,3994
+Lauscha,Thüringen,3133,3995
+Neuweiler,Baden-Württemberg,3133,3996
+Oberau,Bayern,3132,3997
+Unterpleichfeld,Bayern,3132,3998
+Weidhausen b.Coburg,Bayern,3128,3999
+Seukendorf,Bayern,3127,4000
+Rickling,Schleswig-Holstein,3126,4001
+Mauern,Bayern,3125,4002
+"Uehlfeld, M",Bayern,3125,4003
+Hirrlingen,Baden-Württemberg,3123,4004
+Babensham,Bayern,3122,4005
+"Kirchenlamitz, St",Bayern,3122,4006
+"Erkheim, M",Bayern,3121,4007
+Sonnewalde,Brandenburg,3120,4008
+Körle,Hessen,3119,4009
+Pfatter,Bayern,3119,4010
+Cleebronn,Baden-Württemberg,3118,4011
+Vordorf,Niedersachsen,3118,4012
+Bernstadt a. d. Eigen,Sachsen,3117,4013
+Gimbsheim,Rheinland-Pfalz,3113,4014
+Margetshöchheim,Bayern,3113,4015
+Frickingen,Baden-Württemberg,3111,4016
+Rinchnach,Bayern,3111,4017
+Schalkau,Thüringen,3111,4018
+Morschen,Hessen,3109,4019
+Buxheim,Bayern,3108,4020
+Egeln,Sachsen-Anhalt,3108,4021
+Epfendorf,Baden-Württemberg,3106,4022
+Mommenheim,Rheinland-Pfalz,3106,4023
+Aurachtal,Bayern,3105,4024
+Grünkraut,Baden-Württemberg,3105,4025
+Aurach,Bayern,3104,4026
+Oldendorf,Niedersachsen,3103,4027
+Schmidgaden,Bayern,3103,4028
+Thermalbad Wiesenbad,Sachsen,3103,4029
+Warmsen,Niedersachsen,3103,4030
+Brome,Niedersachsen,3102,4031
+"Lehrberg, M",Bayern,3102,4032
+Pommersfelden,Bayern,3102,4033
+Welzow/Wjelcej,Brandenburg,3102,4034
+Bürgel,Thüringen,3099,4035
+Hodenhagen,Niedersachsen,3099,4036
+"Merkendorf, St",Bayern,3099,4037
+Aystetten,Bayern,3095,4038
+Riede,Niedersachsen,3095,4039
+Priestewitz,Sachsen,3094,4040
+Erlau,Sachsen,3093,4041
+Neusalza-Spremberg,Sachsen,3092,4042
+"Eibelstadt, St",Bayern,3091,4043
+Remptendorf,Thüringen,3090,4044
+Heßheim,Rheinland-Pfalz,3089,4045
+Klein Offenseth-Sparrieshoop,Schleswig-Holstein,3088,4046
+"Maroldsweisach, M",Bayern,3088,4047
+Radibor / Radwor,Sachsen,3084,4048
+Selmsdorf,Mecklenburg-Vorpommern,3083,4049
+Fintel,Niedersachsen,3082,4050
+Ottenhöfen im Schwarzwald,Baden-Württemberg,3082,4051
+Zell unter Aichelberg,Baden-Württemberg,3078,4052
+St. Egidien,Sachsen,3077,4053
+"Schönwald, St",Bayern,3076,4054
+Untermünkheim,Baden-Württemberg,3076,4055
+Bühlertann,Baden-Württemberg,3075,4056
+Westerheim,Baden-Württemberg,3074,4057
+Dahlenburg,Niedersachsen,3073,4058
+Kirtorf,Hessen,3072,4059
+Vogtareuth,Bayern,3072,4060
+Erligheim,Baden-Württemberg,3071,4061
+Hauneck,Hessen,3070,4062
+Uffing a.Staffelsee,Bayern,3069,4063
+Großenaspe,Schleswig-Holstein,3068,4064
+Hochdorf-Assenheim,Rheinland-Pfalz,3068,4065
+"Ludwigsstadt, St",Bayern,3068,4066
+Höpfingen,Baden-Württemberg,3067,4067
+Döbern/Derbno,Brandenburg,3066,4068
+Ruderting,Bayern,3063,4069
+Seeg,Bayern,3061,4070
+Sand a.Main,Bayern,3060,4071
+Aresing,Bayern,3059,4072
+Burgberg i.Allgäu,Bayern,3057,4073
+Eitting,Bayern,3057,4074
+Hettenleidelheim,Rheinland-Pfalz,3056,4075
+Pollenfeld,Bayern,3056,4076
+"Tussenhausen, M",Bayern,3056,4077
+Fluorn-Winzeln,Baden-Württemberg,3052,4078
+Kammerstein,Bayern,3050,4079
+Lebus,Brandenburg,3049,4080
+Föhren,Rheinland-Pfalz,3048,4081
+Steinbach a.Wald,Bayern,3047,4082
+Werther,Thüringen,3047,4083
+Gailingen am Hochrhein,Baden-Württemberg,3044,4084
+Königheim,Baden-Württemberg,3043,4085
+Langensendelbach,Bayern,3043,4086
+Pampow,Mecklenburg-Vorpommern,3040,4087
+Hanerau-Hademarschen,Schleswig-Holstein,3037,4088
+Jesewitz,Sachsen,3036,4089
+Klütz,Mecklenburg-Vorpommern,3036,4090
+Gützkow,Mecklenburg-Vorpommern,3034,4091
+Hohenroda,Hessen,3033,4092
+Grünhainichen,Sachsen,3032,4093
+"Prichsenstadt, St",Bayern,3032,4094
+Schorndorf,Bayern,3031,4095
+Marquartstein,Bayern,3030,4096
+Aitrach,Baden-Württemberg,3028,4097
+Weißenberg / Wóspork,Sachsen,3024,4098
+Niederer Fläming,Brandenburg,3021,4099
+Hepberg,Bayern,3020,4100
+Glauburg,Hessen,3018,4101
+Hahnstätten,Rheinland-Pfalz,3018,4102
+Herschbach,Rheinland-Pfalz,3018,4103
+Neuental,Hessen,3018,4104
+Hitzhofen,Bayern,3017,4105
+Adelschlag,Bayern,3016,4106
+Oberreichenbach,Baden-Württemberg,3015,4107
+Bayerisch Gmain,Bayern,3014,4108
+Eußenheim,Bayern,3014,4109
+Schafflund,Schleswig-Holstein,3014,4110
+Stützengrün,Sachsen,3014,4111
+Klosterlechfeld,Bayern,3008,4112
+"Bärnau, St",Bayern,3007,4113
+"Aidenbach, M",Bayern,3005,4114
+Bischweier,Baden-Württemberg,3003,4115
+Braubach,Rheinland-Pfalz,3002,4116
+Rengsdorf,Rheinland-Pfalz,3001,4117
+"Teisnach, M",Bayern,3000,4118
+Eitensheim,Bayern,2999,4119
+Ravenstein,Baden-Württemberg,2999,4120
+Drebber,Niedersachsen,2998,4121
+Neukirchen vorm Wald,Bayern,2996,4122
+Kalchreuth,Bayern,2994,4123
+Lohmen,Sachsen,2994,4124
+Frasdorf,Bayern,2993,4125
+"Marktleugast, M",Bayern,2993,4126
+Wesenberg,Mecklenburg-Vorpommern,2992,4127
+Wald,Bayern,2991,4128
+Münster-Sarmsheim,Rheinland-Pfalz,2989,4129
+"Waischenfeld, St",Bayern,2989,4130
+Binzen,Baden-Württemberg,2988,4131
+Reute,Baden-Württemberg,2986,4132
+Waldenburg,Baden-Württemberg,2986,4133
+Bassenheim,Rheinland-Pfalz,2985,4134
+Dietersburg,Bayern,2985,4135
+Bargfeld-Stegen,Schleswig-Holstein,2984,4136
+"Stadtsteinach, St",Bayern,2983,4137
+Dirmstein,Rheinland-Pfalz,2982,4138
+Kobern-Gondorf,Rheinland-Pfalz,2982,4139
+Neuenstein,Hessen,2981,4140
+Wattenbek,Schleswig-Holstein,2980,4141
+Weihenzell,Bayern,2980,4142
+Denkingen,Baden-Württemberg,2979,4143
+Steinbergkirche,Schleswig-Holstein,2978,4144
+Heist,Schleswig-Holstein,2973,4145
+Schmölln-Putzkau,Sachsen,2972,4146
+Kleines Wiesental,Baden-Württemberg,2970,4147
+Rain,Bayern,2969,4148
+Freiensteinau,Hessen,2967,4149
+Stauchitz,Sachsen,2966,4150
+Vollersode,Niedersachsen,2964,4151
+Bodolz,Bayern,2962,4152
+Rietheim-Weilheim,Baden-Württemberg,2962,4153
+Inzigkofen,Baden-Württemberg,2958,4154
+Memmingerberg,Bayern,2957,4155
+Neuenmarkt,Bayern,2957,4156
+Siershahn,Rheinland-Pfalz,2956,4157
+Horgau,Bayern,2953,4158
+Steingaden,Bayern,2953,4159
+Großharthau,Sachsen,2952,4160
+Stimpfach,Baden-Württemberg,2952,4161
+Rhens,Rheinland-Pfalz,2950,4162
+Berglern,Bayern,2945,4163
+Hargesheim,Rheinland-Pfalz,2945,4164
+Boitzenburger Land,Brandenburg,2944,4165
+Sankt Oswald-Riedlhütte,Bayern,2944,4166
+Soyen,Bayern,2943,4167
+"Schwarzach, M",Bayern,2940,4168
+Oberwesel,Rheinland-Pfalz,2939,4169
+Bippen,Niedersachsen,2938,4170
+Schrecksbach,Hessen,2938,4171
+Nebra (Unstrut),Sachsen-Anhalt,2937,4172
+Friedland,Brandenburg,2936,4173
+Simonswald,Baden-Württemberg,2936,4174
+Adenau,Rheinland-Pfalz,2935,4175
+Prutting,Bayern,2934,4176
+Admannshagen-Bargeshagen,Mecklenburg-Vorpommern,2933,4177
+Baddeckenstedt,Niedersachsen,2933,4178
+Heroldstatt,Baden-Württemberg,2931,4179
+Sigmarszell,Bayern,2931,4180
+Niederwinkling,Bayern,2930,4181
+Flintsbach a.Inn,Bayern,2929,4182
+Briesen (Mark),Brandenburg,2928,4183
+Nortrup,Niedersachsen,2927,4184
+Hattenhofen,Baden-Württemberg,2925,4185
+Schwarzach,Baden-Württemberg,2925,4186
+Mönsheim,Baden-Württemberg,2924,4187
+Kieselbronn,Baden-Württemberg,2923,4188
+Lindow (Mark),Brandenburg,2921,4189
+Roßbach,Bayern,2920,4190
+Göda / Hodźij,Sachsen,2917,4191
+Wankendorf,Schleswig-Holstein,2917,4192
+Börger,Niedersachsen,2916,4193
+Meißner,Hessen,2915,4194
+Beetzendorf,Sachsen-Anhalt,2913,4195
+Fränkisch-Crumbach,Hessen,2910,4196
+Meisenheim,Rheinland-Pfalz,2910,4197
+Bodenfelde,Niedersachsen,2909,4198
+Waldbrunn,Bayern,2909,4199
+Undenheim,Rheinland-Pfalz,2906,4200
+Claußnitz,Sachsen,2905,4201
+Selters (Westerwald),Rheinland-Pfalz,2902,4202
+Schönbrunn,Baden-Württemberg,2901,4203
+Euerbach,Bayern,2899,4204
+Schönewalde,Brandenburg,2899,4205
+Hoogstede,Niedersachsen,2898,4206
+Kenn,Rheinland-Pfalz,2897,4207
+Fichtenberg,Baden-Württemberg,2895,4208
+Lambrechtshagen,Mecklenburg-Vorpommern,2894,4209
+Rövershagen,Mecklenburg-Vorpommern,2894,4210
+Börde-Hakel,Sachsen-Anhalt,2893,4211
+Winden im Elztal,Baden-Württemberg,2893,4212
+"Schopfloch, M",Bayern,2890,4213
+Langenpreising,Bayern,2887,4214
+Rödersheim-Gronau,Rheinland-Pfalz,2887,4215
+Schwedeneck,Schleswig-Holstein,2887,4216
+Huglfing,Bayern,2882,4217
+Denklingen,Bayern,2881,4218
+Hatzenbühl,Rheinland-Pfalz,2881,4219
+Kirchweidach,Bayern,2881,4220
+"Bad Weißenstadt, St",Bayern,2880,4221
+Liebenau,Hessen,2880,4222
+Neumark,Sachsen,2880,4223
+Alveslohe,Schleswig-Holstein,2878,4224
+"Dollnstein, M",Bayern,2878,4225
+Betzigau,Bayern,2877,4226
+"Wildflecken, M",Bayern,2876,4227
+Wittendörp,Mecklenburg-Vorpommern,2876,4228
+Bad Kohlgrub,Bayern,2875,4229
+Aichstetten,Baden-Württemberg,2874,4230
+Ettringen,Rheinland-Pfalz,2874,4231
+Heidgraben,Schleswig-Holstein,2872,4232
+Wischhafen,Niedersachsen,2869,4233
+Hatzfeld (Eder),Hessen,2865,4234
+Dömitz,Mecklenburg-Vorpommern,2864,4235
+Wurzbach,Thüringen,2864,4236
+Zemmer,Rheinland-Pfalz,2864,4237
+"Perlesreut, M",Bayern,2863,4238
+Lengerich,Niedersachsen,2862,4239
+Hemmingstedt,Schleswig-Holstein,2860,4240
+Pilsach,Bayern,2860,4241
+Wusterwitz,Brandenburg,2860,4242
+Ebringen,Baden-Württemberg,2859,4243
+Gilserberg,Hessen,2859,4244
+Sulzemoos,Bayern,2859,4245
+Schöneck/Vogtl.,Sachsen,2857,4246
+Blender,Niedersachsen,2850,4247
+Nüsttal,Hessen,2850,4248
+Sollstedt,Thüringen,2849,4249
+Offenau,Baden-Württemberg,2848,4250
+Simmozheim,Baden-Württemberg,2848,4251
+Köfering,Bayern,2847,4252
+Sankt Goar,Rheinland-Pfalz,2847,4253
+Eggstätt,Bayern,2846,4254
+Liebschützberg,Sachsen,2844,4255
+Münchenbernsdorf,Thüringen,2842,4256
+Asendorf,Niedersachsen,2840,4257
+Martfeld,Niedersachsen,2838,4258
+Heiligenberg,Baden-Württemberg,2836,4259
+"Karlshagen, Ostseebad",Mecklenburg-Vorpommern,2832,4260
+Neetze,Niedersachsen,2831,4261
+Wimsheim,Baden-Württemberg,2831,4262
+Ringgau,Hessen,2830,4263
+"Elfershausen, M",Bayern,2827,4264
+"Mantel, M",Bayern,2827,4265
+Haundorf,Bayern,2825,4266
+Trippstadt,Rheinland-Pfalz,2824,4267
+Griesstätt,Bayern,2823,4268
+"Zingst, Ostseeheilbad",Mecklenburg-Vorpommern,2823,4269
+Heldenstein,Bayern,2821,4270
+Zschepplin,Sachsen,2821,4271
+"Marktleuthen, St",Bayern,2820,4272
+Schenefeld,Schleswig-Holstein,2820,4273
+Hohn,Schleswig-Holstein,2819,4274
+Pastetten,Bayern,2818,4275
+Garding,Schleswig-Holstein,2816,4276
+Börßum,Niedersachsen,2814,4277
+Obrigheim (Pfalz),Rheinland-Pfalz,2814,4278
+"Marktl, M",Bayern,2812,4279
+Beckdorf,Niedersachsen,2811,4280
+"Kallmünz, M",Bayern,2810,4281
+Elmenhorst,Schleswig-Holstein,2808,4282
+Roxheim,Rheinland-Pfalz,2807,4283
+Muldenhammer,Sachsen,2806,4284
+Kastl,Bayern,2804,4285
+Sternenfels,Baden-Württemberg,2802,4286
+Samerberg,Bayern,2798,4287
+Auggen,Baden-Württemberg,2797,4288
+Dettingen an der Iller,Baden-Württemberg,2797,4289
+"Mitwitz, M",Bayern,2797,4290
+Jübek,Schleswig-Holstein,2796,4291
+Haunetal,Hessen,2795,4292
+Sulzburg,Baden-Württemberg,2794,4293
+Groß Twülpstedt,Niedersachsen,2790,4294
+Detern,Niedersachsen,2789,4295
+Neuching,Bayern,2789,4296
+Vilgertshofen,Bayern,2788,4297
+Embsen,Niedersachsen,2787,4298
+Jarmen,Mecklenburg-Vorpommern,2787,4299
+"Unterthingau, M",Bayern,2786,4300
+Haste,Niedersachsen,2785,4301
+Käbschütztal,Sachsen,2783,4302
+"Frankenau, Nationalparkstadt",Hessen,2782,4303
+Herbsleben,Thüringen,2781,4304
+Reinsberg,Sachsen,2777,4305
+Landesbergen,Niedersachsen,2774,4306
+Oberried,Baden-Württemberg,2773,4307
+Schuby,Schleswig-Holstein,2773,4308
+Hochstadt (Pfalz),Rheinland-Pfalz,2771,4309
+"Schillingsfürst, St",Bayern,2770,4310
+Tonna,Thüringen,2769,4311
+Poppenhausen (Wasserkuppe),Hessen,2768,4312
+Nordhastedt,Schleswig-Holstein,2767,4313
+Mönchweiler,Baden-Württemberg,2766,4314
+Auengrund,Thüringen,2765,4315
+Kirchham,Bayern,2763,4316
+Attenkirchen,Bayern,2760,4317
+"Mitterfels, M",Bayern,2760,4318
+Prackenbach,Bayern,2759,4319
+Lehrensteinsfeld,Baden-Württemberg,2758,4320
+Steinburg,Schleswig-Holstein,2758,4321
+Rieseby,Schleswig-Holstein,2755,4322
+Altenglan,Rheinland-Pfalz,2754,4323
+"Inchenhofen, M",Bayern,2754,4324
+Wald,Baden-Württemberg,2754,4325
+Bretzenheim,Rheinland-Pfalz,2752,4326
+Großerlach,Baden-Württemberg,2752,4327
+Hirzenhain,Hessen,2750,4328
+Schwalmtal,Hessen,2750,4329
+"Wertach, M",Bayern,2749,4330
+Egestorf,Niedersachsen,2748,4331
+Rauhenebrach,Bayern,2744,4332
+Rüdesheim,Rheinland-Pfalz,2744,4333
+Hördt,Rheinland-Pfalz,2743,4334
+Iffeldorf,Bayern,2743,4335
+Lengdorf,Bayern,2742,4336
+Salching,Bayern,2742,4337
+Tellingstedt,Schleswig-Holstein,2742,4338
+Münchweiler an der Rodalb,Rheinland-Pfalz,2739,4339
+Sontheim,Bayern,2739,4340
+Ockenheim,Rheinland-Pfalz,2736,4341
+Weyhausen,Niedersachsen,2735,4342
+Halfing,Bayern,2734,4343
+Kollnburg,Bayern,2734,4344
+Eschelbronn,Baden-Württemberg,2733,4345
+Lechbruck am See,Bayern,2731,4346
+Vellahn,Mecklenburg-Vorpommern,2731,4347
+Durlangen,Baden-Württemberg,2730,4348
+Großpostwitz/O.L. / Budestecy,Sachsen,2730,4349
+Niederzissen,Rheinland-Pfalz,2729,4350
+Vilsheim,Bayern,2729,4351
+Ulrichstein,Hessen,2728,4352
+St. Peter,Baden-Württemberg,2727,4353
+Kutzenhausen,Bayern,2726,4354
+Queidersbach,Rheinland-Pfalz,2726,4355
+Neukirch,Baden-Württemberg,2725,4356
+Obertaufkirchen,Bayern,2723,4357
+Wanderup,Schleswig-Holstein,2722,4358
+Mühlingen,Baden-Württemberg,2720,4359
+Reischach,Bayern,2718,4360
+Thaleischweiler-Fröschen,Rheinland-Pfalz,2718,4361
+"Titting, M",Bayern,2718,4362
+Haag a.d.Amper,Bayern,2716,4363
+"Wellheim, M",Bayern,2716,4364
+Weißensberg,Bayern,2712,4365
+Großolbersdorf,Sachsen,2710,4366
+Theres,Bayern,2710,4367
+Fischbachtal,Hessen,2707,4368
+Grafling,Bayern,2707,4369
+"Gnoien, Warbelstadt",Mecklenburg-Vorpommern,2703,4370
+Roggentin,Mecklenburg-Vorpommern,2703,4371
+"Burghaslach, M",Bayern,2702,4372
+"Eslarn, M",Bayern,2702,4373
+Feilitzsch,Bayern,2702,4374
+Lindwedel,Niedersachsen,2701,4375
+Lauterbach,Baden-Württemberg,2700,4376
+Bingen,Baden-Württemberg,2699,4377
+Weißenbrunn,Bayern,2698,4378
+Hohenkammer,Bayern,2697,4379
+Beetzsee,Brandenburg,2696,4380
+Niederviehbach,Bayern,2691,4381
+Flechtingen,Sachsen-Anhalt,2690,4382
+Partenstein,Bayern,2689,4383
+Berumbur,Niedersachsen,2688,4384
+Rositz,Thüringen,2686,4385
+Waigolshausen,Bayern,2686,4386
+Fahrdorf,Schleswig-Holstein,2684,4387
+Möttingen,Bayern,2683,4388
+Dürmentingen,Baden-Württemberg,2681,4389
+Alsheim,Rheinland-Pfalz,2680,4390
+Roggenburg,Bayern,2679,4391
+Lägerdorf,Schleswig-Holstein,2677,4392
+Straufhain,Thüringen,2677,4393
+"Neuhaus a.d.Pegnitz, M",Bayern,2676,4394
+Schönwölkau,Sachsen,2676,4395
+Denkte,Niedersachsen,2672,4396
+Probstzella,Thüringen,2672,4397
+Rehling,Bayern,2672,4398
+Söchtenau,Bayern,2672,4399
+Friedewald,Hessen,2668,4400
+Merdingen,Baden-Württemberg,2668,4401
+Ebeleben,Thüringen,2667,4402
+Veilsdorf,Thüringen,2667,4403
+Erxleben,Sachsen-Anhalt,2664,4404
+Themar,Thüringen,2664,4405
+Adelheidsdorf,Niedersachsen,2660,4406
+Frauenau,Bayern,2659,4407
+Oberndorf a.Lech,Bayern,2659,4408
+"Pfaffenhausen, M",Bayern,2659,4409
+Laucha an der Unstrut,Sachsen-Anhalt,2657,4410
+Frauenstein,Sachsen,2656,4411
+Newel,Rheinland-Pfalz,2655,4412
+Berngau,Bayern,2654,4413
+Tawern,Rheinland-Pfalz,2653,4414
+Sankt Sebastian,Rheinland-Pfalz,2652,4415
+Elstra / Halštrow,Sachsen,2651,4416
+Thüngersheim,Bayern,2649,4417
+Herrischried,Baden-Württemberg,2648,4418
+"Oberelsbach, M",Bayern,2647,4419
+Wiesent,Bayern,2647,4420
+Gemünden (Felda),Hessen,2646,4421
+Ringsheim,Baden-Württemberg,2645,4422
+Großweitzschen,Sachsen,2643,4423
+Ittlingen,Baden-Württemberg,2643,4424
+Schwarme,Niedersachsen,2643,4425
+Demitz-Thumitz,Sachsen,2642,4426
+"Rieden, M",Bayern,2640,4427
+Walsdorf,Bayern,2639,4428
+Elterlein,Sachsen,2636,4429
+Fahrenbach,Baden-Württemberg,2636,4430
+"Geiselwind, M",Bayern,2633,4431
+Steinberg,Sachsen,2633,4432
+Grafenberg,Baden-Württemberg,2632,4433
+Kist,Bayern,2632,4434
+Bawinkel,Niedersachsen,2630,4435
+Prittriching,Bayern,2630,4436
+Gottfrieding,Bayern,2629,4437
+Gachenbach,Bayern,2627,4438
+Westerholt,Niedersachsen,2626,4439
+Hanhofen,Rheinland-Pfalz,2624,4440
+Lichtenberg/Erzgeb.,Sachsen,2624,4441
+Groß Köris,Brandenburg,2623,4442
+Flonheim,Rheinland-Pfalz,2622,4443
+Harth-Pöllnitz,Thüringen,2622,4444
+Banzkow,Mecklenburg-Vorpommern,2620,4445
+Herleshausen,Hessen,2620,4446
+Hattstedt,Schleswig-Holstein,2617,4447
+Kefenrod,Hessen,2616,4448
+Heiligkreuzsteinach,Baden-Württemberg,2614,4449
+Iggingen,Baden-Württemberg,2613,4450
+Ferdinandshof,Mecklenburg-Vorpommern,2611,4451
+Adelsried,Bayern,2610,4452
+Sauldorf,Baden-Württemberg,2607,4453
+Jengen,Bayern,2606,4454
+Pfaffenweiler,Baden-Württemberg,2604,4455
+Nordendorf,Bayern,2599,4456
+Schopfloch,Baden-Württemberg,2598,4457
+Geroldsgrün,Bayern,2596,4458
+Osdorf,Schleswig-Holstein,2596,4459
+Burkau / Porchow,Sachsen,2595,4460
+Dieblich,Rheinland-Pfalz,2595,4461
+Pfaffenhofen,Baden-Württemberg,2593,4462
+Marxheim,Bayern,2591,4463
+Rhönblick,Thüringen,2588,4464
+"Lam, M",Bayern,2586,4465
+Bad Peterstal-Griesbach,Baden-Württemberg,2583,4466
+Leimersheim,Rheinland-Pfalz,2583,4467
+Wildpoldsried,Bayern,2583,4468
+"Lupburg, M",Bayern,2582,4469
+Rodewald,Niedersachsen,2582,4470
+Steinigtwolmsdorf,Sachsen,2582,4471
+Lentföhrden,Schleswig-Holstein,2579,4472
+Schluchsee,Baden-Württemberg,2577,4473
+Rosenberg,Baden-Württemberg,2575,4474
+Wohltorf,Schleswig-Holstein,2575,4475
+Wolfersdorf,Bayern,2575,4476
+Romrod,Hessen,2574,4477
+Thurmansbang,Bayern,2570,4478
+Dörzbach,Baden-Württemberg,2568,4479
+Haiming,Bayern,2567,4480
+Putlitz,Brandenburg,2566,4481
+Schönwald im Schwarzwald,Baden-Württemberg,2566,4482
+Grub a.Forst,Bayern,2565,4483
+Lichtenwald,Baden-Württemberg,2564,4484
+Seitingen-Oberflacht,Baden-Württemberg,2564,4485
+Friedrichstadt,Schleswig-Holstein,2563,4486
+Höchenschwand,Baden-Württemberg,2563,4487
+Nußdorf a.Inn,Bayern,2562,4488
+Sulzbach-Laufen,Baden-Württemberg,2560,4489
+Altfraunhofen,Bayern,2559,4490
+Schkölen,Thüringen,2559,4491
+Lauterstein,Baden-Württemberg,2558,4492
+Brüel,Mecklenburg-Vorpommern,2557,4493
+Inzlingen,Baden-Württemberg,2555,4494
+Erpel,Rheinland-Pfalz,2554,4495
+Großheirath,Bayern,2554,4496
+Brohl-Lützing,Rheinland-Pfalz,2553,4497
+Hetzerath,Rheinland-Pfalz,2553,4498
+Wincheringen,Rheinland-Pfalz,2553,4499
+"Kastl, M",Bayern,2550,4500
+"Kinding, M",Bayern,2549,4501
+Ostelsheim,Baden-Württemberg,2549,4502
+Eime,Niedersachsen,2548,4503
+Faulbach,Bayern,2548,4504
+"Helmstadt, M",Bayern,2547,4505
+"Wittislingen, M",Bayern,2546,4506
+"Freihung, M",Bayern,2545,4507
+Friesack,Brandenburg,2545,4508
+Göggingen,Baden-Württemberg,2545,4509
+Fußgönheim,Rheinland-Pfalz,2544,4510
+Krölpa,Thüringen,2543,4511
+Puderbach,Rheinland-Pfalz,2542,4512
+Pähl,Bayern,2542,4513
+Berghaupten,Baden-Württemberg,2539,4514
+Salmtal,Rheinland-Pfalz,2539,4515
+"Wiesenttal, M",Bayern,2539,4516
+Sasbachwalden,Baden-Württemberg,2538,4517
+Wasbek,Schleswig-Holstein,2536,4518
+Danndorf,Niedersachsen,2535,4519
+"Dürrwangen, M",Bayern,2534,4520
+Gerhardshofen,Bayern,2534,4521
+Dernbach (Westerwald),Rheinland-Pfalz,2533,4522
+Tannheim,Baden-Württemberg,2533,4523
+Glatten,Baden-Württemberg,2531,4524
+Igling,Bayern,2531,4525
+Schleife / Slepo,Sachsen,2531,4526
+Schwörstadt,Baden-Württemberg,2531,4527
+Eimeldingen,Baden-Württemberg,2529,4528
+Gägelow,Mecklenburg-Vorpommern,2529,4529
+Neuburg am Rhein,Rheinland-Pfalz,2529,4530
+Niederwürschnitz,Sachsen,2528,4531
+Schleusegrund,Thüringen,2528,4532
+Gehrde,Niedersachsen,2527,4533
+Oberwolfach,Baden-Württemberg,2527,4534
+Alsleben (Saale),Sachsen-Anhalt,2526,4535
+Heede,Niedersachsen,2526,4536
+Lauenbrück,Niedersachsen,2526,4537
+Sauensiek,Niedersachsen,2525,4538
+Geldersheim,Bayern,2524,4539
+Wustrow (Wendland),Niedersachsen,2524,4540
+Nahe,Schleswig-Holstein,2522,4541
+Steinhagen,Mecklenburg-Vorpommern,2522,4542
+Birken-Honigsessen,Rheinland-Pfalz,2521,4543
+Kindsbach,Rheinland-Pfalz,2521,4544
+Kottenheim,Rheinland-Pfalz,2521,4545
+Hausen b.Würzburg,Bayern,2520,4546
+Ehrenberg (Rhön),Hessen,2519,4547
+Rötgesbüttel,Niedersachsen,2519,4548
+Bad Bibra,Sachsen-Anhalt,2515,4549
+Welschbillig,Rheinland-Pfalz,2515,4550
+Bobitz,Mecklenburg-Vorpommern,2514,4551
+Neukirchen b.Sulzbach-Rosenberg,Bayern,2514,4552
+Bad Wilsnack,Brandenburg,2512,4553
+"Sellin, Ostseebad",Mecklenburg-Vorpommern,2511,4554
+Hinterzarten,Baden-Württemberg,2510,4555
+Scheer,Baden-Württemberg,2510,4556
+"Insel Poel, Ostseebad",Mecklenburg-Vorpommern,2507,4557
+Itzstedt,Schleswig-Holstein,2507,4558
+Lampertswalde,Sachsen,2506,4559
+Tribsees,Mecklenburg-Vorpommern,2506,4560
+Halbe,Brandenburg,2504,4561
+Neuhardenberg,Brandenburg,2504,4562
+Nittel,Rheinland-Pfalz,2504,4563
+Schönau im Schwarzwald,Baden-Württemberg,2504,4564
+Freudental,Baden-Württemberg,2502,4565
+Hessigheim,Baden-Württemberg,2502,4566
+"Kirchheim i.Schw., M",Bayern,2501,4567
+"Mönchberg, M",Bayern,2500,4568
+Plessa,Brandenburg,2500,4569
+Chamerau,Bayern,2498,4570
+Bad Eilsen,Niedersachsen,2494,4571
+"Betzenstein, St",Bayern,2491,4572
+Loffenau,Baden-Württemberg,2491,4573
+Hillerse,Niedersachsen,2489,4574
+Kemmern,Bayern,2489,4575
+Siegbach,Hessen,2488,4576
+"Heidenheim, M",Bayern,2487,4577
+Küstriner Vorland,Brandenburg,2487,4578
+Edesheim,Rheinland-Pfalz,2486,4579
+Eitelborn,Rheinland-Pfalz,2486,4580
+Reinsfeld,Rheinland-Pfalz,2486,4581
+Ballrechten-Dottingen,Baden-Württemberg,2485,4582
+Engelsberg,Bayern,2485,4583
+Hardt,Baden-Württemberg,2484,4584
+Hollenbach,Bayern,2484,4585
+Marienhafe,Niedersachsen,2484,4586
+Eichenbühl,Bayern,2481,4587
+Gaiberg,Baden-Württemberg,2480,4588
+Beimerstetten,Baden-Württemberg,2479,4589
+Königshain-Wiederau,Sachsen,2479,4590
+"Weidenbach, M",Bayern,2479,4591
+Silberstedt,Schleswig-Holstein,2477,4592
+Wang,Bayern,2475,4593
+Aicha vorm Wald,Bayern,2474,4594
+Straßberg,Baden-Württemberg,2474,4595
+"Moosbach, M",Bayern,2473,4596
+Braunsbach,Baden-Württemberg,2472,4597
+Collenberg,Bayern,2472,4598
+Gaukönigshofen,Bayern,2471,4599
+Eggebek,Schleswig-Holstein,2469,4600
+Probsteierhagen,Schleswig-Holstein,2469,4601
+Oberpframmern,Bayern,2467,4602
+Armsheim,Rheinland-Pfalz,2466,4603
+Unterkirnach,Baden-Württemberg,2466,4604
+Guldental,Rheinland-Pfalz,2465,4605
+Eschbach,Baden-Württemberg,2464,4606
+Papendorf,Mecklenburg-Vorpommern,2464,4607
+Hummeltal,Bayern,2462,4608
+"Obernzenn, M",Bayern,2462,4609
+Ellerstadt,Rheinland-Pfalz,2459,4610
+Golßen,Brandenburg,2458,4611
+Schwabenheim an der Selz,Rheinland-Pfalz,2458,4612
+Teistungen,Thüringen,2457,4613
+Weitersburg,Rheinland-Pfalz,2457,4614
+Friedrichskoog,Schleswig-Holstein,2456,4615
+Haarbach,Bayern,2456,4616
+Steinwenden,Rheinland-Pfalz,2456,4617
+Pleiskirchen,Bayern,2454,4618
+"Flachslanden, M",Bayern,2452,4619
+Gyhum,Niedersachsen,2451,4620
+Schönwalde am Bungsberg,Schleswig-Holstein,2451,4621
+Epfenbach,Baden-Württemberg,2448,4622
+Hergatz,Bayern,2448,4623
+Neuhausen/Erzgeb.,Sachsen,2448,4624
+Steimbke,Niedersachsen,2448,4625
+Elmstein,Rheinland-Pfalz,2446,4626
+Grainet,Bayern,2445,4627
+Egling a.d.Paar,Bayern,2444,4628
+Hillscheid,Rheinland-Pfalz,2444,4629
+Effeltrich,Bayern,2443,4630
+Ohorn,Sachsen,2443,4631
+Hinterschmiding,Bayern,2442,4632
+Muhr a.See,Bayern,2441,4633
+Schapen,Niedersachsen,2438,4634
+Vögelsen,Niedersachsen,2438,4635
+Barendorf,Niedersachsen,2436,4636
+Siek,Schleswig-Holstein,2436,4637
+Krempe,Schleswig-Holstein,2435,4638
+Bernbeuren,Bayern,2433,4639
+Borstel-Hohenraden,Schleswig-Holstein,2432,4640
+"Kasendorf, M",Bayern,2432,4641
+"Wallenfels, St",Bayern,2432,4642
+Boffzen,Niedersachsen,2430,4643
+"Boltenhagen, Ostseebad",Mecklenburg-Vorpommern,2430,4644
+Bothel,Niedersachsen,2430,4645
+Kubschütz / Kubšicy,Sachsen,2428,4646
+Schwepnitz,Sachsen,2425,4647
+Weißenborn/Erzgeb.,Sachsen,2425,4648
+Weiding,Bayern,2424,4649
+Seehausen a.Staffelsee,Bayern,2422,4650
+Wittenförden,Mecklenburg-Vorpommern,2421,4651
+Bernried am Starnberger See,Bayern,2420,4652
+Postmünster,Bayern,2419,4653
+Weichering,Bayern,2418,4654
+Weihmichl,Bayern,2416,4655
+Mossautal,Hessen,2415,4656
+Großenseebach,Bayern,2414,4657
+Jöhstadt,Sachsen,2413,4658
+Röderaue,Sachsen,2413,4659
+Ellefeld,Sachsen,2412,4660
+Uckerland,Brandenburg,2412,4661
+Apelern,Niedersachsen,2411,4662
+Unlingen,Baden-Württemberg,2411,4663
+Sagard,Mecklenburg-Vorpommern,2410,4664
+Unterreichenbach,Baden-Württemberg,2409,4665
+Kürnbach,Baden-Württemberg,2407,4666
+Weiler bei Bingen,Rheinland-Pfalz,2407,4667
+Abtsteinach,Hessen,2405,4668
+Ebermannsdorf,Bayern,2404,4669
+Pforzen,Bayern,2404,4670
+Wees,Schleswig-Holstein,2400,4671
+Weisenbach,Baden-Württemberg,2400,4672
+Bad Tennstedt,Thüringen,2399,4673
+Handeloh,Niedersachsen,2399,4674
+Oberharmersbach,Baden-Württemberg,2397,4675
+Elbtal,Hessen,2396,4676
+Erlenbach b.Marktheidenfeld,Bayern,2396,4677
+Fensterbach,Bayern,2390,4678
+Winningen,Rheinland-Pfalz,2390,4679
+Reichenschwand,Bayern,2389,4680
+Ziesar,Brandenburg,2389,4681
+Hürup,Schleswig-Holstein,2388,4682
+Kummerfeld,Schleswig-Holstein,2386,4683
+Struppen,Sachsen,2386,4684
+Reichersbeuern,Bayern,2384,4685
+Hochdorf,Baden-Württemberg,2383,4686
+Moos,Bayern,2383,4687
+Kaisersbach,Baden-Württemberg,2381,4688
+"Parkstein, M",Bayern,2379,4689
+Rietschen / Rěčicy,Sachsen,2379,4690
+Aholming,Bayern,2378,4691
+Wegeleben,Sachsen-Anhalt,2378,4692
+Aach,Baden-Württemberg,2377,4693
+Niepars,Mecklenburg-Vorpommern,2377,4694
+Drachselsried,Bayern,2375,4695
+"Waal, M",Bayern,2372,4696
+Hausen im Wiesental,Baden-Württemberg,2371,4697
+"Pleystein, St",Bayern,2368,4698
+Pöhl,Sachsen,2367,4699
+Bockenheim an der Weinstraße,Rheinland-Pfalz,2366,4700
+Nentershausen,Hessen,2366,4701
+Boos,Bayern,2365,4702
+Jagstzell,Baden-Württemberg,2365,4703
+Raisting,Bayern,2365,4704
+Wolpertshausen,Baden-Württemberg,2365,4705
+Ottenbach,Baden-Württemberg,2364,4706
+"Stammbach, M",Bayern,2363,4707
+Mehring,Bayern,2361,4708
+Rastenberg,Thüringen,2360,4709
+Großhartmannsdorf,Sachsen,2359,4710
+"Pretzfeld, M",Bayern,2359,4711
+Fell,Rheinland-Pfalz,2358,4712
+Mulda/Sa.,Sachsen,2358,4713
+Breklum,Schleswig-Holstein,2357,4714
+Weddingstedt,Schleswig-Holstein,2357,4715
+Langenweißbach,Sachsen,2356,4716
+Viöl,Schleswig-Holstein,2356,4717
+Lobbach,Baden-Württemberg,2353,4718
+Schwanebeck,Sachsen-Anhalt,2352,4719
+Bendestorf,Niedersachsen,2349,4720
+"Nassenfels, M",Bayern,2348,4721
+Nauort,Rheinland-Pfalz,2348,4722
+Wrist,Schleswig-Holstein,2347,4723
+Brachbach,Rheinland-Pfalz,2346,4724
+Osterfeld,Sachsen-Anhalt,2346,4725
+Husby,Schleswig-Holstein,2345,4726
+Gefell,Thüringen,2344,4727
+Schlieben,Brandenburg,2344,4728
+Wallhausen,Sachsen-Anhalt,2344,4729
+Zuzenhausen,Baden-Württemberg,2343,4730
+Hermaringen,Baden-Württemberg,2341,4731
+Mehring,Rheinland-Pfalz,2341,4732
+Kaulsdorf,Thüringen,2340,4733
+Neuenkirchen,Mecklenburg-Vorpommern,2340,4734
+Nußdorf,Bayern,2340,4735
+Köditz,Bayern,2339,4736
+Oberdischingen,Baden-Württemberg,2339,4737
+Großmaischeid,Rheinland-Pfalz,2338,4738
+Opfenbach,Bayern,2337,4739
+Husum,Niedersachsen,2335,4740
+Bolanden,Rheinland-Pfalz,2333,4741
+Neschwitz / Njeswačidło,Sachsen,2332,4742
+Rethem (Aller),Niedersachsen,2332,4743
+Weitefeld,Rheinland-Pfalz,2332,4744
+Bichl,Bayern,2329,4745
+Kretzschau,Sachsen-Anhalt,2329,4746
+Sandberg,Bayern,2329,4747
+Waldhufen,Sachsen,2329,4748
+Gartz (Oder),Brandenburg,2328,4749
+Pfaffenhofen a.d.Glonn,Bayern,2328,4750
+"Sugenheim, M",Bayern,2328,4751
+Nordstrand,Schleswig-Holstein,2326,4752
+Altdöbern,Brandenburg,2325,4753
+"Dentlein a.Forst, M",Bayern,2325,4754
+Bollschweil,Baden-Württemberg,2324,4755
+Johanniskirchen,Bayern,2324,4756
+Monsheim,Rheinland-Pfalz,2322,4757
+"Schmidmühlen, M",Bayern,2322,4758
+Bernstadt,Baden-Württemberg,2318,4759
+Menslage,Niedersachsen,2318,4760
+Walting,Bayern,2317,4761
+Grasleben,Niedersachsen,2316,4762
+Itzgrund,Bayern,2315,4763
+Arrach,Bayern,2314,4764
+Lottstetten,Baden-Württemberg,2313,4765
+Gelting,Schleswig-Holstein,2311,4766
+Walderbach,Bayern,2311,4767
+Heidenau,Niedersachsen,2310,4768
+Theilheim,Bayern,2310,4769
+Süderlügum,Schleswig-Holstein,2308,4770
+"Burgsinn, M",Bayern,2307,4771
+Kirchgellersen,Niedersachsen,2306,4772
+Neumagen-Dhron,Rheinland-Pfalz,2306,4773
+Zwiefalten,Baden-Württemberg,2305,4774
+Kremperheide,Schleswig-Holstein,2300,4775
+Tangstedt,Schleswig-Holstein,2299,4776
+Dobel,Baden-Württemberg,2297,4777
+Prisdorf,Schleswig-Holstein,2297,4778
+Auerbach,Sachsen,2296,4779
+Waidhofen,Bayern,2294,4780
+Bachhagel,Bayern,2289,4781
+"Wachenroth, M",Bayern,2289,4782
+"Hohenfels, M",Bayern,2288,4783
+Julbach,Bayern,2288,4784
+Schöpstal,Sachsen,2288,4785
+Katzenelnbogen,Rheinland-Pfalz,2287,4786
+Salz,Bayern,2287,4787
+Egmating,Bayern,2286,4788
+Taura,Sachsen,2285,4789
+Holzmaden,Baden-Württemberg,2284,4790
+Kodersdorf,Sachsen,2283,4791
+Miltach,Bayern,2283,4792
+Rhaunen,Rheinland-Pfalz,2283,4793
+Brieskow-Finkenheerd,Brandenburg,2282,4794
+Breitenbrunn,Bayern,2280,4795
+Hausen,Bayern,2280,4796
+Hohnstorf (Elbe),Niedersachsen,2280,4797
+Gutach (Schwarzwaldbahn),Baden-Württemberg,2279,4798
+Rottenacker,Baden-Württemberg,2278,4799
+Kohlberg,Baden-Württemberg,2277,4800
+Lörzweiler,Rheinland-Pfalz,2277,4801
+"Neubrunn, M",Bayern,2275,4802
+Flörsbachtal,Hessen,2274,4803
+Grebenau,Hessen,2273,4804
+Roßhaupten,Bayern,2272,4805
+Grafenhausen,Baden-Württemberg,2271,4806
+Ronshausen,Hessen,2271,4807
+Essingen,Rheinland-Pfalz,2270,4808
+"Schönsee, St",Bayern,2269,4809
+Öpfingen,Baden-Württemberg,2268,4810
+Niederkirchen bei Deidesheim,Rheinland-Pfalz,2267,4811
+Neckargerach,Baden-Württemberg,2266,4812
+Rehden,Niedersachsen,2266,4813
+Remlingen-Semmenstedt,Niedersachsen,2266,4814
+Waldesch,Rheinland-Pfalz,2266,4815
+Osburg,Rheinland-Pfalz,2264,4816
+Brokstedt,Schleswig-Holstein,2263,4817
+Egglham,Bayern,2262,4818
+Lindberg,Bayern,2259,4819
+Suhlendorf,Niedersachsen,2256,4820
+Westerheim,Bayern,2256,4821
+Eckartsberga,Sachsen-Anhalt,2255,4822
+Breitscheid,Rheinland-Pfalz,2254,4823
+Dogern,Baden-Württemberg,2254,4824
+"Painten, M",Bayern,2252,4825
+"Dirlewang, M",Bayern,2251,4826
+Dollern,Niedersachsen,2251,4827
+Petting,Bayern,2250,4828
+Gruibingen,Baden-Württemberg,2249,4829
+Sünching,Bayern,2249,4830
+Unterdietfurt,Bayern,2249,4831
+Wanna,Niedersachsen,2249,4832
+Klingenmünster,Rheinland-Pfalz,2247,4833
+Hohnhorst,Niedersachsen,2246,4834
+Schechingen,Baden-Württemberg,2245,4835
+Erfde,Schleswig-Holstein,2243,4836
+Radbruch,Niedersachsen,2243,4837
+"Stamsried, M",Bayern,2243,4838
+Weisweil,Baden-Württemberg,2243,4839
+Kulmain,Bayern,2242,4840
+Wriedel,Niedersachsen,2240,4841
+Pettstadt,Bayern,2238,4842
+Wessobrunn,Bayern,2237,4843
+Assamstadt,Baden-Württemberg,2236,4844
+Harxheim,Rheinland-Pfalz,2236,4845
+Hohenfels,Baden-Württemberg,2236,4846
+Langenaltheim,Bayern,2236,4847
+Lamerdingen,Bayern,2235,4848
+Riesbürg,Baden-Württemberg,2234,4849
+Runding,Bayern,2234,4850
+"Arberg, M",Bayern,2233,4851
+Leibertingen,Baden-Württemberg,2233,4852
+"Mainbernheim, St",Bayern,2230,4853
+Elxleben,Thüringen,2229,4854
+Toppenstedt,Niedersachsen,2229,4855
+Geiersthal,Bayern,2228,4856
+Lautertal (Vogelsberg),Hessen,2227,4857
+"Lubmin, Seebad",Mecklenburg-Vorpommern,2226,4858
+Regnitzlosau,Bayern,2226,4859
+Landscheid,Rheinland-Pfalz,2224,4860
+Wasserliesch,Rheinland-Pfalz,2220,4861
+"Kirchzell, M",Bayern,2218,4862
+"Nienhagen, Ostseebad",Mecklenburg-Vorpommern,2218,4863
+Lauenförde,Niedersachsen,2217,4864
+Kiebitzreihe,Schleswig-Holstein,2215,4865
+Holtland,Niedersachsen,2214,4866
+Waldböckelheim,Rheinland-Pfalz,2212,4867
+Hayingen,Baden-Württemberg,2211,4868
+Ahorn,Baden-Württemberg,2209,4869
+Pörnbach,Bayern,2209,4870
+Saffig,Rheinland-Pfalz,2209,4871
+Chorin,Brandenburg,2208,4872
+Falkenberg,Brandenburg,2208,4873
+Schlettau,Sachsen,2208,4874
+Filsum,Niedersachsen,2207,4875
+Heigenbrücken,Bayern,2207,4876
+Ilmmünster,Bayern,2207,4877
+Kirchdorf,Niedersachsen,2207,4878
+Ottrau,Hessen,2207,4879
+Iggensbach,Bayern,2206,4880
+Osloß,Niedersachsen,2206,4881
+Simmersfeld,Baden-Württemberg,2206,4882
+Bann,Rheinland-Pfalz,2204,4883
+Dienheim,Rheinland-Pfalz,2204,4884
+Großenbrode,Schleswig-Holstein,2202,4885
+Berkenthin,Schleswig-Holstein,2201,4886
+Bilshausen,Niedersachsen,2201,4887
+Borkheide,Brandenburg,2201,4888
+Gomadingen,Baden-Württemberg,2200,4889
+Oppach,Sachsen,2199,4890
+Dommitzsch,Sachsen,2198,4891
+Grosselfingen,Baden-Württemberg,2198,4892
+Kaltenengers,Rheinland-Pfalz,2198,4893
+Ostritz,Sachsen,2198,4894
+Ducherow,Mecklenburg-Vorpommern,2197,4895
+Kirchberg an der Iller,Baden-Württemberg,2196,4896
+Borkwalde,Brandenburg,2195,4897
+Puschendorf,Bayern,2195,4898
+Dürnau,Baden-Württemberg,2194,4899
+Insheim,Rheinland-Pfalz,2193,4900
+Mespelbrunn,Bayern,2193,4901
+Zeiskam,Rheinland-Pfalz,2193,4902
+Neuschönau,Bayern,2191,4903
+Oßling / Wóslink,Sachsen,2191,4904
+Wangels,Schleswig-Holstein,2190,4905
+Ahrenshagen-Daskow,Mecklenburg-Vorpommern,2188,4906
+Greifenberg,Bayern,2187,4907
+Delingsdorf,Schleswig-Holstein,2186,4908
+Seedorf,Schleswig-Holstein,2186,4909
+Niederfrohna,Sachsen,2182,4910
+Steinhausen an der Rottum,Baden-Württemberg,2182,4911
+Asendorf,Niedersachsen,2181,4912
+Gebesee,Thüringen,2181,4913
+"Neuhof a.d.Zenn, M",Bayern,2181,4914
+Ahorntal,Bayern,2180,4915
+Naundorf,Sachsen,2179,4916
+Buchholz (Aller),Niedersachsen,2178,4917
+Feldatal,Hessen,2178,4918
+Obertrubach,Bayern,2177,4919
+Birkenfeld,Bayern,2176,4920
+Altendiez,Rheinland-Pfalz,2175,4921
+"Ipsheim, M",Bayern,2175,4922
+Mitterskirchen,Bayern,2172,4923
+Schwallungen,Thüringen,2172,4924
+Kirchheim,Bayern,2171,4925
+Garz/Rügen,Mecklenburg-Vorpommern,2170,4926
+Warmensteinach,Bayern,2169,4927
+Kirchehrenbach,Bayern,2167,4928
+Hackenheim,Rheinland-Pfalz,2166,4929
+Neuburg,Mecklenburg-Vorpommern,2166,4930
+"Rerik, Ostseebad",Mecklenburg-Vorpommern,2166,4931
+Rogätz,Sachsen-Anhalt,2166,4932
+Spardorf,Bayern,2166,4933
+Hochkirch / Bukecy,Sachsen,2162,4934
+Pemfling,Bayern,2161,4935
+Reit im Winkl,Bayern,2161,4936
+Altendorf,Bayern,2160,4937
+Altheim,Baden-Württemberg,2160,4938
+Ensdorf,Bayern,2160,4939
+Haldenwang,Bayern,2157,4940
+Clenze,Niedersachsen,2156,4941
+Horhausen (Westerwald),Rheinland-Pfalz,2156,4942
+Harsleben / Harschlewe,Sachsen-Anhalt,2154,4943
+Langlingen,Niedersachsen,2154,4944
+Reichartshausen,Baden-Württemberg,2154,4945
+Bärenstein,Sachsen,2152,4946
+Spiegelberg,Baden-Württemberg,2152,4947
+Königstein/Sächs. Schw.,Sachsen,2151,4948
+Kröv,Rheinland-Pfalz,2150,4949
+Hettenshausen,Bayern,2149,4950
+Veringenstadt,Baden-Württemberg,2149,4951
+Jatznick,Mecklenburg-Vorpommern,2148,4952
+Cavertitz,Sachsen,2147,4953
+Deinste,Niedersachsen,2144,4954
+Albertshofen,Bayern,2142,4955
+Gau-Bickelheim,Rheinland-Pfalz,2142,4956
+Wohratal,Hessen,2142,4957
+Heimbuchenthal,Bayern,2140,4958
+Schimberg,Thüringen,2140,4959
+Walpertskirchen,Bayern,2140,4960
+Weitenhagen,Mecklenburg-Vorpommern,2139,4961
+Eisenbach (Hochschwarzwald),Baden-Württemberg,2138,4962
+Balzheim,Baden-Württemberg,2137,4963
+Bargstedt,Niedersachsen,2137,4964
+Breitenfelde,Schleswig-Holstein,2136,4965
+Dietersheim,Bayern,2136,4966
+"Colmberg, M",Bayern,2134,4967
+Woringen,Bayern,2134,4968
+Rüdnitz,Brandenburg,2133,4969
+Zeilarn,Bayern,2130,4970
+"Markt Wald, M",Bayern,2129,4971
+Oberhausen,Bayern,2129,4972
+Elsendorf,Bayern,2127,4973
+Frittlingen,Baden-Württemberg,2127,4974
+Auerbach,Bayern,2125,4975
+Lünne,Niedersachsen,2125,4976
+Zeltingen-Rachtig,Rheinland-Pfalz,2125,4977
+Wartmannsroth,Bayern,2123,4978
+Obhausen,Sachsen-Anhalt,2122,4979
+Schirmitz,Bayern,2122,4980
+"Waidhaus, M",Bayern,2121,4981
+Wolfertschwenden,Bayern,2121,4982
+Treis-Karden,Rheinland-Pfalz,2120,4983
+Illschwang,Bayern,2114,4984
+Helbedündorf,Thüringen,2113,4985
+Seewald,Baden-Württemberg,2111,4986
+Westerstetten,Baden-Württemberg,2111,4987
+Eschenbach,Baden-Württemberg,2110,4988
+Prohn,Mecklenburg-Vorpommern,2110,4989
+Ribbesbüttel,Niedersachsen,2110,4990
+"Egloffstein, M",Bayern,2108,4991
+Bücken,Niedersachsen,2105,4992
+Hirschberg,Thüringen,2105,4993
+Appel,Niedersachsen,2104,4994
+Gau-Bischofsheim,Rheinland-Pfalz,2104,4995
+Rechtmehring,Bayern,2102,4996
+Benningen,Bayern,2101,4997
+Diesdorf,Sachsen-Anhalt,2101,4998
+Handorf,Niedersachsen,2101,4999
+Britz,Brandenburg,2100,5000

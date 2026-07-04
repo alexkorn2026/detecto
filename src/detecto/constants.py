@@ -103,7 +103,7 @@ NAME_TECH_STOPWORDS = frozenset({
     "main", "root", "test", "prod", "auth", "user", "admin", "null", "none",
     "true", "false", "name", "host", "port", "path", "temp", "data", "info",
     "code", "type", "list", "item", "page", "home", "help", "mail", "http",
-    "https", "json", "html", "true", "demo", "guest", "system", "service",
+    "https", "json", "html", "demo", "guest", "system", "service",
 })
 MIN_LEN_REGEXP = 5    # shortest regexp match: a@b.c (email)
 MIN_LEN_FIELD = 3     # shortest field name: pwd

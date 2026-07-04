@@ -64,8 +64,9 @@ def test_unique_ids_ok(tmp_path):
 
 def test_shipped_patterns_are_unique():
     """The bundled pattern files must not collide (Detecto would not start)."""
-    import detecto.config as cfg
     from importlib.resources import files
+
+    import detecto.config as cfg
 
     data = files("detecto") / "data"
     reg: dict = {}

@@ -6,7 +6,7 @@ import glob
 import os
 import unicodedata
 
-from detecto.constants import ANSI_RED, ANSI_YELLOW, ANSI_RESET, KRIT_LABELS, NORMALIZE_CACHE_SIZE
+from detecto.constants import ANSI_RED, ANSI_RESET, ANSI_YELLOW, NORMALIZE_CACHE_SIZE
 
 __all__ = ["normalize", "normalize_with_offsets", "find_logfiles", "krit_color"]
 

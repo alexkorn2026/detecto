@@ -105,7 +105,7 @@ class ScanDiagnostics:
             self.files_unreadable += 1
         self.file_errors.append((path, message))
 
-    def merge(self, other: "ScanDiagnostics") -> None:
+    def merge(self, other: ScanDiagnostics) -> None:
         """Merge another diagnostics object (e.g. from a worker) into self."""
         self.files_complete += other.files_complete
         self.files_partial += other.files_partial

@@ -10,7 +10,7 @@ from collections import OrderedDict
 import pytest
 
 from detecto.anonymizer import Anonymizer
-from detecto.exporter import export_xlsx, ExportContext, _sanitize_cell
+from detecto.exporter import ExportContext, _sanitize_cell, export_xlsx
 
 
 @pytest.fixture

@@ -6,7 +6,6 @@ import re
 from detecto.analyzer import LogAnalyzer, detect_cpu_count, resolve_workers
 from detecto.exporter import _sanitize_cell
 
-
 # --- Finding 21: container-aware worker cap -------------------------------
 
 def test_detect_cpu_count_positive():

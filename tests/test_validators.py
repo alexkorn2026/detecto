@@ -19,7 +19,6 @@ from detecto.validators import (
     street_status,
 )
 
-
 # --- Finding 11: credit card / Luhn ---------------------------------------
 
 @pytest.mark.parametrize("card", ["4111 1111 1111 1111", "4111-1111-1111-1111",

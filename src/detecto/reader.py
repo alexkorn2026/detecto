@@ -10,8 +10,9 @@ import gzip
 import logging
 import os
 import stat
+from collections.abc import Iterator
 from dataclasses import dataclass
-from typing import BinaryIO, Iterator
+from typing import BinaryIO
 
 from detecto.diagnostics import ScanDiagnostics
 

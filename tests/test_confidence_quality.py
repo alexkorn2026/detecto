@@ -1,8 +1,6 @@
 """Findings 18 + 19: confidence for name/place hints, minlen safeguards, benchmark."""
 from __future__ import annotations
 
-import re
-
 from detecto.analyzer import LogAnalyzer, _name_confidence
 
 

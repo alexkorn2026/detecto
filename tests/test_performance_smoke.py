@@ -14,7 +14,6 @@ import pytest
 
 from detecto.analyzer import LogAnalyzer
 
-
 # --- Synthetic log line generators ---
 
 def _generate_log_lines(count: int) -> str:
@@ -119,12 +118,12 @@ class TestPerformanceSmoke:
         total_findings = sum(len(r[2]) for r in results.values())
 
         # Print for manual inspection (visible with -s flag)
-        print(f"\n--- Performance Smoke ---")
+        print("\n--- Performance Smoke ---")
         print(f"Lines:    {lines:,}")
         print(f"Duration: {duration:.2f}s")
         print(f"Rate:     {rate:,.0f} lines/sec")
         print(f"Findings: {total_findings}")
-        print(f"-------------------------")
+        print("-------------------------")
 
         # Sanity: should process at least 10k lines/sec on any modern machine
         assert rate > 10_000, f"Throughput too low: {rate:.0f} lines/sec"

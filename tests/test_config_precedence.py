@@ -1,14 +1,12 @@
 """Findings 29-32: excel optional, config precedence, strict config."""
 from __future__ import annotations
 
-import os
 from pathlib import Path
 
 import pytest
 
 from detecto.cli import _print_effective_config, _resolve_base_dir
 from detecto.config import ConfigError, DetectoConfig, load_config
-
 
 # --- Finding 29: openpyxl optional -----------------------------------------
 

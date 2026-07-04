@@ -12,12 +12,17 @@ from datetime import date, datetime
 from detecto import VERSION
 from detecto.anonymizer import Anonymizer
 from detecto.constants import (
-    COPYRIGHT_YEAR, LABEL_WIDTH,
-    CLR_HEADER, CLR_CUSTOMER, CLR_VALUE, CLR_FIELD, CLR_KRIT,
+    CLR_CUSTOMER,
+    CLR_FIELD,
+    CLR_HEADER,
+    CLR_KRIT,
+    CLR_VALUE,
+    COPYRIGHT_YEAR,
+    LABEL_WIDTH,
 )
 from detecto.diagnostics import ScanDiagnostics
 from detecto.formatter import build_result_lines
-from detecto.loaders import RegexpPattern, FieldPattern, SearchPattern
+from detecto.loaders import FieldPattern, RegexpPattern, SearchPattern
 
 __all__ = ["export_log", "export_xlsx", "ExportContext"]
 
@@ -91,7 +96,7 @@ class _SheetBuilder:
     """DRY helper for creating formatted Excel worksheets."""
 
     def __init__(self, wb: object) -> None:
-        from openpyxl.styles import Font, PatternFill, Alignment, Border, Side
+        from openpyxl.styles import Alignment, Border, Font, PatternFill, Side
 
         self.wb = wb
         self._h_font = Font(bold=True, color="FFFFFF", size=11)
@@ -234,7 +239,7 @@ def export_xlsx(filename: str, ctx: ExportContext) -> None:
 
     try:
         wb.save(filename)
-    except (IOError, OSError) as e:
+    except OSError as e:
         log.error("Failed to save Excel file %s: %s", filename, e)
         print(f"FEHLER: Excel-Datei konnte nicht gespeichert werden: {e}",
               file=sys.stderr)

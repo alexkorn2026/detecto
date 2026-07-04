@@ -1,9 +1,7 @@
 """Tests for loader security and functionality."""
 from __future__ import annotations
 
-import pytest
-
-from detecto.loaders import _validate_path, _safe_compile, _read_lines, load_stopwords
+from detecto.loaders import _read_lines, _safe_compile, _validate_path, load_stopwords
 
 
 class TestPathValidation:

@@ -7,12 +7,18 @@ from datetime import date
 
 from detecto import VERSION
 from detecto.anonymizer import Anonymizer
-from detecto.constants import (
-    COPYRIGHT_YEAR, LABEL_WIDTH, KRIT_LABELS,
-    ANSI_RED, ANSI_DARK_GREEN, ANSI_YELLOW, ANSI_RESET, ANSI_TYPE_MAP,
-)
 from detecto.config import DetectoConfig
-from detecto.loaders import RegexpPattern, FieldPattern, SearchPattern
+from detecto.constants import (
+    ANSI_DARK_GREEN,
+    ANSI_RED,
+    ANSI_RESET,
+    ANSI_TYPE_MAP,
+    ANSI_YELLOW,
+    COPYRIGHT_YEAR,
+    KRIT_LABELS,
+    LABEL_WIDTH,
+)
+from detecto.loaders import FieldPattern, RegexpPattern, SearchPattern
 from detecto.utils import krit_color
 
 __all__ = [

@@ -1,6 +1,7 @@
 """Log analysis: LogAnalyzer class with multiprocessing support."""
 from __future__ import annotations
 
+import contextlib
 import json
 import logging
 import multiprocessing
@@ -9,25 +10,36 @@ import re
 import sys
 import time
 from collections import OrderedDict
-from typing import Iterator
+from collections.abc import Iterator
 
 import detecto.constants as _const
 from detecto.constants import (
-    MIN_LEN_REGEXP, MIN_LEN_FIELD,
-    STRIP_CHARS, PREFILTER_MARKERS, CHUNK_THRESHOLD_BYTES,
-    REGEX_TIMEOUT_MS, REGEX_DISABLE_THRESHOLD,
+    CHUNK_THRESHOLD_BYTES,
+    MIN_LEN_FIELD,
+    MIN_LEN_REGEXP,
+    PREFILTER_MARKERS,
+    REGEX_DISABLE_THRESHOLD,
+    REGEX_TIMEOUT_MS,
+    STRIP_CHARS,
 )
 from detecto.diagnostics import ScanDiagnostics
-from detecto.loaders import RegexpPattern, FieldPattern, SearchPattern
+from detecto.loaders import FieldPattern, RegexpPattern, SearchPattern
 from detecto.reader import ReaderOptions, iter_file_lines
 from detecto.regexsafe import RegexTimeout, safe_finditer, safe_search
 from detecto.tokenizer import (
-    tokenize, find_field_value, split_inline_field, _TOKEN_RE,
+    _TOKEN_RE,
+    find_field_value,
+    split_inline_field,
+    tokenize,
 )
 from detecto.utils import normalize, normalize_with_offsets
 from detecto.validators import (
-    credit_card_valid, iban_valid, jwt_structure_valid,
-    private_key_status, steuer_id_valid, street_status,
+    credit_card_valid,
+    iban_valid,
+    jwt_structure_valid,
+    private_key_status,
+    steuer_id_valid,
+    street_status,
 )
 
 # Findings 11-13, 16: validators that confirm broad regex candidates. Keyed by
@@ -94,10 +106,8 @@ def detect_cpu_count() -> int:
     counts = []
     # CPU affinity (respects taskset / some container runtimes).
     if hasattr(os, "sched_getaffinity"):
-        try:
+        with contextlib.suppress(OSError):  # pragma: no cover
             counts.append(len(os.sched_getaffinity(0)))
-        except OSError:  # pragma: no cover
-            pass
     # cgroup v2 CPU quota: "<quota> <period>" in cpu.max.
     try:
         with open("/sys/fs/cgroup/cpu.max", encoding="ascii") as f:
@@ -367,10 +377,8 @@ class LogAnalyzer:
 
         total_bytes = 0
         for f in logfiles:
-            try:
+            with contextlib.suppress(OSError):
                 total_bytes += os.path.getsize(f)
-            except OSError:
-                pass
 
         # Finding 22: only pay the multiprocessing overhead when it is justified.
         worthwhile = (
@@ -618,7 +626,7 @@ class LogAnalyzer:
             return (filename, lineno, start, orig)
 
         for _typ, _krit, hits in results.values():
-            for value, examples in hits.items():
+            for examples in hits.values():
                 examples.sort(key=key)
 
     def _worker_kwargs(self) -> dict:
@@ -1055,7 +1063,7 @@ def _iter_chunk_lines(
                         encoding_warned = True
                     line = raw_line.decode("utf-8", errors="replace")
                 yield line.strip()
-    except (IOError, OSError) as e:
+    except OSError as e:
         log.warning("Error reading chunk %s: %s", filepath, e)
         if diag is not None:
             diag.file_errors.append((filepath, str(e)))

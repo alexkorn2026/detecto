@@ -13,8 +13,8 @@ from pathlib import Path
 from detecto.constants import (
     PATTERN_DELIMITER,
     REGEX_LOADCHECK_MS,
-    REGEX_TIMEOUT_SEC,
     REGEX_TEST_STRING,
+    REGEX_TIMEOUT_SEC,
 )
 from detecto.regexsafe import HAS_REGEX, RegexTimeout, compile_pattern, safe_search
 from detecto.utils import normalize
@@ -310,7 +310,7 @@ def load_stopwords(filepath: str | Path) -> set[str]:
     if not os.path.isfile(filepath):
         return set()
     result: set[str] = set()
-    with open(filepath, "r", encoding="utf-8") as f:
+    with open(filepath, encoding="utf-8") as f:
         for line in f:
             word = line.strip()
             if word:

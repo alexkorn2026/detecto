@@ -183,7 +183,7 @@ def _safe_getboolean(section, key: str, fallback: bool) -> bool:
         return fallback
 
 
-def _validate_strict(cp: "configparser.ConfigParser") -> None:
+def _validate_strict(cp: configparser.ConfigParser) -> None:
     """Reject unknown keys, bad enum values and non-numeric ints (Finding 32)."""
     for section, allowed in (("defaults", _DEFAULTS_KEYS), ("files", _FILES_KEYS)):
         if cp.has_section(section):

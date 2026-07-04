@@ -15,7 +15,8 @@ from __future__ import annotations
 
 import logging
 import re
-from typing import Any, Iterator
+from collections.abc import Iterator
+from typing import Any
 
 log = logging.getLogger(__name__)
 

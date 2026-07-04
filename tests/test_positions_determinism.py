@@ -7,7 +7,6 @@ from detecto.analyzer import LogAnalyzer
 from detecto.formatter import highlight
 from detecto.utils import normalize, normalize_with_offsets
 
-
 # ---- Finding 7: normalize_with_offsets maps back to the original ----------
 
 def test_normalize_with_offsets_matches_normalize():

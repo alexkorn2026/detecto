@@ -1,8 +1,6 @@
 """Finding 9: robust tokenization of URLs, IPv6, JDBC, paths, inline fields."""
 from __future__ import annotations
 
-import pytest
-
 from detecto.tokenizer import extract_url_tokens, split_inline_field, tokenize
 
 

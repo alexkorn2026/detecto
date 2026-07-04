@@ -1,7 +1,6 @@
 """Tests for the LogAnalyzer class."""
 from __future__ import annotations
 
-import configparser
 import os
 import re
 import tempfile

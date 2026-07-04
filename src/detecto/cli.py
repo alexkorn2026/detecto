@@ -10,20 +10,31 @@ from collections import OrderedDict
 from datetime import datetime
 from pathlib import Path
 
-from detecto import VERSION
 from detecto.analyzer import LogAnalyzer
 from detecto.anonymizer import Anonymizer
 from detecto.config import ConfigError, DetectoConfig, load_config
 from detecto.constants import LABEL_WIDTH
 from detecto.diagnostics import (
-    EXIT_CONFIG, EXIT_FAILED, EXIT_FINDINGS, EXIT_INTERNAL,
-    EXIT_OK, EXIT_PARTIAL, ScanDiagnostics, ScanStatus,
+    EXIT_CONFIG,
+    EXIT_FAILED,
+    EXIT_FINDINGS,
+    EXIT_INTERNAL,
+    EXIT_OK,
+    EXIT_PARTIAL,
+    ScanDiagnostics,
+    ScanStatus,
 )
-from detecto.exporter import export_xlsx, export_log, ExportContext
-from detecto.formatter import print_header, print_status, print_results
+from detecto.exporter import ExportContext, export_log, export_xlsx
+from detecto.formatter import print_header, print_results, print_status
 from detecto.loaders import (
-    RegexpPattern, FieldPattern, SearchPattern, DuplicatePatternError,
-    load_regexp, load_field_patterns, load_search_patterns, load_stopwords,
+    DuplicatePatternError,
+    FieldPattern,
+    RegexpPattern,
+    SearchPattern,
+    load_field_patterns,
+    load_regexp,
+    load_search_patterns,
+    load_stopwords,
 )
 from detecto.utils import find_logfiles
 
@@ -331,7 +342,7 @@ def _print_pattern_provenance(
     base_dir: Path, config: DetectoConfig, source: str,
 ) -> None:
     """Show which pattern/config files were loaded, with hashes (Findings 31/40)."""
-    print("\nGeladene Dateien (Quelle: %s):" % source)
+    print(f"\nGeladene Dateien (Quelle: {source}):")
     files = [
         ("config", base_dir / "detecto.ini"),
         ("regexp", base_dir / config.regexp_file),
@@ -446,7 +457,7 @@ def _print_statistics(
 
         for krit_level in range(1, 6):
             counts: dict[str, int] = {"regexp": 0, "field": 0, "string": 0}
-            for name, (typ, krit, hits) in results.items():
+            for _name, (typ, krit, hits) in results.items():
                 if krit == krit_level:
                     counts[typ] = counts.get(typ, 0) + len(hits)
             level_total = sum(counts.values())

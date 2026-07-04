@@ -178,9 +178,7 @@ def jwt_structure_valid(candidate: str) -> bool:
     if not isinstance(header, dict) or not isinstance(payload, dict):
         return False
     # Signature segment must be non-empty Base64URL (not decoded/verified).
-    if not parts[2] or len(parts[2]) > _MAX_JWT_SEGMENT:
-        return False
-    return True
+    return bool(parts[2]) and len(parts[2]) <= _MAX_JWT_SEGMENT
 
 
 # --- Finding 17: private key completeness ----------------------------------

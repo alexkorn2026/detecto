@@ -1,7 +1,7 @@
 """Tests for the tokenizer module."""
 from __future__ import annotations
 
-from detecto.tokenizer import tokenize, extract_json_fragments, find_field_value
+from detecto.tokenizer import extract_json_fragments, find_field_value, tokenize
 
 
 class TestTokenize:

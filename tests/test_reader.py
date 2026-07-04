@@ -112,7 +112,7 @@ def test_oversized_line_numbering(tmp_path):
 
 def test_utf8_bom_detected(tmp_path):
     f = tmp_path / "bom.log"
-    f.write_bytes("﻿password=Secret1\n".encode("utf-8"))
+    f.write_bytes("﻿password=Secret1\n".encode())
     diag = ScanDiagnostics()
     list(iter_file_lines(str(f), diag, _pw_opts()))
     assert diag.encodings_used[str(f)] == "utf-8-sig"

@@ -6,13 +6,10 @@ also emits a warning. Report files are created with restrictive permissions.
 from __future__ import annotations
 
 import os
-import re
 import stat
 import subprocess
 import sys
 from collections import OrderedDict
-
-import pytest
 
 from detecto.anonymizer import Anonymizer
 from detecto.config import DetectoConfig

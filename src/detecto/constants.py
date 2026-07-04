@@ -30,6 +30,9 @@ __all__ = [
     "FIELD_VALUE_LOOKAHEAD",
     "CHUNK_THRESHOLD_BYTES",
     "NORMALIZE_CACHE_SIZE",
+    "MAX_AUTO_WORKERS",
+    "MP_MIN_TOTAL_BYTES",
+    "MP_MIN_FILE_COUNT",
     "PREFILTER_MARKERS",
     "STRIP_CHARS",
     "EXCEL_FORMULA_CHARS",
@@ -105,6 +108,11 @@ PATH_PREFIXES = ("/", "\\", "~/")
 # --- Performance ---
 CHUNK_THRESHOLD_BYTES = 10 * 1024 * 1024  # 10 MB for single-file parallelism
 NORMALIZE_CACHE_SIZE = 100_000  # LRU cache entries for normalize()
+# Finding 21: cap auto worker count so a huge host does not spawn hundreds.
+MAX_AUTO_WORKERS = 8
+# Finding 22: only use multiprocessing when the workload justifies the overhead.
+MP_MIN_TOTAL_BYTES = 5 * 1024 * 1024   # 5 MB
+MP_MIN_FILE_COUNT = 4
 
 # --- Pre-filter markers for field/regexp substring checks ---
 STRIP_CHARS = '"\'{}[](),.:;!?=&|<>'

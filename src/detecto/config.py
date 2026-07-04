@@ -60,6 +60,13 @@ class DetectoConfig:
     max_examples_per_value: int = 100
     # Finding 5: criticality for masked credential values (lower than plaintext)
     masked_value_criticality: int = 4
+    # Finding 21/22: parallelism controls
+    max_auto_workers: int = 8
+    multiprocessing_min_total_bytes: int = 5 * 1024 * 1024
+    multiprocessing_min_file_count: int = 4
+    # Finding 23: stored context window around a match (not the whole line)
+    context_chars_before: int = 120
+    context_chars_after: int = 120
     # Finding 27: oversized single-line handling
     oversized_line_policy: str = "truncate"  # truncate | skip | fail
 
@@ -88,6 +95,11 @@ class DetectoConfig:
         self.max_values_per_pattern = max(1, self.max_values_per_pattern)
         self.max_examples_per_value = max(1, self.max_examples_per_value)
         self.masked_value_criticality = max(1, min(5, self.masked_value_criticality))
+        self.max_auto_workers = max(1, self.max_auto_workers)
+        self.multiprocessing_min_total_bytes = max(0, self.multiprocessing_min_total_bytes)
+        self.multiprocessing_min_file_count = max(1, self.multiprocessing_min_file_count)
+        self.context_chars_before = max(0, self.context_chars_before)
+        self.context_chars_after = max(0, self.context_chars_after)
         if self.prefilter not in ("off", "regexp_field", "all"):
             self.prefilter = "off"
         self.parse_json = _normalize_json_mode(self.parse_json)
@@ -194,6 +206,19 @@ def load_config(base_dir: Path) -> DetectoConfig:
         )
         cfg.masked_value_criticality = _safe_getint(
             s, "masked_value_criticality", cfg.masked_value_criticality
+        )
+        cfg.max_auto_workers = _safe_getint(s, "max_auto_workers", cfg.max_auto_workers)
+        cfg.multiprocessing_min_total_bytes = _safe_getint(
+            s, "multiprocessing_min_total_bytes", cfg.multiprocessing_min_total_bytes
+        )
+        cfg.multiprocessing_min_file_count = _safe_getint(
+            s, "multiprocessing_min_file_count", cfg.multiprocessing_min_file_count
+        )
+        cfg.context_chars_before = _safe_getint(
+            s, "context_chars_before", cfg.context_chars_before
+        )
+        cfg.context_chars_after = _safe_getint(
+            s, "context_chars_after", cfg.context_chars_after
         )
         cfg.oversized_line_policy = s.get(
             "oversized_line_policy", fallback=cfg.oversized_line_policy

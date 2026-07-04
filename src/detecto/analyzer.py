@@ -84,6 +84,49 @@ _MASK_RE = re.compile(
 )
 
 
+def detect_cpu_count() -> int:
+    """Best-effort, container-aware CPU count (Finding 21).
+
+    Considers CPU affinity and a cgroup v2 CPU quota, falling back to
+    ``multiprocessing.cpu_count()``. Always returns at least 1.
+    """
+    counts = []
+    # CPU affinity (respects taskset / some container runtimes).
+    if hasattr(os, "sched_getaffinity"):
+        try:
+            counts.append(len(os.sched_getaffinity(0)))
+        except OSError:  # pragma: no cover
+            pass
+    # cgroup v2 CPU quota: "<quota> <period>" in cpu.max.
+    try:
+        with open("/sys/fs/cgroup/cpu.max", encoding="ascii") as f:
+            quota_s, period_s = f.read().split()
+        if quota_s != "max":
+            quota, period = int(quota_s), int(period_s)
+            if period > 0:
+                counts.append(max(1, quota // period))
+    except (OSError, ValueError):
+        pass
+    try:
+        counts.append(multiprocessing.cpu_count())
+    except NotImplementedError:  # pragma: no cover
+        counts.append(1)
+    return max(1, min(counts)) if counts else 1
+
+
+def resolve_workers(workers: int, max_auto: int) -> tuple[int, int, int]:
+    """Resolve the worker count (Finding 21).
+
+    Returns (detected_cpus, applied_limit, workers_to_use). ``workers <= 0``
+    means auto: use the detected CPU count capped at ``max_auto``.
+    """
+    detected = detect_cpu_count()
+    if workers > 0:
+        return detected, max_auto, workers
+    used = max(1, min(detected, max(1, max_auto)))
+    return detected, max_auto, used
+
+
 def _infer_scope(pattern_src: str) -> str:
     """Fallback scope for regexp entries built without an explicit scope.
 
@@ -141,6 +184,12 @@ class LogAnalyzer:
         max_total_examples: int = _const.MAX_TOTAL_EXAMPLES,
         max_example_chars: int = _const.MAX_EXAMPLE_CHARS,
         masked_criticality: int = _const.MASKED_VALUE_CRITICALITY,
+        max_auto_workers: int = _const.MAX_AUTO_WORKERS,
+        mp_min_total_bytes: int = _const.MP_MIN_TOTAL_BYTES,
+        mp_min_file_count: int = _const.MP_MIN_FILE_COUNT,
+        context_chars_before: int = 120,
+        context_chars_after: int = 120,
+        store_full_lines: bool = False,
     ) -> None:
         self.regexp = regexp or []
         self.field = field or []
@@ -167,6 +216,14 @@ class LogAnalyzer:
         self._max_example_chars = max_example_chars
         self._max_examples_per_value = max_examples
         self._masked_criticality = max(1, min(5, masked_criticality))
+        # Finding 21/22: parallelism controls.
+        self._max_auto_workers = max(1, max_auto_workers)
+        self._mp_min_total_bytes = max(0, mp_min_total_bytes)
+        self._mp_min_file_count = max(1, mp_min_file_count)
+        # Finding 23: store a context window, not the whole line, by default.
+        self._context_before = max(0, context_chars_before)
+        self._context_after = max(0, context_chars_after)
+        self._store_full_lines = store_full_lines
         self._total_values = 0
         self._total_examples = 0
         self.diag = ScanDiagnostics()
@@ -290,9 +347,23 @@ class LogAnalyzer:
             refresh_status: Seconds between progress updates (0 = disabled).
             workers: Number of parallel workers (0 = auto, 1 = single-process).
         """
-        num_workers = workers if workers > 0 else multiprocessing.cpu_count()
+        detected, cap, num_workers = resolve_workers(workers, self._max_auto_workers)
+        log.info("Workers: detected=%d CPUs, cap=%d, using=%d",
+                 detected, cap, num_workers)
 
-        if len(logfiles) > 1 and num_workers > 1:
+        total_bytes = 0
+        for f in logfiles:
+            try:
+                total_bytes += os.path.getsize(f)
+            except OSError:
+                pass
+
+        # Finding 22: only pay the multiprocessing overhead when it is justified.
+        worthwhile = (
+            len(logfiles) >= self._mp_min_file_count
+            and total_bytes >= self._mp_min_total_bytes
+        )
+        if len(logfiles) > 1 and num_workers > 1 and worthwhile:
             return self._analyze_parallel(logfiles, num_workers)
 
         if len(logfiles) == 1 and num_workers > 1:
@@ -558,6 +629,9 @@ class LogAnalyzer:
             "max_total_examples": self._max_total_examples,
             "max_example_chars": self._max_example_chars,
             "masked_criticality": self._masked_criticality,
+            "context_chars_before": self._context_before,
+            "context_chars_after": self._context_after,
+            "store_full_lines": self._store_full_lines,
         }
 
     def _note_timeout(self, name: str) -> None:
@@ -593,6 +667,29 @@ class LogAnalyzer:
         if limit and len(line) > limit:
             return line[:limit] + " " + _const.EXAMPLE_TRUNCATE_MARKER, True
         return line, False
+
+    def _context_window(
+        self, line: str, start: int, end: int,
+    ) -> tuple[str, int, int, bool]:
+        """Return a limited context window around a match (Finding 23).
+
+        Only ``context_chars_before``/``after`` characters around the match are
+        kept, so unrelated sensitive data elsewhere on the line is not stored.
+        Truncation is made visible with markers. Returns
+        (window, new_start, new_end, truncated). Falls back to the whole line
+        when the position is unknown or full lines are requested.
+        """
+        marker = _const.EXAMPLE_TRUNCATE_MARKER
+        if self._store_full_lines or not (0 <= start < end <= len(line)):
+            return line, start, end, False
+        cstart = max(0, start - self._context_before)
+        cend = min(len(line), end + self._context_after)
+        window = line[cstart:cend]
+        prefix = marker + " " if cstart > 0 else ""
+        suffix = " " + marker if cend < len(line) else ""
+        new_start = start - cstart + len(prefix)
+        new_end = new_start + (end - start)
+        return prefix + window + suffix, new_start, new_end, bool(prefix or suffix)
 
     def _store_hit(
         self, results: OrderedDict, name: str, value: str,
@@ -632,13 +729,17 @@ class LogAnalyzer:
             if not self.diag.global_limit_hit:
                 self.diag.global_limit_hit = "max_total_examples"
             return
-        stored, truncated = self._truncate_example(line)
-        if truncated:
+        # Finding 23: store only a limited context window around the match.
+        window, wstart, wend, ctx_trunc = self._context_window(line, start, end)
+        stored, len_trunc = self._truncate_example(window)
+        if ctx_trunc or len_trunc:
             self.diag.examples_truncated += 1
+        if wend > len(stored):  # hard truncation invalidated the span
+            wstart = wend = -1
         examples.append((
             filename, stored, field_token,
             value if orig_value is None else orig_value,
-            start, end, lineno, confidence,
+            wstart, wend, lineno, confidence,
         ))
         self._total_examples += 1
 

@@ -12,7 +12,7 @@ from datetime import date, datetime
 from detecto import VERSION
 from detecto.anonymizer import Anonymizer
 from detecto.constants import (
-    COPYRIGHT_YEAR, LABEL_WIDTH, EXCEL_FORMULA_CHARS,
+    COPYRIGHT_YEAR, LABEL_WIDTH,
     CLR_HEADER, CLR_CUSTOMER, CLR_VALUE, CLR_FIELD, CLR_KRIT,
 )
 from detecto.diagnostics import ScanDiagnostics
@@ -58,11 +58,33 @@ def _restrict_permissions(path: str) -> None:
         log.warning("Could not restrict permissions on %s: %s", path, e)
 
 
+# Finding 25: characters that start a formula, and whitespace that Excel may
+# skip when deciding whether a cell is a formula.
+_FORMULA_START = ("=", "+", "-", "@")
+_LEADING_WS = " \t\r\n\v\f        ﻿"
+# Control characters openpyxl/Excel reject (all C0 except tab/newline/CR).
+_ILLEGAL_CTRL_RE = re.compile(r"[\x00-\x08\x0b\x0c\x0e-\x1f]")
+_EXCEL_MAX_CELL = 32767
+
+
 def _sanitize_cell(value: object) -> object:
-    """Prevent Excel formula injection by prefixing dangerous strings."""
-    if isinstance(value, str) and value and value[0] in EXCEL_FORMULA_CHARS:
-        return f"'{value}"
-    return value
+    """Harden a log-derived value against spreadsheet formula injection (Finding 25).
+
+    - Strips illegal control characters.
+    - Caps length at the Excel cell limit.
+    - Prefixes a leading apostrophe when the first *effective* character (after
+      any leading whitespace, tab, CR or LF) starts a formula (=, +, -, @),
+      forcing Excel to treat the content as text and preventing auto-hyperlinks.
+    """
+    if not isinstance(value, str):
+        return value
+    cleaned = _ILLEGAL_CTRL_RE.sub("", value)
+    if len(cleaned) > _EXCEL_MAX_CELL:
+        cleaned = cleaned[:_EXCEL_MAX_CELL]
+    effective = cleaned.lstrip(_LEADING_WS)
+    if effective and effective[0] in _FORMULA_START:
+        return "'" + cleaned
+    return cleaned
 
 
 class _SheetBuilder:

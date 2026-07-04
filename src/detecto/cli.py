@@ -197,6 +197,13 @@ def _run() -> int:
         max_total_examples=config.max_total_examples,
         max_example_chars=config.max_example_chars,
         masked_criticality=config.masked_value_criticality,
+        max_auto_workers=config.max_auto_workers,
+        mp_min_total_bytes=config.multiprocessing_min_total_bytes,
+        mp_min_file_count=config.multiprocessing_min_file_count,
+        context_chars_before=config.context_chars_before,
+        context_chars_after=config.context_chars_after,
+        # Finding 23: full untrimmed lines only with an explicit sensitive opt-in.
+        store_full_lines=bool(args.full and args.show_sensitive_values),
     )
     start = time.time()
     results, line_count = analyzer.analyze(

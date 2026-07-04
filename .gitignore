@@ -44,3 +44,7 @@ df943309-c882-46d7-8924-d692d26f7bc6.png
 
 # ---- Grosse synthetische Log-Archive (ueber GitHubs 100-MB-Limit) ----
 synthetic_logs/*.zip
+
+# ---- Aus dem Repo entfernt, lokal aber behalten ----
+VSNR_Erklaerung_Email.md
+suchmuster/andere/deutsche_nachnamen_top_5000 Kopie.csv
